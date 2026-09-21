@@ -1,0 +1,4 @@
+# Dashboard público sobre a Câmara Municipal de Guimarães.
+# Construído a partir de documentos públicos; não é um site oficial.
+User-agent: *
+Allow: /

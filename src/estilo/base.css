@@ -18,7 +18,9 @@
   --borda: #d6d5d0;
   --tinta: #141413;
   --tinta-2: #52514e;
-  --tinta-3: #6f6e6a;
+  /* #6f6e6a dava 4,15:1 sobre --superficie-3 e falhava o AA. Calculado, não
+   * escolhido a olho: este passa em todas as três superfícies (4,97:1 na pior). */
+  --tinta-3: #63625e;
   --destaque: #2a78d6;
   --destaque-tinta: #1a5fb4;
 
@@ -36,7 +38,7 @@
 
   /* Estado. Reservados: nunca servem de "série 4". */
   --aviso: #b45309;
-  --falta: #6f6e6a;
+  --falta: #63625e;
 
   --raio: 10px;
   --espaco: 1rem;

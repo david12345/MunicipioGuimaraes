@@ -567,3 +567,79 @@ main:focus {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* --- Glossário ----------------------------------------------------------- */
+
+/* Termo marcado no texto corrido. Parece texto, não botão — mas é um botão,
+ * por isso funciona com teclado e é anunciado como acionável. */
+.termo {
+  display: inline;
+  min-height: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  border-bottom: 1px dashed var(--destaque);
+  cursor: help;
+}
+
+.termo:hover {
+  border-bottom-style: solid;
+  background: color-mix(in srgb, var(--destaque) 12%, transparent);
+}
+
+.glossario {
+  width: min(32rem, calc(100vw - 2rem));
+  padding: 1.25rem;
+  color: var(--tinta);
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+}
+
+.glossario::backdrop {
+  background: rgb(0 0 0 / 0.5);
+}
+
+.glossario__titulo {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.glossario__texto {
+  margin: 0 0 1.1rem;
+  color: var(--tinta-2);
+}
+
+.glossario-lista {
+  margin: 0.5rem 0 1.5rem;
+  font-size: 0.92rem;
+}
+
+.glossario-lista dt {
+  margin-top: 0.9rem;
+  font-weight: 650;
+}
+
+.glossario-lista dd {
+  margin: 0.15rem 0 0;
+  color: var(--tinta-2);
+}
+
+/* Reserva de espaço enquanto a secção carrega.
+ *
+ * Sem isto, o corpo da secção passa de ~50 px (a mensagem "A carregar") para
+ * milhares, e tudo o que está por baixo salta. O Lighthouse media um CLS de
+ * 1,16 por causa disto. A altura não precisa de ser exata — precisa de estar
+ * na mesma ordem de grandeza. */
+.seccao__corpo:has(> .a-carregar) {
+  min-height: 70vh;
+}
+
+/* O rodapé vem logo a seguir às secções. Sem altura reservada, fica colado ao
+ * cabeçalho na primeira pintura e desce quando o conteúdo entra — um salto de
+ * layout que o Lighthouse conta. */
+#seccoes {
+  min-height: 100vh;
+}

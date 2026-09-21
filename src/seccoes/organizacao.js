@@ -47,9 +47,10 @@ function ramo(no, nivel) {
   }
 
   const d = el("details", { class: "ramo__caixa" });
-  // Os dois primeiros níveis abrem de origem; abaixo disso fecha, senão o
-  // telemóvel recebe 48 unidades de uma vez.
-  if (nivel < 2) d.setAttribute("open", "");
+  // Só a raiz abre. É o que "drill-down" quer dizer, e abrir dois níveis
+  // despejava as 48 unidades de uma vez — no telemóvel uma parede de texto,
+  // e na métrica um salto de layout de milhares de pixels.
+  if (nivel < 1) d.setAttribute("open", "");
   const s = el("summary", { class: "ramo__resumo" });
   s.append(etiqueta);
   s.append(

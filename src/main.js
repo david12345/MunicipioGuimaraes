@@ -11,6 +11,7 @@ import "./estilo/figura.css";
 import { iniciarTema } from "./nucleo/tema.js";
 import { carregar } from "./nucleo/dados.js";
 import { data as formatarData } from "./nucleo/formato.js";
+import { marcarTermos } from "./nucleo/glossario.js";
 
 /* Ordem e identidade das 12 secções do briefing. `modulo: null` significa que
  * ainda não há dados — a secção existe e diz porquê, em vez de desaparecer. */
@@ -61,6 +62,7 @@ function criarSeccao(def) {
           seria pior do que deixá-la vazia.
         </p>
       </div>`;
+    marcarTermos(corpo);
     return sec;
   }
 
@@ -69,8 +71,8 @@ function criarSeccao(def) {
 }
 
 /** Só carrega o módulo quando a secção se aproxima do ecrã. */
-function observarSeccoes(defs) {
-  const carregadas = new Set();
+function observarSeccoes(defs, jaCarregadas = new Set()) {
+  const carregadas = new Set(jaCarregadas);
 
   const carregarSeccao = async (def, sec) => {
     if (carregadas.has(def.id)) return;
@@ -80,6 +82,8 @@ function observarSeccoes(defs) {
       const mod = await def.modulo();
       corpo.replaceChildren();
       await mod.render(corpo);
+      // Os termos técnicos só existem depois de a secção escrever o texto.
+      marcarTermos(corpo);
     } catch (erro) {
       console.error(`Secção ${def.id}:`, erro);
       corpo.replaceChildren();
@@ -101,7 +105,10 @@ function observarSeccoes(defs) {
         observador.unobserve(e.target);
       }
     },
-    { rootMargin: "300px 0px" },
+    // Margem generosa: a secção tem de estar desenhada ANTES de entrar no
+    // ecrã. Com 300px chegava tarde, inflava à vista e empurrava o conteúdo
+    // — o que deu um CLS de 1,16 na medição do Lighthouse.
+    { rootMargin: "1500px 0px" },
   );
 
   for (const def of defs) {
@@ -136,11 +143,39 @@ async function marcarGeracao() {
   }
 }
 
-iniciarTema();
-construirMenu(SECCOES);
+/** Rende a 1.ª secção ANTES de a página a mostrar.
+ *
+ * Se o contentor for pintado vazio e só depois preenchido, tudo o que está
+ * por baixo salta — foi assim que o Lighthouse mediu um CLS de 1,67. O
+ * cabeçalho já está no HTML e pinta de imediato, por isso esperar pelos
+ * poucos kB da visão geral não atrasa a primeira pintura de forma sensível.
+ */
+async function arrancar() {
+  iniciarTema();
+  construirMenu(SECCOES);
 
-const contentor = document.getElementById("seccoes");
-for (const def of SECCOES) contentor.append(criarSeccao(def));
+  const contentor = document.getElementById("seccoes");
+  const fragmento = document.createDocumentFragment();
+  const seccoes = SECCOES.map((def) => [def, criarSeccao(def)]);
 
-observarSeccoes(SECCOES);
-marcarGeracao();
+  const [primeiraDef, primeiraSec] = seccoes[0];
+  if (primeiraDef.modulo) {
+    const corpo = primeiraSec.querySelector(".seccao__corpo");
+    try {
+      const mod = await primeiraDef.modulo();
+      corpo.replaceChildren();
+      await mod.render(corpo);
+      marcarTermos(corpo);
+    } catch (erro) {
+      console.error(`Secção ${primeiraDef.id}:`, erro);
+    }
+  }
+
+  for (const [, sec] of seccoes) fragmento.append(sec);
+  contentor.append(fragmento);
+
+  observarSeccoes(SECCOES, new Set([primeiraDef.id]));
+  marcarGeracao();
+}
+
+arrancar();

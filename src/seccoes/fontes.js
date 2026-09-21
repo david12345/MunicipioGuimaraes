@@ -7,6 +7,7 @@
 import { carregar } from "../nucleo/dados.js";
 import { el } from "../nucleo/figura.js";
 import { numero, data as formatarData, NAO_DISPONIVEL } from "../nucleo/formato.js";
+import { TERMOS } from "../nucleo/glossario.js";
 
 const VERIFICACAO = {
   PRIM: ["Lida na fonte", "O conteúdo foi lido no documento original."],
@@ -108,6 +109,23 @@ export async function render(raiz) {
   }
   tabela.append(tbody);
   raiz.append(el("div", { class: "rolavel" }, [tabela]));
+
+  // --- Glossário ------------------------------------------------------------
+  raiz.append(el("h3", { class: "sub-titulo", texto: "Glossário" }));
+  raiz.append(
+    el("p", {
+      class: "nota",
+      texto:
+        "Os termos abaixo aparecem sublinhados ao longo do dashboard; tocar " +
+        "num deles abre a definição no sítio onde está a ler.",
+    }),
+  );
+  const glos = el("dl", { class: "glossario-lista" });
+  for (const t of Object.values(TERMOS).sort((a, b) => a.titulo.localeCompare(b.titulo, "pt"))) {
+    glos.append(el("dt", { texto: t.titulo }));
+    glos.append(el("dd", { texto: t.texto }));
+  }
+  raiz.append(glos);
 
   raiz.append(
     el("p", {

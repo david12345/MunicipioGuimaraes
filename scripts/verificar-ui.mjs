@@ -8,6 +8,7 @@
  *   node scripts/verificar-ui.mjs
  */
 
+import lighthouse from "lighthouse";
 import { chromium } from "playwright-core";
 
 const URL_BASE = process.env.URL ?? "http://localhost:4173/";
@@ -43,9 +44,10 @@ function contraste(a, b) {
 
 const rgb = (s) => (s.match(/\d+/g) ?? []).slice(0, 3).map(Number);
 
+const PORTA_DEPURACAO = 9222;
 const navegador = await chromium.launch({
   executablePath: process.env.CHROME,
-  args: ["--no-sandbox"],
+  args: ["--no-sandbox", `--remote-debugging-port=${PORTA_DEPURACAO}`],
 });
 
 for (const [rotulo, largura] of LARGURAS) {
@@ -157,6 +159,43 @@ for (const [rotulo, largura] of LARGURAS) {
     `O primeiro Tab devia focar o atalho "Saltar para o conteúdo"; focou "${primeiro}"`,
   );
   await ctx.close();
+}
+
+// --- Lighthouse, perfil móvel ---------------------------------------------
+//
+// O briefing exige 90 em Performance e Acessibilidade. Medir é a única forma
+// de saber: a primeira medição deu 75 em Performance, por um CLS de 1,67 que
+// nenhuma inspeção visual teria revelado.
+{
+  const r = await lighthouse(URL_BASE, {
+    port: PORTA_DEPURACAO,
+    output: "json",
+    logLevel: "error",
+    formFactor: "mobile",
+    screenEmulation: {
+      mobile: true,
+      width: 390,
+      height: 844,
+      deviceScaleFactor: 2,
+      disabled: false,
+    },
+  });
+  const cat = r.lhr.categories;
+  const nota = (k) => Math.round((cat[k]?.score ?? 0) * 100);
+  console.log("");
+  for (const k of ["performance", "accessibility", "best-practices", "seo"]) {
+    console.log(`lighthouse ${k.padEnd(16)} ${nota(k)}`);
+  }
+  for (const k of ["first-contentful-paint", "largest-contentful-paint", "cumulative-layout-shift"]) {
+    console.log(`  ${k.padEnd(26)} ${r.lhr.audits[k].displayValue}`);
+  }
+  verificar(nota("performance") >= 90, `Lighthouse Performance ${nota("performance")} (< 90)`);
+  verificar(nota("accessibility") >= 90, `Lighthouse Acessibilidade ${nota("accessibility")} (< 90)`);
+
+  // "Primeira vista útil < 3 s em 4G": o LCP sob o estrangulamento móvel do
+  // Lighthouse é a medida mais próxima disso.
+  const lcp = r.lhr.audits["largest-contentful-paint"].numericValue;
+  verificar(lcp <= 3000, `LCP de ${(lcp / 1000).toFixed(1)}s em 4G (> 3s)`);
 }
 
 await navegador.close();
