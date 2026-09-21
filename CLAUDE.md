@@ -26,7 +26,7 @@ Estas vêm do briefing e **não se negoceiam**. Na dúvida, escolhe sempre não 
 
 ## Estado atual
 
-**Fase 3 em curso: o dashboard existe, com oito secções e Lighthouse 100/100.**
+**Fase 3 em curso: o dashboard existe, com nove secções e mapa. Lighthouse 100 nas quatro categorias.**
 Ver `docs/dashboard.md`. **Fase 2 concluída no essencial. Seis secções extraídas — 2 (quem governa), 3 (como
 está organizada), 4 (quem lá trabalha), 5 (de onde vem o dinheiro), 8 (contratos),
 9 (participadas) — mais `populacao.json`.** Não há dashboard — Fase 3 por começar.
@@ -52,9 +52,14 @@ De todos se commita o `.meta.json` com URL e `sha256`: reproduzem-se com
 à regra 3. **Não usar Git LFS** — os contratos são republicados semanalmente e
 esgotariam a quota.
 
-**Próximo passo:** o mapa (Leaflet) fica bloqueado enquanto não houver
-equipamentos inventariados. Falta ainda o PPI e a série de consolidação de contas
-2021–2025, que dá o financeiro das participadas, hoje vazio.
+**Próximo passo:** o PPI (bloqueado — mapas digitalizados, L26) e a série de
+consolidação de contas 2021–2025, que dá o financeiro das participadas, hoje
+vazio. Restam três secções sem dados: obras, investimentos e comparação.
+
+**Equipamentos: as coordenadas vêm na origem** (`data-lat`/`data-long` em cada
+ficha da CMG). Nunca geocodificar a partir da morada — não é preciso e seria
+pior. As instalações desportivas não estão no sítio do município: são da Tempo
+Livre (L29).
 
 **Antes de commitar mexidas no dashboard, correr `make dashboard-verificar`.**
 Falha se o Lighthouse descer de 90, se o LCP passar dos 3 s, ou se aparecer
