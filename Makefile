@@ -1,4 +1,4 @@
-.PHONY: help setup setup-parse check-acesso fontes fetch etl quem-governa empresas contratos mapa-pessoal populacao estrutura-organica limpar-venv
+.PHONY: help setup setup-parse check-acesso fontes fetch etl quem-governa empresas contratos mapa-pessoal populacao estrutura-organica orcamento limpar-venv
 
 # O Python do sistema é gerido externamente (PEP 668) e recusa `pip install`.
 # Todo o pipeline corre no venv local, que é criado por `make setup`.
@@ -18,6 +18,7 @@ help:
 	@echo "make mapa-pessoal - extrai a secção 4: mapa_pessoal.json (só agregados)"
 	@echo "make populacao    - extrai populacao.json (denominador das métricas per capita)"
 	@echo "make estrutura-organica - extrai a secção 3: estrutura_organica.json"
+	@echo "make orcamento    - extrai a secção 5: orcamento.json (previsto)"
 	@echo "make etl          - fetch + fontes + parsers existentes"
 
 $(PY):
@@ -59,10 +60,15 @@ populacao: $(PY)
 estrutura-organica: $(PY)
 	$(PY) -m etl.estrutura_organica
 
-etl: fetch fontes quem-governa empresas contratos mapa-pessoal populacao estrutura-organica
+# Depende de populacao: é de lá que vem o denominador das métricas per capita.
+orcamento: populacao
+	$(PY) -m etl.orcamento
+
+etl: fetch fontes quem-governa empresas contratos mapa-pessoal populacao estrutura-organica orcamento
 	@echo ""
 	@echo "Originais em data/raw/, normalizados em data/processed/."
-	@echo "Parser por implementar: orçamento (falta S08, sem URL — ver L3)."
+	@echo "Por extrair: execução orçamental dos Relatórios e Contas,"
+	@echo "investimentos (PPI) e equipamentos."
 
 limpar-venv:
 	rm -rf $(VENV)
