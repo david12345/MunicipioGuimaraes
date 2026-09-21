@@ -6,3 +6,6 @@ node_modules/
 dist/
 .DS_Store
 .env
+
+# Claude Code: settings.json é partilhado; as locais são pessoais
+.claude/settings.local.json
