@@ -32,15 +32,22 @@ def carregar_todas() -> dict:
 
 
 def _meta_do_raw() -> dict[str, dict]:
-    """Indexa os sidecars existentes em data/raw/ por fonte_id."""
+    """Indexa os sidecars existentes em data/raw/ por (fonte_id, url).
+
+    A chave inclui o URL de propósito. Casar só por `fonte_id` deixava um
+    download antigo continuar a responder por uma fonte cujo URL entretanto
+    mudou: quando S32 passou da homepage do INE para o indicador 0012918,
+    `fontes.json` continuou a declarar a fonte "descarregada", com o sha256
+    da homepage. Um parser leria isso como "os dados existem".
+    """
     out: dict[str, dict] = {}
     for p in RAW.glob("*.meta.json"):
         try:
             m = json.loads(p.read_text(encoding="utf-8"))
         except (json.JSONDecodeError, OSError):
             continue
-        if fid := m.get("fonte_id"):
-            out[fid] = m
+        if (fid := m.get("fonte_id")) and (url := m.get("url")):
+            out[f"{fid}\n{url}"] = m
     return out
 
 
@@ -56,7 +63,7 @@ def escrever_fontes_json() -> Path:
         # o dashboard só precisa de saber que esta fonte é uma página-índice.
         if registo.pop("descoberta", None) is not None:
             registo["e_indice"] = True
-        meta = raws.get(fid)
+        meta = raws.get(f"{fid}\n{f.get('url')}")
         # Só declaramos download/sha256 se existir mesmo um original em disco.
         # Relativo à raiz do repositório: este ficheiro é commitado.
         registo["ficheiro_raw"] = meta.get("ficheiro") if meta else None
