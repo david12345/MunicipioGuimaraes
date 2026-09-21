@@ -36,7 +36,7 @@ Em `data/processed/`: `fontes.json`, `executivo.json`, `orgaos_eleitos.json`,
 previstos, 2026) e `contratos_2019.json`…`contratos_2026.json`
 (4 110 contratos, 441,1 M€ contratados entre 2019 e 2026) e `populacao.json`
 (165 554 habitantes em 2025) `estrutura_organica.json` (48 unidades orgânicas) e `orcamento.json`
-(220,3 M€ previstos para 2026, série 2022–2026).
+(220,3 M€ previstos para 2026, série 2022–2026, mais a execução de 2021–2025).
 
 **L1 e L2 estão resolvidas** (ver `docs/qualidade_dados.md`): o bloqueio de rede
 era do ambiente da Fase 1, não das fontes, e a regra 5 está cumprida com leitura
@@ -51,10 +51,13 @@ De todos se commita o `.meta.json` com URL e `sha256`: reproduzem-se com
 à regra 3. **Não usar Git LFS** — os contratos são republicados semanalmente e
 esgotariam a quota.
 
-**Próximo passo:** a **execução orçamental**. Os Relatórios e Contas de 2021 a 2025
-estão localizados no arquivo S39 mas ainda não registados — dão o executado a par do
-previsto, e são o que permite dizer o que foi mesmo gasto (hoje o dashboard só pode
-dizer o que foi orçamentado e contratado). Depois: investimentos (PPI) e equipamentos.
+**Próximo passo:** investimentos (PPI), equipamentos e a série de consolidação de
+contas 2021–2025 (dá o financeiro das participadas, hoje vazio). A Fase 3 — o
+dashboard — está por começar e é onde está o grosso do trabalho que falta.
+
+**A Câmara executa 79–84% da despesa orçamentada.** É dos números mais úteis ao
+cidadão e está em `orcamento.json`. Mas o **total gasto** não é publicado com
+rótulo (L27): o que há é o grau de execução e os agregados correntes.
 
 **O arquivo financeiro (S39) não está no menu do site** — chega-se lá pelo ponto 8.1
 do Índice de Transparência Municipal. É uma árvore ano → tipo com ids opacos.

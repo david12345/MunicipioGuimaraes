@@ -78,6 +78,8 @@ Estas persistem mesmo com acesso à rede e condicionam o desenho do dashboard.
 | L24 | Divergências entre o texto normativo e o organograma publicado | Pequenas, mas não devem ser corrigidas em silêncio | O DR escreve `(DCG)` para o Gabinete de Contabilidade de Gestão, o organograma escreve `GCG`. O DR **não atribui sigla** à Divisão de Mobilidade, que o organograma trata por `DM` — no JSON a `sigla` fica `null`, não é copiada do organograma. O texto normativo prevalece; as divergências constam dos avisos do ficheiro |
 | L25 | GOP e Orçamento de **2021** integralmente digitalizado | Sem orçamento previsto de 2021; a série começa em 2022 | O PDF tem 663 páginas e **zero caracteres** de camada de texto. O de 2025 é maioritariamente imagem mas o mapa-resumo é texto, pelo que passa. Exige OCR com revisão, como L17 |
 | L26 | Os documentos previsionais são **mistos**: texto e imagem | Só os mapas com camada de texto são extraíveis | Em 2026, 423 das 948 páginas quase não têm texto. O mapa "Resumo da Receita e da Despesa" é texto em 2022–2026 e concentra os agregados; os mapas detalhados de rubrica e o PPI estão em grande parte digitalizados, e por isso a secção 7 (investimentos) ainda não foi tentada |
+| L27 | Totais de **receita cobrada** e **despesa paga** não publicados com rótulo | O dashboard mostra o *grau* de execução e os agregados correntes, não o total gasto | Nos Relatórios e Contas os totais existem nos mapas de execução, mas em linhas **sem rótulo**, identificadas só pela posição na página. Extraí-los seria adivinhar. O que é rotulado — e extraído — é a tabela "Principais indicadores orçamentais" e o quadro do equilíbrio orçamental |
+| L28 | O Relatório e Contas de **2022** codifica o euro como `¬` | Um extrator que procure `€` não encontra valor nenhum nesse ano | Problema de mapeamento de glifo na fonte do PDF. O parser aceita os dois símbolos |
 
 ### Verificação — não há reestruturação orgânica de 2026 em Guimarães
 
@@ -138,7 +140,7 @@ São automáticas e **bloqueantes**: uma extração que falhe não é publicada.
 | 9 · Participadas | `etl/empresas_participadas.py` | V6, e "toda a entidade no perímetro tem NIPC" — é essa que garante que o filtro dos contratos não perde entidades |
 | 4 · Quem lá trabalha | `etl/mapa_pessoal.py` | **V3**, V6, e 63 verificações de total (7 unidades × 9 colunas) contra o `TOTAL` impresso no documento |
 | 3 · Como está organizada | `etl/estrutura_organica.py` | V6, unicidade dos `id`, existência do alvo de cada alteração normativa, e **verificação cruzada nos dois sentidos** contra o organograma publicado |
-| 5 · De onde vem o dinheiro | `etl/orcamento.py` | **V2** nos cinco anos (receita total = despesa total, por imposição legal), **V1** em quatro formas por ano, V6 |
+| 5 · De onde vem o dinheiro | `etl/orcamento.py` | **V2** nos cinco anos (receita total = despesa total, por imposição legal), **V1** em quatro formas por ano, V6, e a regra do equilíbrio orçamental do art. 40.º do RFALEI em cada ano de execução |
 | transversal · População | `etl/populacao.py` | **V5**, **V7**, V6, soma homens+mulheres = total em cada ano, e soma dos grupos etários = total do ano |
 
 V4 estava especificada desde a Fase 1 mas não implementada; foi escrita com o
