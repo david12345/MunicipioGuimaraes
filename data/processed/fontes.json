@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "gerado_em": "2026-09-21T20:03:27.789569+00:00",
+    "gerado_em": "2026-09-21T20:08:10.174265+00:00",
     "script": "etl/common/fontes.py",
     "versao_modelo": "1.0",
     "total_fontes": 26,
@@ -143,18 +143,18 @@
     "S32": {
       "nome": "INE - Populacao residente por Local de residencia (NUTS 2024), Sexo e Grupo etario; Anual (Estimativas anuais da populacao residente, indicador 0012918)",
       "entidade": "INE",
-      "url": "https://www.ine.pt/ine/json_indicador/pindica.jsp?op=2&varcd=0012918&lang=PT",
+      "url": "https://www.ine.pt/ine/json_indicador/pindica.jsp?op=2&varcd=0012918&Dim1=S7A2021,S7A2022,S7A2023,S7A2024,S7A2025&lang=PT",
       "url_metadados": "https://www.ine.pt/ine/json_indicador/pindicaMeta.jsp?varcd=0012918&lang=PT",
       "formato": "json",
       "periodicidade": "anual",
-      "verificacao": "URL-S",
+      "verificacao": "PRIM",
       "alimenta": [
         "populacao.json"
       ],
-      "limitacoes": "Denominador de TODAS as metricas per capita, por isso V7 exige uma unica serie. O URL vem do catalogo do dados.gov (dataset 66a32d75d128db77e18739fe), nao de um motor de busca - mas o conteudo NAO foi lido: o INE ficou inacessivel a meio da sessao (L14). Falta confirmar que a serie desce ao nivel de municipio e que anos cobre. Rejeita HEAD; o check-acesso usa GET. Indicadores alternativos ja identificados, para nao repetir a pesquisa: 0012903 (NUTS 2024, Sexo e Idade), 0012905 (idem), 0008273 e 0007307 (NUTS 2013), 0003182 (NUTS 2002). Trocar de indicador implica trocar a serie TODA de uma vez - misturar viola a V7.",
+      "limitacoes": "Denominador de TODAS as metricas per capita, por isso V7 exige uma unica serie. Confirmado: desce ao municipio (Guimaraes = geocod 1190308) e cobre 2021-2025. Sem Dim1 a API devolve so o ultimo ano, dai a lista de periodos no URL. O indicador NUTS 2013 (0008273) cobre 2011-2023 e daria mais historia, mas perdia 2024 e 2025 - para um dashboard ao cidadao a recencia vale mais. MISTURAR AS DUAS SERIES VIOLA A V7: trocar de indicador implica trocar a serie toda. Alternativas: 0012903/0012905 (NUTS 2024, por idade simples), 0008273/0007307 (NUTS 2013), 0003182 (NUTS 2002). A API rejeita HEAD (o check-acesso usa GET) e e intolerante a cadencia: um 429 chega para bloquear o host inteiro durante horas.",
       "id": "S32",
-      "ficheiro_raw": "data/raw/2026-09-21_pindica.jsp",
-      "sha256": "5b135e282588fc8e6ac6664476c2f211f6c7bedc09e24525bec1c44db42aecbc",
+      "ficheiro_raw": "data/raw/2026-09-21_pindica_f2fd4ebe.jsp",
+      "sha256": "f724eb822f1900f8f9033d4b02d2484276d8ff4ba1481e041cc2ae41bfc73e95",
       "data_download": "2026-09-21",
       "descarregado": true
     },
