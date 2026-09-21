@@ -1,4 +1,4 @@
-.PHONY: help setup setup-parse check-acesso fontes fetch etl quem-governa empresas contratos limpar-venv
+.PHONY: help setup setup-parse check-acesso fontes fetch etl quem-governa empresas contratos mapa-pessoal limpar-venv
 
 # O Python do sistema é gerido externamente (PEP 668) e recusa `pip install`.
 # Todo o pipeline corre no venv local, que é criado por `make setup`.
@@ -15,6 +15,7 @@ help:
 	@echo "make quem-governa - extrai a secção 2: executivo.json + orgaos_eleitos.json"
 	@echo "make empresas     - extrai a secção 9: empresas_municipais.json (resolve os NIF)"
 	@echo "make contratos    - extrai a secção 8: contratos_<ano>.json (exige empresas)"
+	@echo "make mapa-pessoal - extrai a secção 4: mapa_pessoal.json (só agregados)"
 	@echo "make etl          - fetch + fontes + parsers existentes"
 
 $(PY):
@@ -47,11 +48,14 @@ empresas: $(PY)
 contratos: empresas
 	$(PY) -m etl.contratos
 
-etl: fetch fontes quem-governa empresas contratos
+mapa-pessoal: $(PY)
+	$(PY) -m etl.mapa_pessoal
+
+etl: fetch fontes quem-governa empresas contratos mapa-pessoal
 	@echo ""
 	@echo "Originais em data/raw/, normalizados em data/processed/."
-	@echo "Parsers por implementar: orçamento, mapa de pessoal,"
-	@echo "estrutura orgânica (ver docs/qualidade_dados.md)."
+	@echo "Parsers por implementar: orçamento e estrutura orgânica"
+	@echo "(ver docs/qualidade_dados.md)."
 
 limpar-venv:
 	rm -rf $(VENV)

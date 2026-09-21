@@ -26,12 +26,13 @@ Estas vêm do briefing e **não se negoceiam**. Na dúvida, escolhe sempre não 
 
 ## Estado atual
 
-**Fase 2 em curso. Três secções extraídas: 2 (quem governa), 8 (contratos), 9
-(participadas).** Não há dashboard — a Fase 3 está por começar.
+**Fase 2 em curso. Quatro secções extraídas: 2 (quem governa), 4 (quem lá
+trabalha), 8 (contratos), 9 (participadas).** Não há dashboard — Fase 3 por começar.
 
 `make check-acesso` dá **19/19**. 22 fontes em `data/raw/` com `sha256` verificado.
 Em `data/processed/`: `fontes.json`, `executivo.json`, `orgaos_eleitos.json`,
-`empresas_municipais.json` e `contratos_2019.json`…`contratos_2026.json`
+`empresas_municipais.json`, `mapa_pessoal.json` (1 830 postos ocupados de 2 047
+previstos, 2026) e `contratos_2019.json`…`contratos_2026.json`
 (4 110 contratos, 441,1 M€ contratados entre 2019 e 2026).
 
 **L1 e L2 estão resolvidas** (ver `docs/qualidade_dados.md`): o bloqueio de rede
@@ -46,8 +47,11 @@ mantém a integridade verificável. **Não usar Git LFS** — os contratos são
 republicados semanalmente e esgotariam a quota.
 
 **Próximo passo:** os parsers que faltam. Os originais já estão em disco, por isso
-a extração não precisa de rede. Mapa de pessoal (S07-2026), estrutura orgânica
-(S05+S06 — falta o URL de S06), orçamento (S10; falta S08, sem URL, L3).
+a extração não precisa de rede. Estrutura orgânica (S05+S06 — falta o URL de S06)
+e orçamento (S10; falta S08, sem URL, L3).
+
+**O INE está bloqueado** desde esta sessão (L14) — ver a nota operacional em
+`docs/qualidade_dados.md`. Sem ele não há métricas per capita.
 
 **NIF do Município: `505948605`** (resolvido do dataset do IMPIC, único nos 8 anos).
 Os NIF do perímetro saem de `empresas_municipais.json` — é por isso que

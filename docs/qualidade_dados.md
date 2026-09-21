@@ -1,6 +1,6 @@
 # Qualidade dos dados e lacunas conhecidas
 
-Última atualização: 2026-09-21 · Fase 2 em curso (secções 2, 8 e 9 extraídas).
+Última atualização: 2026-09-21 · Fase 2 em curso (secções 2, 4, 8 e 9 extraídas).
 
 Este ficheiro regista **tudo o que não foi possível obter ou validar**. É um
 entregável tão importante como os dados: o dashboard mostra "Dado não disponível"
@@ -57,7 +57,7 @@ Estas persistem mesmo com acesso à rede e condicionam o desenho do dashboard.
 | L3 | Secção de documentos previsionais (S08) e Balanço Social (S19) sem URL localizado | Sem Orçamento/GOP/PPI não há secções 1, 5, 6 e 7 do dashboard | Varrimento da secção de gestão financeira do site; em último recurso, pedido de acesso à informação administrativa (LADA) |
 | L4 | Organograma (S03) pode ser imagem | Impede extração automática da estrutura orgânica | Usar o **texto normativo** (S05 + S06) como fonte, não a imagem — é mais fiável e é o que tem valor legal |
 | L5 | Estrutura orgânica de 2023 alterada em 2024 (S06) | Usar só S05 produz um organograma **errado** | Aplicar obrigatoriamente o Despacho 9070/2024 antes de publicar a secção 3 |
-| L6 | Mapa de Pessoal em PDF, possivelmente digitalizado | Tabelas largas: risco de colunas trocadas ou perdidas | `camelot` (lattice→stream) com validação de somas; OCR (`ocrmypdf`) se necessário; **qualquer discrepância de total bloqueia a publicação** |
+| L6 | ~~Mapa de Pessoal possivelmente digitalizado~~ · **RESOLVIDA** | — | O de 2026 tem camada de texto; `pymupdf` chega e o `camelot`/OCR não foi preciso. O risco de colunas trocadas é coberto por validação: as linhas de cada unidade têm de reconstituir o `TOTAL` que o próprio documento imprime, nas 9 colunas — 63 verificações, todas a passar. Um mapa digitalizado de outro ano voltará a exigir OCR |
 | L7 | API do Portal BASE exige autorização do IMPIC (S24) | Sem credencial, não há atualização diária | Usar o dataset semanal do dados.gov (S23), que não exige credencial; assumir desfasamento até 7 dias e mostrá-lo no dashboard |
 | L8 | NIF das empresas municipais desconhecidos | Sem eles não se filtram os contratos das participadas no BASE | Extrair o perímetro de consolidação de S11 e resolver cada NIF antes do ETL de contratos |
 | L9 | Duas convenções de URL no site da CMG (`/uploads/` e `/cmguimaraes/uploads/`) | Um crawler que assuma um único padrão perde documentos antigos | O `fetch` aceita ambos os padrões (ver `etl/common/fetch.py`) |
@@ -101,6 +101,7 @@ São automáticas e **bloqueantes**: uma extração que falhe não é publicada.
 | 2 · Quem governa | `etl/quem_governa.py` | V1 em duas formas (soma dos mandatos = total declarado; lista nominal = mesmo total) e V6 |
 | 8 · Contratos | `etl/contratos.py` | **V4** nos oito anos (2019–2026), V6, e unicidade do NIF do Município no dataset |
 | 9 · Participadas | `etl/empresas_participadas.py` | V6, e "toda a entidade no perímetro tem NIPC" — é essa que garante que o filtro dos contratos não perde entidades |
+| 4 · Quem lá trabalha | `etl/mapa_pessoal.py` | **V3**, V6, e 63 verificações de total (7 unidades × 9 colunas) contra o `TOTAL` impresso no documento |
 
 V4 estava especificada desde a Fase 1 mas não implementada; foi escrita com o
 parser dos contratos (`v4_soma_por_adjudicatario` em `etl/common/validate.py`).

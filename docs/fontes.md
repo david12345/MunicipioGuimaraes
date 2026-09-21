@@ -44,7 +44,7 @@ Entidade responsável: Município de Guimarães. Acesso nesta sessão: **bloquea
 | S04 | Estrutura e Organização dos Serviços Municipais | `/noticia-6/estrutura-e-organizacao-dos-servicos-municipais` | HTML | 2023– | Irregular | Contexto da estrutura orgânica | Página de notícia; conteúdo normativo está em DR | `URL-S` |
 | S05 | Orgânica dos Serviços Municipais 2023 (texto DR) | `/cmguimaraes/uploads/writer_file/document/9902/organica_2023.pdf` | PDF | 2023 | — | `estrutura_organica.json`: departamentos → divisões → unidades, competências | **Fonte preferencial** para a hierarquia: texto normativo, estruturado. Publicado em DR 2.ª série n.º 251, 30-12-2022 | `DESC` |
 | S06 | Alteração à estrutura orgânica (Despacho 9070/2024) | via DRE (ver S30) | PDF/HTML | 2024 | — | Reorganização do Dep. de Intervenção Social e do Dep. de Recursos Humanos | **Obrigatório**: sem isto, S05 está desatualizado | `EXIST-S` |
-| S07 | Mapa de Pessoal | `/areas-de-intervencao/educacao-e-recursos-humanos/recursos-humanos/mapa-de-pessoal` | PDF (provável) | Série anual | Anual | `mapa_pessoal.json`: postos por carreira, categoria, unidade orgânica; previstos vs. ocupados | Mapas de pessoal são tabelas largas em PDF → `camelot`/`pdfplumber`; risco de PDF digitalizado (→ OCR) | `PRIM` |
+| S07 | Mapa de Pessoal (índice) | `/areas-de-intervencao/educacao-e-recursos-humanos/recursos-humanos/mapa-de-pessoal` | HTML → PDF | Série anual | Anual | `mapa_pessoal.json`: postos por carreira, categoria e unidade orgânica; ocupados vs. previstos | Página índice; o PDF do ano é descoberto a partir daqui (`S07-2026`). O de 2026 **tem camada de texto** — não foi preciso OCR | `PRIM` |
 | S08 | Documentos previsionais (Orçamento + GOP + PPI + PAM) | Secção de gestão financeira do site | PDF | Série anual | Anual (aprovação em dezembro) | `orcamento.json` (previsto), `investimentos.json` (PPI/GOP) | **Não localizei o URL exato da secção.** A pesquisa por "documentos previsionais Guimarães" devolveu sobretudo outros municípios | `CONHEC` |
 | S09 | Relatório e Contas 2024 (notícia de aprovação) | `/areas-de-intervencao/noticia/relatorio-e-contas-de-2024-aprovado-por-maioria-em-reuniao-de-camara` | HTML | 2024 | Anual | Ponto de entrada para o R&C 2024 | Notícia, não o documento | `URL-S` |
 | S10 | Relatório e Contas 2021 | `/cmguimaraes/uploads/document/file/18944/relatorio_e_contas_2021.pdf` | PDF | 2021 | Anual | `orcamento.json` (executado), dívida, indicadores | Padrão de URL (`/uploads/document/file/<id>/<slug>.pdf`) permite descobrir outros anos por varrimento da secção | `DESC` |
@@ -176,6 +176,12 @@ Cidade Guimarães) e duas associações (Laboratório da Paisagem, Curtir Ciênc
 
 **NIF do Município de Guimarães: `505948605`**, resolvido do próprio dataset do
 IMPIC e validado como único nos oito anos (2019–2026).
+
+### Verificação cruzada do NIF do Município
+
+O NIF `505948605` foi resolvido a partir do dataset do IMPIC e **confirmado
+independentemente** no timbre do Mapa de Pessoal 2026 (S07-2026, pág. 2), onde a
+própria CMG imprime `NIPC: 505 948 605`. Duas fontes distintas, o mesmo número.
 
 ### Porque é que o filtro não pode ser por nome
 
