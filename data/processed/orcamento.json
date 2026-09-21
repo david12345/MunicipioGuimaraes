@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "gerado_em": "2026-09-21T20:52:44.684322+00:00",
+    "gerado_em": "2026-09-21T21:04:03.798391+00:00",
     "script": "etl/orcamento.py",
     "versao_modelo": "1.0",
     "fontes": [
@@ -9,13 +9,18 @@
       "S08-2023",
       "S08-2024",
       "S08-2025",
-      "S08-2026"
+      "S08-2026",
+      "S10-2021",
+      "S10-2022",
+      "S10-2023",
+      "S10-2024",
+      "S10-2025"
     ],
     "avisos": [
       "Sem mapa-resumo em texto (documento digitalizado), por isso sem orçamento: 2021. Exige OCR — ver L25.",
       "Sem população para 2026: os valores por habitante ficam a `null` (L21), não são estimados."
     ],
-    "nota": "Valores PREVISTOS (orçamento aprovado), não executados. A execução real vem dos Relatórios e Contas, por extrair."
+    "nota": "`exercicios` são valores PREVISTOS (orçamento aprovado); `execucao` traz os indicadores do executado, dos Relatórios e Contas. Os totais gerais de receita cobrada e despesa paga não são publicados com rótulo — ver L27."
   },
   "primeiro_ano": 2022,
   "ultimo_ano": 2026,
@@ -114,6 +119,83 @@
       "despesa_total_por_habitante": null,
       "receita_total_por_habitante": null,
       "fonte_id": "S08-2026"
+    }
+  ],
+  "execucao": [
+    {
+      "ano_referencia": 2021,
+      "tipo": "executado",
+      "grau_execucao_receita_pct": 98.6,
+      "grau_execucao_despesa_pct": 79.26,
+      "saldo_corrente": 20433167.07,
+      "saldo_capital": -20014770.7,
+      "saldo_primario": 847023.83,
+      "saldo_global": 706183.31,
+      "receitas_correntes_cobradas_brutas": 92430249.23,
+      "despesas_correntes_pagas": 71015953.8,
+      "habitantes": 157985,
+      "despesas_correntes_pagas_por_habitante": 449.51,
+      "fonte_id": "S10-2021"
+    },
+    {
+      "ano_referencia": 2022,
+      "tipo": "executado",
+      "grau_execucao_receita_pct": 98.73,
+      "grau_execucao_despesa_pct": 80.74,
+      "saldo_corrente": 21551796.32,
+      "saldo_capital": -19079606.12,
+      "saldo_primario": 2654037.61,
+      "saldo_global": 2521763.61,
+      "receitas_correntes_cobradas_brutas": 100251518.83,
+      "despesas_correntes_pagas": 76819478.27,
+      "habitantes": 161252,
+      "despesas_correntes_pagas_por_habitante": 476.39,
+      "fonte_id": "S10-2022"
+    },
+    {
+      "ano_referencia": 2023,
+      "tipo": "executado",
+      "grau_execucao_receita_pct": 98.86,
+      "grau_execucao_despesa_pct": 79.12,
+      "saldo_corrente": 26919813.56,
+      "saldo_capital": -18006530.71,
+      "saldo_primario": 9785020.64,
+      "saldo_global": 9085805.77,
+      "receitas_correntes_cobradas_brutas": 114855087.24,
+      "despesas_correntes_pagas": 85618378.03,
+      "habitantes": 163814,
+      "despesas_correntes_pagas_por_habitante": 522.66,
+      "fonte_id": "S10-2023"
+    },
+    {
+      "ano_referencia": 2024,
+      "tipo": "executado",
+      "grau_execucao_receita_pct": 99.22,
+      "grau_execucao_despesa_pct": 84.0,
+      "saldo_corrente": 26726128.45,
+      "saldo_capital": -27701991.29,
+      "saldo_primario": 116298.51,
+      "saldo_global": -739906.97,
+      "receitas_correntes_cobradas_brutas": 139042069.05,
+      "despesas_correntes_pagas": 96088002.45,
+      "habitantes": 164916,
+      "despesas_correntes_pagas_por_habitante": 582.65,
+      "fonte_id": "S10-2024"
+    },
+    {
+      "ano_referencia": 2025,
+      "tipo": "executado",
+      "grau_execucao_receita_pct": 99.03,
+      "grau_execucao_despesa_pct": 80.01,
+      "saldo_corrente": 27841152.86,
+      "saldo_capital": -17131116.96,
+      "saldo_primario": 11448760.37,
+      "saldo_global": 10900541.88,
+      "receitas_correntes_cobradas_brutas": 147767638.71,
+      "despesas_correntes_pagas": 103040074.17,
+      "habitantes": 165554,
+      "despesas_correntes_pagas_por_habitante": 622.4,
+      "fonte_id": "S10-2025"
     }
   ]
 }

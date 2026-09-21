@@ -30,7 +30,12 @@ import pymupdf
 from etl.common import fontes as mod_fontes
 from etl.common.fetch import absoluto
 from etl.common.paths import PROCESSED, RAW
-from etl.common.validate import Relatorio, ValidationError, v2_orcamento_equilibrado
+from etl.common.validate import (
+    Relatorio,
+    ValidationError,
+    v1_soma_bate_total,
+    v2_orcamento_equilibrado,
+)
 
 VERSAO_MODELO = "1.0"
 TITULO_MAPA = "RESUMO DA RECEITA E DA DESPESA"
@@ -52,6 +57,64 @@ CAMPOS = {
     "saldo total": "saldo_total",
     "saldo global": "saldo_global",
 }
+
+
+# --- Execução orçamental (S10-<ano>, Relatórios e Contas) ------------------
+#
+# O que se lê é a tabela "Principais indicadores orçamentais" e o quadro
+# "Execução Orçamental 31/12/<ano>", ambos com rótulo explícito ao lado do
+# valor. Os totais gerais de receita cobrada e despesa paga existem nos mapas
+# de execução, mas em linhas **sem rótulo**, identificadas só pela posição na
+# página — extraí-los seria adivinhar, e fica registado como lacuna (L27).
+
+# O símbolo do euro nem sempre chega como "€": o Relatório e Contas de 2022
+# codifica-o como "¬", por a fonte mapear mal o glifo. Aceitam-se os dois.
+_EUR = r"[€¬]"
+_M = r"(-?\d[\d\s\u00a0.]*,\d{2})\s*" + _EUR
+
+INDICADORES = {
+    "grau_execucao_receita_pct": r"Grau de Execu[çc][ãa]o or[çc]amental\s*d[ae] receita\s*\(%\).{0,90}?([\d.,]+)\s*%",
+    "grau_execucao_despesa_pct": r"Grau de Execu[çc][ãa]o or[çc]amental\s*d[ae] despesa\s*\(%\).{0,90}?([\d.,]+)\s*%",
+    "saldo_corrente": r"Saldo corrente\s*Receita corrente[^€¬]{0,70}?" + _M,
+    "saldo_capital": r"Saldo de [Cc]apital\s*Receita de capital[^€¬]{0,70}?" + _M,
+    "saldo_primario": r"Saldo [Pp]rim[áa]rio\s*Receita efetiva[^€¬]{0,110}?" + _M,
+    "saldo_global": r"Saldo global\s*Receita efetiva[^€¬]{0,70}?" + _M,
+    "receitas_correntes_cobradas_brutas": r"Receitas correntes cobradas brutas\s*\d*\s*" + _M,
+    "despesas_correntes_pagas": r"Despesas correntes pagas\s*" + _M,
+}
+
+
+def _percentagem(texto: str) -> float:
+    return round(float(texto.replace(".", "").replace(",", ".")), 2)
+
+
+def extrair_execucao(caminho: Path) -> dict[str, float]:
+    """Lê os indicadores de execução do Relatório e Contas."""
+    doc = pymupdf.open(caminho)
+    alvo = next(
+        (
+            i
+            for i in range(doc.page_count)
+            if "receitas correntes cobradas brutas" in doc[i].get_text().lower()
+        ),
+        None,
+    )
+    if alvo is None:
+        doc.close()
+        return {}
+    # O rótulo parte-se em duas linhas nalguns anos ("Grau de Execução
+    # orçamental \n da receita"), por isso achata-se a página antes de casar.
+    texto = re.sub(r"\s+", " ", doc[alvo].get_text())
+    doc.close()
+
+    out: dict[str, float] = {}
+    for campo, padrao in INDICADORES.items():
+        if (m := re.search(padrao, texto, re.IGNORECASE)) is None:
+            continue
+        out[campo] = (
+            _percentagem(m.group(1)) if campo.endswith("_pct") else _euros(m.group(1))
+        )
+    return out
 
 
 def _sem_acentos(s: str) -> str:
@@ -206,7 +269,46 @@ def construir() -> int:
             }
         )
 
+    # --- Execução orçamental, dos Relatórios e Contas -----------------------
+    execucoes: list[dict] = []
+    for fonte_id in sorted(f for f in raws if re.fullmatch(r"S10-\d{4}", f)):
+        ano = int(fonte_id.split("-")[1])
+        if fonte_id not in validos:  # V6
+            print(f"V6: fonte_id {fonte_id} não resolve em fontes.json", file=sys.stderr)
+            return 1
+        ind = extrair_execucao(raws[fonte_id])
+        if not ind:
+            avisos.append(f"Sem indicadores de execução legíveis em {fonte_id}.")
+            continue
+
+        # O quadro do equilíbrio orçamental publica A, B e C = A - B. Se a
+        # extração apanhou uma linha errada, esta conta deixa de fechar.
+        a = ind.get("receitas_correntes_cobradas_brutas")
+        b = ind.get("despesas_correntes_pagas")
+        if a is not None and b is not None:
+            rel.check(
+                f"equilibrio-{ano}",
+                a > b,
+                f"{ano}: receita corrente cobrada {a:.2f} € não cobre a despesa "
+                f"corrente paga {b:.2f} €, ao contrário do que o relatório afirma",
+            )
+
+        hab = populacao.get(ano)
+        execucoes.append(
+            {
+                "ano_referencia": ano,
+                "tipo": "executado",
+                **ind,
+                "habitantes": hab,
+                "despesas_correntes_pagas_por_habitante": (
+                    round(b / hab, 2) if (b is not None and hab) else None
+                ),
+                "fonte_id": fonte_id,
+            }
+        )
+
     rel.check("exercicios-nao-vazio", bool(exercicios), "nenhum ano foi extraído")
+    rel.check("execucoes-nao-vazio", bool(execucoes), "nenhuma execução foi extraída")
 
     if sem_texto:
         avisos.append(
@@ -231,16 +333,20 @@ def construir() -> int:
             "gerado_em": datetime.now(timezone.utc).isoformat(),
             "script": "etl/orcamento.py",
             "versao_modelo": VERSAO_MODELO,
-            "fontes": [f for _, f in anos],
+            "fontes": [f for _, f in anos]
+            + sorted(f for f in raws if re.fullmatch(r"S10-\d{4}", f)),
             "avisos": avisos,
             "nota": (
-                "Valores PREVISTOS (orçamento aprovado), não executados. A "
-                "execução real vem dos Relatórios e Contas, por extrair."
+                "`exercicios` são valores PREVISTOS (orçamento aprovado); "
+                "`execucao` traz os indicadores do executado, dos Relatórios e "
+                "Contas. Os totais gerais de receita cobrada e despesa paga não "
+                "são publicados com rótulo — ver L27."
             ),
         },
         "primeiro_ano": exercicios[0]["ano_referencia"],
         "ultimo_ano": exercicios[-1]["ano_referencia"],
         "exercicios": exercicios,
+        "execucao": execucoes,
     }
     destino = PROCESSED / "orcamento.json"
     destino.write_text(
@@ -254,7 +360,14 @@ def construir() -> int:
             f"  {e['ano_referencia']}: despesa {total} €"
             + (f" — {pc:.2f} €/habitante" if pc else " — sem população")
         )
-    print(f"\nValidações passadas: {len(rel.ok)} (inclui V2 em todos os anos)")
+    print("\n  execução (Relatórios e Contas):")
+    for e in execucoes:
+        pago = f"{e.get('despesas_correntes_pagas', 0):,.2f}".replace(",", " ").replace(".", ",")
+        print(
+            f"    {e['ano_referencia']}: {e['grau_execucao_despesa_pct']:.2f}% da "
+            f"despesa executada — {pago} € de despesa corrente paga"
+        )
+    print(f"\nValidações passadas: {len(rel.ok)} (inclui V2 e o equilíbrio orçamental)")
     for a in avisos:
         print(f"aviso: {a}")
     return 0
