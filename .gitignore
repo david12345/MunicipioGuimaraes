@@ -29,6 +29,11 @@ data/raw/*pindica_*.jsp
 # que a torna útil — detetar que a CMG substituiu um PDF mantendo o URL —
 # continua garantido pelo sha256 no .meta.json, que é commitado.
 data/raw/*grandes_opcoes*.pdf
+# Relatórios e Contas: 14 a 21 MB cada, 83 MB ao todo. Acima do limite de ~15 MB
+# que esta política fixa, pela mesma razão e com a mesma salvaguarda: o sha256
+# no sidecar continua a detetar substituição silenciosa.
+data/raw/*relatorio_e_contas*.pdf
+data/raw/*relatorio_de_gestao*.pdf
 
 # Downloads interrompidos (ver etl/common/fetch.py).
 data/raw/*.parcial

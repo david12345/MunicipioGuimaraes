@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "gerado_em": "2026-09-21T20:50:24.961164+00:00",
+    "gerado_em": "2026-09-21T21:00:41.521136+00:00",
     "script": "etl/common/fontes.py",
     "versao_modelo": "1.0",
-    "total_fontes": 34,
-    "fontes_descarregadas": 34
+    "total_fontes": 38,
+    "fontes_descarregadas": 38
   },
   "dados": {
     "S01": {
@@ -57,20 +57,88 @@
       "data_download": "2026-09-21",
       "descarregado": true
     },
-    "S10": {
+    "S10-2021": {
       "nome": "Relatório e Contas 2021",
       "entidade": "Município de Guimarães",
       "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/18944/relatorio_e_contas_2021.pdf",
       "formato": "pdf",
       "ano_referencia": 2021,
       "periodicidade": "anual",
-      "verificacao": "DESC",
+      "verificacao": "URL-S",
       "alimenta": [
         "orcamento.json"
       ],
-      "id": "S10",
+      "id": "S10-2021",
       "ficheiro_raw": "data/raw/2026-09-21_relatorio_e_contas_2021.pdf",
       "sha256": "0282e9b20e83a74cd15a72e4c89d81d948545c5a663b344e7245d5ae2322acc7",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S10-2022": {
+      "nome": "Relatório e Contas 2022",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/20040/relatorio_e_contas_2022.pdf",
+      "formato": "pdf",
+      "ano_referencia": 2022,
+      "periodicidade": "anual",
+      "verificacao": "URL-S",
+      "alimenta": [
+        "orcamento.json"
+      ],
+      "id": "S10-2022",
+      "ficheiro_raw": "data/raw/2026-09-21_relatorio_e_contas_2022.pdf",
+      "sha256": "9fd6b30c355a61f784988dc0538b17e6d7412476df806047b99caa3a8cf7ccbf",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S10-2023": {
+      "nome": "Relatório e Contas 2023",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/21479/relatorio_e_contas_2023.pdf",
+      "formato": "pdf",
+      "ano_referencia": 2023,
+      "periodicidade": "anual",
+      "verificacao": "URL-S",
+      "alimenta": [
+        "orcamento.json"
+      ],
+      "id": "S10-2023",
+      "ficheiro_raw": "data/raw/2026-09-21_relatorio_e_contas_2023.pdf",
+      "sha256": "136be5fa0b0c70c0943d385371bef0fc7a36e1b32d33c12320d83daef055659c",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S10-2024": {
+      "nome": "Relatório e Contas 2024",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/22619/relatorio_e_contas_2024.pdf",
+      "formato": "pdf",
+      "ano_referencia": 2024,
+      "periodicidade": "anual",
+      "verificacao": "URL-S",
+      "alimenta": [
+        "orcamento.json"
+      ],
+      "id": "S10-2024",
+      "ficheiro_raw": "data/raw/2026-09-21_relatorio_e_contas_2024.pdf",
+      "sha256": "d27055d1e22b6b29105310570ca748ecd879749beb3f169457958e06192c531f",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S10-2025": {
+      "nome": "Relatório de Gestão 2025",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/25511/relatorio_de_gestao_2025.pdf",
+      "formato": "pdf",
+      "ano_referencia": 2025,
+      "periodicidade": "anual",
+      "verificacao": "URL-S",
+      "alimenta": [
+        "orcamento.json"
+      ],
+      "id": "S10-2025",
+      "ficheiro_raw": "data/raw/2026-09-21_relatorio_de_gestao_2025.pdf",
+      "sha256": "478e1f1920feb81d52dee6af654e67312367e6f0380e68209cdb184c4e0e139c",
       "data_download": "2026-09-21",
       "descarregado": true
     },

@@ -46,14 +46,58 @@ S07:
     alimenta: ['mapa_pessoal.json']
     limitacoes: Tabela larga em PDF; risco de digitalizado (OCR). So agregados (regra 7).
 
-S10:
+# --- S10: prestacao de contas (execucao orcamental), por ano ---------------
+# Localizados no arquivo S39, subpasta "Prestacao de Contas" de cada ano.
+# Dao o EXECUTADO, a par do previsto que vem de S08. O de 2025 chama-se
+# "Relatorio de Gestao" e nao "Relatorio e Contas" - o nome muda, o papel nao.
+S10-2021:
   nome: Relatório e Contas 2021
   entidade: Município de Guimarães
   url: https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/18944/relatorio_e_contas_2021.pdf
   formato: pdf
   ano_referencia: 2021
   periodicidade: anual
-  verificacao: DESC
+  verificacao: URL-S
+  alimenta: [orcamento.json]
+
+S10-2022:
+  nome: Relatório e Contas 2022
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/20040/relatorio_e_contas_2022.pdf
+  formato: pdf
+  ano_referencia: 2022
+  periodicidade: anual
+  verificacao: URL-S
+  alimenta: [orcamento.json]
+
+S10-2023:
+  nome: Relatório e Contas 2023
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/21479/relatorio_e_contas_2023.pdf
+  formato: pdf
+  ano_referencia: 2023
+  periodicidade: anual
+  verificacao: URL-S
+  alimenta: [orcamento.json]
+
+S10-2024:
+  nome: Relatório e Contas 2024
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/22619/relatorio_e_contas_2024.pdf
+  formato: pdf
+  ano_referencia: 2024
+  periodicidade: anual
+  verificacao: URL-S
+  alimenta: [orcamento.json]
+
+S10-2025:
+  nome: Relatório de Gestão 2025
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/25511/relatorio_de_gestao_2025.pdf
+  formato: pdf
+  ano_referencia: 2025
+  periodicidade: anual
+  verificacao: URL-S
   alimenta: [orcamento.json]
 
 S11:
