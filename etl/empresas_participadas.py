@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
 """Secção 9 do dashboard — "Empresas e entidades participadas".
 
-Produz `empresas_municipais.json` a partir do Quadro 1 do Relatório de Contas
-Consolidadas de 2023 (S11), que é a fonte do **perímetro de consolidação**.
+Produz `empresas_municipais.json` de duas partes dos Relatórios de Contas
+Consolidadas: o **Quadro 1** de 2023 (`S11-2023`), que dá o perímetro de
+consolidação, e o **balanço consolidado** de 2021 a 2025, que dá os agregados
+do grupo municipal ano a ano.
+
+O que **não** está lá é o financeiro de cada entidade — volume de negócios,
+resultado líquido, transferências recebidas do município. O relatório
+consolida, não desagrega; obtê-lo exigiria as contas de cada entidade, que são
+doze fontes diferentes (L32).
 
 Duas razões para este parser vir antes do dos contratos:
 
@@ -35,13 +42,24 @@ from etl.common.fetch import absoluto
 from etl.common.paths import PROCESSED, RAW
 from etl.common.validate import Relatorio
 
-FONTE = "S11"
-ANO_REFERENCIA = 2023
 VERSAO_MODELO = "1.0"
 
-# Páginas do Quadro 1. Fixas porque o documento é um original imutável em
-# data/raw/, identificado por sha256; um documento novo traz outro parser.
+# Agregados do grupo municipal, do balanço consolidado. Rotulados e com uma
+# identidade que fecha — ativo = passivo + património líquido — o que dá uma
+# validação exata em vez de uma verificação de plausibilidade.
+RE_EUROS = r"(-?\d[\d\s\u00a0.]*,\d{2})\s*[€¬]?"
+AGREGADOS = {
+    "Total do Ativo": "ativo",
+    "Total do Passivo": "passivo",
+    "Total Património Líquido": "patrimonio_liquido",
+    "Resultado líquido do período": "resultado_liquido",
+}
+
+# Páginas do Quadro 1 no relatório de 2023. Fixas porque o documento é um
+# original imutável em data/raw/, identificado por sha256.
 PAGINAS_QUADRO = (8, 9)
+FONTE_PERIMETRO = "S11-2023"
+ANO_REFERENCIA = 2023
 
 COL_NOME = slice(0, 3)
 COL_NATUREZA = slice(3, 6)
@@ -100,6 +118,19 @@ def _numero_pt(s: str) -> float | None:
         return float(s)
     except ValueError:
         return None
+
+
+def _raws_por_fonte() -> dict[str, Path]:
+    out: dict[str, Path] = {}
+    for p in RAW.glob("*.meta.json"):
+        try:
+            m = json.loads(p.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        caminho = absoluto(m["ficheiro"])
+        if m.get("fonte_id") and caminho.exists():
+            out[m["fonte_id"]] = caminho
+    return out
 
 
 def _raw_de(fonte_id: str) -> Path | None:
@@ -169,14 +200,31 @@ def extrair_quadro(caminho: Path) -> list[dict]:
     return entidades
 
 
+def extrair_consolidado(caminho: Path) -> dict[str, float]:
+    """Lê os agregados do balanço consolidado do grupo municipal."""
+    doc = pymupdf.open(caminho)
+    achados: dict[str, float] = {}
+    for i in range(doc.page_count):
+        texto = re.sub(r"\s+", " ", doc[i].get_text())
+        for rotulo, campo in AGREGADOS.items():
+            if campo in achados:
+                continue
+            # A 1.ª ocorrência é a do ano do relatório; as seguintes são a
+            # coluna comparativa do ano anterior.
+            if (m := re.search(re.escape(rotulo) + r"[^\d-]{0,40}?" + RE_EUROS, texto)):
+                achados[campo] = _numero_pt(m.group(1))
+    doc.close()
+    return achados
+
+
 def construir() -> int:
     rel = Relatorio()
     avisos: list[str] = []
 
-    caminho = _raw_de(FONTE)
+    caminho = _raw_de(FONTE_PERIMETRO)
     if caminho is None:
         print(
-            f"Falta o original de {FONTE} em data/raw/. Corre `make fetch`.",
+            f"Falta o original de {FONTE_PERIMETRO} em data/raw/. Corre `make fetch`.",
             file=sys.stderr,
         )
         return 1
@@ -207,7 +255,7 @@ def construir() -> int:
                 "trabalhadores": None,
                 "financeiro_por_ano": [],
                 "ano_referencia": ANO_REFERENCIA,
-                "fonte_id": FONTE,
+                "fonte_id": FONTE_PERIMETRO,
             }
         )
 
@@ -230,9 +278,31 @@ def construir() -> int:
         f"só {len(no_perimetro)} entidades no perímetro — a fonte lista mais",
     )
 
-    if FONTE not in mod_fontes.ids_validos():  # V6
-        print(f"V6: fonte_id {FONTE} não resolve em fontes.json", file=sys.stderr)
+    validos = mod_fontes.ids_validos()
+    if FONTE_PERIMETRO not in validos:  # V6
+        print(f"V6: {FONTE_PERIMETRO} não resolve em fontes.json", file=sys.stderr)
         return 1
+
+    # --- Série consolidada do grupo municipal -------------------------------
+    consolidado = []
+    for fonte_id in sorted(f for f in _raws_por_fonte() if re.fullmatch(r"S11-\d{4}", f)):
+        ano = int(fonte_id.split("-")[1])
+        if fonte_id not in validos:  # V6
+            print(f"V6: {fonte_id} não resolve", file=sys.stderr)
+            return 1
+        vals = extrair_consolidado(_raw_de(fonte_id))
+        if len(vals) < 4:
+            avisos.append(f"{fonte_id}: agregados do balanço consolidado incompletos.")
+            continue
+        # A identidade do balanço: ativo = passivo + património líquido.
+        # Se não fechar, foi lida a linha errada.
+        rel.check(
+            f"balanco-{ano}",
+            abs(vals["passivo"] + vals["patrimonio_liquido"] - vals["ativo"]) <= 0.01,
+            f"{ano}: passivo {vals['passivo']:.2f} + património "
+            f"{vals['patrimonio_liquido']:.2f} != ativo {vals['ativo']:.2f}",
+        )
+        consolidado.append({"ano_referencia": ano, **vals, "fonte_id": fonte_id})
 
     if not rel.passou:
         print("Validações falhadas — nada foi escrito:", file=sys.stderr)
@@ -245,13 +315,16 @@ def construir() -> int:
             "gerado_em": datetime.now(timezone.utc).isoformat(),
             "script": "etl/empresas_participadas.py",
             "versao_modelo": VERSAO_MODELO,
-            "fontes": [FONTE],
+            "fontes": [FONTE_PERIMETRO] + [c["fonte_id"] for c in consolidado],
             "avisos": avisos,
         },
         "ano_referencia": ANO_REFERENCIA,
         "total_entidades": len(entidades),
         "total_no_perimetro": len(no_perimetro),
         "entidades": entidades,
+        # O grupo como um todo. O financeiro de CADA entidade não está neste
+        # relatório — ver L32.
+        "consolidado_por_ano": consolidado,
     }
     destino = PROCESSED / "empresas_municipais.json"
     destino.write_text(
@@ -259,6 +332,9 @@ def construir() -> int:
     )
     print(f"Escrito {destino}")
     print(f"  {len(entidades)} entidades, {len(no_perimetro)} no perímetro")
+    for c in consolidado:
+        ativo = f"{c['ativo']:,.2f}".replace(",", " ").replace(".", ",")
+        print(f"  {c['ano_referencia']}: ativo do grupo {ativo} €")
     print(f"\nValidações passadas: {', '.join(rel.ok)}")
     for a in avisos:
         print(f"aviso: {a}")

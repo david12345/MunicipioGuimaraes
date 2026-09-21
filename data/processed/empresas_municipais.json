@@ -1,10 +1,15 @@
 {
   "_meta": {
-    "gerado_em": "2026-09-21T18:58:20.371856+00:00",
+    "gerado_em": "2026-09-21T22:39:57.796167+00:00",
     "script": "etl/empresas_participadas.py",
     "versao_modelo": "1.0",
     "fontes": [
-      "S11"
+      "S11-2023",
+      "S11-2021",
+      "S11-2022",
+      "S11-2023",
+      "S11-2024",
+      "S11-2025"
     ],
     "avisos": []
   },
@@ -27,7 +32,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Taipas Turitermas, CIPRL",
@@ -44,7 +49,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Turipenha - Cooperativa de Turismo de Interesse Público, CRL",
@@ -61,7 +66,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Fraterna – Centro Comunitário de Solidariedade e Integração Social, CIPRL",
@@ -78,7 +83,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Tempo Livre Fisical CIPRL",
@@ -95,7 +100,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Casfig - Empresa Municipal, EM",
@@ -112,7 +117,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Vimágua - Empresa de Água e Saneamento Guimarães e Vizela, EIM, S.A.",
@@ -129,7 +134,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "PIEP Associação - Pólo de Inovação em Engenharia de Polímeros",
@@ -146,7 +151,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "CVR - Centro para a Valorização de Resíduos",
@@ -163,7 +168,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Vitrus Ambiente, EM S.A.",
@@ -180,7 +185,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Associação Nacional de Municípios Portugueses ANMP",
@@ -197,7 +202,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Associação Portuguesa de Municípios com Centro Histórico",
@@ -214,7 +219,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "UCCLA - União das Cidades Capitais Luso-Afro-Américo-Asiáticas",
@@ -231,7 +236,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Associação do Eixo Atlântico do Noroeste Peninsular",
@@ -248,7 +253,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Associação Portuguesa de Bibliotecários Arquivistas Documentalistas",
@@ -265,7 +270,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "AMAVE - Associação de Municípios do Vale do Ave",
@@ -282,7 +287,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Associação das Cidades Património - Organização das Cidades Património Mundial",
@@ -299,7 +304,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Associação Norte Cultural",
@@ -316,7 +321,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Rede de Bibliotecas Associadas da UNESCO",
@@ -333,7 +338,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Associação CCG/ZGDV - Centro de Computação Gráfica",
@@ -350,7 +355,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "CIUMED - Rede para a Promoção das Cidades Médias do Sudoeste Europeu",
@@ -367,7 +372,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Associação ENERGIE-CITÉS",
@@ -384,7 +389,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Turismo do Porto e Norte de Portugal, E.R.",
@@ -401,7 +406,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "CIM do Ave - Comunidade Intermunicipal do Ave",
@@ -418,7 +423,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Fundação Cidade Guimarães",
@@ -435,7 +440,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "APHVIN/GEHVID - Associação Portuguesa de História da Vinha e do Vinho",
@@ -452,7 +457,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Associação de Municípios de Fins Específicos Quadrilátero Urbano",
@@ -469,7 +474,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "REC - Associação Rede Economias Criativas",
@@ -486,7 +491,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "IDEGUI - Instituto de Design de Guimarães - Associação para a Regeneração Económica",
@@ -503,7 +508,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "APCV - Associação Portuguesa de Corredores Verdes",
@@ -520,7 +525,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Fundo de Apoio Municipal",
@@ -537,7 +542,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Laboratório da Paisagem de Guimarães",
@@ -554,7 +559,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "APSI Uminho - Associação de Psicologia da Universidade do Minho",
@@ -571,7 +576,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Fundação Serralves",
@@ -588,7 +593,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "ANAM - Associação Nacional das Assembleias Municipais",
@@ -605,7 +610,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "ProChild CoLAB Against Poverty and Social Exclusion",
@@ -622,7 +627,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "ICLEI - Local Governments for Sustainability - European Secretariat",
@@ -639,7 +644,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Curtir Ciência - Associação Centro de Ciência Viva de Guimarães",
@@ -656,7 +661,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "AICE - Asociación Internacional de Ciudades Educadoras",
@@ -673,7 +678,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "ATPN - Associação de Turismo do Porto e Norte",
@@ -690,7 +695,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "Associação Fibrenamics - Instituto de Inovação Materiais Fibrosos e Compósitos",
@@ -707,7 +712,7 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
     },
     {
       "nome": "ALU - Associação de Limpeza Urbana",
@@ -724,7 +729,49 @@
       "trabalhadores": null,
       "financeiro_por_ano": [],
       "ano_referencia": 2023,
-      "fonte_id": "S11"
+      "fonte_id": "S11-2023"
+    }
+  ],
+  "consolidado_por_ano": [
+    {
+      "ano_referencia": 2021,
+      "ativo": 560767757.94,
+      "passivo": 82613638.8,
+      "resultado_liquido": 3328863.98,
+      "patrimonio_liquido": 478154119.14,
+      "fonte_id": "S11-2021"
+    },
+    {
+      "ano_referencia": 2022,
+      "ativo": 567971068.08,
+      "passivo": 80457077.53,
+      "resultado_liquido": 5186780.56,
+      "patrimonio_liquido": 487513990.55,
+      "fonte_id": "S11-2022"
+    },
+    {
+      "ano_referencia": 2023,
+      "ativo": 584912394.97,
+      "passivo": 78478387.81,
+      "resultado_liquido": 14429273.54,
+      "patrimonio_liquido": 506434007.16,
+      "fonte_id": "S11-2023"
+    },
+    {
+      "ano_referencia": 2024,
+      "ativo": 609776344.61,
+      "passivo": 75162672.27,
+      "resultado_liquido": 14129966.94,
+      "patrimonio_liquido": 534613672.34,
+      "fonte_id": "S11-2024"
+    },
+    {
+      "ano_referencia": 2025,
+      "ativo": 647305474.49,
+      "passivo": 78327226.81,
+      "resultado_liquido": 9822498.94,
+      "patrimonio_liquido": 568978247.68,
+      "fonte_id": "S11-2025"
     }
   ]
 }

@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "gerado_em": "2026-09-21T22:21:23.821561+00:00",
+    "gerado_em": "2026-09-21T22:41:20.135340+00:00",
     "script": "etl/common/fontes.py",
     "versao_modelo": "1.0",
-    "total_fontes": 64,
-    "fontes_descarregadas": 64
+    "total_fontes": 68,
+    "fontes_descarregadas": 68
   },
   "dados": {
     "S01": {
@@ -142,21 +142,88 @@
       "data_download": "2026-09-21",
       "descarregado": true
     },
-    "S11": {
+    "S11-2021": {
+      "nome": "Consolidação de Contas 2021",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/19124/consolidacao_de_contas_2021.pdf",
+      "formato": "pdf",
+      "ano_referencia": 2021,
+      "periodicidade": "anual",
+      "verificacao": "URL-S",
+      "alimenta": [
+        "empresas_municipais.json"
+      ],
+      "id": "S11-2021",
+      "ficheiro_raw": "data/raw/2026-09-21_consolidacao_de_contas_2021.pdf",
+      "sha256": "599cf549f145907db864161193f13a5a2a329ff9824f1d0ffe84001635013118",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S11-2022": {
+      "nome": "Consolidação de Contas 2022",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/20322/anexo___consolidacao_de_contas_2022_ra_hr_ac_sf_ps_ap_po_mn_db.pdf",
+      "formato": "pdf",
+      "ano_referencia": 2022,
+      "periodicidade": "anual",
+      "verificacao": "URL-S",
+      "alimenta": [
+        "empresas_municipais.json"
+      ],
+      "id": "S11-2022",
+      "ficheiro_raw": "data/raw/2026-09-21_anexo___consolidacao_de_contas_2022_ra_hr_ac_sf_ps_ap_po_mn_db.pdf",
+      "sha256": "2405f5a4190a308ab409d3865929d9e72de0d63a17ee1e82a56fba337e25e43a",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S11-2023": {
       "nome": "Consolidação de Contas 2023",
       "entidade": "Município de Guimarães",
       "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/21681/consolidacao_de_contas_2023.pdf",
       "formato": "pdf",
       "ano_referencia": 2023,
       "periodicidade": "anual",
-      "verificacao": "DESC",
+      "verificacao": "PRIM",
       "alimenta": [
         "empresas_municipais.json"
       ],
-      "limitacoes": "Fonte do perimetro de consolidacao; resolve os NIF para o ETL de contratos.",
-      "id": "S11",
+      "id": "S11-2023",
       "ficheiro_raw": "data/raw/2026-09-21_consolidacao_de_contas_2023.pdf",
       "sha256": "3a405d732ae675ccb12c851efff343e6e95540873e8869d3698ae06919e7d505",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S11-2024": {
+      "nome": "Consolidação de Contas 2024",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/23095/consolidacao_de_contas_2024.pdf",
+      "formato": "pdf",
+      "ano_referencia": 2024,
+      "periodicidade": "anual",
+      "verificacao": "URL-S",
+      "alimenta": [
+        "empresas_municipais.json"
+      ],
+      "id": "S11-2024",
+      "ficheiro_raw": "data/raw/2026-09-21_consolidacao_de_contas_2024.pdf",
+      "sha256": "35af8cc86e5db2fbc94479d6031eccae75c4a298452f9dc137f82d2bfad03214",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S11-2025": {
+      "nome": "Consolidação de Contas 2025",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/25855/consolidacao_de_contas_2025.pdf",
+      "formato": "pdf",
+      "ano_referencia": 2025,
+      "periodicidade": "anual",
+      "verificacao": "URL-S",
+      "alimenta": [
+        "empresas_municipais.json"
+      ],
+      "id": "S11-2025",
+      "ficheiro_raw": "data/raw/2026-09-21_consolidacao_de_contas_2025.pdf",
+      "sha256": "4db318a11e0afafe7d124436666ab7a0901d0a69fca96c82faf954d9c40bbbec",
       "data_download": "2026-09-21",
       "descarregado": true
     },

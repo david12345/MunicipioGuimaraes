@@ -83,6 +83,7 @@ Estas persistem mesmo com acesso à rede e condicionam o desenho do dashboard.
 | L29 | **Instalações desportivas não constam** dos equipamentos | Piscinas, pavilhões e campos ficam de fora da secção 10 | São geridas pela **Tempo Livre**, cooperativa do perímetro de consolidação, e o sítio do município não as lista. Obtê-las exigiria ir ao sítio da Tempo Livre, que é outra entidade e outra fonte |
 | L30 | Uma ficha de equipamento aponta para **fora do concelho** | Incluí-la no enquadramento do mapa afastava a vista 20 km | O **IPDJ Braga** é listado pela CMG como contacto de apoio à juventude. É uma ficha legítima, não um erro: fica com `no_concelho: false`, aparece no mapa e na lista assinalado, mas não enquadra a vista |
 | L31 | Três equipamentos **sem coordenadas** na fonte | Não aparecem no mapa | ASMAV, Centro de Criação de Candoso e Cine Clube de Guimarães. Constam da lista com morada e contacto, e o cartão diz que a localização não está disponível — não são geocodificados a partir da morada |
+| L32 | **Financeiro por entidade participada** não consta do relatório consolidado | A secção 9 mostra o perímetro e os agregados do grupo, não o volume de negócios ou o resultado de cada entidade | O Relatório de Contas Consolidadas **consolida, não desagrega**. Obter o financeiro de cada uma exigiria as contas próprias das onze entidades do perímetro — onze fontes diferentes, algumas provavelmente não publicadas em linha |
 
 ### Verificação — não há reestruturação orgânica de 2026 em Guimarães
 
@@ -140,7 +141,7 @@ São automáticas e **bloqueantes**: uma extração que falhe não é publicada.
 |---|---|---|
 | 2 · Quem governa | `etl/quem_governa.py` | V1 em duas formas (soma dos mandatos = total declarado; lista nominal = mesmo total) e V6 |
 | 8 · Contratos | `etl/contratos.py` | **V4** nos oito anos (2019–2026), V6, e unicidade do NIF do Município no dataset |
-| 9 · Participadas | `etl/empresas_participadas.py` | V6, e "toda a entidade no perímetro tem NIPC" — é essa que garante que o filtro dos contratos não perde entidades |
+| 9 · Participadas | `etl/empresas_participadas.py` | V6, "toda a entidade no perímetro tem NIPC" — é essa que garante que o filtro dos contratos não perde entidades — e a **identidade do balanço** (ativo = passivo + património líquido) nos cinco anos consolidados |
 | 4 · Quem lá trabalha | `etl/mapa_pessoal.py` | **V3**, V6, e 63 verificações de total (7 unidades × 9 colunas) contra o `TOTAL` impresso no documento |
 | 3 · Como está organizada | `etl/estrutura_organica.py` | V6, unicidade dos `id`, existência do alvo de cada alteração normativa, e **verificação cruzada nos dois sentidos** contra o organograma publicado |
 | 5 · De onde vem o dinheiro | `etl/orcamento.py` | **V2** nos cinco anos (receita total = despesa total, por imposição legal), **V1** em quatro formas por ano, V6, e a regra do equilíbrio orçamental do art. 40.º do RFALEI em cada ano de execução |

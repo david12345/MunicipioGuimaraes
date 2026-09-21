@@ -100,16 +100,59 @@ S10-2025:
   verificacao: URL-S
   alimenta: [orcamento.json]
 
-S11:
+# --- S11: consolidacao de contas, por ano ---------------------------------
+# Fonte do perimetro de consolidacao (resolve os NIF para o ETL de contratos)
+# e do financeiro de cada entidade participada. Do arquivo S39, subpasta
+# "Prestacao de Contas" de cada ano.
+S11-2021:
+  nome: Consolidação de Contas 2021
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/19124/consolidacao_de_contas_2021.pdf
+  formato: pdf
+  ano_referencia: 2021
+  periodicidade: anual
+  verificacao: URL-S
+  alimenta: [empresas_municipais.json]
+
+S11-2022:
+  nome: Consolidação de Contas 2022
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/20322/anexo___consolidacao_de_contas_2022_ra_hr_ac_sf_ps_ap_po_mn_db.pdf
+  formato: pdf
+  ano_referencia: 2022
+  periodicidade: anual
+  verificacao: URL-S
+  alimenta: [empresas_municipais.json]
+
+S11-2023:
   nome: Consolidação de Contas 2023
   entidade: Município de Guimarães
   url: https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/21681/consolidacao_de_contas_2023.pdf
   formato: pdf
   ano_referencia: 2023
   periodicidade: anual
-  verificacao: DESC
+  verificacao: PRIM
   alimenta: [empresas_municipais.json]
-  limitacoes: Fonte do perimetro de consolidacao; resolve os NIF para o ETL de contratos.
+
+S11-2024:
+  nome: Consolidação de Contas 2024
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/23095/consolidacao_de_contas_2024.pdf
+  formato: pdf
+  ano_referencia: 2024
+  periodicidade: anual
+  verificacao: URL-S
+  alimenta: [empresas_municipais.json]
+
+S11-2025:
+  nome: Consolidação de Contas 2025
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/25855/consolidacao_de_contas_2025.pdf
+  formato: pdf
+  ano_referencia: 2025
+  periodicidade: anual
+  verificacao: URL-S
+  alimenta: [empresas_municipais.json]
 
 S16:
   nome: Mapa oficial dos resultados das eleições autárquicas 2025 (notícia CMG)

@@ -9,23 +9,37 @@
 
 import { carregar } from "../nucleo/dados.js";
 import { figura, el } from "../nucleo/figura.js";
-import { barrasHorizontais, alturaBarras } from "../nucleo/graficos.js";
-import { numero, dinheiro, NAO_DISPONIVEL } from "../nucleo/formato.js";
+import {
+  barrasHorizontais,
+  linhaTemporal,
+  alturaBarras,
+} from "../nucleo/graficos.js";
+import { numero, dinheiro, dinheiroCurto, NAO_DISPONIVEL } from "../nucleo/formato.js";
 
+/* Singular e plural, declarados. O português não pluraliza por acrescentar
+ * "s": "empresa municipal" dá "empresas municipais", "associação" dá
+ * "associações". Uma regra automática produzia "empresa municipals" e
+ * "associaçãos" — e este texto é lido por pessoas. */
 const NATUREZAS = {
-  empresa_municipal: "Empresa municipal",
-  empresa_intermunicipal: "Empresa intermunicipal",
-  cooperativa: "Cooperativa",
-  regie_cooperativa: "Régie cooperativa",
-  associacao: "Associação",
-  associacao_municipios: "Associação de municípios",
-  fundacao: "Fundação",
-  fundo: "Fundo",
-  pessoa_coletiva_publica: "Pessoa coletiva pública",
+  empresa_municipal: ["Empresa municipal", "empresas municipais"],
+  empresa_intermunicipal: ["Empresa intermunicipal", "empresas intermunicipais"],
+  cooperativa: ["Cooperativa", "cooperativas"],
+  regie_cooperativa: ["Régie cooperativa", "régies cooperativas"],
+  associacao: ["Associação", "associações"],
+  associacao_municipios: ["Associação de municípios", "associações de municípios"],
+  fundacao: ["Fundação", "fundações"],
+  fundo: ["Fundo", "fundos"],
+  pessoa_coletiva_publica: ["Pessoa coletiva pública", "pessoas coletivas públicas"],
 };
 
 function natureza(e) {
-  return NATUREZAS[e.natureza] ?? e.natureza_fonte ?? NAO_DISPONIVEL;
+  return NATUREZAS[e.natureza]?.[0] ?? e.natureza_fonte ?? NAO_DISPONIVEL;
+}
+
+function naturezaPlural(chave, quantidade) {
+  const par = NATUREZAS[chave];
+  if (!par) return chave;
+  return quantidade === 1 ? par[0].toLowerCase() : par[1];
 }
 
 export async function render(raiz) {
@@ -35,12 +49,11 @@ export async function render(raiz) {
 
   const contagem = new Map();
   for (const e of perimetro) {
-    const n = natureza(e);
-    contagem.set(n, (contagem.get(n) ?? 0) + 1);
+    contagem.set(e.natureza, (contagem.get(e.natureza) ?? 0) + 1);
   }
   const resumoNaturezas = [...contagem.entries()]
     .sort((a, b) => b[1] - a[1])
-    .map(([n, q]) => `${q} ${q === 1 ? n.toLowerCase() : `${n.toLowerCase()}s`}`)
+    .map(([chave, q]) => `${q} ${naturezaPlural(chave, q)}`)
     .join(", ");
 
   raiz.append(
@@ -105,13 +118,84 @@ export async function render(raiz) {
       linhas: perimetro,
       fontes: perimetro[0]?.fonte_id ?? "S11",
       avisos: [
-        "Os dados financeiros de cada entidade — volume de negócios, " +
-          "resultado líquido, transferências recebidas do município — ainda " +
-          "não foram extraídos. Estão nos relatórios de consolidação de " +
-          "contas, que estão localizados mas por processar.",
+        "O financeiro de cada entidade — volume de negócios, resultado " +
+          "líquido, transferências recebidas do município — não consta do " +
+          "relatório de contas consolidadas: esse documento consolida, não " +
+          "desagrega. Obtê-lo exigiria as contas de cada uma das onze " +
+          "entidades, que são onze fontes diferentes. Abaixo estão os " +
+          "agregados do grupo como um todo.",
       ],
     }),
   );
+
+  // --- O grupo municipal como um todo --------------------------------------
+  const serie = d.consolidado_por_ano ?? [];
+  if (serie.length) {
+    raiz.append(el("h3", { class: "sub-titulo", texto: "O grupo municipal em números" }));
+    raiz.append(
+      el("p", {
+        class: "nota",
+        texto:
+          "Quando as contas das participadas se somam às do município, o " +
+          "resultado é o “grupo municipal”. É uma imagem mais completa do que " +
+          "as contas da Câmara sozinha: inclui o património e as dívidas das " +
+          "entidades que ela controla.",
+      }),
+    );
+    raiz.append(
+      figura({
+        titulo: "Ativo e passivo do grupo municipal",
+        resumo:
+          "O ativo é tudo o que o grupo possui; o passivo é tudo o que deve. " +
+          "A diferença entre os dois é o património líquido.",
+        proporcao: 0.6,
+        desenhar: (svg, w, h) =>
+          linhaTemporal(svg, w, h, {
+            series: [
+              { nome: "Ativo", pontos: serie.map((c) => ({ x: c.ano_referencia, y: c.ativo })) },
+              { nome: "Passivo", pontos: serie.map((c) => ({ x: c.ano_referencia, y: c.passivo })) },
+            ],
+            formatar: dinheiroCurto,
+            formatarX: String,
+          }),
+        colunas: [
+          { titulo: "Ano", valor: (l) => l.ano_referencia },
+          { titulo: "Ativo (€)", valor: (l) => l.ativo, numerica: true },
+          { titulo: "Passivo (€)", valor: (l) => l.passivo, numerica: true },
+          { titulo: "Património líquido (€)", valor: (l) => l.patrimonio_liquido, numerica: true },
+          { titulo: "Resultado líquido (€)", valor: (l) => l.resultado_liquido, numerica: true },
+        ],
+        linhas: serie,
+        fontes: serie.map((c) => c.fonte_id),
+      }),
+    );
+
+    const resultados = serie.map((c) => ({
+      rotulo: String(c.ano_referencia),
+      valor: c.resultado_liquido,
+    }));
+    raiz.append(
+      figura({
+        titulo: "Resultado líquido do grupo, ano a ano",
+        resumo:
+          "O que sobrou depois de todos os gastos. Um resultado positivo não " +
+          "é lucro a distribuir: fica no património do grupo.",
+        altura: () => alturaBarras(resultados.length),
+        desenhar: (svg, w, h) =>
+          barrasHorizontais(svg, w, h, {
+            dados: resultados,
+            formatar: dinheiroCurto,
+            corUnica: "var(--serie-3)",
+          }),
+        colunas: [
+          { titulo: "Ano", valor: (l) => l.ano_referencia },
+          { titulo: "Resultado líquido (€)", valor: (l) => l.resultado_liquido, numerica: true },
+        ],
+        linhas: serie,
+        fontes: serie.map((c) => c.fonte_id),
+      }),
+    );
+  }
 
   // --- Fora do perímetro ---------------------------------------------------
   const detalhes = el("details", { class: "figura__tabela figura" });
