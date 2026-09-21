@@ -9,3 +9,19 @@ dist/
 
 # Claude Code: settings.json é partilhado; as locais são pessoais
 .claude/settings.local.json
+
+# data/raw/: os originais MUNICIPAIS são commitados (~22 MB). É neles que a
+# regra 3 tem valor real — uma autarquia substitui um PDF mantendo o URL, e o
+# original commitado é a única prova do que foi extraído.
+#
+# Os datasets NACIONAIS não (~515 MB): têm arquivo estável e os contratos são
+# republicados semanalmente, pelo que cada `make fetch` geraria ficheiros novos.
+# Fica commitado o .meta.json de cada um, com URL, sha256, bytes e data — o que
+# os reproduz com `make fetch` e mantém a integridade verificável.
+data/raw/*contratos[0-9][0-9][0-9][0-9].xlsx
+data/raw/*contratos[0-9][0-9][0-9][0-9].zip
+data/raw/*_0000200612.pdf
+# Downloads interrompidos (ver etl/common/fetch.py).
+data/raw/*.parcial
+# ... mas os sidecars entram sempre.
+!data/raw/*.meta.json
