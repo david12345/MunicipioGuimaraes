@@ -1,0 +1,589 @@
+{
+  "_meta": {
+    "gerado_em": "2026-09-21T20:24:06.314428+00:00",
+    "script": "etl/estrutura_organica.py",
+    "versao_modelo": "1.0",
+    "fontes": [
+      "S05",
+      "S38",
+      "S06",
+      "S03-06_24"
+    ],
+    "cadeia_normativa": [
+      "S05: Despacho n.º 14897/2022, de 30-12-2022 (estrutura base)",
+      "S38: Despacho n.º 6751/2024, de 17-06-2024",
+      "S06: Despacho n.º 9070/2024, de 09-08-2024"
+    ],
+    "alteracoes_aplicadas": [
+      "S38: revogada DSI (Divisão de Sistemas de Informação)",
+      "S38: revogada DDSI (Divisão de Desenvolvimento de Sistemas Inteligentes)",
+      "S38: revogada DDE (Divisão de Desenvolvimento Económico)",
+      "S38: criada DITDE (Departamento de Inovação, Transformação Digital e Economia)",
+      "S38: Departamento de Cultura, Economia e Inovação passa a Departamento de Cultura e Turismo",
+      "S06: revogada GASI (Gabinete para a Ação Social Integrada)",
+      "S06: criada GAIS (Gabinete de Apoio à Intervenção Social)"
+    ],
+    "avisos": [
+      "Siglas reutilizadas pela CMG em unidades diferentes, desambiguadas com o prefixo da unidade-mãe: DCT (Departamento de Cultura e Turismo) -> CMG/DCT; DF (Departamento Financeiro) -> DMSP/DF; DCT (Divisão de Contabilidade e Tesouraria) -> DF/DCT; DC (Divisão de Contencioso) -> DJ/DC; DF (Divisão de Fiscalização) -> DJ/DF; DE (Divisão de Empreitadas) -> DMITAAC/DE; DE (Divisão de Educação) -> DIS/DE; DC (Divisão de Cultura) -> DCT/DC",
+      "Unidades na árvore normativa que não aparecem no organograma publicado (S03-06_24): DCG. O texto normativo prevalece, mas a divergência fica registada.",
+      "Siglas no organograma publicado sem correspondência na árvore normativa: DM, GCG. Verificar se é unidade perdida na extração ou sigla que o texto normativo não atribui."
+    ]
+  },
+  "total_unidades": 48,
+  "arvore": {
+    "id": "CMG",
+    "sigla": "CMG",
+    "nome": "Município de Guimarães",
+    "tipo": "municipio",
+    "dirigente": null,
+    "competencias": [],
+    "fonte_id": "S05",
+    "filhos": [
+      {
+        "id": "DMSP",
+        "sigla": "DMSP",
+        "nome": "Direção Municipal de Serviços Partilhados",
+        "tipo": "direcao_municipal",
+        "dirigente": null,
+        "competencias": [],
+        "fonte_id": "S05",
+        "filhos": [
+          {
+            "id": "DMSP/DF",
+            "sigla": "DF",
+            "nome": "Departamento Financeiro",
+            "tipo": "departamento",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": [
+              {
+                "id": "DF/DCT",
+                "sigla": "DCT",
+                "nome": "Divisão de Contabilidade e Tesouraria",
+                "tipo": "divisao",
+                "dirigente": null,
+                "competencias": [],
+                "fonte_id": "S05",
+                "filhos": [
+                  {
+                    "id": "DCG",
+                    "sigla": "DCG",
+                    "nome": "Gabinete de Contabilidade de Gestão",
+                    "tipo": "gabinete",
+                    "dirigente": null,
+                    "competencias": [],
+                    "fonte_id": "S05",
+                    "filhos": []
+                  }
+                ]
+              },
+              {
+                "id": "DCPGF",
+                "sigla": "DCPGF",
+                "nome": "Divisão de Contratação Pública e Gestão de Financiamentos",
+                "tipo": "divisao",
+                "dirigente": null,
+                "competencias": [],
+                "fonte_id": "S05",
+                "filhos": [
+                  {
+                    "id": "GCP",
+                    "sigla": "GCP",
+                    "nome": "Gabinete de Contratação Pública",
+                    "tipo": "gabinete",
+                    "dirigente": null,
+                    "competencias": [],
+                    "fonte_id": "S05",
+                    "filhos": []
+                  }
+                ]
+              },
+              {
+                "id": "DPM",
+                "sigla": "DPM",
+                "nome": "Divisão de Património Municipal",
+                "tipo": "divisao",
+                "dirigente": null,
+                "competencias": [],
+                "fonte_id": "S05",
+                "filhos": []
+              }
+            ]
+          },
+          {
+            "id": "DJ",
+            "sigla": "DJ",
+            "nome": "Departamento Jurídico",
+            "tipo": "departamento",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": [
+              {
+                "id": "DJ/DC",
+                "sigla": "DC",
+                "nome": "Divisão de Contencioso",
+                "tipo": "divisao",
+                "dirigente": null,
+                "competencias": [],
+                "fonte_id": "S05",
+                "filhos": []
+              },
+              {
+                "id": "DJ/DF",
+                "sigla": "DF",
+                "nome": "Divisão de Fiscalização",
+                "tipo": "divisao",
+                "dirigente": null,
+                "competencias": [],
+                "fonte_id": "S05",
+                "filhos": []
+              },
+              {
+                "id": "DOPM",
+                "sigla": "DOPM",
+                "nome": "Divisão Operacional de Polícia Municipal",
+                "tipo": "divisao",
+                "dirigente": null,
+                "competencias": [],
+                "fonte_id": "S05",
+                "filhos": []
+              }
+            ]
+          },
+          {
+            "id": "DRH",
+            "sigla": "DRH",
+            "nome": "Departamento de Recursos Humanos",
+            "tipo": "departamento",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": [
+              {
+                "id": "DFD",
+                "sigla": "DFD",
+                "nome": "Divisão de Formação e Desenvolvimento",
+                "tipo": "divisao",
+                "dirigente": null,
+                "competencias": [],
+                "fonte_id": "S05",
+                "filhos": []
+              },
+              {
+                "id": "DGRH",
+                "sigla": "DGRH",
+                "nome": "Divisão de Gestão de Recursos Humanos",
+                "tipo": "divisao",
+                "dirigente": null,
+                "competencias": [],
+                "fonte_id": "S05",
+                "filhos": []
+              },
+              {
+                "id": "GSST",
+                "sigla": "GSST",
+                "nome": "Gabinete de Segurança e Saúde no Trabalho",
+                "tipo": "gabinete",
+                "dirigente": null,
+                "competencias": [],
+                "fonte_id": "S05",
+                "filhos": []
+              }
+            ]
+          },
+          {
+            "id": "DAAM",
+            "sigla": "DAAM",
+            "nome": "Divisão de Atendimento e Apoio ao Munícipe",
+            "tipo": "divisao",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": []
+          },
+          {
+            "id": "DAQ",
+            "sigla": "DAQ",
+            "nome": "Divisão de Auditoria e Qualidade",
+            "tipo": "divisao",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": []
+          },
+          {
+            "id": "DITDE",
+            "sigla": "DITDE",
+            "nome": "Departamento de Inovação, Transformação Digital e Economia",
+            "tipo": "departamento",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S38",
+            "filhos": [
+              {
+                "id": "DISI",
+                "sigla": "DISI",
+                "nome": "Divisão de Inovação e Sistemas Inteligentes",
+                "tipo": "divisao",
+                "dirigente": null,
+                "competencias": [],
+                "fonte_id": "S38",
+                "filhos": []
+              },
+              {
+                "id": "DSIC",
+                "sigla": "DSIC",
+                "nome": "Divisão de Sistemas de Informação e Comunicações",
+                "tipo": "divisao",
+                "dirigente": null,
+                "competencias": [],
+                "fonte_id": "S38",
+                "filhos": []
+              },
+              {
+                "id": "DDE",
+                "sigla": "DDE",
+                "nome": "Divisão de Desenvolvimento Económico",
+                "tipo": "divisao",
+                "dirigente": null,
+                "competencias": [],
+                "fonte_id": "S38",
+                "filhos": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DMITAAC",
+        "sigla": "DMITAAC",
+        "nome": "Direção Municipal de Intervenção no Território, Ambiente e Ação Climática",
+        "tipo": "direcao_municipal",
+        "dirigente": null,
+        "competencias": [],
+        "fonte_id": "S05",
+        "filhos": [
+          {
+            "id": "DAS",
+            "sigla": "DAS",
+            "nome": "Departamento de Ambiente e Sustentabilidade",
+            "tipo": "departamento",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": [
+              {
+                "id": "DAEP",
+                "sigla": "DAEP",
+                "nome": "Divisão de Ambiente e Espaço Público",
+                "tipo": "divisao",
+                "dirigente": null,
+                "competencias": [],
+                "fonte_id": "S05",
+                "filhos": [
+                  {
+                    "id": "GSU",
+                    "sigla": "GSU",
+                    "nome": "Gabinete de Serviços Urbanos",
+                    "tipo": "gabinete",
+                    "dirigente": null,
+                    "competencias": [],
+                    "fonte_id": "S05",
+                    "filhos": []
+                  }
+                ]
+              },
+              {
+                "id": "DEVB",
+                "sigla": "DEVB",
+                "nome": "Divisão de Estrutura Verde e Biodiversidade",
+                "tipo": "divisao",
+                "dirigente": null,
+                "competencias": [],
+                "fonte_id": "S05",
+                "filhos": []
+              },
+              {
+                "id": "divisao_de_mobilidade",
+                "sigla": null,
+                "nome": "Divisão de Mobilidade",
+                "tipo": "divisao",
+                "dirigente": null,
+                "competencias": [],
+                "fonte_id": "S05",
+                "filhos": [
+                  {
+                    "id": "GAT",
+                    "sigla": "GAT",
+                    "nome": "Gabinete de Autoridade de Transportes",
+                    "tipo": "gabinete",
+                    "dirigente": null,
+                    "competencias": [],
+                    "fonte_id": "S05",
+                    "filhos": []
+                  },
+                  {
+                    "id": "GVM",
+                    "sigla": "GVM",
+                    "nome": "Gabinete de Viaturas Municipais",
+                    "tipo": "gabinete",
+                    "dirigente": null,
+                    "competencias": [],
+                    "fonte_id": "S05",
+                    "filhos": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "DMITAAC/DE",
+            "sigla": "DE",
+            "nome": "Divisão de Empreitadas",
+            "tipo": "divisao",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": []
+          },
+          {
+            "id": "DEP",
+            "sigla": "DEP",
+            "nome": "Divisão de Estudos e Projetos",
+            "tipo": "divisao",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": []
+          },
+          {
+            "id": "DGC",
+            "sigla": "DGC",
+            "nome": "Divisão de Gestão e Conservação",
+            "tipo": "divisao",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": []
+          },
+          {
+            "id": "GEE",
+            "sigla": "GEE",
+            "nome": "Gabinete de Eficiência Energética",
+            "tipo": "gabinete",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": []
+          },
+          {
+            "id": "GSCIE",
+            "sigla": "GSCIE",
+            "nome": "Gabinete de Segurança Contra Incêndios em Edifícios",
+            "tipo": "gabinete",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": []
+          }
+        ]
+      },
+      {
+        "id": "DDT",
+        "sigla": "DDT",
+        "nome": "Departamento de Desenvolvimento do Território",
+        "tipo": "departamento",
+        "dirigente": null,
+        "competencias": [],
+        "fonte_id": "S05",
+        "filhos": [
+          {
+            "id": "DGU",
+            "sigla": "DGU",
+            "nome": "Divisão de Gestão Urbanística",
+            "tipo": "divisao",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": []
+          },
+          {
+            "id": "DPMBC",
+            "sigla": "DPMBC",
+            "nome": "Divisão do Património Mundial e Bens Classificados",
+            "tipo": "divisao",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": []
+          },
+          {
+            "id": "DPOT",
+            "sigla": "DPOT",
+            "nome": "Divisão de Planeamento e Ordenamento do Território",
+            "tipo": "divisao",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": []
+          },
+          {
+            "id": "GODT",
+            "sigla": "GODT",
+            "nome": "Gabinete Operacional de Desenvolvimento do Território",
+            "tipo": "gabinete",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": []
+          }
+        ]
+      },
+      {
+        "id": "DIS",
+        "sigla": "DIS",
+        "nome": "Departamento de Intervenção Social",
+        "tipo": "departamento",
+        "dirigente": null,
+        "competencias": [],
+        "fonte_id": "S05",
+        "filhos": [
+          {
+            "id": "DB",
+            "sigla": "DB",
+            "nome": "Divisão de Bibliotecas",
+            "tipo": "divisao",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": []
+          },
+          {
+            "id": "DCDS",
+            "sigla": "DCDS",
+            "nome": "Divisão para a Coesão e Desenvolvimento Social",
+            "tipo": "divisao",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": []
+          },
+          {
+            "id": "DDJC",
+            "sigla": "DDJC",
+            "nome": "Divisão de Desporto, Juventude e Cidadania",
+            "tipo": "divisao",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": []
+          },
+          {
+            "id": "DIS/DE",
+            "sigla": "DE",
+            "nome": "Divisão de Educação",
+            "tipo": "divisao",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": [
+              {
+                "id": "GAPE",
+                "sigla": "GAPE",
+                "nome": "Gabinete de Apoio a Projetos Educativos",
+                "tipo": "gabinete",
+                "dirigente": null,
+                "competencias": [],
+                "fonte_id": "S05",
+                "filhos": []
+              }
+            ]
+          },
+          {
+            "id": "DH",
+            "sigla": "DH",
+            "nome": "Divisão de Habitação",
+            "tipo": "divisao",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": []
+          },
+          {
+            "id": "GAIS",
+            "sigla": "GAIS",
+            "nome": "Gabinete de Apoio à Intervenção Social",
+            "tipo": "gabinete",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S06",
+            "filhos": []
+          }
+        ]
+      },
+      {
+        "id": "CMG/DCT",
+        "sigla": "DCT",
+        "nome": "Departamento de Cultura e Turismo",
+        "tipo": "departamento",
+        "dirigente": null,
+        "competencias": [],
+        "fonte_id": "S05+S38",
+        "filhos": [
+          {
+            "id": "DA",
+            "sigla": "DA",
+            "nome": "Divisão de Arquivos",
+            "tipo": "divisao",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": []
+          },
+          {
+            "id": "DCT/DC",
+            "sigla": "DC",
+            "nome": "Divisão de Cultura",
+            "tipo": "divisao",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": []
+          },
+          {
+            "id": "DT",
+            "sigla": "DT",
+            "nome": "Divisão de Turismo",
+            "tipo": "divisao",
+            "dirigente": null,
+            "competencias": [],
+            "fonte_id": "S05",
+            "filhos": []
+          }
+        ]
+      },
+      {
+        "id": "SMPC",
+        "sigla": "SMPC",
+        "nome": "Serviço Municipal de Proteção Civil",
+        "tipo": "servico",
+        "dirigente": null,
+        "competencias": [],
+        "fonte_id": "S05",
+        "filhos": []
+      },
+      {
+        "id": "GCRP",
+        "sigla": "GCRP",
+        "nome": "Gabinete de Comunicação e Relações Públicas",
+        "tipo": "gabinete",
+        "dirigente": null,
+        "competencias": [],
+        "fonte_id": "S05",
+        "filhos": []
+      }
+    ]
+  }
+}
