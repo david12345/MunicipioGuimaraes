@@ -1,9 +1,14 @@
-# Dependências de extração (Fase 2). Instalar só quando os parsers existirem.
-# Nota: camelot-py exige ghostscript instalado no sistema; se a instalação
-# falhar, `make fetch` continua a funcionar — são independentes.
+# Dependências de extração (Fase 2). Instalar com `make setup-parse`.
 -r requirements.txt
-pandas>=2.2
-pdfplumber>=0.11      # tabelas em PDF (texto)
-camelot-py[base]>=0.11 # tabelas em PDF (lattice/stream) — requer ghostscript
-pymupdf>=1.24         # texto e layout
-openpyxl>=3.1         # XLSX (dados.gov / DGAL / INE)
+
+pymupdf>=1.24         # texto e tabelas em PDF — usado por empresas_participadas
+openpyxl>=3.1         # XLSX — usado por contratos (dataset do BASE)
+
+# Ainda não usados por nenhum parser; entram quando a secção respetiva existir.
+pdfplumber>=0.11      # tabelas em PDF com layout difícil (mapa de pessoal)
+pandas>=2.2           # limpeza de séries (orçamento)
+
+# camelot-py NÃO está aqui de propósito: exige ghostscript no sistema e fazia
+# `make setup-parse` falhar numa máquina limpa, sem que nenhum parser o use.
+# Se o mapa de pessoal vier em tabela lattice e o pdfplumber não chegar:
+#   sudo apt install ghostscript && pip install 'camelot-py[base]>=0.11'
