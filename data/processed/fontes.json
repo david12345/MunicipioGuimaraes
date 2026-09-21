@@ -1,0 +1,166 @@
+{
+  "_meta": {
+    "gerado_em": "2026-09-21T18:19:20.871184+00:00",
+    "script": "etl/common/fontes.py",
+    "versao_modelo": "1.0",
+    "total_fontes": 9,
+    "fontes_descarregadas": 0
+  },
+  "dados": {
+    "S01": {
+      "nome": "Executivo Municipal",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/municipio/camara-municipal/executivo-municipal",
+      "formato": "html",
+      "periodicidade": "por_mandato",
+      "verificacao": "URL-S",
+      "alimenta": [
+        "executivo.json"
+      ],
+      "id": "S01",
+      "ficheiro_raw": null,
+      "sha256": null,
+      "data_download": null,
+      "descarregado": false
+    },
+    "S05": {
+      "nome": "Orgânica dos Serviços Municipais 2023 (DR 2.ª série n.º 251, 30-12-2022)",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/writer_file/document/9902/organica_2023.pdf",
+      "formato": "pdf",
+      "ano_referencia": 2023,
+      "periodicidade": "irregular",
+      "verificacao": "URL-S",
+      "alimenta": [
+        "estrutura_organica.json"
+      ],
+      "limitacoes": "Alterado pelo Despacho 9070/2024 (S06) - aplicar antes de publicar.",
+      "id": "S05",
+      "ficheiro_raw": null,
+      "sha256": null,
+      "data_download": null,
+      "descarregado": false
+    },
+    "S07": {
+      "nome": "Mapa de Pessoal",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/educacao-e-recursos-humanos/recursos-humanos/mapa-de-pessoal",
+      "formato": "html",
+      "periodicidade": "anual",
+      "verificacao": "URL-S",
+      "alimenta": [
+        "mapa_pessoal.json"
+      ],
+      "limitacoes": "Página índice; os PDF anuais são descobertos a partir daqui.",
+      "id": "S07",
+      "ficheiro_raw": null,
+      "sha256": null,
+      "data_download": null,
+      "descarregado": false
+    },
+    "S10": {
+      "nome": "Relatório e Contas 2021",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/18944/relatorio_e_contas_2021.pdf",
+      "formato": "pdf",
+      "ano_referencia": 2021,
+      "periodicidade": "anual",
+      "verificacao": "URL-S",
+      "alimenta": [
+        "orcamento.json"
+      ],
+      "id": "S10",
+      "ficheiro_raw": null,
+      "sha256": null,
+      "data_download": null,
+      "descarregado": false
+    },
+    "S11": {
+      "nome": "Consolidação de Contas 2023",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/21681/consolidacao_de_contas_2023.pdf",
+      "formato": "pdf",
+      "ano_referencia": 2023,
+      "periodicidade": "anual",
+      "verificacao": "URL-S",
+      "alimenta": [
+        "empresas_municipais.json"
+      ],
+      "limitacoes": "Fonte do perímetro de consolidação; resolve os NIF para o ETL de contratos.",
+      "id": "S11",
+      "ficheiro_raw": null,
+      "sha256": null,
+      "data_download": null,
+      "descarregado": false
+    },
+    "S16": {
+      "nome": "Mapa oficial dos resultados das eleições autárquicas 2025",
+      "entidade": "Município de Guimarães / CNE",
+      "url": "https://www.cm-guimaraes.pt/noticias/noticia/mapa-oficial-dos-resultados-das-eleicoes-autarquicas",
+      "formato": "html",
+      "ano_referencia": 2025,
+      "periodicidade": "por_eleicao",
+      "verificacao": "URL-S",
+      "alimenta": [
+        "orgaos_eleitos.json"
+      ],
+      "limitacoes": "Fonte com valor legal para a regra 5. Prioritária sobre imprensa.",
+      "id": "S16",
+      "ficheiro_raw": null,
+      "sha256": null,
+      "data_download": null,
+      "descarregado": false
+    },
+    "S23": {
+      "nome": "Contratos Públicos - Portal BASE (IMPIC), via dados.gov.pt",
+      "entidade": "IMPIC / AMA",
+      "url": "https://dados.gov.pt/pt/datasets/contratos-publicos-portal-base-impic-contratos-de-2012-a-2025/",
+      "formato": "xlsx",
+      "periodicidade": "semanal",
+      "verificacao": "URL-S",
+      "alimenta": [
+        "contratos_<ano>.json"
+      ],
+      "limitacoes": "Dataset nacional. Filtrar por NIF do adjudicante. Desfasamento ate 7 dias.",
+      "id": "S23",
+      "ficheiro_raw": null,
+      "sha256": null,
+      "data_download": null,
+      "descarregado": false
+    },
+    "S27": {
+      "nome": "Portal Autárquico - finanças locais",
+      "entidade": "DGAL",
+      "url": "https://www.portalautarquico.dgal.gov.pt/",
+      "formato": "xlsx",
+      "periodicidade": "trimestral",
+      "verificacao": "CONHEC",
+      "alimenta": [
+        "comparacao.json"
+      ],
+      "limitacoes": "Series ja normalizadas entre municipios - unica base admissivel para comparar.",
+      "id": "S27",
+      "ficheiro_raw": null,
+      "sha256": null,
+      "data_download": null,
+      "descarregado": false
+    },
+    "S32": {
+      "nome": "INE - população residente (estimativas anuais)",
+      "entidade": "INE",
+      "url": "https://www.ine.pt/",
+      "formato": "xlsx",
+      "periodicidade": "anual",
+      "verificacao": "CONHEC",
+      "alimenta": [
+        "populacao.json"
+      ],
+      "limitacoes": "Denominador de todas as metricas per capita. Usar uma unica serie.",
+      "id": "S32",
+      "ficheiro_raw": null,
+      "sha256": null,
+      "data_download": null,
+      "descarregado": false
+    }
+  }
+}
