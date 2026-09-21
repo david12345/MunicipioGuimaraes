@@ -19,7 +19,6 @@ URL ou quando a CMG publicou o mapa de pessoal de um novo ano.
 from __future__ import annotations
 
 import re
-from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urljoin
 
@@ -120,11 +119,10 @@ def escrever_descobertas(fontes: dict[str, dict]) -> Path:
         "# É commitado de propósito: o diff mostra quando uma fonte mudou de URL.\n"
         + yaml.safe_dump(
             {
-                "_meta": {
-                    "gerado_em": datetime.now(timezone.utc).isoformat(),
-                    "script": "etl/common/descoberta.py",
-                    "total": len(fontes),
-                },
+                # Sem `gerado_em`: um carimbo temporal sujava o ficheiro a cada
+                # execução e afogava em ruído os diffs que justificam commitá-lo.
+                # A data de geração é a do commit.
+                "_meta": {"script": "etl/common/descoberta.py", "total": len(fontes)},
                 "fontes": dict(sorted(fontes.items())),
             },
             allow_unicode=True,

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "gerado_em": "2026-09-21T18:51:15.197596+00:00",
+    "gerado_em": "2026-09-21T18:53:31.393057+00:00",
     "script": "etl/common/fontes.py",
     "versao_modelo": "1.0",
     "total_fontes": 22,
@@ -228,7 +228,7 @@
       "entidade": "Município de Guimarães",
       "periodicidade": "por_eleicao",
       "verificacao": "PRIM",
-      "limitacoes": "Documento nacional (~149 MB). Contem votos, mandatos e eleitos proclamados de todos os municipios; extrair apenas a parte de Guimaraes.",
+      "limitacoes": "Documento nacional (~143 MB) e DIGITALIZADO: as paginas 3+ sao imagens sem camada de texto, logo exige OCR (L17). Os resultados da Camara vieram de S02; isto fica como fonte com valor legal, por confirmar.",
       "nome": "Mapa Oficial n.º 2-B/2025 (DR 1.ª série, 17-12-2025)",
       "url": "https://files.diariodarepublica.pt/1s/2025/12/24201/0000200612.pdf",
       "formato": "pdf",

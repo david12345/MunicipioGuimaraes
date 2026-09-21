@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "gerado_em": "2026-09-21T18:51:15.373988+00:00",
+    "gerado_em": "2026-09-21T18:53:31.518014+00:00",
     "script": "etl/quem_governa.py",
     "versao_modelo": "1.0",
     "fontes": [
