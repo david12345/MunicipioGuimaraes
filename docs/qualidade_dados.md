@@ -1,6 +1,6 @@
 # Qualidade dos dados e lacunas conhecidas
 
-Última atualização: 2026-09-21 · Fase 2 (secções 2, 3, 4, 8, 9 e população extraídas).
+Última atualização: 2026-09-21 · Fase 2 (secções 2, 3, 4, 5, 8, 9 e população extraídas).
 
 Este ficheiro regista **tudo o que não foi possível obter ou validar**. É um
 entregável tão importante como os dados: o dashboard mostra "Dado não disponível"
@@ -54,7 +54,7 @@ Estas persistem mesmo com acesso à rede e condicionam o desenho do dashboard.
 
 | ID | Lacuna | Impacto | Mitigação |
 |---|---|---|---|
-| L3 | Secção de documentos previsionais (S08) e Balanço Social (S19) sem URL localizado | Sem Orçamento/GOP/PPI não há secções 1, 5, 6 e 7 do dashboard | Varrimento da secção de gestão financeira do site; em último recurso, pedido de acesso à informação administrativa (LADA) |
+| L3 | ~~Documentos previsionais (S08) sem URL~~ · **RESOLVIDA** (o Balanço Social, S19, continua por localizar) | — | O arquivo é `/publicacoes/gestao-e-financas/dados-economico-financeiros` (`S39`), alcançado pelo ponto **8.1 do Índice de Transparência Municipal**. Árvore de pastas ano → tipo, com ids opacos e paginação. De lá saíram `S08-2021`…`S08-2026` e a série de Relatórios e Contas de 2021 a 2025 |
 | L4 | ~~Organograma (S03) pode ser imagem~~ · **RESOLVIDA** | — | O `organograma_06_24.pdf` da CMG (`S03-06_24`) **tem camada de texto**, com nomes e siglas das unidades, e já reflete o Despacho 9070/2024. Continua a servir de verificação cruzada, não de fonte: a hierarquia sai do texto normativo (S05+S06), que é o que tem valor legal. O organograma anexo ao próprio despacho **é imagem** |
 | L5 | ~~Estrutura orgânica de 2023 alterada em 2024~~ · **RESOLVIDA** | Usar só S05 produz um organograma **errado** | Despacho n.º 9070/2024 localizado e descarregado (DR 2.ª série n.º 154, 09-08-2024), via a página S04 da CMG. Altera os artigos 5.º, 30.º e 31.º, **adita** o artigo 54.º-A (Gabinete de Apoio à Intervenção Social) e **revoga** o artigo 56.º, a alínea h) do 30.º e a c) do 31.º. Aplicar sobre S05 continua a ser obrigatório antes de publicar a secção 3 |
 | L6 | ~~Mapa de Pessoal possivelmente digitalizado~~ · **RESOLVIDA** | — | O de 2026 tem camada de texto; `pymupdf` chega e o `camelot`/OCR não foi preciso. O risco de colunas trocadas é coberto por validação: as linhas de cada unidade têm de reconstituir o `TOTAL` que o próprio documento imprime, nas 9 colunas — 63 verificações, todas a passar. Um mapa digitalizado de outro ano voltará a exigir OCR |
@@ -76,6 +76,8 @@ Estas persistem mesmo com acesso à rede e condicionam o desenho do dashboard.
 | L22 | A cadeia normativa da estrutura orgânica tinha **um elo em falta** | Sem ele, o organograma perderia um departamento inteiro e três divisões | O inventário supunha `S05 + S06`. Falta o **Despacho n.º 6751/2024** (`S38`, DR 17-06-2024), que cria o Dep. de Inovação, Transformação Digital e Economia e renomeia o Dep. de Cultura, Economia e Inovação para Dep. de Cultura e Turismo. **Não está ligado em nenhuma página da CMG** — foi encontrado por pesquisa e confirmado no DR. Pista que o denunciou: em S05 o Dep. de Intervenção Social é a alínea h) do art. 5.º, em S06 é a i) |
 | L23 | A CMG **reutiliza siglas** entre unidades diferentes | Uma árvore chaveada pela sigla junta unidades distintas ou perde-as | `DF` é Departamento Financeiro **e** Divisão de Fiscalização; `DE` é Divisão de Empreitadas **e** Divisão de Educação; depois de 2024, `DCT` é Departamento de Cultura e Turismo **e** Divisão de Contabilidade e Tesouraria. O `id` da árvore é qualificado com a unidade-mãe nas colisões; a `sigla` publicada fica num campo à parte |
 | L24 | Divergências entre o texto normativo e o organograma publicado | Pequenas, mas não devem ser corrigidas em silêncio | O DR escreve `(DCG)` para o Gabinete de Contabilidade de Gestão, o organograma escreve `GCG`. O DR **não atribui sigla** à Divisão de Mobilidade, que o organograma trata por `DM` — no JSON a `sigla` fica `null`, não é copiada do organograma. O texto normativo prevalece; as divergências constam dos avisos do ficheiro |
+| L25 | GOP e Orçamento de **2021** integralmente digitalizado | Sem orçamento previsto de 2021; a série começa em 2022 | O PDF tem 663 páginas e **zero caracteres** de camada de texto. O de 2025 é maioritariamente imagem mas o mapa-resumo é texto, pelo que passa. Exige OCR com revisão, como L17 |
+| L26 | Os documentos previsionais são **mistos**: texto e imagem | Só os mapas com camada de texto são extraíveis | Em 2026, 423 das 948 páginas quase não têm texto. O mapa "Resumo da Receita e da Despesa" é texto em 2022–2026 e concentra os agregados; os mapas detalhados de rubrica e o PPI estão em grande parte digitalizados, e por isso a secção 7 (investimentos) ainda não foi tentada |
 
 ### Verificação — não há reestruturação orgânica de 2026 em Guimarães
 
@@ -136,6 +138,7 @@ São automáticas e **bloqueantes**: uma extração que falhe não é publicada.
 | 9 · Participadas | `etl/empresas_participadas.py` | V6, e "toda a entidade no perímetro tem NIPC" — é essa que garante que o filtro dos contratos não perde entidades |
 | 4 · Quem lá trabalha | `etl/mapa_pessoal.py` | **V3**, V6, e 63 verificações de total (7 unidades × 9 colunas) contra o `TOTAL` impresso no documento |
 | 3 · Como está organizada | `etl/estrutura_organica.py` | V6, unicidade dos `id`, existência do alvo de cada alteração normativa, e **verificação cruzada nos dois sentidos** contra o organograma publicado |
+| 5 · De onde vem o dinheiro | `etl/orcamento.py` | **V2** nos cinco anos (receita total = despesa total, por imposição legal), **V1** em quatro formas por ano, V6 |
 | transversal · População | `etl/populacao.py` | **V5**, **V7**, V6, soma homens+mulheres = total em cada ano, e soma dos grupos etários = total do ano |
 
 V4 estava especificada desde a Fase 1 mas não implementada; foi escrita com o

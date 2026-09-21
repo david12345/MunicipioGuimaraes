@@ -1,6 +1,6 @@
 # Inventário de fontes — Câmara Municipal de Guimarães
 
-**Estado:** Fase 2 (secções 2, 3, 4, 8, 9 e população). Última atualização: 2026-09-21.
+**Estado:** Fase 2 (secções 2, 3, 4, 5, 8, 9 e população). Última atualização: 2026-09-21.
 
 > ### ⚠️ Como ler este inventário
 >
@@ -45,7 +45,7 @@ Entidade responsável: Município de Guimarães. Acesso nesta sessão: **bloquea
 | S05 | Orgânica dos Serviços Municipais 2023 — Despacho n.º 14897/2022 | `/cmguimaraes/uploads/writer_file/document/9902/organica_2023.pdf` | PDF | 2023 | — | `estrutura_organica.json`: base da hierarquia | **Fonte preferencial** para a hierarquia: texto normativo. **Não basta sozinho** — ver S38 e S06 | `PRIM` |
 | S06 | **Despacho n.º 9070/2024** — alteração à estrutura orgânica | `files.diariodarepublica.pt/2s/2024/08/154000000/0041500418.pdf` | PDF | 2024 | — | Reorganiza os Dep. de Intervenção Social e de Recursos Humanos | DR 2.ª série n.º 154, 09-08-2024. Altera os art. 5.º, 30.º e 31.º, adita o 54.º-A (GAIS) e revoga o 56.º. **Obrigatório**: sem isto, S05 está desatualizado (L5) | `PRIM` |
 | S07 | Mapa de Pessoal (índice) | `/areas-de-intervencao/educacao-e-recursos-humanos/recursos-humanos/mapa-de-pessoal` | HTML → PDF | Série anual | Anual | `mapa_pessoal.json`: postos por carreira, categoria e unidade orgânica; ocupados vs. previstos | Página índice; o PDF do ano é descoberto a partir daqui (`S07-2026`). O de 2026 **tem camada de texto** — não foi preciso OCR | `PRIM` |
-| S08 | Documentos previsionais (Orçamento + GOP + PPI + PAM) | Secção de gestão financeira do site | PDF | Série anual | Anual (aprovação em dezembro) | `orcamento.json` (previsto), `investimentos.json` (PPI/GOP) | **Não localizei o URL exato da secção.** A pesquisa por "documentos previsionais Guimarães" devolveu sobretudo outros municípios | `CONHEC` |
+| S08 | Documentos previsionais (GOP + Orçamento + PPI) — **série 2021–2026** | `/cmguimaraes/uploads/document/file/<id>/grandes_opcoes_*.pdf` (via S39) | PDF | 2021–2026 | Anual (aprovação em dezembro) | `orcamento.json` (previsto), `investimentos.json` (PPI/GOP) | 663 a 1005 páginas, **mistas**: o mapa-resumo é texto em 2022–2026, mas centenas de páginas de mapas são imagem. O de **2021 é integralmente digitalizado** (L25) | `PRIM` |
 | S09 | Relatório e Contas 2024 (notícia de aprovação) | `/areas-de-intervencao/noticia/relatorio-e-contas-de-2024-aprovado-por-maioria-em-reuniao-de-camara` | HTML | 2024 | Anual | Ponto de entrada para o R&C 2024 | Notícia, não o documento | `URL-S` |
 | S10 | Relatório e Contas 2021 | `/cmguimaraes/uploads/document/file/18944/relatorio_e_contas_2021.pdf` | PDF | 2021 | Anual | `orcamento.json` (executado), dívida, indicadores | Padrão de URL (`/uploads/document/file/<id>/<slug>.pdf`) permite descobrir outros anos por varrimento da secção | `DESC` |
 | S11 | Consolidação de Contas 2023 | `/cmguimaraes/uploads/document/file/21681/consolidacao_de_contas_2023.pdf` | PDF | 2023 | Anual | `empresas_municipais.json`: perímetro de consolidação, fluxos CMG↔empresas | **Fonte-chave** para identificar o universo de entidades participadas | `PRIM` |
@@ -61,6 +61,7 @@ Entidade responsável: Município de Guimarães. Acesso nesta sessão: **bloquea
 | S21 | Obras / empreitadas / projetos cofinanciados | Secções de obras e de fundos comunitários | HTML/PDF | Corrente | Contínua | `investimentos.json`: estado das obras, PRR / Portugal 2030 / Norte 2030 | Frequentemente só em notícias → estado das obras pouco estruturado | `CONHEC` |
 | S22 | Vitrus Ambiente, EM SA (ficha) | `/areas-de-intervencao/ambiente/servicos-urbanos/gestao-de-residuos/gestao-dos-residuos-urbanos/poi/vitrus-ambiente-em-sa-92` | HTML | Corrente | — | `empresas_municipais.json` | Ficha operacional, não financeira | `URL-S` |
 | S37 | Assembleia Municipal (composição do órgão) | `/municipio/assembleia-municipal` | HTML | Corrente | Por mandato | `orgaos_eleitos.json`: dimensão do órgão deliberativo | Dá 111 membros (56 eleitos + 55 presidentes de junta por inerência) mas **não** a distribuição por força política nem os nomes (L16) | `PRIM` |
+| S39 | Informação Económico-Financeira e Patrimonial (arquivo) | `/municipio/camara-municipal/publicacoes/gestao-e-financas/dados-economico-financeiros` | HTML | 2014– | Contínua | Origem de `S08-*` e da série de Relatórios e Contas | Árvore de pastas ano → tipo com ids opacos e paginação: **não é varrível por uma só regra de descoberta**. Alcançado pelo ponto 8.1 do Índice de Transparência (S14) | `PRIM` |
 | S38 | **Despacho n.º 6751/2024** — elo em falta da estrutura orgânica | `files.diariodarepublica.pt/2s/2024/06/115000000/0021500223.pdf` | PDF | 2024 | — | Cria o Dep. de Inovação, Transformação Digital e Economia; Dep. de Cultura, Economia e Inovação passa a Dep. de Cultura e Turismo | **Não está ligado em nenhuma página da CMG.** Sem ele falta um departamento inteiro e três divisões (L22) | `PRIM` |
 
 ## 2. Contratação pública
@@ -229,6 +230,28 @@ alínea sem a cláusula que o criava), e foi a presença de `DM` no diagrama que
 revelou que a Divisão de Mobilidade tinha desaparecido da extração por o DR
 não lhe atribuir sigla. Mas quem tem valor legal é o texto — e onde divergem,
 é o texto que prevalece (L24).
+
+## 6-C. Onde estavam os documentos financeiros
+
+A lacuna L3 dizia "não localizei o URL da secção de documentos previsionais".
+Está em `/municipio/camara-municipal/publicacoes/gestao-e-financas/dados-economico-financeiros`
+(`S39`), e **não se chega lá pelo menu** — chega-se pelo ponto **8.1 do Índice
+de Transparência Municipal** (S14), que é uma página de conformidade, não de
+navegação.
+
+O arquivo é uma árvore `ano → tipo` com ids de pasta opacos e paginação:
+
+| Tipo | Anos com documentos |
+|---|---|
+| Previsionais (GOP + Orçamento) | 2021–2026 |
+| Prestação de Contas (R&C, consolidação, pareceres) | 2021–2025 |
+| Impostos Locais | 2021–2025 |
+
+Além de resolver L3, isto revelou que o inventário tinha **um único ano** de
+cada documento financeiro (S10 = R&C 2021, S11 = consolidação 2023) quando
+existem séries completas. A série de Relatórios e Contas de 2021 a 2025 está
+localizada mas **ainda não registada** — é o próximo passo da secção 5, que dá
+a execução orçamental a par do previsto.
 
 ## 7. Fontes descartadas nesta fase
 
