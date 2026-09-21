@@ -26,7 +26,8 @@ Estas vêm do briefing e **não se negoceiam**. Na dúvida, escolhe sempre não 
 
 ## Estado atual
 
-**Fase 2 concluída no essencial. Seis secções extraídas — 2 (quem governa), 3 (como
+**Fase 3 em curso: o dashboard existe, com oito secções e Lighthouse 100/100.**
+Ver `docs/dashboard.md`. **Fase 2 concluída no essencial. Seis secções extraídas — 2 (quem governa), 3 (como
 está organizada), 4 (quem lá trabalha), 5 (de onde vem o dinheiro), 8 (contratos),
 9 (participadas) — mais `populacao.json`.** Não há dashboard — Fase 3 por começar.
 
@@ -51,9 +52,13 @@ De todos se commita o `.meta.json` com URL e `sha256`: reproduzem-se com
 à regra 3. **Não usar Git LFS** — os contratos são republicados semanalmente e
 esgotariam a quota.
 
-**Próximo passo:** investimentos (PPI), equipamentos e a série de consolidação de
-contas 2021–2025 (dá o financeiro das participadas, hoje vazio). A Fase 3 — o
-dashboard — está por começar e é onde está o grosso do trabalho que falta.
+**Próximo passo:** o mapa (Leaflet) fica bloqueado enquanto não houver
+equipamentos inventariados. Falta ainda o PPI e a série de consolidação de contas
+2021–2025, que dá o financeiro das participadas, hoje vazio.
+
+**Antes de commitar mexidas no dashboard, correr `make dashboard-verificar`.**
+Falha se o Lighthouse descer de 90, se o LCP passar dos 3 s, ou se aparecer
+scroll horizontal em qualquer das quatro larguras.
 
 **A Câmara executa 79–84% da despesa orçamentada.** É dos números mais úteis ao
 cidadão e está em `orcamento.json`. Mas o **total gasto** não é publicado com
