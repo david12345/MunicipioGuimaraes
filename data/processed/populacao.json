@@ -1,0 +1,178 @@
+{
+  "_meta": {
+    "gerado_em": "2026-09-21T20:06:23.054078+00:00",
+    "script": "etl/populacao.py",
+    "versao_modelo": "1.0",
+    "fontes": [
+      "S32"
+    ],
+    "indicador_ine": "0012918",
+    "geocod": "1190308",
+    "avisos": [
+      "A série começa em 2021. O indicador 0012918 (NUTS 2024) não cobre anos anteriores, pelo que não há métricas per capita para 2019–2020, embora haja contratos desses anos. Ver L21.",
+      "A série termina em 2025. Não há população de 2026: as métricas per capita de 2026 usam 2025 e devem dizê-lo, ou ficam a `null`."
+    ]
+  },
+  "municipio": "Guimarães",
+  "primeiro_ano": 2021,
+  "ultimo_ano": 2025,
+  "populacao_por_ano": [
+    {
+      "ano": 2021,
+      "fonte_id": "S32",
+      "total": 157985,
+      "homens": 76464,
+      "mulheres": 81521
+    },
+    {
+      "ano": 2022,
+      "fonte_id": "S32",
+      "total": 161252,
+      "homens": 78249,
+      "mulheres": 83003
+    },
+    {
+      "ano": 2023,
+      "fonte_id": "S32",
+      "total": 163814,
+      "homens": 79584,
+      "mulheres": 84230
+    },
+    {
+      "ano": 2024,
+      "fonte_id": "S32",
+      "total": 164916,
+      "homens": 80247,
+      "mulheres": 84669
+    },
+    {
+      "ano": 2025,
+      "fonte_id": "S32",
+      "total": 165554,
+      "homens": 80612,
+      "mulheres": 84942
+    }
+  ],
+  "estrutura_etaria": {
+    "ano": 2025,
+    "grupos": [
+      {
+        "grupo_etario": "0 - 4 anos",
+        "pessoas": 6001,
+        "fonte_id": "S32"
+      },
+      {
+        "grupo_etario": "10 - 14 anos",
+        "pessoas": 6991,
+        "fonte_id": "S32"
+      },
+      {
+        "grupo_etario": "15 - 19 anos",
+        "pessoas": 7800,
+        "fonte_id": "S32"
+      },
+      {
+        "grupo_etario": "20 - 24 anos",
+        "pessoas": 8739,
+        "fonte_id": "S32"
+      },
+      {
+        "grupo_etario": "25 - 29 anos",
+        "pessoas": 9972,
+        "fonte_id": "S32"
+      },
+      {
+        "grupo_etario": "30 - 34 anos",
+        "pessoas": 10068,
+        "fonte_id": "S32"
+      },
+      {
+        "grupo_etario": "35 - 39 anos",
+        "pessoas": 10311,
+        "fonte_id": "S32"
+      },
+      {
+        "grupo_etario": "40 - 44 anos",
+        "pessoas": 11333,
+        "fonte_id": "S32"
+      },
+      {
+        "grupo_etario": "45 - 49 anos",
+        "pessoas": 12476,
+        "fonte_id": "S32"
+      },
+      {
+        "grupo_etario": "5 - 9 anos",
+        "pessoas": 7169,
+        "fonte_id": "S32"
+      },
+      {
+        "grupo_etario": "50 - 54 anos",
+        "pessoas": 13009,
+        "fonte_id": "S32"
+      },
+      {
+        "grupo_etario": "55 - 59 anos",
+        "pessoas": 12481,
+        "fonte_id": "S32"
+      },
+      {
+        "grupo_etario": "60 - 64 anos",
+        "pessoas": 12182,
+        "fonte_id": "S32"
+      },
+      {
+        "grupo_etario": "65 - 69 anos",
+        "pessoas": 10948,
+        "fonte_id": "S32"
+      },
+      {
+        "grupo_etario": "70 - 74 anos",
+        "pessoas": 9703,
+        "fonte_id": "S32"
+      },
+      {
+        "grupo_etario": "75 - 79 anos",
+        "pessoas": 7204,
+        "fonte_id": "S32"
+      },
+      {
+        "grupo_etario": "80 - 84 anos",
+        "pessoas": 4597,
+        "fonte_id": "S32"
+      },
+      {
+        "grupo_etario": "85 e mais anos",
+        "pessoas": 4570,
+        "fonte_id": "S32"
+      }
+    ]
+  },
+  "contexto_nacional": [
+    {
+      "ano": 2021,
+      "portugal": 10599117,
+      "fonte_id": "S32"
+    },
+    {
+      "ano": 2022,
+      "portugal": 10929704,
+      "fonte_id": "S32"
+    },
+    {
+      "ano": 2023,
+      "portugal": 11204347,
+      "fonte_id": "S32"
+    },
+    {
+      "ano": 2024,
+      "portugal": 11387222,
+      "fonte_id": "S32"
+    },
+    {
+      "ano": 2025,
+      "portugal": 11424031,
+      "fonte_id": "S32"
+    }
+  ]
+}
