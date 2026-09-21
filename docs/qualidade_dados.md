@@ -1,6 +1,6 @@
 # Qualidade dos dados e lacunas conhecidas
 
-Última atualização: 2026-09-21 · Fase 1.
+Última atualização: 2026-09-21 · Fase 1.5 (pipeline consolidado, secção 2 extraída).
 
 Este ficheiro regista **tudo o que não foi possível obter ou validar**. É um
 entregável tão importante como os dados: o dashboard mostra "Dado não disponível"
@@ -8,76 +8,45 @@ sempre que uma lacuna aqui registada afetar um indicador.
 
 ## Lacunas bloqueantes
 
-### L1 — Bloqueio total de acesso às fontes
+**Nenhuma neste momento.** L1 e L2, que bloqueavam a Fase 1, foram resolvidas —
+o histórico fica registado abaixo porque explica porque é que `data/raw/` esteve
+vazio e porque é que o executivo não foi publicado mais cedo.
 
-**Severidade: bloqueante.** Impede as Fases 1 (recolha), 2 (ETL) e a parte de
-dados da Fase 3.
+### L1 — Bloqueio de acesso às fontes · **RESOLVIDA em 2026-09-21**
 
-O ambiente de execução desta sessão encaminha todo o tráfego HTTPS por um proxy de
-egresso com política da organização. Essa política **rejeita (HTTP 403 ao CONNECT)**
-todos os domínios de dados públicos do projeto. Verificado a 2026-09-21:
+O ambiente remoto onde a Fase 1 correu encaminhava todo o tráfego HTTPS por um
+proxy de egresso cuja política rejeitava (403 ao CONNECT) **todos** os domínios de
+dados do projeto: `cm-guimaraes.pt`, `dados.gov.pt`, `base.gov.pt`, `dgal.gov.pt`,
+`dre.pt`, `ine.pt`, `pordata.pt`, `cne.pt`. O bloqueio abrangia `curl` e a
+ferramenta de *fetch* do agente. Não houve qualquer tentativa de o contornar: em
+vez de preencher o dashboard com números de resultados de pesquisa — o que violaria
+a regra 1 —, a Fase 1 entregou inventário, modelo de dados e pipeline executável.
 
-| Domínio | Resultado | Fontes afetadas |
+Foi aplicada a via 2 das então propostas: **correr o ETL numa máquina com rede
+aberta**. `make fetch` descarregou as 19 fontes (9 do inventário + 10 descobertas),
+e `make check-acesso` dá 19/19 alcançáveis.
+
+Duas falhas que pareciam política de rede eram afinal configuração das fontes:
+
+| Fonte | Sintoma | Causa real |
 |---|---|---|
-| `www.cm-guimaraes.pt` | 403 `connect_rejected` | S01–S22 — **todas as fontes municipais** |
-| `www.base.gov.pt` | 403 `connect_rejected` | S24, S25, S26 |
-| `dados.gov.pt` | 403 `connect_rejected` | S23, S34 |
-| `www.portalautarquico.dgal.gov.pt` | 403 `connect_rejected` | S27 |
-| `dre.pt` | 403 `connect_rejected` | S30 |
-| `www.ine.pt` | 403 `connect_rejected` | S32 |
-| `www.pordata.pt` | 403 `connect_rejected` | S33 |
-| `www.cne.pt` | 403 `connect_rejected` | S31 |
-| `autarquicas2025.mai.gov.pt` | 403 `connect_rejected` | S31 |
-| `en.wikipedia.org` | 403 `connect_rejected` | (contexto) |
+| S27 (DGAL) | `SSLError` | Servem certificado `*.dgal.gov.pt`, que **não cobre** `www.portalautarquico.dgal.gov.pt` — o *wildcard* só cobre um nível. Sem o `www.` verifica. Corrigido no URL, **sem desativar a verificação de TLS** |
+| S32 (INE) | `ConnectionError` | Rejeita `HEAD`. O `check-acesso` passou a usar `GET` em *streaming* |
 
-O bloqueio abrange `curl` **e** a ferramenta de *fetch* do agente — ambos saem pelo
-mesmo proxy. Confirmado em `GET $HTTPS_PROXY/__agentproxy/status`, que lista cada
-rejeição como `connect_rejected: "gateway answered 403 to CONNECT (policy denial)"`.
+### L2 — Mandato 2025–2029 não confirmado · **RESOLVIDA em 2026-09-21**
 
-Continuam acessíveis: `pypi.org`, `registry.npmjs.org`, `github.com`,
-`raw.githubusercontent.com` — ou seja, **é possível instalar dependências,
-desenvolver e publicar código, mas não obter dados**.
+A regra 5 está cumprida. A composição do executivo e os resultados eleitorais foram
+lidos nas páginas do próprio Município (S02 e S01), não em imprensa:
 
-A documentação do proxy (`/root/.ccr/README.md`) instrui explicitamente a **não
-contornar nem repetir** negações de política, mas a reportá-las. Foi o que se fez:
-não houve qualquer tentativa de contornar o bloqueio.
+- Coligação "Juntos por Guimarães" (PPD/PSD.CDS-PP): 45,33%, **6 mandatos**
+- PS: 37,50%, **4 mandatos** · Chega (CH): 8,06%, **1 mandato** · total **11**
+- Presidente: Ricardo José Machado Pereira da Silva Araújo, desde 25-10-2025
 
-**Consequência assumida:** em vez de preencher o dashboard com números aproximados
-— o que violaria a regra 1 do briefing —, esta fase entrega o **inventário, o modelo
-de dados e o pipeline executável**, prontos a correr assim que houver acesso.
-`data/raw/` e `data/processed/` ficam **vazios por decisão deliberada**, não por
-omissão.
+Duas validações cruzadas passam: a soma dos mandatos (6+4+1) iguala o total
+declarado (11), e a lista nominal tem exatamente 11 membros. O que a pesquisa da
+Fase 1 indicava bateu certo, mas **os valores publicados vêm da fonte primária**.
 
-**Vias de desbloqueio (por ordem de preferência):**
-
-1. **Autorizar os domínios** na política de egresso do ambiente — a lista da tabela
-   acima está pronta a colar. É a única via que torna o pipeline reprodutível
-   (regra 4) no próprio ambiente.
-2. **Correr o ETL localmente.** O pipeline é Python simples e não depende deste
-   ambiente: `make etl` numa máquina com rede aberta produz `data/raw/` e
-   `data/processed/`, que se commitam ao repositório.
-3. **Carregar os documentos manualmente** para `data/raw/` (arrastando os PDF/XLSX
-   para o repositório). Os *parsers* correm sobre ficheiros locais e não precisam de
-   rede; só o passo de *download* precisa.
-
-A via 2 é a mais rápida para ter o dashboard com dados reais.
-
-### L2 — Mandato 2025–2029 não confirmado em fonte oficial
-
-**Severidade: bloqueante para a secção "Quem governa".**
-
-A regra 5 exige verificação nas fontes oficiais. As fontes com valor legal — o mapa
-oficial homologado publicado pela CMG (S16) e a CNE/MAI (S31) — estão bloqueadas
-por L1.
-
-A pesquisa web devolveu uma composição plausível e coerente entre várias notícias
-(ver `fontes.md` §6), mas **resultados de motor de busca não são fonte primária** e
-não satisfazem a regra 5. Esses valores estão registados apenas no inventário, em
-prosa e marcados como não verificados; **não foram escritos para `data/processed/`**
-e não alimentam o dashboard.
-
-**Lacuna adicional:** a composição da **Assembleia Municipal** eleita em 2025 não
-foi apurada por nenhuma via — nem sequer indicativamente.
+Subsistem lacunas na secção, agora registadas como L15–L17.
 
 ## Lacunas estruturais (independentes de L1)
 
@@ -95,11 +64,20 @@ Estas persistem mesmo com acesso à rede e condicionam o desenho do dashboard.
 | L10 | Moradas dos equipamentos em texto livre | Geocodificação falha ou devolve pontos errados | Cachear respostas do Nominatim, registar taxa de sucesso e **marcar no mapa** os pontos de baixa confiança em vez de os esconder |
 | L11 | Comparação entre municípios (secção 11) | Extrações próprias de PDF de municípios diferentes não são comparáveis | Usar exclusivamente séries já normalizadas da DGAL (S27); não misturar com extrações próprias |
 | L12 | Séries históricas com mudanças de classificação (POCAL → SNC-AP) | Evolução plurianual pode mostrar "saltos" que são artefactos contabilísticos | Marcar a quebra de série no gráfico e explicá-la no glossário |
+| L13 | URL exato dos quadros da DGAL (S27) por localizar | Sem ele não há secção 11 (comparar municípios) | Varrer `portalautarquico.dgal.gov.pt` (sem `www.`) pela secção de finanças locais |
+| L14 | URL da série de população do INE (S32) por localizar | **Bloqueia todas as métricas per capita**, que são transversais ao dashboard | Localizar o quadro de estimativas anuais; até lá, nenhum valor per capita é publicado |
+| L15 | Edital de Apuramento Geral (S17) devolve **404** | Perde-se a fonte local com valor legal para os resultados de 2025 | O URL publicado pela CMG está morto. Os resultados vieram de S02; pedir o edital por LADA ou localizar o novo URL |
+| L16 | Composição da Assembleia Municipal por força política **não publicada** | O hemiciclo da secção 2 não pode ser desenhado | A CMG publica só a dimensão (111 = 56 eleitos + 55 presidentes de junta por inerência). Obter de S16-DRE (exige OCR, L17) ou da CNE |
+| L17 | Mapa Oficial n.º 2-B/2025 (S16-DRE) é **digitalizado** | 611 páginas sem camada de texto a partir da 3.ª: não é extraível por *parsing* | Confirmado com `pymupdf`: 0 caracteres e 1 imagem por página. Exige OCR (`ocrmypdf`/`tesseract`) e, tratando-se de fonte com valor legal, **revisão humana do que o OCR devolver** |
 
-## Validações a implementar no ETL (Fase 2)
+## Validações do ETL
 
-Nenhuma pôde ser executada nesta fase — não há dados. Ficam especificadas para
-serem automáticas e **bloqueantes**: uma extração que falhe não é publicada.
+São automáticas e **bloqueantes**: uma extração que falhe não é publicada.
+
+**Executadas até agora** (secção 2, `etl/quem_governa.py`): V1 em duas formas —
+soma dos mandatos por força política igual ao total declarado, e contagem da lista
+nominal igual ao mesmo total — e V6 sobre `S01`, `S02` e `S37`. Todas passam.
+As restantes aguardam os parsers das secções respetivas.
 
 | ID | Validação | Critério |
 |---|---|---|
