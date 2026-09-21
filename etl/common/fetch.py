@@ -31,9 +31,21 @@ def slugify(nome: str) -> str:
 
 
 def nome_original(url: str) -> str:
-    """Preserva o nome original do ficheiro, como exige a regra 3."""
-    base = url.rstrip("/").split("/")[-1].split("?")[0]
-    return base or "index.html"
+    """Preserva o nome original do ficheiro, como exige a regra 3.
+
+    Quando o URL traz *query string*, o nome ganha um sufixo derivado dela. Sem
+    isso, dois pedidos diferentes ao mesmo endpoint colidiam no mesmo ficheiro:
+    `pindica.jsp?varcd=0012918` e `pindica.jsp?varcd=0012918&Dim1=...` davam
+    ambos `pindica.jsp`, e o `fetch` devolvia o original antigo sem descarregar
+    o novo — em silêncio, que é o pior dos modos.
+    """
+    caminho, _, query = url.rstrip("/").partition("?")
+    base = caminho.split("/")[-1] or "index.html"
+    if not query:
+        return base
+    marca = hashlib.sha256(query.encode("utf-8")).hexdigest()[:8]
+    raiz, ponto, ext = base.rpartition(".")
+    return f"{raiz}_{marca}{ponto}{ext}" if ponto else f"{base}_{marca}"
 
 
 def sha256_bytes(b: bytes) -> str:
