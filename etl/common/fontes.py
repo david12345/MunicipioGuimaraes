@@ -11,12 +11,24 @@ from pathlib import Path
 
 import yaml
 
+from . import descoberta as mod_desc
 from .paths import PROCESSED, RAW, SOURCES_YAML
 
 
 def carregar() -> dict:
+    """Só o inventário escrito à mão."""
     with open(SOURCES_YAML, encoding="utf-8") as fh:
         return yaml.safe_load(fh) or {}
+
+
+def carregar_todas() -> dict:
+    """Inventário + fontes-filhas derivadas das páginas-índice.
+
+    É este o universo contra o qual a V6 resolve `fonte_id`: um parser de
+    contratos aponta para `S23-2024`, que existe por descoberta e não em
+    `sources.yaml`.
+    """
+    return {**carregar(), **mod_desc.carregar_descobertas()}
 
 
 def _meta_do_raw() -> dict[str, dict]:
@@ -33,15 +45,20 @@ def _meta_do_raw() -> dict[str, dict]:
 
 
 def escrever_fontes_json() -> Path:
-    fontes = carregar()
+    fontes = carregar_todas()
     raws = _meta_do_raw()
     saida: dict[str, dict] = {}
 
     for fid, f in fontes.items():
         registo = dict(f)
         registo["id"] = fid
+        # `descoberta` é configuração do pipeline, não metadado da fonte:
+        # o dashboard só precisa de saber que esta fonte é uma página-índice.
+        if registo.pop("descoberta", None) is not None:
+            registo["e_indice"] = True
         meta = raws.get(fid)
         # Só declaramos download/sha256 se existir mesmo um original em disco.
+        # Relativo à raiz do repositório: este ficheiro é commitado.
         registo["ficheiro_raw"] = meta.get("ficheiro") if meta else None
         registo["sha256"] = meta.get("sha256") if meta else None
         registo["data_download"] = meta.get("data_download") if meta else None
@@ -72,4 +89,5 @@ def escrever_fontes_json() -> Path:
 
 
 def ids_validos() -> set[str]:
-    return set(carregar().keys())
+    """Universo aceite pela validação V6, descobertas incluídas."""
+    return set(carregar_todas().keys())

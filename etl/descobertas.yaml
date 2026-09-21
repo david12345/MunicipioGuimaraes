@@ -1,0 +1,138 @@
+# GERADO por etl/common/descoberta.py — não editar à mão.
+# Fontes derivadas das páginas-índice (ver docstring do módulo).
+# É commitado de propósito: o diff mostra quando uma fonte mudou de URL.
+_meta:
+  gerado_em: '2026-09-21T18:40:34.726004+00:00'
+  script: etl/common/descoberta.py
+  total: 10
+fontes:
+  S07-2026:
+    entidade: Município de Guimarães
+    periodicidade: anual
+    verificacao: PRIM
+    limitacoes: Tabela larga em PDF; risco de digitalizado (OCR). So agregados (regra
+      7).
+    nome: Mapa de Pessoal 2026
+    url: https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/25146/mapa_de_pessoal_2026.pdf
+    formato: pdf
+    descoberta_via: S07
+    alimenta:
+    - mapa_pessoal.json
+    ano_referencia: 2026
+  S16-DRE:
+    entidade: Município de Guimarães
+    periodicidade: por_eleicao
+    verificacao: PRIM
+    limitacoes: Documento nacional (~149 MB). Contem votos, mandatos e eleitos proclamados
+      de todos os municipios; extrair apenas a parte de Guimaraes.
+    nome: Mapa Oficial n.º 2-B/2025 (DR 1.ª série, 17-12-2025)
+    url: https://files.diariodarepublica.pt/1s/2025/12/24201/0000200612.pdf
+    formato: pdf
+    descoberta_via: S16
+    ano_referencia: 2025
+    alimenta:
+    - orgaos_eleitos.json
+  S23-2019:
+    entidade: IMPIC / AMA
+    periodicidade: semanal
+    verificacao: PRIM
+    limitacoes: Dataset nacional. Filtrar pelos NIF do adjudicante resolvidos a partir
+      do perimetro de consolidacao (S11). Desfasamento ate 7 dias.
+    nome: Contratos públicos BASE/IMPIC - 2019
+    url: https://dados.gov.pt/s/resources/contratos-publicos-portal-base-impic-contratos-de-2012-a-2026/20260920-114053-c1c1d9ea/contratos2019.xlsx
+    formato: xlsx
+    descoberta_via: S23
+    alimenta:
+    - contratos_2019.json
+    ano_referencia: 2019
+  S23-2020:
+    entidade: IMPIC / AMA
+    periodicidade: semanal
+    verificacao: PRIM
+    limitacoes: Dataset nacional. Filtrar pelos NIF do adjudicante resolvidos a partir
+      do perimetro de consolidacao (S11). Desfasamento ate 7 dias.
+    nome: Contratos públicos BASE/IMPIC - 2020
+    url: https://dados.gov.pt/s/resources/contratos-publicos-portal-base-impic-contratos-de-2012-a-2026/20260920-114059-6bf0e9fa/contratos2020.xlsx
+    formato: xlsx
+    descoberta_via: S23
+    alimenta:
+    - contratos_2020.json
+    ano_referencia: 2020
+  S23-2021:
+    entidade: IMPIC / AMA
+    periodicidade: semanal
+    verificacao: PRIM
+    limitacoes: Dataset nacional. Filtrar pelos NIF do adjudicante resolvidos a partir
+      do perimetro de consolidacao (S11). Desfasamento ate 7 dias.
+    nome: Contratos públicos BASE/IMPIC - 2021
+    url: https://dados.gov.pt/s/resources/contratos-publicos-portal-base-impic-contratos-de-2012-a-2026/20260920-114107-896e2bb4/contratos2021.xlsx
+    formato: xlsx
+    descoberta_via: S23
+    alimenta:
+    - contratos_2021.json
+    ano_referencia: 2021
+  S23-2022:
+    entidade: IMPIC / AMA
+    periodicidade: semanal
+    verificacao: PRIM
+    limitacoes: Dataset nacional. Filtrar pelos NIF do adjudicante resolvidos a partir
+      do perimetro de consolidacao (S11). Desfasamento ate 7 dias.
+    nome: Contratos públicos BASE/IMPIC - 2022
+    url: https://dados.gov.pt/s/resources/contratos-publicos-portal-base-impic-contratos-de-2012-a-2026/20260920-114115-5f79c1af/contratos2022.xlsx
+    formato: xlsx
+    descoberta_via: S23
+    alimenta:
+    - contratos_2022.json
+    ano_referencia: 2022
+  S23-2023:
+    entidade: IMPIC / AMA
+    periodicidade: semanal
+    verificacao: PRIM
+    limitacoes: Dataset nacional. Filtrar pelos NIF do adjudicante resolvidos a partir
+      do perimetro de consolidacao (S11). Desfasamento ate 7 dias.
+    nome: Contratos públicos BASE/IMPIC - 2023
+    url: https://dados.gov.pt/s/resources/contratos-publicos-portal-base-impic-contratos-de-2012-a-2026/20260920-114123-fd6d838a/contratos2023.xlsx
+    formato: xlsx
+    descoberta_via: S23
+    alimenta:
+    - contratos_2023.json
+    ano_referencia: 2023
+  S23-2024:
+    entidade: IMPIC / AMA
+    periodicidade: semanal
+    verificacao: PRIM
+    limitacoes: Dataset nacional. Filtrar pelos NIF do adjudicante resolvidos a partir
+      do perimetro de consolidacao (S11). Desfasamento ate 7 dias.
+    nome: Contratos públicos BASE/IMPIC - 2024
+    url: https://dados.gov.pt/s/resources/contratos-publicos-portal-base-impic-contratos-de-2012-a-2026/20260920-114133-7f97ab85/contratos2024.xlsx
+    formato: xlsx
+    descoberta_via: S23
+    alimenta:
+    - contratos_2024.json
+    ano_referencia: 2024
+  S23-2025:
+    entidade: IMPIC / AMA
+    periodicidade: semanal
+    verificacao: PRIM
+    limitacoes: Dataset nacional. Filtrar pelos NIF do adjudicante resolvidos a partir
+      do perimetro de consolidacao (S11). Desfasamento ate 7 dias.
+    nome: Contratos públicos BASE/IMPIC - 2025
+    url: https://dados.gov.pt/s/resources/contratos-publicos-portal-base-impic-contratos-de-2012-a-2026/20260920-114148-7f37d5d1/contratos2025.xlsx
+    formato: xlsx
+    descoberta_via: S23
+    alimenta:
+    - contratos_2025.json
+    ano_referencia: 2025
+  S23-2026:
+    entidade: IMPIC / AMA
+    periodicidade: semanal
+    verificacao: PRIM
+    limitacoes: Dataset nacional. Filtrar pelos NIF do adjudicante resolvidos a partir
+      do perimetro de consolidacao (S11). Desfasamento ate 7 dias.
+    nome: Contratos públicos BASE/IMPIC - 2026
+    url: https://dados.gov.pt/s/resources/contratos-publicos-portal-base-impic-contratos-de-2012-a-2026/20260920-114156-ad9dca16/contratos2026.xlsx
+    formato: xlsx
+    descoberta_via: S23
+    alimenta:
+    - contratos_2026.json
+    ano_referencia: 2026

@@ -7,6 +7,9 @@
 
 Nenhum passo inventa dados: quando uma fonte está inacessível, a falha é
 registada e o indicador fica por preencher (regra 1).
+
+O `fetch` corre em duas passagens: primeiro as fontes de `sources.yaml`, depois
+as fontes-filhas derivadas das páginas-índice (ver etl/common/descoberta.py).
 """
 from __future__ import annotations
 
@@ -15,29 +18,38 @@ import sys
 
 import requests
 
+from etl.common import descoberta as mod_desc
 from etl.common import fontes as mod_fontes
-from etl.common.fetch import fetch
+from etl.common.fetch import UA, fetch
+
+
+def _alcancavel(url: str) -> tuple[str, str | None]:
+    """Devolve (estado, motivo). Usa GET em streaming: o INE rejeita HEAD."""
+    cab = {"User-Agent": UA}
+    try:
+        with requests.get(
+            url, timeout=25, allow_redirects=True, stream=True, headers=cab
+        ) as r:
+            return str(r.status_code), None
+    except requests.RequestException as exc:
+        return "----", type(exc).__name__
 
 
 def check_acesso() -> int:
     """Diz quais fontes estão alcançáveis a partir deste ambiente."""
-    regs = mod_fontes.carregar()
+    regs = mod_fontes.carregar_todas()
     bloqueadas = []
     print(f"A testar {len(regs)} fonte(s)...\n")
     for fid, f in sorted(regs.items()):
         url = f.get("url")
         if not url:
             continue
-        try:
-            r = requests.head(
-                url, timeout=20, allow_redirects=True,
-                headers={"User-Agent": "MunicipioGuimaraes-dashboard/0.1"},
-            )
-            print(f"  {fid:6} {r.status_code}  {url}")
-        except requests.RequestException as exc:
-            motivo = type(exc).__name__
+        estado, motivo = _alcancavel(url)
+        if motivo:
             bloqueadas.append((fid, url, motivo))
-            print(f"  {fid:6} ----  {url}  [{motivo}]")
+            print(f"  {fid:10} ----  {url}  [{motivo}]")
+        else:
+            print(f"  {fid:10} {estado}  {url}")
 
     if bloqueadas:
         print(
@@ -50,19 +62,49 @@ def check_acesso() -> int:
     return 0
 
 
-def fase_fetch() -> int:
-    regs = mod_fontes.carregar()
-    falhas = []
+def _descarregar(regs: dict[str, dict], falhas: list) -> dict[str, "object"]:
+    """Descarrega um conjunto de fontes; devolve {fonte_id: caminho} das que deram."""
+    obtidos = {}
     for fid, f in sorted(regs.items()):
         url = f.get("url")
         if not url:
             continue
         try:
             p = fetch(url, fid)
+            obtidos[fid] = p
             print(f"  {fid}: {p.name}")
         except requests.RequestException as exc:
             falhas.append((fid, str(exc)[:120]))
             print(f"  {fid}: FALHOU — {type(exc).__name__}", file=sys.stderr)
+    return obtidos
+
+
+def fase_fetch() -> int:
+    regs = mod_fontes.carregar()
+    falhas: list = []
+
+    print("Fontes do inventário:")
+    obtidos = _descarregar(regs, falhas)
+
+    # 2.ª passagem: páginas-índice → ficheiros reais.
+    derivadas: dict[str, dict] = {}
+    for fid, f in sorted(regs.items()):
+        if "descoberta" not in f:
+            continue
+        filhas = mod_desc.derivar(fid, f, obtidos.get(fid))
+        if not filhas:
+            print(
+                f"  aviso: {fid} declara descoberta mas o padrão não encontrou "
+                "nada no original guardado.",
+                file=sys.stderr,
+            )
+        derivadas.update(filhas)
+
+    if derivadas:
+        print(f"\nDescobertas {len(derivadas)} fonte(s) a partir das páginas-índice:")
+        _descarregar(derivadas, falhas)
+        print(f"Registo em {mod_desc.escrever_descobertas(derivadas)}")
+
     if falhas:
         print(
             f"\n{len(falhas)} fonte(s) não descarregadas. data/raw/ fica incompleto; "
