@@ -1,8 +1,13 @@
 # Registo legível por máquina das fontes. Espelha docs/fontes.md.
 # Gera data/processed/fontes.json, contra o qual todos os outros ficheiros validam.
 #
-# verificacao: PRIM = confirmado na fonte primária | URL-S / EXIST-S / CONHEC = por confirmar
+# verificacao: PRIM = conteúdo lido na fonte primária | DESC = original descarregado
+# e com sha256, conteúdo por ler | URL-S / EXIST-S / CONHEC = por confirmar.
 # Ver docs/fontes.md para a legenda completa.
+#
+# Uma fonte com `descoberta` é uma página-índice, não o documento: o pipeline
+# extrai dela os URL dos ficheiros reais e escreve as fontes-filhas em
+# etl/descobertas.yaml. Ver a docstring de etl/common/descoberta.py.
 
 S01:
   nome: Executivo Municipal
@@ -10,8 +15,9 @@ S01:
   url: https://www.cm-guimaraes.pt/municipio/camara-municipal/executivo-municipal
   formato: html
   periodicidade: por_mandato
-  verificacao: URL-S
+  verificacao: PRIM
   alimenta: [executivo.json]
+  limitacoes: Pelouros em prosa, nao tabelados. Nao traz votos nem mandatos.
 
 S05:
   nome: Orgânica dos Serviços Municipais 2023 (DR 2.ª série n.º 251, 30-12-2022)
@@ -20,19 +26,25 @@ S05:
   formato: pdf
   ano_referencia: 2023
   periodicidade: irregular
-  verificacao: URL-S
+  verificacao: DESC
   alimenta: [estrutura_organica.json]
   limitacoes: Alterado pelo Despacho 9070/2024 (S06) - aplicar antes de publicar.
 
 S07:
-  nome: Mapa de Pessoal
+  nome: Mapa de Pessoal (índice)
   entidade: Município de Guimarães
   url: https://www.cm-guimaraes.pt/areas-de-intervencao/educacao-e-recursos-humanos/recursos-humanos/mapa-de-pessoal
   formato: html
   periodicidade: anual
-  verificacao: URL-S
-  alimenta: [mapa_pessoal.json]
-  limitacoes: Página índice; os PDF anuais são descobertos a partir daqui.
+  verificacao: PRIM
+  limitacoes: Pagina indice; os PDF anuais sao descobertos a partir daqui.
+  descoberta:
+    padrao: '/cmguimaraes/uploads/document/file/\d+/mapa_de_pessoal_(?P<ano>\d{4})\.pdf'
+    id: 'S07-{ano}'
+    nome: 'Mapa de Pessoal {ano}'
+    formato: pdf
+    alimenta: ['mapa_pessoal.json']
+    limitacoes: Tabela larga em PDF; risco de digitalizado (OCR). So agregados (regra 7).
 
 S10:
   nome: Relatório e Contas 2021
@@ -41,7 +53,7 @@ S10:
   formato: pdf
   ano_referencia: 2021
   periodicidade: anual
-  verificacao: URL-S
+  verificacao: DESC
   alimenta: [orcamento.json]
 
 S11:
@@ -51,47 +63,117 @@ S11:
   formato: pdf
   ano_referencia: 2023
   periodicidade: anual
-  verificacao: URL-S
+  verificacao: DESC
   alimenta: [empresas_municipais.json]
-  limitacoes: Fonte do perímetro de consolidação; resolve os NIF para o ETL de contratos.
+  limitacoes: Fonte do perimetro de consolidacao; resolve os NIF para o ETL de contratos.
 
 S16:
-  nome: Mapa oficial dos resultados das eleições autárquicas 2025
-  entidade: Município de Guimarães / CNE
+  nome: Mapa oficial dos resultados das eleições autárquicas 2025 (notícia CMG)
+  entidade: Município de Guimarães
   url: https://www.cm-guimaraes.pt/noticias/noticia/mapa-oficial-dos-resultados-das-eleicoes-autarquicas
   formato: html
   ano_referencia: 2025
   periodicidade: por_eleicao
-  verificacao: URL-S
-  alimenta: [orgaos_eleitos.json]
-  limitacoes: Fonte com valor legal para a regra 5. Prioritária sobre imprensa.
+  verificacao: PRIM
+  limitacoes: >-
+    Noticia, nao o documento. Remete para o Mapa Oficial n.o 2-B/2025, publicado
+    em DR de 17-12-2025 e aprovado pela CNE em 16-12-2025 - esse e que tem valor
+    legal para a regra 5, e e descoberto a partir daqui.
+  descoberta:
+    padrao: 'https://files\.diariodarepublica\.pt/[^"\s]+\.pdf'
+    id: 'S16-DRE'
+    nome: Mapa Oficial n.º 2-B/2025 (DR 1.ª série, 17-12-2025)
+    formato: pdf
+    ano_referencia: 2025
+    alimenta: ['orgaos_eleitos.json']
+    limitacoes: >-
+      Documento nacional (~143 MB) e DIGITALIZADO: as paginas 3+ sao imagens sem
+      camada de texto, logo exige OCR (L17). Os resultados da Camara vieram de S02;
+      isto fica como fonte com valor legal, por confirmar.
 
 S23:
-  nome: Contratos Públicos - Portal BASE (IMPIC), via dados.gov.pt
+  nome: Contratos Públicos - Portal BASE (IMPIC), via dados.gov.pt (índice)
   entidade: IMPIC / AMA
-  url: https://dados.gov.pt/pt/datasets/contratos-publicos-portal-base-impic-contratos-de-2012-a-2025/
-  formato: xlsx
+  url: https://dados.gov.pt/pt/datasets/contratos-publicos-portal-base-impic-contratos-de-2012-a-2026/
+  formato: html
   periodicidade: semanal
-  verificacao: URL-S
-  alimenta: [contratos_<ano>.json]
-  limitacoes: Dataset nacional. Filtrar por NIF do adjudicante. Desfasamento ate 7 dias.
+  verificacao: PRIM
+  limitacoes: >-
+    Pagina do dataset. Os ficheiros sao um XLSX por ano e o URL inclui um carimbo
+    temporal que roda a cada publicacao semanal - por isso sao descobertos, nao fixados.
+  descoberta:
+    padrao: 'https://dados\.gov\.pt/s/resources/[^"\s\\]+/contratos(?P<ano>\d{4})\.xlsx'
+    id: 'S23-{ano}'
+    nome: 'Contratos públicos BASE/IMPIC - {ano}'
+    formato: xlsx
+    periodicidade: semanal
+    alimenta: ['contratos_{ano}.json']
+    ano_minimo: 2019
+    limitacoes: >-
+      Dataset nacional. Filtrar pelos NIF do adjudicante resolvidos a partir do
+      perimetro de consolidacao (S11). Desfasamento ate 7 dias.
 
 S27:
   nome: Portal Autárquico - finanças locais
   entidade: DGAL
-  url: https://www.portalautarquico.dgal.gov.pt/
+  url: https://portalautarquico.dgal.gov.pt/
   formato: xlsx
   periodicidade: trimestral
-  verificacao: CONHEC
+  verificacao: URL-S
   alimenta: [comparacao.json]
-  limitacoes: Series ja normalizadas entre municipios - unica base admissivel para comparar.
+  limitacoes: >-
+    Series ja normalizadas entre municipios - unica base admissivel para comparar.
+    Servem certificado *.dgal.gov.pt, que nao cobre www.portalautarquico.dgal.gov.pt:
+    usar o host sem www. O URL exato dos quadros ainda nao esta localizado (L13).
 
 S32:
   nome: INE - população residente (estimativas anuais)
   entidade: INE
   url: https://www.ine.pt/
-  formato: xlsx
+  formato: html
   periodicidade: anual
-  verificacao: CONHEC
-  alimenta: [populacao.json]
-  limitacoes: Denominador de todas as metricas per capita. Usar uma unica serie.
+  verificacao: URL-S
+  limitacoes: >-
+    Denominador de todas as metricas per capita. O URL e a homepage, NAO a serie:
+    o quadro de estimativas ainda nao esta localizado (L14). Nao usar ate estar.
+    Rejeita HEAD; o check-acesso usa GET.
+
+S02:
+  nome: Câmara Municipal (composição e resultados eleitorais)
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/municipio/camara-municipal
+  formato: html
+  ano_referencia: 2025
+  periodicidade: por_mandato
+  verificacao: PRIM
+  alimenta: [orgaos_eleitos.json, executivo.json]
+  limitacoes: >-
+    Unica fonte obtida com percentagens e mandatos por forca politica. So lista as
+    forcas COM mandato (45,33+37,50+8,06 = 90,89%): os ~9% restantes nao estao
+    discriminados. NAO traz votos absolutos nem abstencao. Lista os 11 vereadores
+    e e a referencia para o cruzamento com S01.
+
+S17:
+  nome: Resultados finais homologados das eleições autárquicas 2025
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/areas-de-intervencao/noticia/resultados-finais-homologados-das-ultimas-eleicoes-autarquicas
+  formato: html
+  ano_referencia: 2025
+  periodicidade: por_eleicao
+  verificacao: PRIM
+  limitacoes: >-
+    Noticia de 16-10-2025. Aponta para o Edital de Apuramento Geral (homologado a
+    15-10-2025 pela juiza presidente da Assembleia de Apuramento Geral), que seria
+    a fonte local com valor legal - mas o URL publicado devolve 404 (ver L15).
+
+S37:
+  nome: Assembleia Municipal (composição do órgão)
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/municipio/assembleia-municipal
+  formato: html
+  periodicidade: por_mandato
+  verificacao: PRIM
+  alimenta: [orgaos_eleitos.json]
+  limitacoes: >-
+    Da a dimensao do orgao (111 membros: 56 eleitos diretamente + 55 presidentes
+    de junta) mas NAO a distribuicao por forca politica nem os nomes (L16).
