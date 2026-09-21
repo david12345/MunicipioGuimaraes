@@ -3,7 +3,7 @@
 # É commitado de propósito: o diff mostra quando uma fonte mudou de URL.
 _meta:
   script: etl/common/descoberta.py
-  total: 12
+  total: 34
 fontes:
   S03-06_24:
     entidade: Município de Guimarães
@@ -58,6 +58,248 @@ fontes:
     ano_referencia: 2025
     alimenta:
     - orgaos_eleitos.json
+  S20-poi-arquivo-municipal-alfredo-pimenta:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+    nome: 'Equipamento: arquivo-municipal-alfredo-pimenta'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/arquivo-municipal-alfredo-pimenta
+    formato: html
+    descoberta_via: S20-cultura-municipais
+    alimenta:
+    - equipamentos.json
+  S20-poi-asmav-associacao-de-socorros-mutuos-artistica-vimaranense:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+    nome: 'Equipamento: asmav-associacao-de-socorros-mutuos-artistica-vimaranense'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-nao-municipais/poi/asmav-associacao-de-socorros-mutuos-artistica-vimaranense
+    formato: html
+    descoberta_via: S20-cultura-nao-municipais
+    alimenta:
+    - equipamentos.json
+  S20-poi-associacao-cultural-recreativa-convivio:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+    nome: 'Equipamento: associacao-cultural-recreativa-convivio'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-nao-municipais/poi/associacao-cultural-recreativa-convivio
+    formato: html
+    descoberta_via: S20-cultura-nao-municipais
+    alimenta:
+    - equipamentos.json
+  S20-poi-auditorio-da-universidade-do-minho-polo-de-guimaraes:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+    nome: 'Equipamento: auditorio-da-universidade-do-minho-polo-de-guimaraes'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/auditorio-da-universidade-do-minho-polo-de-guimaraes
+    formato: html
+    descoberta_via: S20-cultura-municipais
+    alimenta:
+    - equipamentos.json
+  S20-poi-auditorio-multifuncional-couros:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+    nome: 'Equipamento: auditorio-multifuncional-couros'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/auditorio-multifuncional-couros
+    formato: html
+    descoberta_via: S20-cultura-municipais
+    alimenta:
+    - equipamentos.json
+  S20-poi-biblioteca-municipal-raul-brandao-3:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+    nome: 'Equipamento: biblioteca-municipal-raul-brandao-3'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/biblioteca-municipal-raul-brandao-3
+    formato: html
+    descoberta_via: S20-cultura-municipais
+    alimenta:
+    - equipamentos.json
+  S20-poi-caaa-centro-para-os-assuntos-da-arte-e-da-criatividade-rua-padre-augusto-borges-de-sa:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+    nome: 'Equipamento: caaa-centro-para-os-assuntos-da-arte-e-da-criatividade-rua-padre-augusto-borges-de-sa'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-nao-municipais/poi/caaa-centro-para-os-assuntos-da-arte-e-da-criatividade-rua-padre-augusto-borges-de-sa
+    formato: html
+    descoberta_via: S20-cultura-nao-municipais
+    alimenta:
+    - equipamentos.json
+  S20-poi-car-circulo-de-arte-e-recreio:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+    nome: 'Equipamento: car-circulo-de-arte-e-recreio'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-nao-municipais/poi/car-circulo-de-arte-e-recreio
+    formato: html
+    descoberta_via: S20-cultura-nao-municipais
+    alimenta:
+    - equipamentos.json
+  S20-poi-casa-da-juventude-de-guimaraes:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    nome: 'Equipamento: casa-da-juventude-de-guimaraes'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/espacos/espacos-de-juventude/poi/casa-da-juventude-de-guimaraes
+    formato: html
+    descoberta_via: S20-espacos-juventude
+    alimenta:
+    - equipamentos.json
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+  S20-poi-casa-da-memoria:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+    nome: 'Equipamento: casa-da-memoria'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/casa-da-memoria
+    formato: html
+    descoberta_via: S20-cultura-municipais
+    alimenta:
+    - equipamentos.json
+  S20-poi-ccvf:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+    nome: 'Equipamento: ccvf'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/ccvf
+    formato: html
+    descoberta_via: S20-cultura-municipais
+    alimenta:
+    - equipamentos.json
+  S20-poi-centro-de-criacao-de-candoso:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+    nome: 'Equipamento: centro-de-criacao-de-candoso'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/centro-de-criacao-de-candoso
+    formato: html
+    descoberta_via: S20-cultura-municipais
+    alimenta:
+    - equipamentos.json
+  S20-poi-centro-internacional-das-artes-jose-de-guimaraes:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+    nome: 'Equipamento: centro-internacional-das-artes-jose-de-guimaraes'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/centro-internacional-das-artes-jose-de-guimaraes
+    formato: html
+    descoberta_via: S20-cultura-municipais
+    alimenta:
+    - equipamentos.json
+  S20-poi-cine-clube-de-guimaraes:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+    nome: 'Equipamento: cine-clube-de-guimaraes'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-nao-municipais/poi/cine-clube-de-guimaraes
+    formato: html
+    descoberta_via: S20-cultura-nao-municipais
+    alimenta:
+    - equipamentos.json
+  S20-poi-gabinete-municipal-da-juventude:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    nome: 'Equipamento: gabinete-municipal-da-juventude'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/espacos/espacos-de-juventude/poi/gabinete-municipal-da-juventude
+    formato: html
+    descoberta_via: S20-espacos-juventude
+    alimenta:
+    - equipamentos.json
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+  S20-poi-ipdj-braga:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    nome: 'Equipamento: ipdj-braga'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/espacos/espacos-de-juventude/poi/ipdj-braga
+    formato: html
+    descoberta_via: S20-espacos-juventude
+    alimenta:
+    - equipamentos.json
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+  S20-poi-loja-oficina:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    nome: 'Equipamento: loja-oficina'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/loja-oficina
+    formato: html
+    descoberta_via: S20-cultura-municipais-p2
+    alimenta:
+    - equipamentos.json
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+  S20-poi-multiusos-de-guimaraes:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    nome: 'Equipamento: multiusos-de-guimaraes'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/multiusos-de-guimaraes
+    formato: html
+    descoberta_via: S20-cultura-municipais-p2
+    alimenta:
+    - equipamentos.json
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+  S20-poi-oficina-centro-de-artes-e-mesteres-tradicionais-guimaraes:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    nome: 'Equipamento: oficina-centro-de-artes-e-mesteres-tradicionais-guimaraes'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/oficina-centro-de-artes-e-mesteres-tradicionais-guimaraes
+    formato: html
+    descoberta_via: S20-cultura-municipais-p2
+    alimenta:
+    - equipamentos.json
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+  S20-poi-pousada-da-juventude-de-guimaraes:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    nome: 'Equipamento: pousada-da-juventude-de-guimaraes'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/espacos/espacos-de-juventude/poi/pousada-da-juventude-de-guimaraes
+    formato: html
+    descoberta_via: S20-espacos-juventude
+    alimenta:
+    - equipamentos.json
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+  S20-poi-sao-mamede-centro-de-artes-e-espetaculos-de-guimaraes:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+    nome: 'Equipamento: sao-mamede-centro-de-artes-e-espetaculos-de-guimaraes'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-nao-municipais/poi/sao-mamede-centro-de-artes-e-espetaculos-de-guimaraes
+    formato: html
+    descoberta_via: S20-cultura-nao-municipais
+    alimenta:
+    - equipamentos.json
+  S20-poi-teatro-jordao:
+    entidade: Município de Guimarães
+    periodicidade: continua
+    verificacao: PRIM
+    nome: 'Equipamento: teatro-jordao'
+    url: https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/teatro-jordao
+    formato: html
+    descoberta_via: S20-cultura-municipais-p2
+    alimenta:
+    - equipamentos.json
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
   S23-2019:
     entidade: IMPIC / AMA
     periodicidade: semanal

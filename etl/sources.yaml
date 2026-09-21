@@ -371,3 +371,62 @@ S39:
     ano -> tipo (Previsionais / Prestacao de Contas / Impostos Locais) com ids
     opacos e paginacao, por isso NAO e' varrivel por uma so regra de descoberta.
     E' daqui que saem S08-2021..S08-2026 e a serie de Relatorios e Contas.
+
+# --- S20: equipamentos municipais -----------------------------------------
+# O site da CMG publica os equipamentos como "pontos de interesse" (/poi/),
+# cada um com pagina propria que traz **coordenadas na origem** (data-lat,
+# data-long), morada e contacto. Nao e preciso geocodificar, o que dispensa a
+# V8 e o Nominatim.
+#
+# Sao 3 listagens e 22 equipamentos. As instalacoes desportivas NAO estao aqui:
+# sao geridas pela Tempo Livre, cooperativa, e o site da Camara nao as lista.
+#
+# A distincao entre culturais MUNICIPAIS e NAO MUNICIPAIS vem da propria fonte
+# e tem de sobreviver ate ao dashboard: os segundos nao sao da Camara.
+
+S20-cultura-municipais:
+  nome: Equipamentos culturais municipais (índice)
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais
+  formato: html
+  periodicidade: continua
+  verificacao: PRIM
+  limitacoes: Listagem paginada; a 2.a pagina e uma fonte propria.
+  descoberta: &descoberta_poi
+    padrao: '/areas-de-intervencao/[\w/-]*/poi/(?P<slug>[\w-]+)'
+    id: 'S20-poi-{slug}'
+    nome: 'Equipamento: {slug}'
+    formato: html
+    alimenta: ['equipamentos.json']
+    limitacoes: Coordenadas publicadas na origem (data-lat/data-long).
+
+S20-cultura-municipais-p2:
+  nome: Equipamentos culturais municipais (índice, página 2)
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais?pois_list_30_page=2
+  formato: html
+  periodicidade: continua
+  verificacao: PRIM
+  descoberta: *descoberta_poi
+
+S20-cultura-nao-municipais:
+  nome: Equipamentos culturais não municipais (índice)
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-nao-municipais
+  formato: html
+  periodicidade: continua
+  verificacao: PRIM
+  limitacoes: >-
+    NAO sao equipamentos da Camara. A distincao vem da fonte e tem de sobreviver
+    ate ao dashboard - juntar os dois conjuntos seria atribuir ao municipio
+    equipamentos que nao sao seus.
+  descoberta: *descoberta_poi
+
+S20-espacos-juventude:
+  nome: Espaços de juventude (índice)
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/espacos/espacos-de-juventude
+  formato: html
+  periodicidade: continua
+  verificacao: PRIM
+  descoberta: *descoberta_poi

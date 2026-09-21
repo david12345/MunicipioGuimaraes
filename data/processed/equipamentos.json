@@ -1,0 +1,446 @@
+{
+  "_meta": {
+    "gerado_em": "2026-09-21T22:24:29.027351+00:00",
+    "script": "etl/equipamentos.py",
+    "versao_modelo": "1.0",
+    "fontes": [
+      "S20-poi-arquivo-municipal-alfredo-pimenta",
+      "S20-poi-asmav-associacao-de-socorros-mutuos-artistica-vimaranense",
+      "S20-poi-associacao-cultural-recreativa-convivio",
+      "S20-poi-auditorio-da-universidade-do-minho-polo-de-guimaraes",
+      "S20-poi-auditorio-multifuncional-couros",
+      "S20-poi-biblioteca-municipal-raul-brandao-3",
+      "S20-poi-caaa-centro-para-os-assuntos-da-arte-e-da-criatividade-rua-padre-augusto-borges-de-sa",
+      "S20-poi-car-circulo-de-arte-e-recreio",
+      "S20-poi-casa-da-juventude-de-guimaraes",
+      "S20-poi-casa-da-memoria",
+      "S20-poi-ccvf",
+      "S20-poi-centro-de-criacao-de-candoso",
+      "S20-poi-centro-internacional-das-artes-jose-de-guimaraes",
+      "S20-poi-cine-clube-de-guimaraes",
+      "S20-poi-gabinete-municipal-da-juventude",
+      "S20-poi-ipdj-braga",
+      "S20-poi-loja-oficina",
+      "S20-poi-multiusos-de-guimaraes",
+      "S20-poi-oficina-centro-de-artes-e-mesteres-tradicionais-guimaraes",
+      "S20-poi-pousada-da-juventude-de-guimaraes",
+      "S20-poi-sao-mamede-centro-de-artes-e-espetaculos-de-guimaraes",
+      "S20-poi-teatro-jordao"
+    ],
+    "avisos": [
+      "1 ficha(s) apontam para fora do concelho: IPDJ Braga. A Câmara lista-as como contacto útil; ficam marcadas e não enquadram o mapa.",
+      "3 equipamento(s) sem coordenadas na fonte: asmav-associacao-de-socorros-mutuos-artistica-vimaranense, centro-de-criacao-de-candoso, cine-clube-de-guimaraes. Não aparecem no mapa, mas constam da lista."
+    ],
+    "nota": "As instalações desportivas não constam: são geridas pela Tempo Livre, cooperativa, e o sítio do município não as lista (L29)."
+  },
+  "total": 22,
+  "total_municipais": 16,
+  "com_coordenadas": 19,
+  "no_concelho": 18,
+  "equipamentos": [
+    {
+      "id": "oficina-centro-de-artes-e-mesteres-tradicionais-guimaraes",
+      "nome": "'Oficina' Centro de Artes e Mesteres Tradicionais Guimarães",
+      "tema": "cultura",
+      "municipal": true,
+      "categorias": [
+        "Associações Culturais e Desportivas",
+        "Cultura",
+        "EQUIPAMENTOS CULTURAIS MUNICIPAIS",
+        "Serviços",
+        "Viver"
+      ],
+      "latitude": 41.4351516,
+      "longitude": -8.29218620000006,
+      "no_concelho": true,
+      "morada": "Avª. D. João IV, 1213 Cave 4810-532 Guimarães",
+      "telefone": "(+351) 253 424 700",
+      "email": "geral@aoficina.pt",
+      "sitio": null,
+      "fonte_id": "S20-poi-oficina-centro-de-artes-e-mesteres-tradicionais-guimaraes"
+    },
+    {
+      "id": "arquivo-municipal-alfredo-pimenta",
+      "nome": "ARQUIVO MUNICIPAL ALFREDO PIMENTA",
+      "tema": "cultura",
+      "municipal": true,
+      "categorias": [
+        "Balcão Virtual",
+        "EQUIPAMENTOS CULTURAIS MUNICIPAIS",
+        "Horários de Atendimento",
+        "Viver"
+      ],
+      "latitude": 41.4439832,
+      "longitude": -8.293546800000058,
+      "no_concelho": true,
+      "morada": "R. João Lopes de Faria 12 4810-414 Guimarães",
+      "telefone": "(+351) 253 421 246",
+      "email": "arquivo.municipal@cm-guimaraes.pt",
+      "sitio": null,
+      "fonte_id": "S20-poi-arquivo-municipal-alfredo-pimenta"
+    },
+    {
+      "id": "asmav-associacao-de-socorros-mutuos-artistica-vimaranense",
+      "nome": "ASMAV – Associação de Socorros Mútuos Artística Vimaranense",
+      "tema": "cultura",
+      "municipal": false,
+      "categorias": [
+        "EQUIPAMENTOS CULTURAIS NÃO MUNICIPAIS"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "no_concelho": null,
+      "morada": "R. de Gil Vicente 46, 4800-151 Guimarães",
+      "telefone": "(+351) 253 960 063 481",
+      "email": "asmavg@gmail.com",
+      "sitio": null,
+      "fonte_id": "S20-poi-asmav-associacao-de-socorros-mutuos-artistica-vimaranense"
+    },
+    {
+      "id": "associacao-cultural-recreativa-convivio",
+      "nome": "Associação Cultural Recreativa Convivio",
+      "tema": "cultura",
+      "municipal": false,
+      "categorias": [
+        "Associações Culturais e Desportivas",
+        "Cultura",
+        "EQUIPAMENTOS CULTURAIS NÃO MUNICIPAIS",
+        "Serviços",
+        "Viver"
+      ],
+      "latitude": 41.44264330000001,
+      "longitude": -8.294388400000003,
+      "no_concelho": true,
+      "morada": "Largo João Franco, 8 4800 Guimarães",
+      "telefone": "(+351) 968 482 455",
+      "email": "convivio.gmr@gmail.com",
+      "sitio": null,
+      "fonte_id": "S20-poi-associacao-cultural-recreativa-convivio"
+    },
+    {
+      "id": "auditorio-multifuncional-couros",
+      "nome": "Auditório Multifuncional Couros",
+      "tema": "cultura",
+      "municipal": true,
+      "categorias": [
+        "EQUIPAMENTOS CULTURAIS MUNICIPAIS",
+        "Equipamentos",
+        "Viver"
+      ],
+      "latitude": 41.43876820000001,
+      "longitude": -8.292488800000001,
+      "no_concelho": true,
+      "morada": "Travessa de Vila Verde – S- Sebastião 4800-430 Guimarães",
+      "telefone": "(+351) 253 511 400",
+      "email": "fraterna@fraterna.org",
+      "sitio": null,
+      "fonte_id": "S20-poi-auditorio-multifuncional-couros"
+    },
+    {
+      "id": "auditorio-da-universidade-do-minho-polo-de-guimaraes",
+      "nome": "Auditório da Universidade do Minho – Pólo de Guimarães",
+      "tema": "cultura",
+      "municipal": true,
+      "categorias": [
+        "EQUIPAMENTOS CULTURAIS MUNICIPAIS"
+      ],
+      "latitude": 41.45221167296643,
+      "longitude": -8.290380659155609,
+      "no_concelho": true,
+      "morada": "Universidade do Minho – Pólo de Guimarães",
+      "telefone": "(+351) 253 510 133",
+      "email": "cultura@cm-guimaraes.pt",
+      "sitio": null,
+      "fonte_id": "S20-poi-auditorio-da-universidade-do-minho-polo-de-guimaraes"
+    },
+    {
+      "id": "biblioteca-municipal-raul-brandao-3",
+      "nome": "BIBLIOTECA MUNICIPAL RAÚL BRANDÃO",
+      "tema": "cultura",
+      "municipal": true,
+      "categorias": [
+        "Balcão Virtual",
+        "EQUIPAMENTOS CULTURAIS MUNICIPAIS",
+        "Horários de Atendimento",
+        "Viver"
+      ],
+      "latitude": 41.4442416,
+      "longitude": -8.292889800000012,
+      "no_concelho": true,
+      "morada": "Largo Cónego José Maria Gomes 4800-419 Guimarães",
+      "telefone": "(+351) 253 421262",
+      "email": "biblioteca@cm-guimaraes.pt",
+      "sitio": null,
+      "fonte_id": "S20-poi-biblioteca-municipal-raul-brandao-3"
+    },
+    {
+      "id": "caaa-centro-para-os-assuntos-da-arte-e-da-criatividade-rua-padre-augusto-borges-de-sa",
+      "nome": "CAAA – Centro para os Assuntos da Arte e da Criatividade Rua Padre Augusto Borges de Sá",
+      "tema": "cultura",
+      "municipal": false,
+      "categorias": [
+        "EQUIPAMENTOS CULTURAIS NÃO MUNICIPAIS"
+      ],
+      "latitude": 41.43913311791657,
+      "longitude": -8.298928132252978,
+      "no_concelho": true,
+      "morada": "Rua Padre Augusto Borges de Sá, 4810-523 Guimarães",
+      "telefone": "(+351) 253 088 875",
+      "email": "geral@centroaaa.org",
+      "sitio": null,
+      "fonte_id": "S20-poi-caaa-centro-para-os-assuntos-da-arte-e-da-criatividade-rua-padre-augusto-borges-de-sa"
+    },
+    {
+      "id": "car-circulo-de-arte-e-recreio",
+      "nome": "CAR – Círculo de Arte e Recreio",
+      "tema": "cultura",
+      "municipal": false,
+      "categorias": [
+        "EQUIPAMENTOS CULTURAIS NÃO MUNICIPAIS"
+      ],
+      "latitude": 41.44532334043029,
+      "longitude": -8.295627382898438,
+      "no_concelho": true,
+      "morada": "R. Francisco Agra 74, 4800-151 Guimarães",
+      "telefone": "(+351) 253 100 183",
+      "email": "geral@circulodearteerecreio.pt",
+      "sitio": null,
+      "fonte_id": "S20-poi-car-circulo-de-arte-e-recreio"
+    },
+    {
+      "id": "ccvf",
+      "nome": "CCVF",
+      "tema": "cultura",
+      "municipal": true,
+      "categorias": [
+        "30º Aniversário CIAC de Guimarães a ser realizada nos dia 26 e 27 de junho de 2019 no Pequeno Auditório do Centro Cultural Vila Flor Guimarães",
+        "EQUIPAMENTOS CULTURAIS MUNICIPAIS",
+        "Equipamentos",
+        "Viver"
+      ],
+      "latitude": 41.43730146746913,
+      "longitude": -8.295326828956604,
+      "no_concelho": true,
+      "morada": "Av. Dom Afonso Henriques 701 4810-431 Guimarães",
+      "telefone": "253 424 700",
+      "email": "geral@ccvf.pt",
+      "sitio": null,
+      "fonte_id": "S20-poi-ccvf"
+    },
+    {
+      "id": "casa-da-juventude-de-guimaraes",
+      "nome": "Casa da Juventude de Guimarães",
+      "tema": "juventude",
+      "municipal": true,
+      "categorias": [
+        "Espaço Juventude"
+      ],
+      "latitude": 41.4398708,
+      "longitude": -8.2959397,
+      "no_concelho": true,
+      "morada": null,
+      "telefone": null,
+      "email": "casajuventudeguimaraes@gmail.com",
+      "sitio": null,
+      "fonte_id": "S20-poi-casa-da-juventude-de-guimaraes"
+    },
+    {
+      "id": "casa-da-memoria",
+      "nome": "Casa da Memória",
+      "tema": "cultura",
+      "municipal": true,
+      "categorias": [
+        "EQUIPAMENTOS CULTURAIS MUNICIPAIS",
+        "Equipamentos",
+        "Viver"
+      ],
+      "latitude": 41.4426175,
+      "longitude": -8.30035620000001,
+      "no_concelho": true,
+      "morada": "Av. Conde de Margaride, 536, 4835-073 Guimarães",
+      "telefone": "(+351) 253 424 716",
+      "email": "geral@casadamemoria.pt",
+      "sitio": null,
+      "fonte_id": "S20-poi-casa-da-memoria"
+    },
+    {
+      "id": "centro-internacional-das-artes-jose-de-guimaraes",
+      "nome": "Centro Internacional das Artes José de Guimarães",
+      "tema": "cultura",
+      "municipal": true,
+      "categorias": [
+        "EQUIPAMENTOS CULTURAIS MUNICIPAIS",
+        "Equipamentos",
+        "Viver"
+      ],
+      "latitude": 41.4428179,
+      "longitude": -8.297544000000016,
+      "no_concelho": true,
+      "morada": "Av. Conde Margaride, 175 4810-535 Guimarães, Portugal",
+      "telefone": "(+351) 253 424 715",
+      "email": "geral@ciajg.pt",
+      "sitio": null,
+      "fonte_id": "S20-poi-centro-internacional-das-artes-jose-de-guimaraes"
+    },
+    {
+      "id": "centro-de-criacao-de-candoso",
+      "nome": "Centro de Criação de Candoso",
+      "tema": "cultura",
+      "municipal": true,
+      "categorias": [
+        "EQUIPAMENTOS CULTURAIS MUNICIPAIS"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "no_concelho": null,
+      "morada": "Rua de Moure, São Martinho de Candoso, 4835-382 Guimarães",
+      "telefone": "(+351) 253 424 700",
+      "email": "geral@aoficina.pt",
+      "sitio": null,
+      "fonte_id": "S20-poi-centro-de-criacao-de-candoso"
+    },
+    {
+      "id": "cine-clube-de-guimaraes",
+      "nome": "Cine Clube de Guimarães",
+      "tema": "cultura",
+      "municipal": false,
+      "categorias": [
+        "Associações Culturais e Desportivas",
+        "Cultura",
+        "EQUIPAMENTOS CULTURAIS NÃO MUNICIPAIS",
+        "Serviços",
+        "Viver"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "no_concelho": null,
+      "morada": "Largo João Franco, 19 - 2º 4800 Guimarães",
+      "telefone": "(+351) 253 514 239",
+      "email": "info@cineclubeguimaraes.org",
+      "sitio": null,
+      "fonte_id": "S20-poi-cine-clube-de-guimaraes"
+    },
+    {
+      "id": "gabinete-municipal-da-juventude",
+      "nome": "Gabinete Municipal da Juventude",
+      "tema": "juventude",
+      "municipal": true,
+      "categorias": [
+        "Espaço Juventude"
+      ],
+      "latitude": 41.44430989284957,
+      "longitude": -8.292216583205796,
+      "no_concelho": true,
+      "morada": null,
+      "telefone": "253 421 200",
+      "email": "juventude@cm-guimaraes.pt",
+      "sitio": null,
+      "fonte_id": "S20-poi-gabinete-municipal-da-juventude"
+    },
+    {
+      "id": "ipdj-braga",
+      "nome": "IPDJ Braga",
+      "tema": "juventude",
+      "municipal": true,
+      "categorias": [
+        "Espaço Juventude"
+      ],
+      "latitude": 41.5546439,
+      "longitude": -8.4170122,
+      "no_concelho": false,
+      "morada": null,
+      "telefone": "253 148 682",
+      "email": "cjb@investbraga.com",
+      "sitio": null,
+      "fonte_id": "S20-poi-ipdj-braga"
+    },
+    {
+      "id": "loja-oficina",
+      "nome": "Loja Oficina",
+      "tema": "cultura",
+      "municipal": true,
+      "categorias": [
+        "EQUIPAMENTOS CULTURAIS MUNICIPAIS"
+      ],
+      "latitude": 41.44253401396547,
+      "longitude": -8.293351659705188,
+      "no_concelho": true,
+      "morada": "Rua da Rainha Dª. Maria II, 132, 4800-431 Guimarães",
+      "telefone": "(+351) 253 515 250",
+      "email": "loja@aoficina.pt",
+      "sitio": null,
+      "fonte_id": "S20-poi-loja-oficina"
+    },
+    {
+      "id": "multiusos-de-guimaraes",
+      "nome": "Multiusos de Guimarães",
+      "tema": "cultura",
+      "municipal": true,
+      "categorias": [
+        "EQUIPAMENTOS CULTURAIS MUNICIPAIS",
+        "Equipamentos",
+        "Equipamentos desportivos",
+        "Viver"
+      ],
+      "latitude": 41.43487349999999,
+      "longitude": -8.307417399999963,
+      "no_concelho": true,
+      "morada": "Alameda Cidade de Lisboa – Creixomil 4835-037 Guimarães",
+      "telefone": "(+ 351) 253 520 300",
+      "email": "geral@tempolivre.pt",
+      "sitio": null,
+      "fonte_id": "S20-poi-multiusos-de-guimaraes"
+    },
+    {
+      "id": "pousada-da-juventude-de-guimaraes",
+      "nome": "Pousada da Juventude de Guimarães",
+      "tema": "juventude",
+      "municipal": true,
+      "categorias": [
+        "Espaço Juventude"
+      ],
+      "latitude": 41.43993553523498,
+      "longitude": -8.293103102509862,
+      "no_concelho": true,
+      "morada": null,
+      "telefone": "253 512 050",
+      "email": "guimaraes@movijovem.pt",
+      "sitio": null,
+      "fonte_id": "S20-poi-pousada-da-juventude-de-guimaraes"
+    },
+    {
+      "id": "sao-mamede-centro-de-artes-e-espetaculos-de-guimaraes",
+      "nome": "São Mamede - Centro de Artes e Espetáculos de Guimarães",
+      "tema": "cultura",
+      "municipal": false,
+      "categorias": [
+        "EQUIPAMENTOS CULTURAIS NÃO MUNICIPAIS"
+      ],
+      "latitude": 41.442593474517864,
+      "longitude": -8.290621580234577,
+      "no_concelho": true,
+      "morada": "Rua Dr. José Sampaio, 17-25, 4810-175 Guimarães",
+      "telefone": null,
+      "email": "geral@sao-mamede.com",
+      "sitio": null,
+      "fonte_id": "S20-poi-sao-mamede-centro-de-artes-e-espetaculos-de-guimaraes"
+    },
+    {
+      "id": "teatro-jordao",
+      "nome": "Teatro Jordão",
+      "tema": "cultura",
+      "municipal": true,
+      "categorias": [
+        "EQUIPAMENTOS CULTURAIS MUNICIPAIS"
+      ],
+      "latitude": 41.43889879349447,
+      "longitude": -8.295304011532494,
+      "no_concelho": true,
+      "morada": "Av. D. Afonso Henriques, 321, 4810-431 Guimarães",
+      "telefone": null,
+      "email": "geral@cm-guimaraes.pt",
+      "sitio": null,
+      "fonte_id": "S20-poi-teatro-jordao"
+    }
+  ]
+}

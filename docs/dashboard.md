@@ -90,9 +90,22 @@ ano de referência e data de recolha.
 `null` é renderizado como **"Dado não disponível"** — nunca zero, nunca omissão
 silenciosa.
 
+### O mapa
+
+Leaflet sobre OpenStreetMap, carregado **só** quando a secção dos equipamentos
+abre: são ~43 kB comprimidos que não fazem falta a quem vem ver o orçamento.
+
+Os marcadores são SVG desenhado, não a imagem que o Leaflet traz — essa é
+referida por caminho relativo e não sobrevive ao empacotamento (aparecia o
+texto alternativo em vez do pino). Desenhá-los evita dois pedidos de imagem,
+segue o tema, e permite distinguir municipal de não municipal por **forma e
+preenchimento**, não só por cor: cheio contra vazado lê-se sem ver cor.
+
+O mapa e a lista mostram sempre o mesmo conjunto e o filtro age nos dois. A
+lista não é a versão de recurso: num telemóvel dá morada e telefone sem obrigar
+a apontar o dedo a um alfinete.
+
 ## O que falta
 
-- **Leaflet e o mapa**: a secção de equipamentos não tem dados, por isso o mapa
-  ainda não faz sentido.
-- Secções 6, 7, 10 e 11 existem, dizem "Dado não disponível" e explicam porquê.
+- Secções 6, 7 e 11 existem, dizem "Dado não disponível" e explicam porquê.
 - Não há testes automatizados do comportamento das secções, só das métricas.

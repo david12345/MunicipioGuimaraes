@@ -105,7 +105,9 @@ for (const [rotulo, largura] of LARGURAS) {
       for (const n of document.querySelectorAll("button, a, summary")) {
         const r = n.getBoundingClientRect();
         if (r.width === 0 && r.height === 0) continue; // escondido
-        const emLinha = n.closest("p, li, td, .figura__fonte, .cadeia");
+        const emLinha = n.closest(
+          "p, li, td, .figura__fonte, .cadeia, .leaflet-control-attribution",
+        );
         if (emLinha) continue;
         if (r.height < 44 - 0.5) {
           out.push(`${n.tagName}: ${Math.round(r.height)}px — ${n.textContent.trim().slice(0, 40)}`);

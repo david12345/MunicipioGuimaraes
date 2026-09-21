@@ -1,6 +1,6 @@
 # Qualidade dos dados e lacunas conhecidas
 
-Última atualização: 2026-09-21 · Fase 2 (secções 2, 3, 4, 5, 8, 9 e população extraídas).
+Última atualização: 2026-09-21 · Fase 2 (secções 2, 3, 4, 5, 8, 9, 10 e população).
 
 Este ficheiro regista **tudo o que não foi possível obter ou validar**. É um
 entregável tão importante como os dados: o dashboard mostra "Dado não disponível"
@@ -61,7 +61,7 @@ Estas persistem mesmo com acesso à rede e condicionam o desenho do dashboard.
 | L7 | API do Portal BASE exige autorização do IMPIC (S24) | Sem credencial, não há atualização diária | Usar o dataset semanal do dados.gov (S23), que não exige credencial; assumir desfasamento até 7 dias e mostrá-lo no dashboard |
 | L8 | NIF das empresas municipais desconhecidos | Sem eles não se filtram os contratos das participadas no BASE | Extrair o perímetro de consolidação de S11 e resolver cada NIF antes do ETL de contratos |
 | L9 | Duas convenções de URL no site da CMG (`/uploads/` e `/cmguimaraes/uploads/`) | Um crawler que assuma um único padrão perde documentos antigos | O `fetch` aceita ambos os padrões (ver `etl/common/fetch.py`) |
-| L10 | Moradas dos equipamentos em texto livre | Geocodificação falha ou devolve pontos errados | Cachear respostas do Nominatim, registar taxa de sucesso e **marcar no mapa** os pontos de baixa confiança em vez de os esconder |
+| L10 | ~~Moradas dos equipamentos em texto livre~~ · **RESOLVIDA** | — | Não é preciso geocodificar: cada ficha de equipamento da CMG publica `data-lat`/`data-long` na origem. Dispensa o Nominatim e a V8. O que se valida é que a coordenada é plausível (bloqueante) e se cai dentro do concelho (informativo) |
 | L11 | Comparação entre municípios (secção 11) | Extrações próprias de PDF de municípios diferentes não são comparáveis | Usar exclusivamente séries já normalizadas da DGAL (S27); não misturar com extrações próprias |
 | L12 | Séries históricas com mudanças de classificação (POCAL → SNC-AP) | Evolução plurianual pode mostrar "saltos" que são artefactos contabilísticos | Marcar a quebra de série no gráfico e explicá-la no glossário |
 | L13 | URL exato dos quadros da DGAL (S27) por localizar | Sem ele não há secção 11 (comparar municípios) | Varrer `portalautarquico.dgal.gov.pt` (sem `www.`) pela secção de finanças locais |
@@ -80,6 +80,9 @@ Estas persistem mesmo com acesso à rede e condicionam o desenho do dashboard.
 | L26 | Os documentos previsionais são **mistos**: texto e imagem | Só os mapas com camada de texto são extraíveis | Em 2026, 423 das 948 páginas quase não têm texto. O mapa "Resumo da Receita e da Despesa" é texto em 2022–2026 e concentra os agregados; os mapas detalhados de rubrica e o PPI estão em grande parte digitalizados, e por isso a secção 7 (investimentos) ainda não foi tentada |
 | L27 | Totais de **receita cobrada** e **despesa paga** não publicados com rótulo | O dashboard mostra o *grau* de execução e os agregados correntes, não o total gasto | Nos Relatórios e Contas os totais existem nos mapas de execução, mas em linhas **sem rótulo**, identificadas só pela posição na página. Extraí-los seria adivinhar. O que é rotulado — e extraído — é a tabela "Principais indicadores orçamentais" e o quadro do equilíbrio orçamental |
 | L28 | O Relatório e Contas de **2022** codifica o euro como `¬` | Um extrator que procure `€` não encontra valor nenhum nesse ano | Problema de mapeamento de glifo na fonte do PDF. O parser aceita os dois símbolos |
+| L29 | **Instalações desportivas não constam** dos equipamentos | Piscinas, pavilhões e campos ficam de fora da secção 10 | São geridas pela **Tempo Livre**, cooperativa do perímetro de consolidação, e o sítio do município não as lista. Obtê-las exigiria ir ao sítio da Tempo Livre, que é outra entidade e outra fonte |
+| L30 | Uma ficha de equipamento aponta para **fora do concelho** | Incluí-la no enquadramento do mapa afastava a vista 20 km | O **IPDJ Braga** é listado pela CMG como contacto de apoio à juventude. É uma ficha legítima, não um erro: fica com `no_concelho: false`, aparece no mapa e na lista assinalado, mas não enquadra a vista |
+| L31 | Três equipamentos **sem coordenadas** na fonte | Não aparecem no mapa | ASMAV, Centro de Criação de Candoso e Cine Clube de Guimarães. Constam da lista com morada e contacto, e o cartão diz que a localização não está disponível — não são geocodificados a partir da morada |
 
 ### Verificação — não há reestruturação orgânica de 2026 em Guimarães
 
@@ -141,6 +144,7 @@ São automáticas e **bloqueantes**: uma extração que falhe não é publicada.
 | 4 · Quem lá trabalha | `etl/mapa_pessoal.py` | **V3**, V6, e 63 verificações de total (7 unidades × 9 colunas) contra o `TOTAL` impresso no documento |
 | 3 · Como está organizada | `etl/estrutura_organica.py` | V6, unicidade dos `id`, existência do alvo de cada alteração normativa, e **verificação cruzada nos dois sentidos** contra o organograma publicado |
 | 5 · De onde vem o dinheiro | `etl/orcamento.py` | **V2** nos cinco anos (receita total = despesa total, por imposição legal), **V1** em quatro formas por ano, V6, e a regra do equilíbrio orçamental do art. 40.º do RFALEI em cada ano de execução |
+| 10 · Equipamentos | `etl/equipamentos.py` | V6, propriedade conhecida em todas as fichas, e coordenadas plausíveis (bloqueante). Substitui a V8, que pressupunha geocodificação |
 | transversal · População | `etl/populacao.py` | **V5**, **V7**, V6, soma homens+mulheres = total em cada ano, e soma dos grupos etários = total do ano |
 
 V4 estava especificada desde a Fase 1 mas não implementada; foi escrita com o

@@ -1,0 +1,991 @@
+<!DOCTYPE HTML>
+<html lang="pt-PT">
+
+<head>
+  <title>Centro de Criação de Candoso | Câmara Municipal de Guimarães</title>
+        <style>
+        .stickyForm{
+          display:none;
+        }
+        #aida-mount textarea{
+          height: unset !important;
+          min-height: unset !important;
+          max-height: unset !important;
+        }
+        #aida-mount button{
+          padding: 0 4px;
+        }
+        .ReactVirtualized__Grid {
+          padding-top: 4px;
+        }
+      </style>
+<link rel="stylesheet" type="text/css" href="/assets/wm-citizen/stylesheets/frontoffice/smile-citizen-2-a25b70feb3.min.css" media="all">
+<link rel="stylesheet" type="text/css" href="/assets/wm-smile/stylesheets/frontoffice/mandatory-b73ced5ea4.min.css" media="all"><link rel="stylesheet" type="text/css" href="/assets/wm-smile/stylesheets/frontoffice/mega_search-5afe7b92fd.min.css" media="all">
+<link rel="stylesheet" type="text/css" href="/assets/cmguimaraes/cmguimaraes/stylesheets/widget_styles/horizontal_menu_730-edf873732e.min.css" media="all">
+<link rel="stylesheet" type="text/css" href="/assets/wm-smile/stylesheets/frontoffice/widgets/horizontal_menu-5eae543579.min.css" media="all">
+<link rel="stylesheet" type="text/css" href="/assets/wm-smile/stylesheets/frontoffice/widgets/vertical_menu-68708018aa.min.css" media="all">
+
+        <script src="/assets/wm-smile/javascripts/frontoffice/focus-trap-b3eb1ff5c5.min.js"></script>
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="LgC2j89H8+lTTv4WZR2Tded5GKms6CRt6k22nezYRTp5oQnYwWPxX7G70OwzjyKYeldrR00eU6KRpm38SsY8Ow==" />
+  <script src="/assets/wm-smile/javascripts/vendor/smile-frontoffice-0fc0bba368.vendor.js"></script>  <script src="/assets/wm-smile/javascripts/frontoffice/smile-82477b69b7.min.js"></script>
+<script src="/assets/wm-smile/javascripts/frontoffice/mega-search-6a0138b76a.min.js"></script>
+<script src="/assets/wm-smile/javascripts/frontoffice/accessible_menu-75bc2207c8.min.js"></script>
+<script src="/assets/wm-smile/javascripts/frontoffice/wm_accessible_menu-54c32c8ed7.min.js"></script>
+<script src="/assets/wm-smile/javascripts/frontoffice/widgets-common-1afe1ea734.min.js"></script>
+<script src="/assets/wm-smile/javascripts/frontoffice/galleria/galleria-de8702b97a.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAujvVQ01iKHdyjv0cDux7kshVBgyfQtVc"></script>
+<script src="/assets/wm-smile/javascripts/frontoffice/map_manager_auto_begin-ec5aff20dd.min.js"></script>
+<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<script src="https://aida.cityfy.pt/aida/cdn/aida-client-ai/aida-client-ai.min.js" crossorigin="anonymous"></script>
+
+  
+
+<!-- teste onesignal -->
+<link rel="manifest" href="/manifest.json" />
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  var OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "7645dca2-15ca-475a-8ec5-fb00a4287475",
+    });
+  });
+</script>
+<!-- teste onesignal -->
+  
+  <!-- VirtualSign 2.0 -->
+  <link rel="stylesheet" href="https://virtualsign.s3-eu-west-1.amazonaws.com/Build/virtualsign.css"/>
+  <script src="https://virtualsign.fra1.digitaloceanspaces.com/Build/VirtualSign.js"></script>
+  <!-- /VirtualSign 2.0 -->
+  
+
+  <!-------------------------------------------------------------------------------------------------------------->
+  <!-- SCRIPTS E CALLER - other included scripts are on the bottom of this page -->
+  <!-------------------------------------------------------------------------------------------------------------->
+  <link rel="stylesheet" type="text/css" href="/assets/cmguimaraes/cmguimaraes/stylesheets/caller-93f558e227.min.css" media="all">
+  <script src="/assets/cmguimaraes/cmguimaraes/javascripts/theme_utils_interior-a1e8f2ff5c.min.js"></script>
+  <script src="/assets/cmguimaraes/cmguimaraes/javascripts/theme_utils_geral-bc6d9784dc.min.js"></script>
+  <script src="/assets/cmguimaraes/cmguimaraes/javascripts/vendor/simpleScrollbar-03808bca29.min.js"></script><!-- Scrollbars Custom -->
+
+
+  <!-------------------------------------------------------------------------------------------------------------->
+  <!-- META TAGS -->
+  <!-------------------------------------------------------------------------------------------------------------->
+  <meta name="viewport" content="initial-scale=1, width=device-width, minimum-scale=1, user-scalable=yes">
+  <!-- facebook share: imagens aparecerem no 1º load-->
+  <meta property="og:image:width" content="450"/>
+  <meta property="og:image:height" content="298"/>
+
+  <script src="//f1-eu.readspeaker.com/script/10141/webReader/webReader.js?pids=wr" type="text/javascript"></script>
+  
+  <!-- NAO APAGAR ISTO -->
+  <meta name="keywords" content="">
+  <script>
+    // (A) RUN THIS ON PAGE LOAD - AAA Fix
+    window.addEventListener("load", () => {
+      $("#goog-gt-votingForm").remove();
+    });
+</script>
+  <meta name="canonical" content="https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/centro-de-criacao-de-candoso" />
+<meta name="description" content="Sítio oficial da Câmara Municipal de Guimarães. Informação sobre o município, composição e atividades. Inclui uma agenda de eventos no concelho" />
+<meta name="last_modified_date" content="2024-03-19T16:06:11.362Z" />
+<meta name="published_at" content="2024-03-19T16:06:11.362Z" />
+<link rel="image_src" href="https://www.cm-guimaraes.pt/cmguimaraes/uploads/site_zone/logo/1/logo_fb.png" />
+<meta name="wm:pagetype" content="poi" />
+<meta name="wm:page_id" content="2275" />
+<meta property="og:title" content="Centro de Criação de Candoso" />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://www.cm-guimaraes.pt/cmguimaraes/uploads/site_zone/logo/1/logo_fb.png" />
+<meta property="og:url" content="https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/centro-de-criacao-de-candoso" />
+<meta property="og:description" content="Sítio oficial da Câmara Municipal de Guimarães. Informação sobre o município, composição e atividades. Inclui uma agenda de eventos no concelho" />
+<meta property="og:locale" content="pt_PT" />
+<meta property="og:site_name" content="Câmara Municipal de Guimarães" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content="https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/centro-de-criacao-de-candoso" />
+<meta name="twitter:title" content="Centro de Criação de Candoso" />
+<meta name="twitter:description" content="Sítio oficial da Câmara Municipal de Guimarães. Informação sobre o município, composição e atividades. Inclui uma agenda de eventos no concelho" />
+<meta name="twitter:image" content="https://www.cm-guimaraes.pt/cmguimaraes/uploads/site_zone/logo/1/logo_fb.png" />
+    <link rel="shortcut icon" href="/cmguimaraes/uploads/site_zone/favicon/1/apple_touch_icon_180x180.png">
+  <link rel="apple-touch-icon" href="/cmguimaraes/uploads/site_zone/favicon/1/apple_touch_icon_180x180.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="/thumbs/cmguimaraes/uploads/site_zone/favicon/1/apple_touch_icon_180x180_1_57_57.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/thumbs/cmguimaraes/uploads/site_zone/favicon/1/apple_touch_icon_180x180_1_72_72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/thumbs/cmguimaraes/uploads/site_zone/favicon/1/apple_touch_icon_180x180_1_76_76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/thumbs/cmguimaraes/uploads/site_zone/favicon/1/apple_touch_icon_180x180_1_114_114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/thumbs/cmguimaraes/uploads/site_zone/favicon/1/apple_touch_icon_180x180_1_120_120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/thumbs/cmguimaraes/uploads/site_zone/favicon/1/apple_touch_icon_180x180_1_144_144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/thumbs/cmguimaraes/uploads/site_zone/favicon/1/apple_touch_icon_180x180_1_152_152.png">
+
+<script src="/assets/wm-smile/javascripts/frontoffice/cookie_consent-8185edf152.min.js"></script><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QMGP1MDKHY"></script>
+<script>(function(){
+  var googleApiLoaded = false;
+  var hasConsent = function(){
+    var api = window.WMCookieConsent || {};
+    if (typeof api.isCategoryAllowed === 'function') {
+      return api.isCategoryAllowed('analytics');
+    }
+    if (typeof api.hasConsent === 'function') {
+      return api.hasConsent();
+    }
+    return false;
+  };
+  var checkCookieBarGoogleApi = function(){
+    if(googleApiLoaded){ return; }
+    if(hasConsent()){
+      googleApiLoaded = true;
+      
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QMGP1MDKHY');
+
+    }
+  };
+  window.addEventListener('wm:cookie:accepted', checkCookieBarGoogleApi);
+  window.addEventListener('wm:cookie:custom', checkCookieBarGoogleApi);
+  window.addEventListener('wm:cookie:updated', checkCookieBarGoogleApi);
+  checkCookieBarGoogleApi();
+})()
+</script></head>
+
+<body class="interior geral">
+  
+  <div class="loading-overlay"></div>
+
+  <a href="#accessibilityMainContent" class="accessibilityElement" aria-label="Título" aria-label="Título"><p>Passar para o Conteúdo Principal</p></a>
+<div id="cookie_bar_1" class="cookie-bar cookie-position--top cookie-bar--horizontal" role="region" aria-live="assertive" data-site-zone="1" tab-index="0" aria-hidden="true" style="display: none;" data-config-digest="0d2861d07895075c2c90eb32d2298852"><div class="cookie-bar__container" style="--cb-bg: #2B2B2B; background: #2B2B2B; border-color: #2B2B2B; --cb-text: #ffffff; --cb-muted: #ffffff; color: #ffffff; --cb-accent: #EDEDED; --cb-accent-strong: #EDEDED"><div class="cookie-bar__text"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="cookie-bar__icon" alt="" aria-hidden="true"><path d="M21 12a9 9 0 1 1-9-9 3 3 0 0 0 3 3 3 3 0 0 0 3 3 3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="15.5" cy="12.4" r="0.9" fill="currentColor"></circle><circle cx="12" cy="15.4" r="0.9" fill="currentColor"></circle><circle cx="9.3" cy="11.6" r="0.9" fill="currentColor"></circle></svg><div class="cookie-bar__copy"><div class="cookie-bar__title"><strong>Utilizamos cookies</strong></div><div class="cookie-bar__desc">Este site utiliza cookies para melhorar a sua experiência. <a class="cookie-bar__policy-inline" href="/pages/1513">Política de cookies</a>.</div></div></div><div class="cookie-bar__actions"><a class="cookie-btn cookie-btn--settings" role="button" aria-label="Personalizar cookies" style="background: transparent; border-color: #ffffff; color: #ffffff" href="/personalizar-cookies">Personalizar cookies</a><button name="button" type="button" class="cookie-btn cookie-btn--accept" data-cookie-choice="accepted" style="background: #EDEDED; border-color: #EDEDED; color: #2B2B2B">Aceitar todos os Cookies</button></div></div></div>
+
+ <a href="#stickyFooter" class="cd-top">Voltar ao topo da página</a>
+
+
+  <div id="stickyFooter">
+    
+    <!-------------------------------------------------------------------------------------------------------------->
+    <!-- HEADER -->
+    <!-------------------------------------------------------------------------------------------------------------->
+    <header class="grid-container full">
+      <div class="grid-container">
+        <div class="grid-x grid-margin-x">
+          <div class="logo_AREA xxsmall-12 large-3 cell hidden-post">  
+  
+<div id="html_block_276" class="widget html_block" data-id="276" data-content_type="HtmlBlock">
+
+  <a href="/"><img src="/cmguimaraes/layout/logo_guimaraes_branco.png" alt="Município de Guimarães (voltar à página inicial)" /></a>
+
+</div>
+
+</div>
+          <div class="xxsmall-12 large-7 cell grid-x">
+            <div class="search_AREA xxsmall-12 small-12 cell hidden-post">  
+  <div id="mega_search_4" class="widget mega_search" data-id="4" data-content_type="MegaSearch">
+  <div class="SearchWrap xsmall-12">
+    <div class="home-banner-search" id="home-banner-search">
+      <div class="home-search-wrapper" id="home-search-wrapper">
+        <div class="mega_pesquisa_search_form" role="search">
+          <label class="sr-only-label" for="mega_pesquisa_input_4">
+            Pesquisar conteúdos na plataforma inteira
+          </label>
+          <input id="mega_pesquisa_input_4"
+            name="search"
+            type="search"
+            value=""
+            data-detail_page_url="/resultados_pesquisa"
+            class="mega_pesquisa_input"
+            role="searchbox"
+            placeholder="Pesquisar conteúdos na plataforma inteira">
+
+          <button type="button" id="mega_pesquisa_button" name="mega_pesquisa" class="mega_pesquisa_button search_button"><span class="sr-only">Pesquisar conteúdos na plataforma inteira</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+            <nav class="linksImportantes_AREA xxsmall-12 small-12 cell hidden-post navContainer" id="navbar">  
+  <div id="horizontal_menu_58" class="widget horizontal_menu acc_horizontal_menu" data-id="58" data-content_type="HorizontalMenu">
+
+    <ul class="depth1 acc-menu menu"><li class="menu-item dropdown depth1 pos_1 first has_descendants"><a href="/municipio-24" target="_self" class="menu-link">Município</a><button type="button" class="dropdown-toggle" aria-label="Município submenu" aria-expanded="false"></button><ul class="depth2 "><li class="menu-item depth2 pos_1 first "><a href="/municipio/heraldica" target="_self" class="menu-link">Heráldica</a></li><li class="menu-item depth2 pos_2 "><a href="/municipio/camara-municipal" target="_self" class="menu-link">Câmara Municipal</a></li><li class="menu-item depth2 pos_3 "><a href="/municipio/assembleia-municipal" target="_self" class="menu-link">Assembleia Municipal</a></li><li class="menu-item depth2 pos_4 "><a href="/municipio/freguesias" target="_self" class="menu-link">Freguesias</a></li><li class="menu-item depth2 pos_5 "><a href="https://www.eleicoes.mai.gov.pt/" target="_blank" class="menu-link">Resultados Eleitorais</a></li><li class="menu-item depth2 pos_6 "><a href="/municipio/galeria" target="_self" class="menu-link">Guimarães Wifi</a></li><li class="menu-item depth2 pos_7 "><a href="https://censos.ine.pt/xportal/xmain?xpgid=censos21_populacao&amp;xpid=CENSOS21" target="_self" class="menu-link">Dados demográficos</a></li><li class="menu-item depth2 pos_8 "><a href="/municipio/condecoracoes-24-junho" target="_self" class="menu-link">Condecorações 24 Junho</a></li><li class="menu-item depth2 pos_9 last "><a href="/municipio/patrimonio-mundial" target="_self" class="menu-link">Património Mundial</a></li></ul></li><li class="menu-item dropdown depth1 pos_2 selected has_descendants"><a href="/areas-de-intervencao" target="_self" class="menu-link">Áreas de Intervenção</a><button type="button" class="dropdown-toggle" aria-label="Áreas de Intervenção submenu" aria-expanded="false"></button><ul class="depth2 "><li class="menu-item depth2 pos_1 first "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade" target="_self" class="menu-link">Ambiente e Sustentabilidade</a></li><li class="menu-item depth2 pos_2 selected"><a href="/areas-de-intervencao/cultura-e-patrimonio" target="_self" class="menu-link">Cultura e Património</a></li><li class="menu-item depth2 pos_3 "><a href="/areas-de-intervencao/desporto-e-juventude" target="_self" class="menu-link">Desporto e Juventude</a></li><li class="menu-item depth2 pos_4 "><a href="/areas-de-intervencao/educacao-e-recursos-humanos" target="_self" class="menu-link">Educação e Recursos Humanos</a></li><li class="menu-item depth2 pos_5 "><a href="/areas-de-intervencao/acao-social-e-comunidade" target="_self" class="menu-link">Ação Social e Comunidade</a></li><li class="menu-item depth2 pos_6 "><a href="/areas-de-intervencao/protecao-e-seguranca" target="_self" class="menu-link">Proteção e Segurança</a></li><li class="menu-item depth2 pos_7 "><a href="/areas-de-intervencao/relacoes-institucionais" target="_self" class="menu-link">Relações Institucionais</a></li><li class="menu-item depth2 pos_8 last "><a href="/areas-de-intervencao/legislacao" target="_self" class="menu-link">Legislação</a></li></ul></li><li class="menu-item dropdown depth1 pos_3 last has_descendants"><a href="/transparencia" target="_self" class="menu-link">Transparência</a><button type="button" class="dropdown-toggle" aria-label="Transparência submenu" aria-expanded="false"></button><ul class="depth2 "><li class="menu-item depth2 pos_1 first "><a href="https://www.cm-guimaraes.pt/municipio/camara-municipal/publicacoes" target="_self" class="menu-link">Câmara Municipal</a></li><li class="menu-item depth2 pos_2 "><a href="https://www.cm-guimaraes.pt/municipio/assembleia-municipal/publicacoes" target="_self" class="menu-link">Assembleia Municipal</a></li><li class="menu-item depth2 pos_3 last "><a href="https://www.cm-guimaraes.pt/pages/1075" target="_self" class="menu-link">Índice de Transparência</a></li></ul></li></ul>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const container = document.querySelector("#horizontal_menu_58");
+        const menuElement = container && container.querySelector("ul");
+        const Wm = window.AccessibleMenu && window.AccessibleMenu.WmTopLinkDisclosureMenu;
+
+        if (!container || !menuElement || !Wm) {
+          return;
+        }
+
+        window.AccessibleMenu.menus = window.AccessibleMenu.menus || {};
+
+        // Botão de menu mobile. A normalização (#3664) corre sempre que existe um
+        // botão na DOM — mesmo com o pisco desligado — porque os sites que o
+        // colocam à mão no modelo de página também precisam do markup acessível.
+        // O id wm-menu-toggle-btn é do componente: quem o usa opta pelo nosso
+        // markup, e o conteúdo do botão é REESCRITO (ícone SVG decorativo + label
+        // como nome). O botão não é movido: o site afinou onde o quis.
+        //
+        // A injeção (#3503) continua atrás de "Menu para mobile"
+        // (mobile_menu_enabled): só aí é que o componente cria o botão que falta,
+        // já com o markup canónico e como irmão anterior ao menu.
+        //
+        // A label é o rótulo visível E o nome acessível, logo vem do i18n — um
+        // literal aqui imporia português a um site noutra língua. `to_json` gera
+        // as aspas e escapa o conteúdo para contexto de script.
+        let controllerElement = document.querySelector("#wm-menu-toggle-btn");
+        if (controllerElement) {
+          Wm.normalizeController(controllerElement, { label: "Menu" });
+        }
+        if (controllerElement === null) {
+          controllerElement = Wm.ensureController(container, { label: "Menu" });
+        }
+
+        // Padrão disclosure (a11y-PT): Tab nativo, sem setas. Os defaults de disclosure
+        // (optionalKeySupport:false, hoverType:'off'), a criação do controlador e o lock
+        // de scroll vivem na subclasse WmTopLinkDisclosureMenu.
+        //
+        // O controllerElement/containerElement só são passados quando existe botão de
+        // toggle. Sem botão (pisco desligado e sem botão manual), o menu inicia como
+        // disclosure menu simples — evita rebentar a inicialização.
+        const menuOptions = {
+          menuElement,
+          submenuItemSelector: ".dropdown",
+          closeClass: "acc-hide",
+          openClass: "acc-show"
+          // focusInert: true  // ativar/afinar se o teste em VoiceOver Sequoia o exigir
+        };
+
+        if (controllerElement) {
+          menuOptions.containerElement = container;
+          menuOptions.controllerElement = controllerElement;
+        }
+
+        new Wm(menuOptions);
+
+        if (controllerElement) {
+          Wm.lockBodyScrollOnToggle(controllerElement);
+        }
+
+        // --- aria-hidden (report_039 #91) ---
+        // Widget único responsivo: em desktop o menu está sempre visível
+        // (aria-hidden="false"); em mobile reflete o estado da gaveta — fechada
+        // fica aria-hidden="true", aberta fica "false".
+        const desktopQuery = window.matchMedia("(min-width: 1024px)");
+        let menuOpen = false;
+
+        function syncAriaHidden() {
+          const hidden = !desktopQuery.matches && !menuOpen;
+          menuElement.setAttribute("aria-hidden", hidden ? "true" : "false");
+        }
+
+        syncAriaHidden();
+        if (desktopQuery.addEventListener) {
+          desktopQuery.addEventListener("change", syncAriaHidden);
+        } else if (desktopQuery.addListener) {
+          desktopQuery.addListener(syncAriaHidden);
+        }
+
+        if (controllerElement) {
+          controllerElement.addEventListener("accessibleMenuExpand", function() {
+            menuOpen = true;
+            syncAriaHidden();
+          });
+
+          controllerElement.addEventListener("accessibleMenuCollapse", function() {
+            menuOpen = false;
+            syncAriaHidden();
+          });
+        }
+
+        // --- menu fixo no topo ao fazer scroll ---
+        // Substitui o JS que os sites colocavam à mão. A classe .sticky é aplicada
+        // ao contentor de navegação do tema (.navContainer) quando existe, para que
+        // a barra inteira (logo + menu) fique fixa — e não só a célula do menu. Caso
+        // o tema não use .navContainer, recai no próprio wrapper do widget.
+        const stickyTarget = container.closest(".navContainer") || container;
+        function syncSticky() {
+          if (window.scrollY > 0) {
+            stickyTarget.classList.add("sticky");
+          } else {
+            stickyTarget.classList.remove("sticky");
+          }
+        }
+
+        syncSticky();
+        window.addEventListener("scroll", syncSticky, { passive: true });
+      });
+    </script>
+</div>
+
+</nav>
+          </div>
+        </div>
+      </div>
+    </header>    
+    <!-------------------------------------------------------------------------------------------------------------->
+    <!-- IMAGEM + BREADCRUMB -->
+    <!-------------------------------------------------------------------------------------------------------------->
+    
+    <div class="image_AREA">
+      <!-- IMAGEM HEADER FIXA -->
+      <div class="imageHeader_AREA hidden-post">  
+  <div id="article_2404" class="widget article" data-id="2404" data-content_type="Article">
+  <div class="writer_text"><p><img src="/thumbs/cmguimaraes/uploads/writer_file/image/10293/castelo_guimaraes23_0105_1_2500_2500_1_2500_2500.jpg" alt="Fotografia castelo guimar&atilde;es" /></p><div class="writer_text_clear"></div></div>
+</div>
+
+</div>
+      <!-- IMAGEM CUSTOM QUE SUBSTITUI A DE CIMA -->
+      <div class="imageHeaderCustom_AREA hidden-post">
+</div>
+      <!-- BREADCRUMB -->
+      <div class="breadCrumb_AREA">
+        <span class="BO-only shared"></span>
+        <div class="grid-container">
+          <div class="grid-x grid-margin-x">
+            <div class="show-for-xlarge xsmall-3 cell"></div>
+            <div class="large-12 xlarge-9 cell">
+                
+  <nav id="breadcrumb_2" class="widget breadcrumb" data-id="2" data-content_type="Breadcrumb" aria-label="Você está aqui">
+  <ol>
+
+      <li>
+        <a href="/inicio">Início<img alt="_" aria-hidden="true" src="/s.gif" /></a>
+      </li>
+
+
+      <li>
+        <a href="/areas-de-intervencao">Áreas de Intervenção<img alt="_" aria-hidden="true" src="/s.gif" /></a>
+      </li>
+
+
+      <li>
+        <a href="/areas-de-intervencao/cultura-e-patrimonio">Cultura e Património<img alt="_" aria-hidden="true" src="/s.gif" /></a>
+      </li>
+
+
+      <li>
+        <a href="/areas-de-intervencao/cultura-e-patrimonio/cultura">Cultura<img alt="_" aria-hidden="true" src="/s.gif" /></a>
+      </li>
+
+
+      <li>
+        <a href="/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais">Equipamentos Culturais Municipais<img alt="_" aria-hidden="true" src="/s.gif" /></a>
+      </li>
+
+
+
+      <li>
+        Centro de Criação de Candoso
+      </li>
+  </ol>
+</nav>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-------------------------------------------------------------------------------------------------------------->
+    <!-- LINKS LATERAIS -->
+    <!-------------------------------------------------------------------------------------------------------------->
+    
+    <section class="headerLinks">
+      <div class="headerLinks_AREA">  
+  
+<div id="html_block_252" class="widget html_block" data-id="252" data-content_type="HtmlBlock">
+
+  <ul class="infoButtons">
+  <!--<li><a href="/pages/761" ><img src="/cmguimaraes/layout/icon_chat.svg" title="Chat" /></a></li>-->
+  <li><a href="/ajude-nos-a-melhorar" ><img src="/cmguimaraes/layout/icon_perguntas.svg" alt="Perguntas" /></a></li>
+  <li><a href="/registar-ocorrencias" ><img src="/cmguimaraes/layout/icon_ocorrencias.svg" alt="Ocorrências" /></a></li>
+  <li><a href="/servicos-online" ><img src="/cmguimaraes/layout/icon_servicos.svg" alt="Serviços Online" /></a></li>
+  <li><a href="/servicos-online" ><img src="/cmguimaraes/layout/icon_registo.svg" alt="Login" /></a>
+  <li><a href="/ficha-tecnica/declaracao-de-acessibilidade-e-usabilidade/contactos-da-autarquia" ><img src="/cmguimaraes/layout/icon_contactos_novo.svg" alt="Contactos" /></a></li>
+</ul>
+
+
+      <div class="googleTranslate">
+      <div id="google_translate_element"></div>
+      <script type="text/javascript">    
+        var translate = null;
+        function googleTranslateElementInit() {
+          translate = googleTranslate = new google.translate.TranslateElement({
+            pageLanguage: 'pt',
+            includedLanguages: 'pt-PT,es,en,fr,it,de,nl,ru,ja,zh-CN',
+            autoDisplay: false,
+            layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+          }, 'google_translate_element');
+          
+          fixGoogleAcessibility(googleTranslate);
+          setTimeout(removeGoogleBranding, 500);
+        }
+        $(window).on('load', function(){
+          var $head = $(".goog-te-menu-frame").contents().find("head");
+
+          $head.append($("<link/>",
+                         { rel: "stylesheet", href: "/cmguimaraes/layout/googletranslate.css", type: "text/css" }
+                        ));
+        })
+        
+        function fixGoogleAcessibility(elem) {
+        	let a = $("#goog-gt-tt .original-text");
+            if (a.length > 0) {
+              a.removeClass("original-text");
+              a = a[0];
+              a.innerHTML = '<span class="original-text"></span>';
+            }
+          
+          $('img[src*="cleardot"]').prop("alt", "Google Clear Dot");
+        }
+        function removeGoogleBranding() {
+      setTimeout(() => {
+        console.log("GOogle translates", document.querySelectorAll('.goog-te-gadget'));
+        document.querySelectorAll('.goog-te-gadget').forEach(gadget => {
+          console.log("Gadget", gadget);
+          [...gadget.childNodes].forEach(node => {
+            // manter só o elemento que contém o <select>; remover o resto
+            const keep = node.nodeType === 1 && node.querySelector?.('.goog-te-combo');
+            if (!keep) node.remove();
+          });
+        });
+      }, 0);
+    }
+      </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </div>
+
+
+</div>
+
+</div>
+    </section>
+    
+    <!-------------------------------------------------------------------------------------------------------------->
+    <!-- MAIN -->
+    <!-------------------------------------------------------------------------------------------------------------->
+    <div class="siteContents grid-container">
+      <div class="grid-x grid-margin-x">
+        <nav class="verticalMenu_AREA show-for-xlarge xsmall-3 cell hidden-post">  
+  <div id="vertical_menu_54" class="widget vertical_menu acc_vertical_menu no-wm-idx" data-id="54" data-content_type="VerticalMenu">
+      <a class='current_menu' href="/areas-de-intervencao">
+        Áreas de Intervenção
+      </a>
+
+    <ul class="depth1 acc-menu"><li class="menu-item dropdown depth1 pos_1 first has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade" target="_self" class="menu-link">Ambiente e Sustentabilidade</a><button type="button" class="dropdown-toggle" aria-label="Ambiente e Sustentabilidade submenu" aria-expanded="false"></button><ul class="depth2 "><li class="menu-item dropdown depth2 pos_1 first has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente" target="_self" class="menu-link">Ambiente</a><button type="button" class="dropdown-toggle" aria-label="Ambiente submenu" aria-expanded="false"></button><ul class="depth3 "><li class="menu-item dropdown depth3 pos_1 first has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade" target="_self" class="menu-link">Ambiente e Sustentabilidade</a><button type="button" class="dropdown-toggle" aria-label="Ambiente e Sustentabilidade submenu" aria-expanded="false"></button><ul class="depth4 "><li class="menu-item dropdown depth4 pos_1 first has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/acao-climatica" target="_self" class="menu-link">Ação Climática</a><button type="button" class="dropdown-toggle" aria-label="Ação Climática submenu" aria-expanded="false"></button><ul class="depth5 "><li class="menu-item depth5 pos_1 first "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/acao-climatica/plano-municipal-de-acao-climatica" target="_self" class="menu-link">Plano Municipal de Ação Climática</a></li><li class="menu-item depth5 pos_2 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/acao-climatica/qualidade-do-ar" target="_self" class="menu-link">Qualidade do Ar</a></li><li class="menu-item depth5 pos_3 last "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/acao-climatica/ruido" target="_self" class="menu-link">Ruído</a></li></ul></li><li class="menu-item dropdown depth4 pos_2 has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/economia-circular-e-gestao-de-residuos" target="_self" class="menu-link">Economia Circular e Gestão de Resíduos</a><button type="button" class="dropdown-toggle" aria-label="Economia Circular e Gestão de Resíduos submenu" aria-expanded="false"></button><ul class="depth5 "><li class="menu-item dropdown depth5 pos_1 first has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/economia-circular-e-gestao-de-residuos/gestao-de-residuos" target="_self" class="menu-link">Gestão de Resíduos</a><button type="button" class="dropdown-toggle" aria-label="Gestão de Resíduos submenu" aria-expanded="false"></button><ul class="depth6 "><li class="menu-item depth6 pos_1 first "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/economia-circular-e-gestao-de-residuos/gestao-de-residuos/oleos-alimentares-usados-oau" target="_self" class="menu-link">Óleos Alimentares Usados (OAU)</a></li><li class="menu-item depth6 pos_2 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/economia-circular-e-gestao-de-residuos/gestao-de-residuos/planos-e-estrategias" target="_self" class="menu-link">Planos e Estratégias</a></li><li class="menu-item depth6 pos_3 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/economia-circular-e-gestao-de-residuos/gestao-de-residuos/residuos-indiferenciados" target="_self" class="menu-link">Resíduos Indiferenciados </a></li><li class="menu-item depth6 pos_4 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/economia-circular-e-gestao-de-residuos/gestao-de-residuos/residuos-organicos" target="_self" class="menu-link">Resíduos Orgânicos</a></li><li class="menu-item depth6 pos_5 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/economia-circular-e-gestao-de-residuos/gestao-de-residuos/galeria" target="_self" class="menu-link">Resíduos Seletivos Multimaterial </a></li><li class="menu-item depth6 pos_6 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/economia-circular-e-gestao-de-residuos/gestao-de-residuos/residuos-verdes" target="_self" class="menu-link">Resíduos Verdes</a></li><li class="menu-item depth6 pos_7 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/economia-circular-e-gestao-de-residuos/gestao-de-residuos/residuos-volumosos" target="_self" class="menu-link">Resíduos Volumosos</a></li><li class="menu-item depth6 pos_8 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/economia-circular-e-gestao-de-residuos/gestao-de-residuos/residuos-de-construcao-e-demolicao" target="_self" class="menu-link">Resíduos de Construção e Demolição</a></li><li class="menu-item depth6 pos_9 last "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/economia-circular-e-gestao-de-residuos/gestao-de-residuos/ecocentros" target="_self" class="menu-link">Ecocentros</a></li></ul></li><li class="menu-item depth5 pos_2 last "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/economia-circular-e-gestao-de-residuos/cidades-e-regioes-circulares" target="_self" class="menu-link">Cidades e Regiões Circulares</a></li></ul></li><li class="menu-item dropdown depth4 pos_3 has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/estrutura-verde-e-biodiversidade" target="_self" class="menu-link">Estrutura Verde e Biodiversidade</a><button type="button" class="dropdown-toggle" aria-label="Estrutura Verde e Biodiversidade submenu" aria-expanded="false"></button><ul class="depth5 "><li class="menu-item dropdown depth5 pos_1 first has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/estrutura-verde-e-biodiversidade/parques-e-jardins" target="_self" class="menu-link">Parques e Jardins</a><button type="button" class="dropdown-toggle" aria-label="Parques e Jardins submenu" aria-expanded="false"></button><ul class="depth6 "><li class="menu-item depth6 pos_1 first last "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/estrutura-verde-e-biodiversidade/parques-e-jardins/galeria" target="_self" class="menu-link">Parque de Lazer da Cidade</a></li></ul></li><li class="menu-item dropdown depth5 pos_2 has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/estrutura-verde-e-biodiversidade/recursos-hidricos" target="_self" class="menu-link">Recursos Hídricos</a><button type="button" class="dropdown-toggle" aria-label="Recursos Hídricos submenu" aria-expanded="false"></button><ul class="depth6 "><li class="menu-item depth6 pos_1 first last "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/estrutura-verde-e-biodiversidade/recursos-hidricos/limpeza-e-desobstrucao-de-linhas-de-agua" target="_self" class="menu-link">Limpeza e desobstrução de linhas de água</a></li></ul></li><li class="menu-item depth5 pos_3 last "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/estrutura-verde-e-biodiversidade/inventario-do-patrimonio-arboreo" target="_self" class="menu-link">Inventário do Património Arbóreo </a></li></ul></li><li class="menu-item dropdown depth4 pos_4 last has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/limpeza-e-higiene-urbana" target="_self" class="menu-link">Limpeza e Higiene Urbana</a><button type="button" class="dropdown-toggle" aria-label="Limpeza e Higiene Urbana submenu" aria-expanded="false"></button><ul class="depth5 "><li class="menu-item depth5 pos_1 first last "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/ambiente-e-sustentabilidade/limpeza-e-higiene-urbana/controlo-de-pragas" target="_self" class="menu-link">Controlo de Pragas</a></li></ul></li></ul></li><li class="menu-item dropdown depth3 pos_2 has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/educacao-ambiental" target="_self" class="menu-link">Educação Ambiental</a><button type="button" class="dropdown-toggle" aria-label="Educação Ambiental submenu" aria-expanded="false"></button><ul class="depth4 "><li class="menu-item depth4 pos_1 first "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/educacao-ambiental/agenda-21-local" target="_self" class="menu-link">Agenda 21 Local</a></li><li class="menu-item depth4 pos_2 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/educacao-ambiental/redes-parcerias" target="_self" class="menu-link">Redes/Parcerias</a></li><li class="menu-item depth4 pos_3 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/educacao-ambiental/certificacao" target="_self" class="menu-link">Certificação</a></li><li class="menu-item depth4 pos_4 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/educacao-ambiental/brigadas-verdes" target="_self" class="menu-link">Brigadas Verdes</a></li><li class="menu-item depth4 pos_5 last "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/educacao-ambiental/planos-municipais-de-ambiente" target="_self" class="menu-link">Planos Municipais de Ambiente</a></li></ul></li><li class="menu-item dropdown depth3 pos_3 has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/bem-estar-animal" target="_self" class="menu-link">Bem-Estar Animal</a><button type="button" class="dropdown-toggle" aria-label="Bem-Estar Animal submenu" aria-expanded="false"></button><ul class="depth4 "><li class="menu-item dropdown depth4 pos_1 first last has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/bem-estar-animal/centro-de-recolha-oficial-de-animais-de-companhia" target="_self" class="menu-link">Centro de Recolha Oficial de Animais de Companhia</a><button type="button" class="dropdown-toggle" aria-label="Centro de Recolha Oficial de Animais de Companhia submenu" aria-expanded="false"></button><ul class="depth5 "><li class="menu-item depth5 pos_1 first "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/bem-estar-animal/centro-de-recolha-oficial-de-animais-de-companhia/faca-a-diferenca-adote-um-animal" target="_self" class="menu-link">Faça a Diferença ADOTE um Animal</a></li><li class="menu-item dropdown depth5 pos_2 has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/bem-estar-animal/centro-de-recolha-oficial-de-animais-de-companhia/campanhas" target="_self" class="menu-link">Campanhas</a><button type="button" class="dropdown-toggle" aria-label="Campanhas submenu" aria-expanded="false"></button><ul class="depth6 "><li class="menu-item depth6 pos_1 first "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/bem-estar-animal/centro-de-recolha-oficial-de-animais-de-companhia/campanhas/galeria" target="_self" class="menu-link">Campanhas Sensibilização de Adoção</a></li><li class="menu-item depth6 pos_2 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/bem-estar-animal/centro-de-recolha-oficial-de-animais-de-companhia/campanhas/campanha-vacinacao-antirrabica-e-identificacao-eletronica" target="_self" class="menu-link">Campanha Vacinação Antirrábica e Identificação Eletrónica</a></li><li class="menu-item depth6 pos_3 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/bem-estar-animal/centro-de-recolha-oficial-de-animais-de-companhia/campanhas/passear-o-cao-com-o-saco-na-mao" target="_self" class="menu-link">Passear o Cão com o Saco na Mão</a></li><li class="menu-item depth6 pos_4 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/bem-estar-animal/centro-de-recolha-oficial-de-animais-de-companhia/campanhas/galeria-89" target="_self" class="menu-link">Programa Capturar Esterilizar e Devolver</a></li><li class="menu-item depth6 pos_5 last "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/bem-estar-animal/centro-de-recolha-oficial-de-animais-de-companhia/campanhas/apoio-a-esterilizacao-de-animais-de-companhia-do-municipio-de-guimaraes" target="_self" class="menu-link">Apoio à Esterilização de Animais de Companhia do Município de Guimarães</a></li></ul></li><li class="menu-item depth5 pos_3 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/bem-estar-animal/centro-de-recolha-oficial-de-animais-de-companhia/servico-medico-veterinario" target="_self" class="menu-link">Serviço Médico Veterinário</a></li><li class="menu-item depth5 pos_4 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/bem-estar-animal/centro-de-recolha-oficial-de-animais-de-companhia/sistema-de-identificacao-de-animais-de-companhia" target="_self" class="menu-link">Sistema de Identificação de Animais de Companhia </a></li><li class="menu-item depth5 pos_5 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/bem-estar-animal/centro-de-recolha-oficial-de-animais-de-companhia/direitos-do-animal" target="_self" class="menu-link">Direitos do Animal</a></li><li class="menu-item depth5 pos_6 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/bem-estar-animal/centro-de-recolha-oficial-de-animais-de-companhia/bem-estar-animal" target="_self" class="menu-link">Bem-Estar Animal</a></li><li class="menu-item depth5 pos_7 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/bem-estar-animal/centro-de-recolha-oficial-de-animais-de-companhia/medidas-para-erradicar-os-maus-tratos-a-animais" target="_self" class="menu-link">Medidas para Erradicar os Maus Tratos a Animais</a></li><li class="menu-item depth5 pos_8 last "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/bem-estar-animal/centro-de-recolha-oficial-de-animais-de-companhia/regulamento" target="_self" class="menu-link">Regulamento</a></li></ul></li></ul></li><li class="menu-item dropdown depth3 pos_4 last has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/servicos-urbanos" target="_self" class="menu-link">Serviços Urbanos</a><button type="button" class="dropdown-toggle" aria-label="Serviços Urbanos submenu" aria-expanded="false"></button><ul class="depth4 "><li class="menu-item depth4 pos_1 first "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/servicos-urbanos/ascensores" target="_self" class="menu-link">Ascensores</a></li><li class="menu-item depth4 pos_2 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/servicos-urbanos/gestao-de-cemiterios" target="_self" class="menu-link">Gestão de Cemitérios</a></li><li class="menu-item depth4 pos_3 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/servicos-urbanos/gestao-de-feiras" target="_self" class="menu-link">Gestão de Feiras</a></li><li class="menu-item depth4 pos_4 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/servicos-urbanos/gestao-de-mercados" target="_self" class="menu-link">Gestão de Mercados</a></li><li class="menu-item depth4 pos_5 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/servicos-urbanos/licencas-especiais-de-ruido-ler-2" target="_self" class="menu-link">Licenças Especiais de Ruído (LER)</a></li><li class="menu-item depth4 pos_6 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/servicos-urbanos/ocupacao-de-espaco-publico" target="_self" class="menu-link">Ocupação de Espaço Público</a></li><li class="menu-item depth4 pos_7 last "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/ambiente/servicos-urbanos/servico-municipal-de-metrologia" target="_self" class="menu-link">Serviço Municipal de Metrologia</a></li></ul></li></ul></li><li class="menu-item dropdown depth2 pos_2 has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/mobilidade-e-transportes" target="_self" class="menu-link">Mobilidade e Transportes</a><button type="button" class="dropdown-toggle" aria-label="Mobilidade e Transportes submenu" aria-expanded="false"></button><ul class="depth3 "><li class="menu-item dropdown depth3 pos_1 first has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/mobilidade-e-transportes/transito" target="_self" class="menu-link">Trânsito</a><button type="button" class="dropdown-toggle" aria-label="Trânsito submenu" aria-expanded="false"></button><ul class="depth4 "><li class="menu-item depth4 pos_1 first "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/mobilidade-e-transportes/transito/estado-do-transito" target="_self" class="menu-link">Estado do Trânsito</a></li><li class="menu-item depth4 pos_2 last "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/mobilidade-e-transportes/transito/condicionamentos" target="_self" class="menu-link">Condicionamentos</a></li></ul></li><li class="menu-item depth3 pos_2 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/mobilidade-e-transportes/estacionamento" target="_self" class="menu-link">Estacionamento</a></li><li class="menu-item dropdown depth3 pos_3 has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/mobilidade-e-transportes/transportes-publicos" target="_self" class="menu-link">Transportes Públicos</a><button type="button" class="dropdown-toggle" aria-label="Transportes Públicos submenu" aria-expanded="false"></button><ul class="depth4 "><li class="menu-item depth4 pos_1 first "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/mobilidade-e-transportes/transportes-publicos/rede-e-oferta-transporte-publico" target="_self" class="menu-link">Rede e Oferta Transporte Público</a></li><li class="menu-item depth4 pos_2 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/mobilidade-e-transportes/transportes-publicos/programa-incentiva-tp" target="_self" class="menu-link">Programa INCENTIVA +TP</a></li><li class="menu-item depth4 pos_3 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/mobilidade-e-transportes/transportes-publicos/documentos" target="_self" class="menu-link">Documentos</a></li><li class="menu-item depth4 pos_4 last "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/mobilidade-e-transportes/transportes-publicos/estacao-central-de-camionagem-ecc" target="_self" class="menu-link">Estação Central de Camionagem (ECC)</a></li></ul></li><li class="menu-item depth3 pos_4 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/mobilidade-e-transportes/modos-suaves" target="_self" class="menu-link">Modos Suaves</a></li><li class="menu-item depth3 pos_5 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/mobilidade-e-transportes/acessos" target="_self" class="menu-link">Acessos</a></li><li class="menu-item depth3 pos_6 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/mobilidade-e-transportes/mobilidade-eletrica" target="_self" class="menu-link">Mobilidade Elétrica</a></li><li class="menu-item depth3 pos_7 last "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/mobilidade-e-transportes/viaturas-abandonadas" target="_self" class="menu-link">Viaturas Abandonadas</a></li></ul></li><li class="menu-item dropdown depth2 pos_3 has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo" target="_self" class="menu-link">Urbanismo</a><button type="button" class="dropdown-toggle" aria-label="Urbanismo submenu" aria-expanded="false"></button><ul class="depth3 "><li class="menu-item dropdown depth3 pos_1 first has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/urbanismo-digital" target="_self" class="menu-link">Urbanismo Digital</a><button type="button" class="dropdown-toggle" aria-label="Urbanismo Digital submenu" aria-expanded="false"></button><ul class="depth4 "><li class="menu-item depth4 pos_1 first "><a href="https://servicosonline.cm-guimaraes.pt/" target="_blank" class="menu-link">Acompanhamento do processo</a></li><li class="menu-item depth4 pos_2 last "><a href="https://ud.cm-guimaraes.pt" target="_self" class="menu-link">Submissão</a></li></ul></li><li class="menu-item dropdown depth3 pos_2 has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/websig-mapas-online" target="_self" class="menu-link">Websig - mapas online</a><button type="button" class="dropdown-toggle" aria-label="Websig - mapas online submenu" aria-expanded="false"></button><ul class="depth4 "><li class="menu-item depth4 pos_1 first last "><a href="http://sig.cm-guimaraes.pt/dadosabertos/" target="_blank" class="menu-link">Dados georeferenciados abertos</a></li></ul></li><li class="menu-item dropdown depth3 pos_3 has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/plano-diretor-municipal-pdm" target="_self" class="menu-link">Plano Diretor Municipal (PDM)</a><button type="button" class="dropdown-toggle" aria-label="Plano Diretor Municipal (PDM) submenu" aria-expanded="false"></button><ul class="depth4 "><li class="menu-item depth4 pos_1 first "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/plano-diretor-municipal-pdm/pdm-revogado" target="_self" class="menu-link">PDM revogado</a></li><li class="menu-item dropdown depth4 pos_2 has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/plano-diretor-municipal-pdm/pdm-em-vigor" target="_self" class="menu-link">PDM em Vigor</a><button type="button" class="dropdown-toggle" aria-label="PDM em Vigor submenu" aria-expanded="false"></button><ul class="depth5 "><li class="menu-item depth5 pos_1 first "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/plano-diretor-municipal-pdm/pdm-em-vigor/deliberacao" target="_self" class="menu-link">Deliberação</a></li><li class="menu-item depth5 pos_2 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/plano-diretor-municipal-pdm/pdm-em-vigor/acompanhamento" target="_self" class="menu-link">Acompanhamento</a></li><li class="menu-item depth5 pos_3 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/plano-diretor-municipal-pdm/pdm-em-vigor/conteudo-documental" target="_self" class="menu-link">Conteúdo documental</a></li><li class="menu-item depth5 pos_4 last "><a href="http://sig.cm-guimaraes.pt/websig/v5/portal2/public/index.php?par=guimaraes&amp;module=pdm" target="_blank" class="menu-link">Mapas Online</a></li></ul></li><li class="menu-item dropdown depth4 pos_3 has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/plano-diretor-municipal-pdm/2-revisao-do-pdm" target="_self" class="menu-link">2ª Revisão do PDM</a><button type="button" class="dropdown-toggle" aria-label="2ª Revisão do PDM submenu" aria-expanded="false"></button><ul class="depth5 "><li class="menu-item depth5 pos_1 first "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/plano-diretor-municipal-pdm/2-revisao-do-pdm/porque-rever" target="_self" class="menu-link">Porquê Rever</a></li><li class="menu-item depth5 pos_2 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/plano-diretor-municipal-pdm/2-revisao-do-pdm/como-vai-ser-elaborado" target="_self" class="menu-link">Como Vai Ser Elaborado</a></li><li class="menu-item depth5 pos_3 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/plano-diretor-municipal-pdm/2-revisao-do-pdm/documentos-da-revisao" target="_self" class="menu-link">Documentos da Revisão</a></li><li class="menu-item depth5 pos_4 "><a href="http://pdm.guimaraes.pt/" target="_blank" class="menu-link">Site PDM</a></li><li class="menu-item depth5 pos_5 last "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/plano-diretor-municipal-pdm/2-revisao-do-pdm/contactos-pdm/poi-35" target="_self" class="menu-link">Contactos PDM</a></li></ul></li><li class="menu-item depth4 pos_4 last "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/plano-diretor-municipal-pdm/2-revisao-do-plano-diretor-municipal-de-guimaraes" target="_self" class="menu-link">2ª Revisão do Plano Diretor Municipal de Guimarães</a></li></ul></li><li class="menu-item dropdown depth3 pos_4 has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/propostas-de-contrato-para-planeamento-pcpl" target="_self" class="menu-link">Propostas de Contrato para Planeamento (PCPL)</a><button type="button" class="dropdown-toggle" aria-label="Propostas de Contrato para Planeamento (PCPL) submenu" aria-expanded="false"></button><ul class="depth4 "><li class="menu-item depth4 pos_1 first "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/propostas-de-contrato-para-planeamento-pcpl/submissao-de-propostas-de-contrato-para-planeamento" target="_self" class="menu-link">Submissão de Propostas de Contrato para Planeamento</a></li><li class="menu-item depth4 pos_2 last "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/propostas-de-contrato-para-planeamento-pcpl/propostas-de-contrato-para-planeamento-em-discussao-publica" target="_self" class="menu-link">Propostas de contrato para planeamento em  discussão pública</a></li></ul></li><li class="menu-item depth3 pos_5 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/planos-de-pormenor" target="_self" class="menu-link">Planos de Pormenor</a></li><li class="menu-item dropdown depth3 pos_6 has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/reabilitacao-urbana" target="_self" class="menu-link">Reabilitação Urbana</a><button type="button" class="dropdown-toggle" aria-label="Reabilitação Urbana submenu" aria-expanded="false"></button><ul class="depth4 "><li class="menu-item depth4 pos_1 first "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/reabilitacao-urbana/areas-de-reabilitacao-urbana-aru" target="_self" class="menu-link">Áreas de Reabilitação Urbana (ARU)</a></li><li class="menu-item depth4 pos_2 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/reabilitacao-urbana/operacoes-de-reabilitacao-urbana-oru" target="_self" class="menu-link">Operações de Reabilitação Urbana (ORU)</a></li><li class="menu-item depth4 pos_3 last "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/reabilitacao-urbana/centro-historico-area-central-da-cidade-de-guimaraes" target="_self" class="menu-link">Centro Histórico / Área central da cidade de Guimarães</a></li></ul></li><li class="menu-item dropdown depth3 pos_7 last has_descendants"><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/patrimonio-e-bens-classificados" target="_self" class="menu-link">Património e Bens Classificados</a><button type="button" class="dropdown-toggle" aria-label="Património e Bens Classificados submenu" aria-expanded="false"></button><ul class="depth4 "><li class="menu-item depth4 pos_1 first "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/patrimonio-e-bens-classificados/monumentos-nacionais" target="_self" class="menu-link">Monumentos Nacionais</a></li><li class="menu-item depth4 pos_2 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/patrimonio-e-bens-classificados/imoveis-monumentos-de-interesse-publico" target="_self" class="menu-link">Imóveis/Monumentos de Interesse Público</a></li><li class="menu-item depth4 pos_3 "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/patrimonio-e-bens-classificados/imoveis-monumentos-de-interesse-municipal" target="_self" class="menu-link">Imóveis/Monumentos de Interesse Municipal</a></li><li class="menu-item depth4 pos_4 last "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/urbanismo/patrimonio-e-bens-classificados/arvores-e-arvoredo-de-interesse-publico" target="_self" class="menu-link">Árvores e Arvoredo de Interesse Público</a></li></ul></li></ul></li><li class="menu-item depth2 pos_4 last "><a href="/areas-de-intervencao/ambiente-e-sustentabilidade/obras-municipais" target="_self" class="menu-link">Obras Municipais</a></li></ul></li><li class="menu-item dropdown depth1 pos_2 selected has_descendants"><a href="/areas-de-intervencao/cultura-e-patrimonio" target="_self" class="menu-link">Cultura e Património</a><button type="button" class="dropdown-toggle" aria-label="Cultura e Património submenu" aria-expanded="false"></button><ul class="depth2 "><li class="menu-item dropdown depth2 pos_1 first selected has_descendants"><a href="/areas-de-intervencao/cultura-e-patrimonio/cultura" target="_self" class="menu-link">Cultura</a><button type="button" class="dropdown-toggle" aria-label="Cultura submenu" aria-expanded="false"></button><ul class="depth3 "><li class="menu-item depth3 pos_1 first "><a href="/areas-de-intervencao/cultura-e-patrimonio/cultura/agenda-cultural" target="_self" class="menu-link">Agenda Cultural</a></li><li class="menu-item depth3 pos_2 "><a href="/areas-de-intervencao/cultura-e-patrimonio/cultura/eventos-ancora" target="_self" class="menu-link">Eventos Âncora</a></li><li class="menu-item depth3 pos_3 "><a href="/areas-de-intervencao/cultura-e-patrimonio/cultura/projetos-culturais" target="_self" class="menu-link">Projetos Culturais</a></li><li class="menu-item depth3 pos_4 "><a href="/areas-de-intervencao/cultura-e-patrimonio/cultura/apoios-culturais" target="_self" class="menu-link">Apoios Culturais</a></li><li class="menu-item depth3 pos_5 "><a href="/areas-de-intervencao/cultura-e-patrimonio/cultura/projetos-programacao-cultural-de-entidades-externas" target="_self" class="menu-link">Projetos /Programação Cultural de entidades externas</a></li><li class="menu-item depth3 pos_6 selected selected_descendant"><a href="/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais" target="_self" class="menu-link">Equipamentos Culturais Municipais</a></li><li class="menu-item depth3 pos_7 last "><a href="/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-nao-municipais" target="_self" class="menu-link">Equipamentos Culturais Não Municipais </a></li></ul></li><li class="menu-item depth2 pos_2 "><a href="https://www.amap.pt/" target="_blank" class="menu-link">Arquivo Municipal Alfredo Pimenta</a></li><li class="menu-item depth2 pos_3 last "><a href="http://www.bmrb.pt/" target="_blank" class="menu-link">Biblioteca Municipal Raul Brandão</a></li></ul></li><li class="menu-item dropdown depth1 pos_3 has_descendants"><a href="/areas-de-intervencao/desporto-e-juventude" target="_self" class="menu-link">Desporto e Juventude</a><button type="button" class="dropdown-toggle" aria-label="Desporto e Juventude submenu" aria-expanded="false"></button><ul class="depth2 "><li class="menu-item dropdown depth2 pos_1 first has_descendants"><a href="/areas-de-intervencao/desporto-e-juventude/desporto" target="_self" class="menu-link">Desporto</a><button type="button" class="dropdown-toggle" aria-label="Desporto submenu" aria-expanded="false"></button><ul class="depth3 "><li class="menu-item depth3 pos_1 first "><a href="/areas-de-intervencao/desporto-e-juventude/desporto/atribuicao-de-apoios" target="_self" class="menu-link">Atribuição de Apoios</a></li><li class="menu-item depth3 pos_2 "><a href="/areas-de-intervencao/desporto-e-juventude/desporto/regulamentos-desportivos-em-vigor" target="_self" class="menu-link">Regulamentos Desportivos em Vigor</a></li><li class="menu-item depth3 pos_3 "><a href="/areas-de-intervencao/desporto-e-juventude/desporto/guimaraes-desporto" target="_self" class="menu-link">Guimarães Desporto</a></li><li class="menu-item depth3 pos_4 last "><a href="/areas-de-intervencao/desporto-e-juventude/desporto/galeria" target="_self" class="menu-link">Eventos Desportivos</a></li></ul></li><li class="menu-item dropdown depth2 pos_2 last has_descendants"><a href="/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania" target="_self" class="menu-link">Juventude e Cidadania</a><button type="button" class="dropdown-toggle" aria-label="Juventude e Cidadania submenu" aria-expanded="false"></button><ul class="depth3 "><li class="menu-item depth3 pos_1 first "><a href="/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/programa-municipal-da-juventude" target="_self" class="menu-link">Programa Municipal da Juventude</a></li><li class="menu-item dropdown depth3 pos_2 has_descendants"><a href="/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/conselho-municipal-de-juventude" target="_self" class="menu-link">Conselho Municipal de Juventude</a><button type="button" class="dropdown-toggle" aria-label="Conselho Municipal de Juventude submenu" aria-expanded="false"></button><ul class="depth4 "><li class="menu-item depth4 pos_1 first "><a href="/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/conselho-municipal-de-juventude/descricao-do-orgao-e-competencias" target="_self" class="menu-link">Descrição do órgão e competências</a></li><li class="menu-item depth4 pos_2 "><a href="/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/conselho-municipal-de-juventude/composicao" target="_self" class="menu-link">Composição</a></li><li class="menu-item depth4 pos_3 "><a href="/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/conselho-municipal-de-juventude/ser-observador-do-conselho-municipal-de-juventude-cmj-de-guimaraes" target="_self" class="menu-link">Ser observador do Conselho Municipal de Juventude (CMJ) de Guimarães</a></li><li class="menu-item depth4 pos_4 last "><a href="/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/conselho-municipal-de-juventude/documentos" target="_self" class="menu-link">Documentos</a></li></ul></li><li class="menu-item depth3 pos_3 "><a href="/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/regulamento-municipal-de-apoio-ao-associativismo-juvenil-rmaaj" target="_self" class="menu-link">Regulamento Municipal de Apoio ao Associativismo Juvenil - RMAAJ</a></li><li class="menu-item depth3 pos_4 "><a href="/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/apoio-as-associacoes-juvenis" target="_self" class="menu-link">Apoio às Associações Juvenis</a></li><li class="menu-item dropdown depth3 pos_5 has_descendants"><a href="/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/diretorio-associativo" target="_self" class="menu-link">Diretório Associativo</a><button type="button" class="dropdown-toggle" aria-label="Diretório Associativo submenu" aria-expanded="false"></button><ul class="depth4 "><li class="menu-item depth4 pos_1 first last "><a href="https://associativismo.guimaraes.pt/" target="_blank" class="menu-link">Portal do Associativismo</a></li></ul></li><li class="menu-item depth3 pos_6 "><a href="/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/parlamento-jovem-europeu" target="_self" class="menu-link">Parlamento Jovem Europeu</a></li><li class="menu-item dropdown depth3 pos_7 has_descendants"><a href="/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/espacos" target="_self" class="menu-link">Espaços</a><button type="button" class="dropdown-toggle" aria-label="Espaços submenu" aria-expanded="false"></button><ul class="depth4 "><li class="menu-item dropdown depth4 pos_1 first has_descendants"><a href="/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/espacos/espaco-cidadania" target="_self" class="menu-link">Espaço Cidadania</a><button type="button" class="dropdown-toggle" aria-label="Espaço Cidadania submenu" aria-expanded="false"></button><ul class="depth5 "><li class="menu-item depth5 pos_1 first "><a href="/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/espacos/espaco-cidadania/questionario-plano-de-acao-estrategica-para-a-juventude" target="_self" class="menu-link">Questionário - Plano de Ação Estratégica para a Juventude</a></li><li class="menu-item depth5 pos_2 last "><a href="/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/espacos/espaco-cidadania/questionario-avaliacao-2-edicao-feira-de-oportunidades-orienta-te" target="_self" class="menu-link">Questionário Avaliação - 2ª Edição Feira de Oportunidades - Orienta-te</a></li></ul></li><li class="menu-item depth4 pos_2 last "><a href="/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/espacos/espacos-de-juventude" target="_self" class="menu-link">Espaços de Juventude</a></li></ul></li><li class="menu-item depth3 pos_8 "><a href="/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/links-uteis-acesso-rapido" target="_self" class="menu-link">Links úteis/ Acesso rápido</a></li><li class="menu-item depth3 pos_9 last "><a href="/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/contatos" target="_self" class="menu-link">Contatos</a></li></ul></li></ul></li><li class="menu-item dropdown depth1 pos_4 has_descendants"><a href="/areas-de-intervencao/educacao-e-recursos-humanos" target="_self" class="menu-link">Educação e Recursos Humanos</a><button type="button" class="dropdown-toggle" aria-label="Educação e Recursos Humanos submenu" aria-expanded="false"></button><ul class="depth2 "><li class="menu-item dropdown depth2 pos_1 first has_descendants"><a href="/areas-de-intervencao/educacao-e-recursos-humanos/educacao" target="_self" class="menu-link">Educação</a><button type="button" class="dropdown-toggle" aria-label="Educação submenu" aria-expanded="false"></button><ul class="depth3 "><li class="menu-item depth3 pos_1 first last "><a href="/areas-de-intervencao/educacao-e-recursos-humanos/educacao/plano-de-educacao-municipal" target="_self" class="menu-link">Plano de Educação Municipal</a></li></ul></li><li class="menu-item dropdown depth2 pos_2 last has_descendants"><a href="/areas-de-intervencao/educacao-e-recursos-humanos/recursos-humanos" target="_self" class="menu-link">Recursos Humanos</a><button type="button" class="dropdown-toggle" aria-label="Recursos Humanos submenu" aria-expanded="false"></button><ul class="depth3 "><li class="menu-item depth3 pos_1 first "><a href="https://recrutamento.cm-guimaraes.pt/" target="_self" class="menu-link">Recrutamento</a></li><li class="menu-item depth3 pos_2 "><a href="/areas-de-intervencao/educacao-e-recursos-humanos/recursos-humanos/outras-informacoes" target="_self" class="menu-link">Outras Informações</a></li><li class="menu-item depth3 pos_3 "><a href="/areas-de-intervencao/educacao-e-recursos-humanos/recursos-humanos/siadap" target="_self" class="menu-link">SIADAP</a></li><li class="menu-item depth3 pos_4 "><a href="/areas-de-intervencao/educacao-e-recursos-humanos/recursos-humanos/regulamentos" target="_self" class="menu-link">Regulamentos</a></li><li class="menu-item depth3 pos_5 "><a href="/areas-de-intervencao/educacao-e-recursos-humanos/recursos-humanos/mapa-de-pessoal" target="_self" class="menu-link">Mapa de Pessoal</a></li><li class="menu-item depth3 pos_6 last "><a href="/municipio/camara-municipal/organograma" target="_self" class="menu-link">Estrutura Orgânica</a></li></ul></li></ul></li><li class="menu-item dropdown depth1 pos_5 has_descendants"><a href="/areas-de-intervencao/acao-social-e-comunidade" target="_self" class="menu-link">Ação Social e Comunidade</a><button type="button" class="dropdown-toggle" aria-label="Ação Social e Comunidade submenu" aria-expanded="false"></button><ul class="depth2 "><li class="menu-item dropdown depth2 pos_1 first has_descendants"><a href="/areas-de-intervencao/acao-social-e-comunidade/coesao-e-desenvolvimento-social" target="_self" class="menu-link">Coesão e Desenvolvimento Social</a><button type="button" class="dropdown-toggle" aria-label="Coesão e Desenvolvimento Social submenu" aria-expanded="false"></button><ul class="depth3 "><li class="menu-item dropdown depth3 pos_1 first has_descendants"><a href="/areas-de-intervencao/acao-social-e-comunidade/acao-social-integrada" target="_self" class="menu-link">Ação Social Integrada</a><button type="button" class="dropdown-toggle" aria-label="Ação Social Integrada submenu" aria-expanded="false"></button><ul class="depth4 "><li class="menu-item depth4 pos_1 first "><a href="/areas-de-intervencao/acao-social-e-comunidade/acao-social-integrada/gabinete-da-acao-social-integrada" target="_self" class="menu-link">Gabinete da Ação Social Integrada</a></li><li class="menu-item dropdown depth4 pos_2 last has_descendants"><a href="/areas-de-intervencao/acao-social-e-comunidade/acao-social-integrada/outros-apoios-sociais" target="_self" class="menu-link">Outros Apoios Sociais</a><button type="button" class="dropdown-toggle" aria-label="Outros Apoios Sociais submenu" aria-expanded="false"></button><ul class="depth5 "><li class="menu-item depth5 pos_1 first "><a href="/areas-de-intervencao/acao-social-e-comunidade/acao-social-integrada/outros-apoios-sociais/programa-abem" target="_self" class="menu-link">Programa ABEM</a></li><li class="menu-item dropdown depth5 pos_2 has_descendants"><a href="/areas-de-intervencao/acao-social-e-comunidade/acao-social-integrada/outros-apoios-sociais/bolsas-de-estudo" target="_self" class="menu-link">Bolsas de Estudo</a><button type="button" class="dropdown-toggle" aria-label="Bolsas de Estudo submenu" aria-expanded="false"></button><ul class="depth6 "><li class="menu-item depth6 pos_1 first "><a href="/areas-de-intervencao/acao-social-e-comunidade/acao-social-integrada/outros-apoios-sociais/bolsas-de-estudo/condicoes-de-atribuicao-da-bolsa-da-estudo" target="_self" class="menu-link">Condições de Atribuição da Bolsa da Estudo </a></li><li class="menu-item dropdown depth6 pos_2 last has_descendants"><a href="/areas-de-intervencao/acao-social-e-comunidade/acao-social-integrada/outros-apoios-sociais/bolsas-de-estudo/instrucoes-da-candidatura" target="_self" class="menu-link">Instruções da Candidatura</a><button type="button" class="dropdown-toggle" aria-label="Instruções da Candidatura submenu" aria-expanded="false"></button><ul class="depth7 "><li class="menu-item depth7 pos_1 first last "><a href="/areas-de-intervencao/acao-social-e-comunidade/acao-social-integrada/outros-apoios-sociais/bolsas-de-estudo/instrucoes-da-candidatura/candidatar" target="_self" class="menu-link">Candidatar</a></li></ul></li></ul></li><li class="menu-item depth5 pos_3 "><a href="/areas-de-intervencao/acao-social-e-comunidade/acao-social-integrada/outros-apoios-sociais/tarifa-social-para-a-prestacao-dos-servicos-de-aguas" target="_self" class="menu-link">Tarifa Social para a Prestação dos Serviços de Águas </a></li><li class="menu-item dropdown depth5 pos_4 has_descendants"><a href="/areas-de-intervencao/acao-social-e-comunidade/coesao-e-desenvolvimento-social/acao-social-integrada/outros-apoios-sociais/consultas-de-psico-oncologia" target="_self" class="menu-link">Consultas de Psico-Oncologia</a><button type="button" class="dropdown-toggle" aria-label="Consultas de Psico-Oncologia submenu" aria-expanded="false"></button><ul class="depth6 "><li class="menu-item depth6 pos_1 first last "><a href="/areas-de-intervencao/acao-social-e-comunidade/coesao-e-desenvolvimento-social/acao-social-integrada/outros-apoios-sociais/consultas-de-psico-oncologia/saude-mental-e-cancro-o-papel-da-psico-oncologia" target="_self" class="menu-link">Saúde Mental e Cancro: O Papel da Psico-Oncologia </a></li></ul></li><li class="menu-item depth5 pos_5 last "><a href="/areas-de-intervencao/acao-social-e-comunidade/acao-social-integrada/outros-apoios-sociais/gabinete-consulta-juridica" target="_self" class="menu-link">Gabinete Consulta Jurídica</a></li></ul></li></ul></li><li class="menu-item dropdown depth3 pos_2 has_descendants"><a href="/areas-de-intervencao/acao-social-e-comunidade/coesao-e-desenvolvimento-social/programa-da-rede-social" target="_self" class="menu-link">Programa da Rede Social</a><button type="button" class="dropdown-toggle" aria-label="Programa da Rede Social submenu" aria-expanded="false"></button><ul class="depth4 "><li class="menu-item depth4 pos_1 first "><a href="/areas-de-intervencao/acao-social-e-comunidade/coesao-e-desenvolvimento-social/programa-da-rede-social/gabinete-de-apoio-a-rede-social" target="_self" class="menu-link">Gabinete de Apoio à Rede Social</a></li><li class="menu-item depth4 pos_2 "><a href="/areas-de-intervencao/acao-social-e-comunidade/coesao-e-desenvolvimento-social/programa-da-rede-social/apoios-a-instituicoes-de-solidariedade-social" target="_self" class="menu-link">Apoios a Instituições de Solidariedade Social</a></li><li class="menu-item depth4 pos_3 "><a href="/areas-de-intervencao/acao-social-e-comunidade/coesao-e-desenvolvimento-social/programa-da-rede-social/animacao-social" target="_self" class="menu-link">Animação Social</a></li><li class="menu-item depth4 pos_4 "><a href="/areas-de-intervencao/acao-social-e-comunidade/coesao-e-desenvolvimento-social/programa-da-rede-social/projetos-sociais" target="_self" class="menu-link">Projetos Sociais</a></li><li class="menu-item dropdown depth4 pos_5 has_descendants"><a href="/areas-de-intervencao/acao-social-e-comunidade/coesao-e-desenvolvimento-social/programa-da-rede-social/projeto-piloto-radar-social" target="_self" class="menu-link">Projeto Piloto Radar Social</a><button type="button" class="dropdown-toggle" aria-label="Projeto Piloto Radar Social submenu" aria-expanded="false"></button><ul class="depth5 "><li class="menu-item depth5 pos_1 first last "><a href="/areas-de-intervencao/acao-social-e-comunidade/coesao-e-desenvolvimento-social/programa-da-rede-social/projeto-piloto-radar-social/formulario-de-sinalizacao-radar-social" target="_self" class="menu-link">Formulário de Sinalização Radar Social</a></li></ul></li><li class="menu-item depth4 pos_6 "><a href="/areas-de-intervencao/acao-social-e-comunidade/coesao-e-desenvolvimento-social/programa-da-rede-social/registo-municipal-das-instituicoes-de-solidariedade-social-de-guimaraes-rmisg" target="_self" class="menu-link">Registo Municipal das Instituições de Solidariedade Social de Guimarães - RMISG</a></li><li class="menu-item depth4 pos_7 last "><a href="/areas-de-intervencao/acao-social-e-comunidade/coesao-e-desenvolvimento-social/programa-da-rede-social/plano-de-desenvolvimento-social-2022-2026" target="_self" class="menu-link">Plano de Desenvolvimento Social 2022-2026</a></li></ul></li><li class="menu-item dropdown depth3 pos_3 has_descendants"><a href="/areas-de-intervencao/acao-social-e-comunidade/grupos-estrategicos" target="_self" class="menu-link">Grupos Estratégicos</a><button type="button" class="dropdown-toggle" aria-label="Grupos Estratégicos submenu" aria-expanded="false"></button><ul class="depth4 "><li class="menu-item dropdown depth4 pos_1 first has_descendants"><a href="/areas-de-intervencao/acao-social-e-comunidade/grupos-estrategicos/pessoas-em-situacao-de-sem-abrigo" target="_self" class="menu-link">Pessoas em Situação de Sem-Abrigo</a><button type="button" class="dropdown-toggle" aria-label="Pessoas em Situação de Sem-Abrigo submenu" aria-expanded="false"></button><ul class="depth5 "><li class="menu-item depth5 pos_1 first "><a href="/areas-de-intervencao/acao-social-e-comunidade/coesao-e-desenvolvimento-social/grupos-estrategicos/pessoas-em-situacao-de-sem-abrigo/projeto-i9-com-portas-abertas" target="_self" class="menu-link">Projeto I9 com Portas Abertas </a></li><li class="menu-item depth5 pos_2 "><a href="/areas-de-intervencao/acao-social-e-comunidade/coesao-e-desenvolvimento-social/grupos-estrategicos/pessoas-em-situacao-de-sem-abrigo/cantina-social-higiene-pessoal-e-tratamento-de-roupas" target="_self" class="menu-link">Cantina Social, Higiene Pessoal e Tratamento de Roupas</a></li><li class="menu-item depth5 pos_3 "><a href="/areas-de-intervencao/acao-social-e-comunidade/grupos-estrategicos/pessoas-em-situacao-de-sem-abrigo/centro-de-acolhimento-de-emergencia-social-caes" target="_self" class="menu-link">Centro de Acolhimento de Emergência Social (CAES)</a></li><li class="menu-item depth5 pos_4 "><a href="/areas-de-intervencao/acao-social-e-comunidade/grupos-estrategicos/pessoas-em-situacao-de-sem-abrigo/projeto-in-ruas" target="_self" class="menu-link">Projeto In Ruas</a></li><li class="menu-item depth5 pos_5 "><a href="/areas-de-intervencao/acao-social-e-comunidade/coesao-e-desenvolvimento-social/grupos-estrategicos/pessoas-em-situacao-de-sem-abrigo/apartamentos-partilhados" target="_self" class="menu-link">Apartamentos Partilhados</a></li><li class="menu-item depth5 pos_6 last "><a href="/areas-de-intervencao/acao-social-e-comunidade/coesao-e-desenvolvimento-social/grupos-estrategicos/pessoas-em-situacao-de-sem-abrigo/ficha-de-sinalizacao-npisa-de-guimaraes" target="_self" class="menu-link">Ficha de Sinalização - NPISA de Guimarães</a></li></ul></li><li class="menu-item dropdown depth4 pos_2 has_descendants"><a href="/areas-de-intervencao/acao-social-e-comunidade/grupos-estrategicos/infancia-e-juventude" target="_self" class="menu-link">Infância e Juventude</a><button type="button" class="dropdown-toggle" aria-label="Infância e Juventude submenu" aria-expanded="false"></button><ul class="depth5 "><li class="menu-item depth5 pos_1 first "><a href="/areas-de-intervencao/acao-social-e-comunidade/grupos-estrategicos/infancia-e-juventude/nucleo-local-de-garantia-para-a-infancia" target="_self" class="menu-link">Núcleo Local de Garantia para a Infância</a></li><li class="menu-item depth5 pos_2 "><a href="/areas-de-intervencao/acao-social-e-comunidade/grupos-estrategicos/infancia-e-juventude/comissao-de-protecao-de-criancas-e-jovens-cpcj" target="_self" class="menu-link">Comissão de Proteção de Crianças e Jovens - CPCJ</a></li><li class="menu-item depth5 pos_3 "><a href="/areas-de-intervencao/acao-social-e-comunidade/grupos-estrategicos/infancia-e-juventude/equipa-local-de-intervencao-de-guimaraes-eli" target="_self" class="menu-link">Equipa Local de Intervenção de Guimarães - ELI</a></li><li class="menu-item depth5 pos_4 last "><a href="/areas-de-intervencao/acao-social-e-comunidade/grupos-estrategicos/infancia-e-juventude/cidade-amiga-das-criancas" target="_self" class="menu-link">Cidade Amiga das Crianças</a></li></ul></li><li class="menu-item dropdown depth4 pos_3 has_descendants"><a href="/areas-de-intervencao/acao-social-e-comunidade/grupos-estrategicos/deficiencia" target="_self" class="menu-link">Deficiência</a><button type="button" class="dropdown-toggle" aria-label="Deficiência submenu" aria-expanded="false"></button><ul class="depth5 "><li class="menu-item depth5 pos_1 first "><a href="/areas-de-intervencao/acao-social-e-comunidade/grupos-estrategicos/deficiencia/balcao-da-inclusao" target="_self" class="menu-link">Balcão da Inclusão</a></li><li class="menu-item depth5 pos_2 "><a href="/areas-de-intervencao/acao-social-e-comunidade/grupos-estrategicos/deficiencia/forum-municipal-das-pessoas-com-deficiencia" target="_self" class="menu-link">Fórum Municipal das Pessoas com Deficiência</a></li><li class="menu-item depth5 pos_3 last "><a href="/areas-de-intervencao/acao-social-e-comunidade/coesao-e-desenvolvimento-social/grupos-estrategicos/deficiencia/apoio-a-pessoa-com-deficiencia" target="_self" class="menu-link">Apoio à Pessoa com Deficiência</a></li></ul></li><li class="menu-item dropdown depth4 pos_4 has_descendants"><a href="/areas-de-intervencao/acao-social-e-comunidade/grupos-estrategicos/envelhecimento" target="_self" class="menu-link">Envelhecimento</a><button type="button" class="dropdown-toggle" aria-label="Envelhecimento submenu" aria-expanded="false"></button><ul class="depth5 "><li class="menu-item depth5 pos_1 first "><a href="/areas-de-intervencao/acao-social-e-comunidade/grupos-estrategicos/envelhecimento/cartao-municipal-do-idoso" target="_self" class="menu-link">Cartão Municipal do Idoso</a></li><li class="menu-item depth5 pos_2 last "><a href="/areas-de-intervencao/acao-social-e-comunidade/coesao-e-desenvolvimento-social/grupos-estrategicos/envelhecimento/provedor-do-idoso" target="_self" class="menu-link">Provedor do Idoso</a></li></ul></li><li class="menu-item dropdown depth4 pos_5 last has_descendants"><a href="/areas-de-intervencao/acao-social-e-comunidade/grupos-estrategicos/cuidador" target="_self" class="menu-link">Cuidador</a><button type="button" class="dropdown-toggle" aria-label="Cuidador submenu" aria-expanded="false"></button><ul class="depth5 "><li class="menu-item depth5 pos_1 first "><a href="/areas-de-intervencao/acao-social-e-comunidade/grupos-estrategicos/cuidador/programa-guimaraes-concelho-cuidador" target="_self" class="menu-link">Programa Guimarães Concelho Cuidador</a></li><li class="menu-item depth5 pos_2 last "><a href="/areas-de-intervencao/acao-social-e-comunidade/grupos-estrategicos/cuidador/ficha-de-sinalizacao" target="_self" class="menu-link">Ficha de Sinalização </a></li></ul></li></ul></li><li class="menu-item dropdown depth3 pos_4 has_descendants"><a href="/areas-de-intervencao/acao-social-e-comunidade/servicos-protocolados" target="_self" class="menu-link">Serviços Protocolados</a><button type="button" class="dropdown-toggle" aria-label="Serviços Protocolados submenu" aria-expanded="false"></button><ul class="depth4 "><li class="menu-item dropdown depth4 pos_1 first has_descendants"><a href="/areas-de-intervencao/acao-social-e-comunidade/servicos-protocolados/banco-local-do-voluntariado-blv" target="_self" class="menu-link">Banco Local do Voluntariado - BLV</a><button type="button" class="dropdown-toggle" aria-label="Banco Local do Voluntariado - BLV submenu" aria-expanded="false"></button><ul class="depth5 "><li class="menu-item depth5 pos_1 first "><a href="/areas-de-intervencao/acao-social-e-comunidade/servicos-protocolados/banco-local-do-voluntariado-blv/areas-de-voluntariado" target="_self" class="menu-link">Áreas de Voluntariado</a></li><li class="menu-item dropdown depth5 pos_2 has_descendants"><a href="/areas-de-intervencao/acao-social-e-comunidade/servicos-protocolados/banco-local-do-voluntariado-blv/voluntarios" target="_self" class="menu-link">Voluntários</a><button type="button" class="dropdown-toggle" aria-label="Voluntários submenu" aria-expanded="false"></button><ul class="depth6 "><li class="menu-item depth6 pos_1 first last "><a href="/areas-de-intervencao/acao-social-e-comunidade/servicos-protocolados/banco-local-do-voluntariado-blv/voluntarios/formulario-inscricao-voluntarios" target="_self" class="menu-link">Formulário Inscrição - Voluntários</a></li></ul></li><li class="menu-item dropdown depth5 pos_3 last has_descendants"><a href="/areas-de-intervencao/acao-social-e-comunidade/servicos-protocolados/banco-local-do-voluntariado-blv/entidades-promotoras" target="_self" class="menu-link">Entidades Promotoras</a><button type="button" class="dropdown-toggle" aria-label="Entidades Promotoras submenu" aria-expanded="false"></button><ul class="depth6 "><li class="menu-item depth6 pos_1 first last "><a href="/areas-de-intervencao/acao-social-e-comunidade/servicos-protocolados/banco-local-do-voluntariado-blv/entidades-promotoras/formulario-inscricao-entidades-promotoras" target="_self" class="menu-link">Formulário Inscrição - Entidades Promotoras</a></li></ul></li></ul></li><li class="menu-item dropdown depth4 pos_2 has_descendants"><a href="/areas-de-intervencao/acao-social-e-comunidade/servicos-protocolados/centro-local-de-apoio-a-integracao-de-migrantes-claim" target="_self" class="menu-link">Centro Local de Apoio à Integração de Migrantes - CLAIM</a><button type="button" class="dropdown-toggle" aria-label="Centro Local de Apoio à Integração de Migrantes - CLAIM submenu" aria-expanded="false"></button><ul class="depth5 "><li class="menu-item depth5 pos_1 first "><a href="/areas-de-intervencao/acao-social-e-comunidade/servicos-protocolados/centro-local-de-apoio-a-integracao-de-migrantes-claim/guimaraes-acolhe" target="_self" class="menu-link">Guimarães Acolhe</a></li><li class="menu-item depth5 pos_2 "><a href="/areas-de-intervencao/acao-social-e-comunidade/servicos-protocolados/centro-local-de-apoio-a-integracao-de-migrantes-claim/plano-municipal-para-a-integracao-de-migrantes-do-concelho-de-guimaraes-pmimg" target="_self" class="menu-link">Plano Municipal para a Integração de Migrantes do Concelho de Guimarães - PMIMG</a></li><li class="menu-item depth5 pos_3 last "><a href="/areas-de-intervencao/acao-social-e-comunidade/servicos-protocolados/centro-local-de-apoio-a-integracao-de-migrantes-claim/projeto-mediadores-municipais-e-interculturais-territorio-desenvolvido-e-intercultural-tdi" target="_self" class="menu-link">Projeto Mediadores Municipais e Interculturais: Território Desenvolvido e Intercultural (TDI)</a></li></ul></li><li class="menu-item dropdown depth4 pos_3 last has_descendants"><a href="/areas-de-intervencao/acao-social-e-comunidade/servicos-protocolados/espaco-municipal-para-a-igualdade" target="_self" class="menu-link">Espaço Municipal para a Igualdade</a><button type="button" class="dropdown-toggle" aria-label="Espaço Municipal para a Igualdade submenu" aria-expanded="false"></button><ul class="depth5 "><li class="menu-item depth5 pos_1 first last "><a href="/areas-de-intervencao/acao-social-e-comunidade/servicos-protocolados/espaco-municipal-para-a-igualdade/plano-municipal-para-a-igualdade-de-genero" target="_self" class="menu-link">Plano Municipal para a Igualdade de Género</a></li></ul></li></ul></li><li class="menu-item depth3 pos_5 "><a href="/areas-de-intervencao/acao-social-e-comunidade/centro-do-conhecimento" target="_self" class="menu-link">Centro do Conhecimento</a></li><li class="menu-item depth3 pos_6 "><a href="/areas-de-intervencao/acao-social-e-comunidade/coesao-e-desenvolvimento-social/eventos-divisao-para-a-coesao-e-desenvolvimento-social" target="_self" class="menu-link">Eventos | Divisão para a Coesão e Desenvolvimento Social</a></li><li class="menu-item depth3 pos_7 last "><a href="/areas-de-intervencao/acao-social-e-comunidade/coesao-e-desenvolvimento-social/contactos" target="_self" class="menu-link">Contactos</a></li></ul></li><li class="menu-item depth2 pos_2 "><a href="/areas-de-intervencao/acao-social-e-comunidade/servico-municipal-de-saude" target="_self" class="menu-link">Serviço Municipal de Saúde</a></li><li class="menu-item depth2 pos_3 last "><a href="/areas-de-intervencao/acao-social-e-comunidade/ciac-centro-de-informacao-autarquico-ao-consumidor" target="_self" class="menu-link">CIAC - Centro de Informação Autárquico ao Consumidor</a></li></ul></li><li class="menu-item dropdown depth1 pos_6 has_descendants"><a href="/areas-de-intervencao/protecao-e-seguranca" target="_self" class="menu-link">Proteção e Segurança</a><button type="button" class="dropdown-toggle" aria-label="Proteção e Segurança submenu" aria-expanded="false"></button><ul class="depth2 "><li class="menu-item dropdown depth2 pos_1 first has_descendants"><a href="/areas-de-intervencao/protecao-e-seguranca/galeria" target="_self" class="menu-link">Proteção Civil</a><button type="button" class="dropdown-toggle" aria-label="Proteção Civil submenu" aria-expanded="false"></button><ul class="depth3 "><li class="menu-item depth3 pos_1 first "><a href="/areas-de-intervencao/protecao-e-seguranca/protecao-civil/avisos-e-comunicados" target="_self" class="menu-link">Avisos e Comunicados</a></li><li class="menu-item depth3 pos_2 "><a href="/areas-de-intervencao/protecao-e-seguranca/protecao-civil/vespa-velutina" target="_self" class="menu-link">Vespa Velutina</a></li><li class="menu-item depth3 pos_3 "><a href="/areas-de-intervencao/protecao-e-seguranca/protecao-civil/plano-municipal-de-emergencia-de-protecao-civil-de-guimaraes" target="_self" class="menu-link">Plano Municipal de Emergência de Proteção Civil de Guimarães</a></li><li class="menu-item depth3 pos_4 "><a href="/areas-de-intervencao/protecao-e-seguranca/protecao-civil/clube-de-protecao-civil" target="_self" class="menu-link">Clube de Proteção Civil</a></li><li class="menu-item depth3 pos_5 last "><a href="/areas-de-intervencao/protecao-e-seguranca/protecao-civil/centro-de-operacoes-integradas-de-guimaraes" target="_self" class="menu-link">Centro de Operações Integradas de Guimarães</a></li></ul></li><li class="menu-item dropdown depth2 pos_2 has_descendants"><a href="/areas-de-intervencao/protecao-e-seguranca/fiscalizacao" target="_self" class="menu-link">Fiscalização</a><button type="button" class="dropdown-toggle" aria-label="Fiscalização submenu" aria-expanded="false"></button><ul class="depth3 "><li class="menu-item depth3 pos_1 first last "><a href="/areas-de-intervencao/protecao-e-seguranca/fiscalizacao/perguntas-frequentes" target="_self" class="menu-link">Perguntas Frequentes</a></li></ul></li><li class="menu-item dropdown depth2 pos_3 last has_descendants"><a href="/areas-de-intervencao/protecao-e-seguranca/contencioso" target="_self" class="menu-link">Contencioso</a><button type="button" class="dropdown-toggle" aria-label="Contencioso submenu" aria-expanded="false"></button><ul class="depth3 "><li class="menu-item depth3 pos_1 first "><a href="/areas-de-intervencao/protecao-e-seguranca/contencioso/execucoes-fiscais" target="_self" class="menu-link">Execuções Fiscais</a></li><li class="menu-item depth3 pos_2 "><a href="/areas-de-intervencao/protecao-e-seguranca/contencioso/contraordenacoes-rodoviarias" target="_self" class="menu-link">Contraordenações Rodoviárias</a></li><li class="menu-item depth3 pos_3 last "><a href="/areas-de-intervencao/protecao-e-seguranca/contencioso/perguntas-frequentes" target="_self" class="menu-link">Perguntas Frequentes</a></li></ul></li></ul></li><li class="menu-item dropdown depth1 pos_7 has_descendants"><a href="/areas-de-intervencao/relacoes-institucionais" target="_self" class="menu-link">Relações Institucionais</a><button type="button" class="dropdown-toggle" aria-label="Relações Institucionais submenu" aria-expanded="false"></button><ul class="depth2 "><li class="menu-item dropdown depth2 pos_1 first has_descendants"><a href="/areas-de-intervencao/relacoes-institucionais/relacoes-internacionais" target="_self" class="menu-link">Relações Internacionais</a><button type="button" class="dropdown-toggle" aria-label="Relações Internacionais submenu" aria-expanded="false"></button><ul class="depth3 "><li class="menu-item dropdown depth3 pos_1 first has_descendants"><a href="/areas-de-intervencao/relacoes-institucionais/relacoes-internacionais/geminacoes" target="_self" class="menu-link">Geminações</a><button type="button" class="dropdown-toggle" aria-label="Geminações submenu" aria-expanded="false"></button><ul class="depth4 "><li class="menu-item depth4 pos_1 first last "><a href="/areas-de-intervencao/relacoes-institucionais/relacoes-internacionais/geminacoes/cidades" target="_self" class="menu-link">Cidades</a></li></ul></li><li class="menu-item dropdown depth3 pos_2 last has_descendants"><a href="/areas-de-intervencao/relacoes-institucionais/relacoes-internacionais/organizacoes" target="_self" class="menu-link">Organizações</a><button type="button" class="dropdown-toggle" aria-label="Organizações submenu" aria-expanded="false"></button><ul class="depth4 "><li class="menu-item depth4 pos_1 first "><a href="/areas-de-intervencao/relacoes-institucionais/relacoes-internacionais/organizacoes/ciumed" target="_self" class="menu-link">Ciumed</a></li><li class="menu-item depth4 pos_2 "><a href="/areas-de-intervencao/relacoes-institucionais/relacoes-internacionais/organizacoes/eixo-atlantico" target="_self" class="menu-link">Eixo Atlântico</a></li><li class="menu-item depth4 pos_3 "><a href="/areas-de-intervencao/relacoes-institucionais/relacoes-internacionais/organizacoes/ocpm" target="_self" class="menu-link">Ocpm</a></li><li class="menu-item depth4 pos_4 "><a href="/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/parlamento-jovem-europeu" target="_self" class="menu-link">Parlamento Jovem Europeu</a></li><li class="menu-item depth4 pos_5 last "><a href="/areas-de-intervencao/relacoes-institucionais/relacoes-internacionais/organizacoes/uccla" target="_self" class="menu-link">UCCLA</a></li></ul></li></ul></li><li class="menu-item depth2 pos_2 last "><a href="/areas-de-intervencao/relacoes-institucionais/relacoes-publicas" target="_self" class="menu-link">Relações Públicas</a></li></ul></li><li class="menu-item depth1 pos_8 last "><a href="/areas-de-intervencao/legislacao" target="_self" class="menu-link">Legislação</a></li></ul>
+
+    <script nonce="">
+      (() => {
+        const containerSelector = `#vertical_menu_54`;
+
+        function init() {
+          const container = document.querySelector(containerSelector);
+          const menuElement = container && container.querySelector("ul.acc-menu");
+          const Wm = window.AccessibleMenu && window.AccessibleMenu.WmTopLinkDisclosureMenu;
+
+          if (!container || !menuElement || !Wm) {
+            return;
+          }
+
+          if (container.dataset.wmVerticalMenuInit === "1") {
+            return;
+          }
+
+          // Padrão disclosure (a11y-PT). expandCurrentTrail (abrir o trilho da página
+          // atual) e a persistência de rato fora do menu vivem na subclasse.
+          new Wm({
+            menuElement,
+            submenuItemSelector: ".dropdown",
+            submenuToggleSelector: "button.dropdown-toggle",
+            submenuSubtoggleSelector: "button.dropdown-toggle",
+            closeClass: "acc-hide",
+            openClass: "acc-show",
+            expandCurrentTrailOnInit: true,
+            outsideMousePersistence: true
+            // focusInert: true  // ativar/afinar se o teste em VoiceOver Sequoia o exigir
+          });
+
+          container.dataset.wmVerticalMenuInit = "1";
+        }
+
+        if (window.jQuery) {
+          window.jQuery(init);
+        } else if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", init, { once: true });
+        } else {
+          init();
+        }
+      })();
+    </script>
+</div>
+
+</nav>
+        <main id="accessibilityMainContent">
+        <section class="mainContents large-12 xlarge-9 cell hidden-post">
+          <div class="central_AREA commonContent"><span class="BO-only"></span>
+            <h1 class="pageTitle">Centro de Criação de Candoso</h1>
+            <div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve">
+              <a id="readspeakerlnk" rel="nofollow" class="rsbtn_play" accesskey="L" title="Ouvir com ReadSpeaker webReader" href="#">
+              <span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span>Ouvir</span></span></span>
+              <span class="rsbtn_right rsimg rsplay rspart"></span>
+              </a>
+            </div>
+              
+  <div id="poi_detail_41" class="widget poi_detail" data-id="41" data-content_type="PoiDetail">
+
+
+        
+
+
+
+        <div class="categories_list widget_field "><div class="widget_value"><div><span>EQUIPAMENTOS CULTURAIS MUNICIPAIS</span></div></div></div>
+
+        
+
+        
+
+        <div class="google_map">
+          
+        </div>
+        <div class="address widget_field "><div class="widget_value"><div class="writer_text"><p>Rua de Moure</p>
+<p>S&atilde;o Martinho de Candoso</p>
+<p>4835-382 Guimar&atilde;es</p><div class="writer_text_clear"></div></div></div></div>
+
+        <div class="telephone widget_field "><div class="widget_value"><a href="tel:(+351)253424700">(+351) 253 424 700</a></div></div>
+
+        
+
+        
+
+        <div class="email widget_field "><div class="widget_value"><a href="mailto:geral@aoficina.pt">geral@aoficina.pt</a></div></div>
+
+        <div class="url widget_field "><div class="widget_value"><a target="_blank" href="http://www.aoficina.pt">www.aoficina.pt</a></div></div>
+
+        
+
+
+
+</div>
+  <div id="related_pois_list_30" class="widget related_pois_list" data-id="30" data-content_type="RelatedPoisList"></div>
+
+
+          </div>
+          <div class="postMenu_AREA"><span class="BO-only shared"></span>
+</div>
+          <div class="bottomButtons">
+            <div class="backButton">
+              <a href="javascript:history.back()">Voltar</a>
+            </div>
+            <button class="ui facebook button share-button" data-platform="facebook" title="Partilhar no Facebook">Partilhar</button>
+          </div>
+
+        </section>
+        <section>
+          <div class="lastUpdateDate"><div><span class="wmPageUpdateTitle">Conteúdo atualizado em</span><span class="wmPageUpdateDate">19 de março de 2024</span><span class="wmPageUpdateTime">às 16:17</span></div></div>
+        </section>
+        </main>
+        
+        <div class="clearfix"></div>
+      </div>
+
+      <!-- LAST UPDATE DATE -->
+     <!--<div class="lastUpdateDate"><div><span class="wmPageUpdateTitle">Conteúdo atualizado em</span><span class="wmPageUpdateDate">19 de março de 2024</span><span class="wmPageUpdateTime">às 16:17</span></div></div> -->
+
+    </div>
+
+  </div>
+  <!--end stickyFooter -->
+  
+  
+  <!-------------------------------------------------------------------------------------------------------------->
+  <!-- FOOTER -->
+  <!-------------------------------------------------------------------------------------------------------------->
+   <footer>
+    <div class="grid-container">
+      <div class="grid-x grid-margin-x align-top">
+        <div class="contactos_AREA xxsmall-12 small-6 large-4 cell hidden-post">  
+  
+<div id="html_block_256" class="widget html_block" data-id="256" data-content_type="HtmlBlock">
+
+  <h2>Câmara Municipal de Guimarães</h2>
+<ul>
+  <li class="contactosMorada">Largo Cónego José Maria Gomes<br>4804-534 Guimarães</li>
+  <li class="contactosTelefone">Telefone <a href="tel:253421200">253 421 200</a></li>
+  <li class="contactosEmail">E-mail <a href="mailto:geral@cm-guimaraes.pt">geral@cm-guimaraes.pt</a></li>
+</ul>
+<a class="btnMaisContactos" href="/ficha-tecnica/declaracao-de-acessibilidade-e-usabilidade/contactos-da-autarquia">contactos e horários</a>
+
+</div>
+
+</div>
+        <div class="appsLinks_AREA xxsmall-12 small-6 large-5 cell hidden-post">  
+  
+<div id="html_block_257" class="widget html_block" data-id="257" data-content_type="HtmlBlock">
+
+  <h2>as nossas apps</h2>
+
+</div>
+  <div id="article_2399" class="widget article" data-id="2399" data-content_type="Article">
+  <div class="writer_text"><p><a href="/a-nossa-app"><img src="/thumbs/cmguimaraes/uploads/writer_file/image/10289/imagem_app_1_1080_1077.png" alt="Descarregar a app m&oacute;vel" /></a></p><div class="writer_text_clear"></div></div>
+</div>
+
+</div>
+        <div class="linksGerais_AREA xxsmall-12 large-3 cell hidden-post">  
+  
+<div id="html_block_258" class="widget html_block" data-id="258" data-content_type="HtmlBlock">
+
+  <!-- se for redesign, deixar os links todos com # -->
+<h2>Siga-nos</h2>
+<ul class="socialButtons">
+  <li><a href="https://www.facebook.com/Municipio.Guimaraes" target="_blank" title="Facebook"><img src="/cmguimaraes/layout/social/icon_facebook.svg" width="30" height="30" loading="lazy" alt="Página do Facebook (abre numa nova janela)"  /></a></li>
+  <li><a href="https://twitter.com/municipiogmr?lang=pt" target="_blank" title="Twitter"><img src="/cmguimaraes/layout/social/icon_twitter.svg" width="30" height="30" loading="lazy" alt="Página do Twitter (abre numa nova janela)" /></a></li>
+  <li><a href="https://www.youtube.com/c/Munic%C3%ADpiodeGuimar%C3%A3es" target="_blank" title="Youtube"><img src="/cmguimaraes/layout/social/icon_youtube.svg" width="30" height="30" loading="lazy" alt="Página do Youtube (abre numa nova janela)" /></a></li>
+  <li><a href="https://www.instagram.com/municipiodeguimaraes/" target="_blank" title="Instagram"><img src="/cmguimaraes/layout/social/icon_instagram.svg" width="30" height="30" loading="lazy" alt="Página do Instagram (abre numa nova janela)" /></a></li>
+</ul>
+<!--<div class="lastUpdateDate">{{wm:last_update_date}}</div>-->
+<ul class="linksUteisFooter">
+  <li><a href="/balcao-virtual/procedimentos">Perguntas Frequentes</a></li>
+  <!--<li><a href="#">Newsletter</a></li>-->
+  <li><a href="/registar-ocorrencias">Reportar ocorrência</a></li>
+</ul>
+
+</div>
+
+</div>
+      </div>
+    </div>
+    <div class="linksGovernoWrap grid-container full">
+        <div class="grid-container">
+            <div class="grid-x grid-margin-x">
+                <div class="acessibilidade xxsmall-12 large-10 cell hidden-post">
+                  <div class="acessibilidade_AREA">  
+  
+<div id="html_block_254" class="widget html_block" data-id="254" data-content_type="HtmlBlock">
+
+  <a class="logoReclamacoes" href="https://www.livroreclamacoes.pt/inicio" title="Livro de Reclamações Online" target="_blank">Livro de Reclamações</a>
+
+</div>
+  
+<div id="html_block_253" class="widget html_block" data-id="253" data-content_type="HtmlBlock">
+
+  <!-- se for redesign, deixar os links todos com # -->
+<ul class="linksPrivacidade">
+  <li><a href="/ficha-tecnica/mapa-do-site">Mapa do Site</a></li>
+  <li><a href="/ficha-tecnica">Ficha Técnica</a></li>
+  <li><a href="/ficha-tecnica/declaracao-de-acessibilidade-e-usabilidade/contactos-da-autarquia">Contactos da Autarquia</a></li>
+  <li><a href="/rss-feed">Feed RSS</a></li>
+  <li><a href="/ficha-tecnica/declaracao-de-acessibilidade-e-usabilidade/glossario-de-termos-complexos-ou-tecnicos">Glossário de Termos Complexos
+</a></li>
+</ul>
+<ul class="linksObrigatorios">
+  <li><a href="/acessibilidade">Acessibilidade</a></li>
+  <li><a href="/ficha-tecnica/conformidade">Conformidade</a></li>
+  <li><a href="/ficha-tecnica/transparencia-e-dados-abertos">Transparência e Dados Abertos</a></li>
+  <li><a href="/ficha-tecnica/politica-de-privacidade-e-seguranca">Política de Privacidade e Segurança</a></li>
+</ul>
+
+</div>
+
+</div>
+                </div>
+                <div class="poweredBy xxsmall-12 large-2 cell hidden-post">
+                  <div class="poweredBy_AREA">  
+  
+<div id="html_block_255" class="widget html_block" data-id="255" data-content_type="HtmlBlock">
+
+  <div class="logoWiremaze">
+  <a href="http://www.wiremaze.com" title="Powered by Wiremaze" target="_blank">Wiremaze</a>
+</div>
+
+</div>
+
+</div>
+                </div>
+               <div class="acessibilidadeAutor xxsmall-12 large-12 cell">
+                 <div class="acessibilidadeAutor_AREA">  
+  
+<div id="html_block_283" class="widget html_block" data-id="283" data-content_type="HtmlBlock">
+
+  <p class="acessibilidadeAutor">© 2025 Câmara Municipal de Guimarães</p>
+
+</div>
+
+</div>
+               </div>
+            </div>
+        </div>
+    </div>
+     
+    <!-------------------------------------------------------------------------------------------------------------->
+    <!-- CHATAI  - SO NA HOMEPAGE -->
+    <!-------------------------------------------------------------------------------------------------------------->
+    <div class="chatAI_AREA">  
+  <div id="aida_bot_5" class="widget aida_bot" data-id="5" data-content_type="AidaBot">
+
+
+    <div id="aida-mount"></div>
+    <script>
+      $(document).ready(function () {
+        if (typeof AidaClient === "undefined") {
+          return;
+        }
+
+        AidaClient.init({
+          tenant: "cmguimaraes",
+          apiUrl: "https://aida.cityfy.pt",
+          botName: "Clara",
+          imageUrl: "/thumbs/cmguimaraes/uploads/aida_bot/image/5/clara_1_1000_1000.png",
+          slabHello: "Fale connosco",
+          slabIntro: "Precisa de ajuda?",
+          presentationMsg: "Olá, eu sou a Clara e sou uma assistente virtual da Câmara Municipal de Guimarães. Em que posso ser útil?",
+          hasFileUpload: "false" == "true",
+          currentUserId: "",
+          terms: '{"id":"d0419f9c-6039-4eb0-a652-b22918b69e7a","name":"wireChat","abstract":"Refere-se à utilização do wireChat em frontoffice","is_active":true,"wire_mode":"normal","current":{"id":"0ed0adf3-e373-452a-8bdc-69df80b99925","text":"\u003cp\u003eBem-vindo ao serviço de Chatbot da CM Guimarães, a Clara.\u0026nbsp;\u003c/p\u003e\r\n\u003cp\u003ePor favor, note que este chatbot utiliza tecnologia de inteligência artificial (IA) para fornecer respostas automáticas às suas perguntas e auxiliar no encaminhamento de solicitações e informações sobre os nossos serviços.\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003eLimitações da IA:\u003c/strong\u003e Este sistema de IA é projetado para auxiliar em questões gerais e não deve ser usado como única fonte para decisões importantes. As respostas fornecidas podem não abranger todas as nuances do seu caso específico.\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003ePrivacidade e Dados Pessoais: \u003c/strong\u003eNão compartilhe informações pessoais sensíveis, confidenciais ou financeiros através deste chatbot. Se precisar discutir detalhes específicos que envolvem dados pessoais, por favor, entre em contacto direto com o Município.\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003eAtualizações e Correções: \u003c/strong\u003eO sistema de chatbot é periodicamente atualizado para melhorar a precisão e a funcionalidade. No entanto, a CM Guimarães não garante que as respostas sejam sempre corretas ou completas.\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003eNão Substitui o Atendimento Humano: \u003c/strong\u003eO chatbot é uma ferramenta de suporte e não substitui o atendimento prestado por funcionários da autarquia. Se as suas necessidades não forem adequadamente atendidas pelo chatbot, recomendamos que entre em contacto diretamente com os nossos serviços.\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003eConsentimento para Uso de Dados: \u003c/strong\u003eAo utilizar o chatbot, concorda com o uso das suas mensagens para o aperfeiçoamento da ferramenta e melhor atendimento ao cidadão. Os dados são armazenados de forma segura durante 5 anos após o término da conversa.\u003c/p\u003e\r\n\u003cp\u003eCaso deseje saber mais sobre os seus direitos e como exercê-los, consulte a política de privacidade em: https://www.cm-guimaraes.pt/politica-de-privacidade\u0026nbsp;\u003c/p\u003e\r\n\u003cp\u003eAgradecemos por usar a Clara.\u003c/p\u003e","doc":"","publish_at":"2025-04-08T16:28:20.744+01:00","area_id":"d0419f9c-6039-4eb0-a652-b22918b69e7a","wire_mode":"normal","declaration_text":null,"term_items":[{"id":"8fef76b8-fe94-4986-a6df-ace80d22d8d1","term_id":"0ed0adf3-e373-452a-8bdc-69df80b99925","title":"Consentimento de Tratamento de Dados","description":"\u003cp\u003eConsentir que os meus dados sejam utilizados para analise e operações necessárias ao bom funcionamento da plataforma;\u003c/p\u003e","is_system":true,"system_name":"aida_data_treatment_consent","created_at":"2025-04-08T16:28:20.755+01:00","updated_at":"2025-04-08T16:28:20.755+01:00","is_informational":false,"is_autofilled":false},{"id":"3f860d8e-a849-4211-a034-3e5a972fdc15","term_id":"0ed0adf3-e373-452a-8bdc-69df80b99925","title":"Política de Privacidade","description":"\u003cp\u003eLi e aceito a política de privacidade: https://www.cm-guimaraes.pt/politica-de-privacidade\u0026nbsp;\u0026nbsp;\u003c/p\u003e","is_system":null,"system_name":null,"created_at":"2025-04-08T16:28:20.762+01:00","updated_at":"2025-04-08T16:28:20.762+01:00","is_informational":false,"is_autofilled":false}]}}',
+          openOnFirstTime: 'false' == 'true',
+          appointmentInfo: null
+        });
+      });
+    </script>
+</div>
+
+</div>
+  </footer>
+  
+  
+  <!-- NAO APAGAR ISTO -->
+  <!-- START NICE SCROLL -->
+<script>
+  function doRemove(name) {
+    $(name).getNiceScroll().remove();
+  };
+  
+  var vis = true;
+  
+  function toggleVisibility() {
+    vis = !vis;
+	var ns = $("#boxscroll").getNiceScroll();
+	(vis) ? ns.show() : ns.hide();  
+  }
+  
+  function toggleDiv() {
+	var dv = $("#boxscroll"); 
+  var vv = (dv.css('display')!='none');
+	(vv) ? dv.hide() : dv.show();
+//	var ns = dv.getNiceScroll();
+//	ns.resize();
+  }
+</script>
+<!-- END NICE SCROLL -->
+
+  <script>
+    (function() {
+      var gaHasBeenInjected = false;
+      var SERVICE_ID = "ga";
+      var CATEGORY_ID = "analytics";
+      var hasConsent = function() {
+        var api = window.WMCookieConsent || {};
+        if (typeof api.isCookieAllowed === 'function') {
+          return api.isCookieAllowed(SERVICE_ID, CATEGORY_ID);
+        }
+        if (typeof api.isCategoryAllowed === 'function') {
+          return api.isCategoryAllowed(CATEGORY_ID);
+        }
+        if (typeof api.hasConsent === 'function') {
+          return api.hasConsent();
+        }
+        return false;
+      };
+      var checkCookieBarGa3 = function(){
+        if(gaHasBeenInjected || !hasConsent()){ return; }
+        gaHasBeenInjected = true;
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        var gaCreateOptions = {};
+        var gaHost = (window.location && window.location.hostname) ? window.location.hostname : '';
+        var hostOnly = !gaHost ||
+          gaHost === 'localhost' ||
+          gaHost.indexOf('.') === -1 ||
+          /\.(ngrok-free\.app|ngrok\.io|ngrok\.app)$/i.test(gaHost);
+        gaCreateOptions.cookieDomain = hostOnly ? 'none' : 'auto';
+        if (!hostOnly) {
+          gaCreateOptions.cookieFlags = 'max-age=7200;secure;samesite=none';
+        }
+        ga('create', 'UA-3953730-1', gaCreateOptions);
+        ga('send', 'pageview')
+      };
+
+      window.addEventListener('wm:cookie:updated', checkCookieBarGa3);
+      window.addEventListener('wm:cookie:accepted', checkCookieBarGa3);
+      window.addEventListener('wm:cookie:custom', checkCookieBarGa3);
+      checkCookieBarGa3();
+    })();
+</script>
+
+  <!-- NAO APAGAR ISTO -->
+
+
+  <!-------------------------------------------------------------------------------------------------------------->
+  <!-- SCRIPTS -->
+  <!-------------------------------------------------------------------------------------------------------------->
+  <script src="/assets/cmguimaraes/cmguimaraes/javascripts/vendor/picturefill-aea404604a.min.js"></script>
+  <!-- contain image -->
+  <script src="/assets/cmguimaraes/cmguimaraes/javascripts/vendor/ofi-d15e158094.browser.min.js"></script>
+  <!-- contain image for IE -->
+  <script src="/assets/cmguimaraes/cmguimaraes/javascripts/vendor/responsiveTables-68f8bdb74f.min.js"></script>
+  <!-- Tabelas com scroll em mobile -->
+  <script src="/assets/cmguimaraes/cmguimaraes/javascripts/wire_forms-083320498e.min.js"></script>
+  <!-- Caixa de Contacto-->
+  <script src="/assets/cmguimaraes/cmguimaraes/javascripts/vendor/swiper-024744ad68.min.js"></script>
+  <!-- Swiper-->
+
+  <!-------------------------------------------------------------------------------------------------------------->
+  <!-- READSPEAKER -->
+  <!-------------------------------------------------------------------------------------------------------------->
+
+<script>
+<!--
+lnk="//app-eu.readspeaker.com/cgi-bin/rsent?customerid=10141&amp;lang=pt_pt&amp;readclass=pageTitle,summary,text,article&amp;url=";
+//lnk+=encodeURIComponent("/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/centro-de-criacao-de-candoso");
+lnk+=encodeURIComponent(location.href);
+$("#readspeakerlnk").attr("href", lnk);
+-->
+</script>
+  
+          
+  <!-------------------------------------------------------------------------------------------------------------->
+  <!-- SHARE FACEBOOK UI -->
+  <!-------------------------------------------------------------------------------------------------------------->
+
+    <script>
+
+      const share_platforms = {
+        facebook: 'https://www.facebook.com/sharer/sharer.php?u=[[URL]]&t=[[TITLE]]'
+      }
+
+      document.querySelectorAll('.share-button[data-platform]').forEach(share_button => {
+        share_button.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          share_platform_tag = this.dataset.platform;
+          url = window.location.href;
+          title = document.title;
+          meta_description_element = document.querySelector('meta[name="description"]');
+          description = (meta_description_element !== null) ? meta_description_element.content : "";
+
+          share_url = replace_share_url_placeholders(share_platforms[share_platform_tag])
+
+          switch (share_platform_tag) {
+            case "print":
+              window.print();
+              break;
+            case "email":
+            case "sms":
+              window.location.href = share_url;
+              break;
+            default:
+              h = Math.min(480, screen.height - 32);
+              w = Math.min(640, screen.width - 32);
+              t = (window.top.outerHeight / 2) + window.top.screenY - (h / 2);
+              l = (window.top.outerWidth / 2) + window.top.screenX - (w / 2);
+              window_features = `height=${h},width=${w},top=${t},left=${l}`;
+              window.open(share_url, '', window_features);
+              break;
+          }
+
+        });    
+      });
+
+      function replace_share_url_placeholders(share_url, encode = true) {
+        if (!share_url) {
+          return "";
+        }
+        share_url = share_url.replaceAll("[[URL]]", url)
+        share_url = share_url.replaceAll("[[TITLE]]", title)
+        share_url = share_url.replaceAll("[[DESCRIPTION]]", description)
+        if (encode) {
+          share_url = encodeURI(share_url);
+        }
+        return share_url;
+      }
+    </script>
+
+  <!-------------------------------------------------------------------------------------------------------------->
+  <!-- OBJECT FIT PARA IE -->
+  <!-------------------------------------------------------------------------------------------------------------->
+  <script>
+   objectFitImages('img.OF-cover');
+  </script>
+
+  <!-------------------------------------------------------------------------------------------------------------->
+  <!-- LABELS DAS AREAS - so aparece em backoffice -->
+  <!-------------------------------------------------------------------------------------------------------------->
+  
+
+  <!-------------------------------------------------------------------------------------------------------------->
+  <!-- AREA CENTRAL COM ALTURA E AREAS PARTILHADAS A CINZA - so aparece em backoffice -->
+  <!-------------------------------------------------------------------------------------------------------------->
+    
+  <!-- VirtualSign 2.0 -->
+  <div id="virtualsign" ></div>
+            <script>
+
+    var config={
+
+      element_id:"virtualsign",
+
+      lang:"PT",
+
+      //hide_close:true,
+
+      //autostart:true,
+
+      //source:"div",
+
+      shirt_color:"#0555b4",
+
+      //bg_color:"#cecece",
+
+      //logo_tint: "#000000",
+
+      //logo_url:" https://avatar.virtualsign.com/icon.png ",
+
+      //hide_subtitles: true,
+
+      //welcome_message:"",
+
+      //hide_ui:true
+
+    };
+
+    var vs =new VirtualSign(config);
+
+    vs.initialize();
+
+</script>
+  <!-- /VirtualSign 2.0 -->
+
+
+  <!-------------------------------------------------------------------------------------------------------------->
+  <!-- WIREFORMS - necessario para que seja feito o render dos formularios -->
+  <!-------------------------------------------------------------------------------------------------------------->
+  
+
+
+
+
+    <script>
+      setInterval(function () {
+        if(window.executeRecaptchaForVerify) {
+          executeRecaptchaForVerify();
+        }
+      }, 90 * 1000);
+    </script>
+</body>
+
+</html>

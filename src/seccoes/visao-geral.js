@@ -121,9 +121,9 @@ export async function render(raiz) {
     el("p", {
       class: "nota",
       texto:
-        "Quatro das doze secções ainda não têm dados: obras, investimentos, " +
-        "equipamentos e comparação com outros municípios. Ficam em branco e " +
-        "dizem porquê, em vez de mostrarem estimativas.",
+        "Três das doze secções ainda não têm dados: obras, investimentos e " +
+        "comparação com outros municípios. Ficam em branco e dizem porquê, em " +
+        "vez de mostrarem estimativas.",
     }),
   );
 }

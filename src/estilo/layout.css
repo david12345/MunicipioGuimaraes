@@ -643,3 +643,135 @@ main:focus {
 #seccoes {
   min-height: 100vh;
 }
+
+/* --- Equipamentos e mapa -------------------------------------------------- */
+
+.mapa {
+  height: 55vh;
+  min-height: 320px;
+  margin-bottom: 0.75rem;
+  background: var(--superficie-2);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+}
+
+/* O Leaflet traz o seu próprio tema claro; no escuro, baixar o brilho dos
+ * mosaicos evita um retângulo branco a gritar no meio da página. */
+:root[data-theme="dark"] .mapa .leaflet-tile-pane,
+:root:not([data-theme="light"]) .mapa .leaflet-tile-pane {
+  filter: brightness(0.75) contrast(1.05);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .mapa .leaflet-tile-pane {
+    filter: none;
+  }
+}
+
+.equipamentos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.equipamento {
+  padding: 0.85rem 1rem;
+  background: var(--superficie-2);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+}
+
+.equipamento__nome {
+  margin: 0 0 0.35rem;
+  font-size: 0.98rem;
+  line-height: 1.3;
+}
+
+.equipamento__etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0 0 0.45rem;
+}
+
+.selo--municipal {
+  background: color-mix(in srgb, var(--serie-1) 20%, var(--superficie));
+  color: var(--tinta);
+}
+
+.equipamento__morada,
+.equipamento__contactos,
+.equipamento__sem-mapa {
+  margin: 0.15rem 0 0;
+  font-size: 0.85rem;
+  color: var(--tinta-2);
+}
+
+.equipamento__sem-mapa {
+  color: var(--tinta-3);
+  font-style: italic;
+}
+
+.equipamento__contactos a {
+  color: var(--destaque-tinta);
+  word-break: break-word;
+}
+
+@media (min-width: 768px) {
+  .equipamentos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .equipamentos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* O marcador é SVG inline; o Leaflet só precisa de o posicionar. */
+.pino {
+  background: none;
+  border: none;
+}
+
+.pino svg {
+  display: block;
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.35));
+}
+
+.leaflet-popup-content {
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.legenda--mapa {
+  margin-top: -0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.legenda__pino {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+}
+
+/* O Leaflet dá 30 px aos botões de zoom. Num telemóvel isso é um alvo que se
+ * falha — o mínimo é 44 px, e a verificação da UI reprova abaixo disso.
+ *
+ * `!important` aqui não é preguiça: a folha do Leaflet é carregada por
+ * importação dinâmica, junto com a secção do mapa, por isso entra no documento
+ * DEPOIS desta e ganha por ordem, por mais específico que seja o seletor. */
+.mapa .leaflet-control-zoom a {
+  width: var(--alvo-toque) !important;
+  height: var(--alvo-toque) !important;
+  line-height: var(--alvo-toque) !important;
+  font-size: 1.3rem;
+}
+
+/* A atribuição do OpenStreetMap é texto corrido com uma ligação; a regra dos
+ * 44 px não se aplica a ligações dentro de uma frase (WCAG 2.5.8). */
+.leaflet-control-attribution {
+  font-size: 0.72rem;
+}

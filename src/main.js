@@ -25,14 +25,13 @@ const SECCOES = [
   { id: "investimentos", titulo: "Investimentos (PPI)", curto: "Investimentos", modulo: null, lacuna: "L26" },
   { id: "contratos", titulo: "Contratos públicos", curto: "Contratos", modulo: () => import("./seccoes/contratos.js") },
   { id: "participadas", titulo: "Empresas e entidades participadas", curto: "Participadas", modulo: () => import("./seccoes/participadas.js") },
-  { id: "equipamentos", titulo: "Equipamentos municipais", curto: "Equipamentos", modulo: null, lacuna: "S20" },
+  { id: "equipamentos", titulo: "Equipamentos municipais", curto: "Equipamentos", modulo: () => import("./seccoes/equipamentos.js") },
   { id: "comparar", titulo: "Comparar com outros municípios", curto: "Comparar", modulo: null, lacuna: "L13" },
   { id: "fontes", titulo: "Fontes e metodologia", curto: "Fontes", modulo: () => import("./seccoes/fontes.js") },
 ];
 
 const RAZOES = {
   L26: "Os mapas do Plano Plurianual de Investimentos estão, em grande parte, digitalizados nos documentos previsionais — não são extraíveis sem reconhecimento ótico de caracteres, que sobre valores financeiros exige revisão humana antes de publicar.",
-  S20: "Os equipamentos municipais estão dispersos por páginas temáticas do site da Câmara e ainda não foram inventariados. Falta também geocodificar as moradas.",
   L13: "A comparação entre municípios só é honesta com séries já normalizadas pela DGAL. O endereço exato desses quadros ainda não foi localizado — extrações próprias de PDF de municípios diferentes não são comparáveis.",
 };
 
@@ -143,6 +142,28 @@ async function marcarGeracao() {
   }
 }
 
+/** Uma ligação directa a uma secção (`#contratos`) tem de funcionar.
+ *
+ * As secções só existem no DOM depois do arranque, e nessa altura o
+ * navegador já tentou resolver a âncora e desistiu. É preciso repetir o
+ * salto à mão — e esperar que a secção carregue, senão salta para um
+ * contentor vazio que depois cresce debaixo dos pés.
+ */
+async function irParaAncora() {
+  const id = decodeURIComponent(location.hash.slice(1));
+  if (!id) return;
+  const alvo = document.getElementById(id);
+  if (!alvo) return;
+  alvo.scrollIntoView();
+  // Dá tempo ao observador de carregar a secção e volta a ajustar, já com a
+  // altura real.
+  for (let i = 0; i < 40; i += 1) {
+    if (!alvo.querySelector(".a-carregar")) break;
+    await new Promise((r) => setTimeout(r, 100));
+  }
+  alvo.scrollIntoView();
+}
+
 /** Rende a 1.ª secção ANTES de a página a mostrar.
  *
  * Se o contentor for pintado vazio e só depois preenchido, tudo o que está
@@ -176,6 +197,7 @@ async function arrancar() {
 
   observarSeccoes(SECCOES, new Set([primeiraDef.id]));
   marcarGeracao();
+  await irParaAncora();
 }
 
 arrancar();

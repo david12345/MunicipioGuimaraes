@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "gerado_em": "2026-09-21T21:00:41.521136+00:00",
+    "gerado_em": "2026-09-21T22:21:23.821561+00:00",
     "script": "etl/common/fontes.py",
     "versao_modelo": "1.0",
-    "total_fontes": 38,
-    "fontes_descarregadas": 38
+    "total_fontes": 64,
+    "fontes_descarregadas": 64
   },
   "dados": {
     "S01": {
@@ -447,6 +447,64 @@
       "data_download": "2026-09-21",
       "descarregado": true
     },
+    "S20-cultura-municipais": {
+      "nome": "Equipamentos culturais municipais (índice)",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais",
+      "formato": "html",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "limitacoes": "Listagem paginada; a 2.a pagina e uma fonte propria.",
+      "id": "S20-cultura-municipais",
+      "e_indice": true,
+      "ficheiro_raw": "data/raw/2026-09-21_equipamentos-culturais-municipais",
+      "sha256": "115a99fdd57fa0560fd34ae69318ccd319aafd0630de00bbdf014f62bc6fd4bc",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-cultura-municipais-p2": {
+      "nome": "Equipamentos culturais municipais (índice, página 2)",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais?pois_list_30_page=2",
+      "formato": "html",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "id": "S20-cultura-municipais-p2",
+      "e_indice": true,
+      "ficheiro_raw": "data/raw/2026-09-21_equipamentos-culturais-municipais_271c1375",
+      "sha256": "fc18d54b82b8885d09c743e3d9bb03734ce5466234b4408649163cb6f2ddfcd0",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-cultura-nao-municipais": {
+      "nome": "Equipamentos culturais não municipais (índice)",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-nao-municipais",
+      "formato": "html",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "limitacoes": "NAO sao equipamentos da Camara. A distincao vem da fonte e tem de sobreviver ate ao dashboard - juntar os dois conjuntos seria atribuir ao municipio equipamentos que nao sao seus.",
+      "id": "S20-cultura-nao-municipais",
+      "e_indice": true,
+      "ficheiro_raw": "data/raw/2026-09-21_equipamentos-culturais-nao-municipais",
+      "sha256": "7d3c9a25866fff44eb4b89644efeba42a2da29cc9e6455ca2c50b4010366408f",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-espacos-juventude": {
+      "nome": "Espaços de juventude (índice)",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/espacos/espacos-de-juventude",
+      "formato": "html",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "id": "S20-espacos-juventude",
+      "e_indice": true,
+      "ficheiro_raw": "data/raw/2026-09-21_espacos-de-juventude",
+      "sha256": "6420cd44997de3f7db2ad7ac51e174bd99b3c900d014737b77b2f6cfd76be76f",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
     "S03-06_24": {
       "entidade": "Município de Guimarães",
       "periodicidade": "irregular",
@@ -519,6 +577,402 @@
       "id": "S16-DRE",
       "ficheiro_raw": "data/raw/2026-09-21_0000200612.pdf",
       "sha256": "c55b607e4b7e8ef0b6e1a78e9725034fe22bbb40c2f63c77c65021c3f4aedbca",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-arquivo-municipal-alfredo-pimenta": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "nome": "Equipamento: arquivo-municipal-alfredo-pimenta",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/arquivo-municipal-alfredo-pimenta",
+      "formato": "html",
+      "descoberta_via": "S20-cultura-municipais",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "id": "S20-poi-arquivo-municipal-alfredo-pimenta",
+      "ficheiro_raw": "data/raw/2026-09-21_arquivo-municipal-alfredo-pimenta",
+      "sha256": "565e615301b01868b35fce7bb0cd8d2ade421ea0acb2d0e6074f6686bdc8e83b",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-asmav-associacao-de-socorros-mutuos-artistica-vimaranense": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "nome": "Equipamento: asmav-associacao-de-socorros-mutuos-artistica-vimaranense",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-nao-municipais/poi/asmav-associacao-de-socorros-mutuos-artistica-vimaranense",
+      "formato": "html",
+      "descoberta_via": "S20-cultura-nao-municipais",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "id": "S20-poi-asmav-associacao-de-socorros-mutuos-artistica-vimaranense",
+      "ficheiro_raw": "data/raw/2026-09-21_asmav-associacao-de-socorros-mutuos-artistica-vimaranense",
+      "sha256": "c4b80f4a545b43b7b5d69750cbe9cfa002dd507a59da12431c9e426080357202",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-associacao-cultural-recreativa-convivio": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "nome": "Equipamento: associacao-cultural-recreativa-convivio",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-nao-municipais/poi/associacao-cultural-recreativa-convivio",
+      "formato": "html",
+      "descoberta_via": "S20-cultura-nao-municipais",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "id": "S20-poi-associacao-cultural-recreativa-convivio",
+      "ficheiro_raw": "data/raw/2026-09-21_associacao-cultural-recreativa-convivio",
+      "sha256": "46ca484c3261ee826d1c1845b2ec59fcc08520282e7169b889d375749b061820",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-auditorio-da-universidade-do-minho-polo-de-guimaraes": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "nome": "Equipamento: auditorio-da-universidade-do-minho-polo-de-guimaraes",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/auditorio-da-universidade-do-minho-polo-de-guimaraes",
+      "formato": "html",
+      "descoberta_via": "S20-cultura-municipais",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "id": "S20-poi-auditorio-da-universidade-do-minho-polo-de-guimaraes",
+      "ficheiro_raw": "data/raw/2026-09-21_auditorio-da-universidade-do-minho-polo-de-guimaraes",
+      "sha256": "6ad6bc497676212abf382adbfb0484318a5a9245d5b4ba89bf255ab31c228148",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-auditorio-multifuncional-couros": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "nome": "Equipamento: auditorio-multifuncional-couros",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/auditorio-multifuncional-couros",
+      "formato": "html",
+      "descoberta_via": "S20-cultura-municipais",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "id": "S20-poi-auditorio-multifuncional-couros",
+      "ficheiro_raw": "data/raw/2026-09-21_auditorio-multifuncional-couros",
+      "sha256": "e1c5bedc7688cccb8befc2c43c021ea5de75f3878e77590509ac8b1405d4e6cd",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-biblioteca-municipal-raul-brandao-3": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "nome": "Equipamento: biblioteca-municipal-raul-brandao-3",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/biblioteca-municipal-raul-brandao-3",
+      "formato": "html",
+      "descoberta_via": "S20-cultura-municipais",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "id": "S20-poi-biblioteca-municipal-raul-brandao-3",
+      "ficheiro_raw": "data/raw/2026-09-21_biblioteca-municipal-raul-brandao-3",
+      "sha256": "7fecb7e38d5a9b0d10368da113f5e316d5986f497ec04eff99c5ab8cbc7b10b8",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-caaa-centro-para-os-assuntos-da-arte-e-da-criatividade-rua-padre-augusto-borges-de-sa": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "nome": "Equipamento: caaa-centro-para-os-assuntos-da-arte-e-da-criatividade-rua-padre-augusto-borges-de-sa",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-nao-municipais/poi/caaa-centro-para-os-assuntos-da-arte-e-da-criatividade-rua-padre-augusto-borges-de-sa",
+      "formato": "html",
+      "descoberta_via": "S20-cultura-nao-municipais",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "id": "S20-poi-caaa-centro-para-os-assuntos-da-arte-e-da-criatividade-rua-padre-augusto-borges-de-sa",
+      "ficheiro_raw": "data/raw/2026-09-21_caaa-centro-para-os-assuntos-da-arte-e-da-criatividade-rua-padre-augusto-borges-de-sa",
+      "sha256": "7e36a83deaf62bec971f649839ab28fc7ae52963f84a964b1ac02ab99aa132b6",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-car-circulo-de-arte-e-recreio": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "nome": "Equipamento: car-circulo-de-arte-e-recreio",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-nao-municipais/poi/car-circulo-de-arte-e-recreio",
+      "formato": "html",
+      "descoberta_via": "S20-cultura-nao-municipais",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "id": "S20-poi-car-circulo-de-arte-e-recreio",
+      "ficheiro_raw": "data/raw/2026-09-21_car-circulo-de-arte-e-recreio",
+      "sha256": "fb1429abf045d2b9787d0f7be1629c8a416990cb462259adabf98ef8601ca8fa",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-casa-da-juventude-de-guimaraes": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "nome": "Equipamento: casa-da-juventude-de-guimaraes",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/espacos/espacos-de-juventude/poi/casa-da-juventude-de-guimaraes",
+      "formato": "html",
+      "descoberta_via": "S20-espacos-juventude",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "id": "S20-poi-casa-da-juventude-de-guimaraes",
+      "ficheiro_raw": "data/raw/2026-09-21_casa-da-juventude-de-guimaraes",
+      "sha256": "6c2ad67291bd2ba42a3442ac7228597d00161f7c4ff8561cab75480a6d8099c1",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-casa-da-memoria": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "nome": "Equipamento: casa-da-memoria",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/casa-da-memoria",
+      "formato": "html",
+      "descoberta_via": "S20-cultura-municipais",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "id": "S20-poi-casa-da-memoria",
+      "ficheiro_raw": "data/raw/2026-09-21_casa-da-memoria",
+      "sha256": "c63030bfe4a088cba6a481031c18fdb3128863fdf0afef79fd5697e72e0abcbf",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-ccvf": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "nome": "Equipamento: ccvf",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/ccvf",
+      "formato": "html",
+      "descoberta_via": "S20-cultura-municipais",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "id": "S20-poi-ccvf",
+      "ficheiro_raw": "data/raw/2026-09-21_ccvf",
+      "sha256": "12f96dd402ccd1cef90fad5aa4d6cfcf925540f6721566c001f8cf360434ef3e",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-centro-de-criacao-de-candoso": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "nome": "Equipamento: centro-de-criacao-de-candoso",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/centro-de-criacao-de-candoso",
+      "formato": "html",
+      "descoberta_via": "S20-cultura-municipais",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "id": "S20-poi-centro-de-criacao-de-candoso",
+      "ficheiro_raw": "data/raw/2026-09-21_centro-de-criacao-de-candoso",
+      "sha256": "8f43167ef51df1f7a53da4869676a400a127c3b4e6bb9360ce8d3bd1b2d528f5",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-centro-internacional-das-artes-jose-de-guimaraes": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "nome": "Equipamento: centro-internacional-das-artes-jose-de-guimaraes",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/centro-internacional-das-artes-jose-de-guimaraes",
+      "formato": "html",
+      "descoberta_via": "S20-cultura-municipais",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "id": "S20-poi-centro-internacional-das-artes-jose-de-guimaraes",
+      "ficheiro_raw": "data/raw/2026-09-21_centro-internacional-das-artes-jose-de-guimaraes",
+      "sha256": "692419fcc9976b1f608dfe4f4557266d97b1bfc009cbfc414c5bb457b38529f4",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-cine-clube-de-guimaraes": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "nome": "Equipamento: cine-clube-de-guimaraes",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-nao-municipais/poi/cine-clube-de-guimaraes",
+      "formato": "html",
+      "descoberta_via": "S20-cultura-nao-municipais",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "id": "S20-poi-cine-clube-de-guimaraes",
+      "ficheiro_raw": "data/raw/2026-09-21_cine-clube-de-guimaraes",
+      "sha256": "6265f5066be0e94eb64813f04fee692a8db19462fc3b53da2642ee8471f25404",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-gabinete-municipal-da-juventude": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "nome": "Equipamento: gabinete-municipal-da-juventude",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/espacos/espacos-de-juventude/poi/gabinete-municipal-da-juventude",
+      "formato": "html",
+      "descoberta_via": "S20-espacos-juventude",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "id": "S20-poi-gabinete-municipal-da-juventude",
+      "ficheiro_raw": "data/raw/2026-09-21_gabinete-municipal-da-juventude",
+      "sha256": "83d396484e1f250d80d50a4568834a1ff1db5f1eda0dd9f6efea324415d691ba",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-ipdj-braga": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "nome": "Equipamento: ipdj-braga",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/espacos/espacos-de-juventude/poi/ipdj-braga",
+      "formato": "html",
+      "descoberta_via": "S20-espacos-juventude",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "id": "S20-poi-ipdj-braga",
+      "ficheiro_raw": "data/raw/2026-09-21_ipdj-braga",
+      "sha256": "636f2868f6880a14849ba8dc7a328fa49531fe35ac6d35affec6560c5000f025",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-loja-oficina": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "nome": "Equipamento: loja-oficina",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/loja-oficina",
+      "formato": "html",
+      "descoberta_via": "S20-cultura-municipais-p2",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "id": "S20-poi-loja-oficina",
+      "ficheiro_raw": "data/raw/2026-09-21_loja-oficina",
+      "sha256": "cbb1df558824cf6a7019d42962b1da35e7dd21fcc49cf56bc2ffa316c1b9e3ce",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-multiusos-de-guimaraes": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "nome": "Equipamento: multiusos-de-guimaraes",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/multiusos-de-guimaraes",
+      "formato": "html",
+      "descoberta_via": "S20-cultura-municipais-p2",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "id": "S20-poi-multiusos-de-guimaraes",
+      "ficheiro_raw": "data/raw/2026-09-21_multiusos-de-guimaraes",
+      "sha256": "187bb44abf3f16b532ab4cba816594f26a30e1d704a9e9e2a0ee3769be3f3343",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-oficina-centro-de-artes-e-mesteres-tradicionais-guimaraes": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "nome": "Equipamento: oficina-centro-de-artes-e-mesteres-tradicionais-guimaraes",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/oficina-centro-de-artes-e-mesteres-tradicionais-guimaraes",
+      "formato": "html",
+      "descoberta_via": "S20-cultura-municipais-p2",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "id": "S20-poi-oficina-centro-de-artes-e-mesteres-tradicionais-guimaraes",
+      "ficheiro_raw": "data/raw/2026-09-21_oficina-centro-de-artes-e-mesteres-tradicionais-guimaraes",
+      "sha256": "20227ef4fdc3f3fe89d76de3ef05d6daa44f8c10f72241c7c3f31dc81b8cacda",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-pousada-da-juventude-de-guimaraes": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "nome": "Equipamento: pousada-da-juventude-de-guimaraes",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/desporto-e-juventude/juventude-e-cidadania/espacos/espacos-de-juventude/poi/pousada-da-juventude-de-guimaraes",
+      "formato": "html",
+      "descoberta_via": "S20-espacos-juventude",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "id": "S20-poi-pousada-da-juventude-de-guimaraes",
+      "ficheiro_raw": "data/raw/2026-09-21_pousada-da-juventude-de-guimaraes",
+      "sha256": "e13cdd2055ed2699215150d1b4d5b5882b25c7e01890408dbb4fc3e05fe04582",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-sao-mamede-centro-de-artes-e-espetaculos-de-guimaraes": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "nome": "Equipamento: sao-mamede-centro-de-artes-e-espetaculos-de-guimaraes",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-nao-municipais/poi/sao-mamede-centro-de-artes-e-espetaculos-de-guimaraes",
+      "formato": "html",
+      "descoberta_via": "S20-cultura-nao-municipais",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "id": "S20-poi-sao-mamede-centro-de-artes-e-espetaculos-de-guimaraes",
+      "ficheiro_raw": "data/raw/2026-09-21_sao-mamede-centro-de-artes-e-espetaculos-de-guimaraes",
+      "sha256": "bda1507eafbd802eac09353dcfb6947d67a352ac155492e897ee52882f84dd24",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S20-poi-teatro-jordao": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "nome": "Equipamento: teatro-jordao",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/cultura-e-patrimonio/cultura/equipamentos-culturais-municipais/poi/teatro-jordao",
+      "formato": "html",
+      "descoberta_via": "S20-cultura-municipais-p2",
+      "alimenta": [
+        "equipamentos.json"
+      ],
+      "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
+      "id": "S20-poi-teatro-jordao",
+      "ficheiro_raw": "data/raw/2026-09-21_teatro-jordao",
+      "sha256": "5ceebce4111799db7b029749aad42d679dbb44fb131b833ed7f5b2a487521d44",
       "data_download": "2026-09-21",
       "descarregado": true
     },
