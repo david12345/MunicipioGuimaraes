@@ -26,31 +26,42 @@ Estas vêm do briefing e **não se negoceiam**. Na dúvida, escolhe sempre não 
 
 ## Estado atual
 
-**Fase 1 (inventário e modelo de dados) concluída. Não há dados nem dashboard.**
+**Fase 1.5 concluída: pipeline consolidado e secção 2 ("Quem governa") extraída.**
+Não há dashboard — a Fase 3 está por começar.
 
-`data/raw/` e `data/processed/` estão vazios **por decisão deliberada**, não por
-esquecimento: o ambiente remoto onde a Fase 1 correu bloqueia por política de rede
-todos os domínios de dados (`cm-guimaraes.pt`, `dados.gov.pt`, `base.gov.pt`,
-`dgal.gov.pt`, `dre.pt`, `ine.pt`, `pordata.pt`, `cne.pt`). Preencher o dashboard a
-partir de resumos de pesquisa violaria a regra 1.
+`make check-acesso` dá **19/19**. 22 fontes em `data/raw/` com `sha256` verificado.
+Em `data/processed/`: `fontes.json`, `executivo.json` e `orgaos_eleitos.json`.
 
-O único ficheiro em `data/processed/` é `fontes.json` — é o registo das fontes,
-gerado de `etl/sources.yaml`, não dados sobre o município.
+**L1 e L2 estão resolvidas** (ver `docs/qualidade_dados.md`): o bloqueio de rede
+era do ambiente da Fase 1, não das fontes, e a regra 5 está cumprida com leitura
+da fonte primária. Restam L13–L17, nenhuma bloqueante para o ETL.
 
-**Próximo passo:** correr `make fetch` numa máquina com rede aberta e commitar
-`data/raw/`. A partir daí a extração deixa de precisar de rede.
+**`data/raw/` no git:** commitam-se os **originais municipais** (~22 MB) — é neles
+que a regra 3 tem valor, porque a CMG substitui PDF mantendo o URL. Os **datasets
+nacionais** (~515 MB: contratos do BASE, Mapa Oficial do DR) ficam no `.gitignore`;
+commita-se o `.meta.json` com URL e `sha256`, que os reproduz com `make fetch` e
+mantém a integridade verificável. **Não usar Git LFS** — os contratos são
+republicados semanalmente e esgotariam a quota.
+
+**Próximo passo:** parsers da Fase 2. Os originais já estão em disco, por isso a
+extração não precisa de rede. Por ordem de retorno: contratos (S23-2019…2026),
+empresas participadas (S11, que dá os NIF de que os contratos precisam), mapa de
+pessoal (S07-2026), estrutura orgânica (S05+S06), orçamento (S10).
 
 ## Comandos
 
 ```bash
-make setup        # requests + PyYAML (não precisa de ghostscript)
+make setup        # cria .venv e instala requests + PyYAML
 make check-acesso # diz que fontes estão alcançáveis daqui; sai com 1 se alguma falhar
-make fetch        # descarrega originais para data/raw/
+make fetch        # descarrega originais para data/raw/, com descoberta de 2.º nível
 make fontes       # gera data/processed/fontes.json
+make quem-governa # extrai a secção 2
+make etl          # fetch + fontes + parsers existentes
 make setup-parse  # dependências de extração (Fase 2; camelot exige ghostscript)
 ```
 
-Correr `make check-acesso` primeiro em qualquer ambiente novo.
+Correr `make check-acesso` primeiro em qualquer ambiente novo. O Python do sistema
+é gerido externamente (PEP 668): **tudo corre no `.venv`**, que o `make setup` cria.
 
 ## Estrutura
 
@@ -58,9 +69,12 @@ Correr `make check-acesso` primeiro em qualquer ambiente novo.
 data/raw/        originais + sidecar .meta.json (url, sha256, data_download)
 data/processed/  JSON normalizado, um ficheiro por secção do dashboard
 etl/
-  sources.yaml   registo das fontes (9 com URL; o inventário tem 36)
+  sources.yaml   registo das fontes (12 com URL; o inventário tem 37)
+  descobertas.yaml  GERADO: fontes derivadas das páginas-índice; commitado de
+                 propósito, porque é no diff que se vê um URL a mudar
   run.py         orquestrador: --fase fetch|fontes, --check-acesso
-  common/        fetch.py (idempotente), fontes.py, validate.py, paths.py
+  quem_governa.py   parser da secção 2
+  common/        fetch.py (idempotente), descoberta.py, fontes.py, validate.py, paths.py
 docs/            fontes.md, modelo_dados.md, qualidade_dados.md
 src/             dashboard estático — Fase 3, por construir
 ```
@@ -101,13 +115,17 @@ O `fetch` guarda `sha256` de cada original — é assim que se deteta que uma au
 
 ## Armadilhas conhecidas
 
-- **Regra 5 por cumprir.** O executivo 2025–2029 **não está confirmado em fonte
-  oficial**. A pesquisa apontou para Ricardo Araújo (coligação PSD/CDS "Juntos por
-  Guimarães", 6 de 11 mandatos, fim de 36 anos de PS), mas isso é imprensa. Esses
-  nomes estão **só em prosa** em `docs/fontes.md` §6, marcados como não verificados —
-  **não entram em `data/processed/` nem no dashboard** antes de ler o mapa oficial
-  homologado (S16) ou a CNE/MAI (S31). A composição da Assembleia Municipal está em
-  branco.
+- **Regra 5 cumprida** para a Câmara, **não** para a Assembleia. O executivo
+  2025–2029 está verificado em S02 e S01 (páginas do próprio Município) e publicado
+  em `data/processed/`. Mas a **composição da Assembleia Municipal por força
+  política continua em branco** (L16): a CMG só publica a dimensão do órgão — 111
+  membros, 56 eleitos e 55 presidentes de junta por inerência. Está no Mapa Oficial
+  do DR (S16-DRE), que é **digitalizado** (L17) e exigiria OCR com revisão humana.
+  Não preencher o hemiciclo com nada que não venha daí.
+- **HTML da CMG parte parênteses ao meio.** `Nome (PS<span>)</span>` vira duas
+  linhas ao remover as tags. Isto já atribuiu o e-mail de um vereador a outra
+  pessoa. Qualquer parser novo de páginas da CMG deve usar `_juntar_parenteses` de
+  `etl/quem_governa.py` e cruzar sempre duas fontes quando existam.
 - **Estrutura orgânica:** o documento de 2023 (S05) foi alterado pelo **Despacho
   9070/2024** (S06), que reorganizou os departamentos de Intervenção Social e de
   Recursos Humanos. Usar só o de 2023 produz um organograma errado. Preferir sempre o
