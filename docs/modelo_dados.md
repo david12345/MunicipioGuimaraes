@@ -274,9 +274,13 @@ se o `sha256` não mudou, `parse` reprocessa sempre a partir de `data/raw/`.
 
 1. **Profundidade da série histórica.** Proposta: **2019–2026** (cobre POCAL→SNC-AP
    com a quebra marcada, e dois mandatos). Mais anos multiplicam o trabalho de
-   extração com retorno decrescente.
-2. **Âmbito dos contratos do BASE.** Proposta: Município **+** entidades do perímetro
-   de consolidação, com filtro visível no dashboard para separar os dois.
+   extração com retorno decrescente. **Já aplicado aos contratos** (`ano_minimo`
+   na descoberta de S23); por confirmar para as secções financeiras.
+2. **Âmbito dos contratos do BASE.** ~~Proposta~~ **decidido e implementado**:
+   Município **+** entidades do perímetro de consolidação, com o campo
+   `adjudicante_municipio` (boolean) em cada contrato para o dashboard poder
+   separar os dois. O filtro é **por NIF**, nunca por nome — ver a docstring de
+   `etl/contratos.py` para a razão.
 3. **Municípios de comparação.** Proposta: Braga, V. N. Famalicão, Barcelos — mais
    um agregado "média dos municípios de 100–200 mil habitantes" da DGAL, que é mais
    informativo do que qualquer município isolado.

@@ -1,6 +1,6 @@
 # Qualidade dos dados e lacunas conhecidas
 
-Última atualização: 2026-09-21 · Fase 1.5 (pipeline consolidado, secção 2 extraída).
+Última atualização: 2026-09-21 · Fase 2 em curso (secções 2, 8 e 9 extraídas).
 
 Este ficheiro regista **tudo o que não foi possível obter ou validar**. É um
 entregável tão importante como os dados: o dashboard mostra "Dado não disponível"
@@ -69,14 +69,24 @@ Estas persistem mesmo com acesso à rede e condicionam o desenho do dashboard.
 | L15 | Edital de Apuramento Geral (S17) devolve **404** | Perde-se a fonte local com valor legal para os resultados de 2025 | O URL publicado pela CMG está morto. Os resultados vieram de S02; pedir o edital por LADA ou localizar o novo URL |
 | L16 | Composição da Assembleia Municipal por força política **não publicada** | O hemiciclo da secção 2 não pode ser desenhado | A CMG publica só a dimensão (111 = 56 eleitos + 55 presidentes de junta por inerência). Obter de S16-DRE (exige OCR, L17) ou da CNE |
 | L17 | Mapa Oficial n.º 2-B/2025 (S16-DRE) é **digitalizado** | 611 páginas sem camada de texto a partir da 3.ª: não é extraível por *parsing* | Confirmado com `pymupdf`: 0 caracteres e 1 imagem por página. Exige OCR (`ocrmypdf`/`tesseract`) e, tratando-se de fonte com valor legal, **revisão humana do que o OCR devolver** |
+| L18 | Ligação ao registo no Portal BASE (`url_base`) **não verificável** | Um *deep link* errado levaria o cidadão ao contrato errado | O padrão `detalhe/?type=contratos&id=<idcontrato>` é o do portal, mas a página é renderizada no cliente: um id inexistente também devolve 200 e HTML idêntico. Fica publicado com o aviso no `_meta` de cada `contratos_<ano>.json`. Confirmar quando houver credencial da API do IMPIC (S24) |
+| L19 | **Preço total efetivo desconhecido na maioria dos contratos** | O dashboard pode mostrar o que foi *contratado*, **não** o que foi de facto *gasto* | O BASE publica `0` neste campo enquanto o contrato não é fechado: em 2023 eram 435 de 519 contratos, todos com preço contratual positivo. Esse `0` é convertido em `null` (nunca publicado como zero euros) e o número de casos consta dos avisos. A execução real só se obtém do Relatório e Contas (S10) |
+| L20 | Entidades participadas **sem NIPC** na fonte (S11) | Não são filtráveis no dataset do BASE: contratos seus ficam de fora | São entidades internacionais (ICLEI, AICE, CIUMED). Nenhuma está no perímetro de consolidação, pelo que não afeta os totais publicados |
 
 ## Validações do ETL
 
 São automáticas e **bloqueantes**: uma extração que falhe não é publicada.
 
-**Executadas até agora** (secção 2, `etl/quem_governa.py`): V1 em duas formas —
-soma dos mandatos por força política igual ao total declarado, e contagem da lista
-nominal igual ao mesmo total — e V6 sobre `S01`, `S02` e `S37`. Todas passam.
+**Executadas até agora**, todas a passar:
+
+| Secção | Parser | Validações |
+|---|---|---|
+| 2 · Quem governa | `etl/quem_governa.py` | V1 em duas formas (soma dos mandatos = total declarado; lista nominal = mesmo total) e V6 |
+| 8 · Contratos | `etl/contratos.py` | **V4** nos oito anos (2019–2026), V6, e unicidade do NIF do Município no dataset |
+| 9 · Participadas | `etl/empresas_participadas.py` | V6, e "toda a entidade no perímetro tem NIPC" — é essa que garante que o filtro dos contratos não perde entidades |
+
+V4 estava especificada desde a Fase 1 mas não implementada; foi escrita com o
+parser dos contratos (`v4_soma_por_adjudicatario` em `etl/common/validate.py`).
 As restantes aguardam os parsers das secções respetivas.
 
 | ID | Validação | Critério |

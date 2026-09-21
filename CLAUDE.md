@@ -26,11 +26,13 @@ Estas vêm do briefing e **não se negoceiam**. Na dúvida, escolhe sempre não 
 
 ## Estado atual
 
-**Fase 1.5 concluída: pipeline consolidado e secção 2 ("Quem governa") extraída.**
-Não há dashboard — a Fase 3 está por começar.
+**Fase 2 em curso. Três secções extraídas: 2 (quem governa), 8 (contratos), 9
+(participadas).** Não há dashboard — a Fase 3 está por começar.
 
 `make check-acesso` dá **19/19**. 22 fontes em `data/raw/` com `sha256` verificado.
-Em `data/processed/`: `fontes.json`, `executivo.json` e `orgaos_eleitos.json`.
+Em `data/processed/`: `fontes.json`, `executivo.json`, `orgaos_eleitos.json`,
+`empresas_municipais.json` e `contratos_2019.json`…`contratos_2026.json`
+(4 110 contratos, 441,1 M€ contratados entre 2019 e 2026).
 
 **L1 e L2 estão resolvidas** (ver `docs/qualidade_dados.md`): o bloqueio de rede
 era do ambiente da Fase 1, não das fontes, e a regra 5 está cumprida com leitura
@@ -43,10 +45,13 @@ commita-se o `.meta.json` com URL e `sha256`, que os reproduz com `make fetch` e
 mantém a integridade verificável. **Não usar Git LFS** — os contratos são
 republicados semanalmente e esgotariam a quota.
 
-**Próximo passo:** parsers da Fase 2. Os originais já estão em disco, por isso a
-extração não precisa de rede. Por ordem de retorno: contratos (S23-2019…2026),
-empresas participadas (S11, que dá os NIF de que os contratos precisam), mapa de
-pessoal (S07-2026), estrutura orgânica (S05+S06), orçamento (S10).
+**Próximo passo:** os parsers que faltam. Os originais já estão em disco, por isso
+a extração não precisa de rede. Mapa de pessoal (S07-2026), estrutura orgânica
+(S05+S06 — falta o URL de S06), orçamento (S10; falta S08, sem URL, L3).
+
+**NIF do Município: `505948605`** (resolvido do dataset do IMPIC, único nos 8 anos).
+Os NIF do perímetro saem de `empresas_municipais.json` — é por isso que
+`make contratos` depende de `make empresas`.
 
 ## Comandos
 
@@ -134,9 +139,14 @@ O `fetch` guarda `sha256` de cada original — é assim que se deteta que uma au
   Tempo Livre, A Oficina, Taipas Turitermas e Fraterna são cooperativas; Laboratório da
   Paisagem é associação. Tratá-las como equivalentes é factualmente errado — daí o
   campo `natureza` e o nome da secção ser "Empresas e entidades participadas".
-- **Contratos do BASE:** o Município e cada empresa municipal são entidades
-  adjudicantes distintas, com NIF próprio. Resolver os NIF a partir do perímetro de
-  consolidação (S11) **antes** de filtrar o dataset.
+- **Contratos do BASE:** filtrar **por NIF, nunca por nome** — já implementado em
+  `etl/contratos.py`. Procurar "Guimarães" em 2024 devolve 33 entidades, incluindo
+  o hospital, 13 agrupamentos de escolas e o Tribunal da Relação; ao mesmo tempo a
+  Vimágua aparece com 4 grafias do mesmo nome. Erraria nos dois sentidos.
+- **`PrecoTotalEfetivo` do BASE vem a `0`** enquanto o contrato não é fechado —
+  em 2023, 435 de 519 contratos, todos com preço contratual positivo. É convertido
+  em `null` (L19). **O dashboard mostra o que foi contratado, não o que foi gasto**;
+  a execução real só vem do Relatório e Contas.
 - **API do BASE exige credencial** do IMPIC. Usar o dataset semanal do dados.gov
   (S23), que é aberto — custa até 7 dias de desfasamento, a mostrar no dashboard.
 - **Comparação entre municípios:** usar só séries já normalizadas da DGAL (S27).

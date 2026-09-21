@@ -1,6 +1,6 @@
 # Inventário de fontes — Câmara Municipal de Guimarães
 
-**Estado:** Fase 1.5 (fontes descarregadas). Última atualização: 2026-09-21.
+**Estado:** Fase 2 em curso (secções 2, 8 e 9 extraídas). Última atualização: 2026-09-21.
 
 > ### ⚠️ Como ler este inventário
 >
@@ -16,6 +16,9 @@
 > confirmado: `PRIM` = conteúdo lido na fonte; `DESC` = ficheiro descarregado, por
 > ler; `URL-S`/`EXIST-S`/`CONHEC` = ainda como estava, por confirmar. Uma linha que
 > não esteja em `PRIM` **não é dado validado**.
+>
+> As fontes-filhas descobertas (`S07-2026`, `S16-DRE`, `S23-2019`…`S23-2026`) não
+> estão nesta tabela: vivem em `etl/descobertas.yaml`, gerado pelo pipeline.
 
 ## Legenda da coluna *Verificação*
 
@@ -45,7 +48,7 @@ Entidade responsável: Município de Guimarães. Acesso nesta sessão: **bloquea
 | S08 | Documentos previsionais (Orçamento + GOP + PPI + PAM) | Secção de gestão financeira do site | PDF | Série anual | Anual (aprovação em dezembro) | `orcamento.json` (previsto), `investimentos.json` (PPI/GOP) | **Não localizei o URL exato da secção.** A pesquisa por "documentos previsionais Guimarães" devolveu sobretudo outros municípios | `CONHEC` |
 | S09 | Relatório e Contas 2024 (notícia de aprovação) | `/areas-de-intervencao/noticia/relatorio-e-contas-de-2024-aprovado-por-maioria-em-reuniao-de-camara` | HTML | 2024 | Anual | Ponto de entrada para o R&C 2024 | Notícia, não o documento | `URL-S` |
 | S10 | Relatório e Contas 2021 | `/cmguimaraes/uploads/document/file/18944/relatorio_e_contas_2021.pdf` | PDF | 2021 | Anual | `orcamento.json` (executado), dívida, indicadores | Padrão de URL (`/uploads/document/file/<id>/<slug>.pdf`) permite descobrir outros anos por varrimento da secção | `DESC` |
-| S11 | Consolidação de Contas 2023 | `/cmguimaraes/uploads/document/file/21681/consolidacao_de_contas_2023.pdf` | PDF | 2023 | Anual | `empresas_municipais.json`: perímetro de consolidação, fluxos CMG↔empresas | **Fonte-chave** para identificar o universo de entidades participadas | `DESC` |
+| S11 | Consolidação de Contas 2023 | `/cmguimaraes/uploads/document/file/21681/consolidacao_de_contas_2023.pdf` | PDF | 2023 | Anual | `empresas_municipais.json`: perímetro de consolidação, fluxos CMG↔empresas | **Fonte-chave** para identificar o universo de entidades participadas | `PRIM` |
 | S12 | Consolidação de Contas 2021 | `/cmguimaraes/uploads/document/file/19124/consolidacao_de_contas_2021.pdf` | PDF | 2021 | Anual | idem, série histórica | — | `URL-S` |
 | S13 | Certificação Legal de Contas Consolidadas 2014 | `/uploads/document/file/11167/Certifica__o_legal_de_contas_consolidado_2014.pdf` | PDF | 2014 | Anual | Ressalvas do ROC (qualidade dos dados) | Mostra que a série recua pelo menos a 2014; **nota: padrão de URL diferente** (`/uploads/` sem `/cmguimaraes/`) → o site mudou de CMS, o crawler tem de aceitar os dois | `URL-S` |
 | S14 | Índice de Transparência Municipal | `/municipio/indice-transparencia-municipal` | HTML | — | Anual | Secção de transparência; benchmark de divulgação | Equivale à "secção de transparência" pedida no briefing | `URL-S` |
@@ -159,6 +162,30 @@ A **composição da Assembleia Municipal por força política** continua por apu
 (L16). A CMG publica apenas a dimensão do órgão: 111 membros, 56 eleitos
 diretamente e 55 presidentes de junta por inerência (S37). O Mapa Oficial do DR
 (S16-DRE) tem essa informação mas é digitalizado (L17).
+
+## 6-A. Perímetro de consolidação e NIF (verificado)
+
+Do Quadro 1 do Relatório de Contas Consolidadas de 2023 (S11) saíram **42
+entidades participadas**, das quais **11 no perímetro de consolidação**, todas
+com NIPC. É esse conjunto que torna filtráveis os contratos do BASE.
+
+A distinção de `natureza` vem da fonte e não é cosmética: no perímetro há duas
+empresas municipais (Casfig, Vitrus), uma empresa **inter**municipal (Vimágua),
+quatro cooperativas e uma régie cooperativa (A Oficina), uma fundação (Fundação
+Cidade Guimarães) e duas associações (Laboratório da Paisagem, Curtir Ciência).
+
+**NIF do Município de Guimarães: `505948605`**, resolvido do próprio dataset do
+IMPIC e validado como único nos oito anos (2019–2026).
+
+### Porque é que o filtro não pode ser por nome
+
+Procurar "Guimarães" na coluna do adjudicante do ficheiro de 2024 devolve **33
+entidades distintas**. Entre elas: o Hospital da Senhora da Oliveira, treze
+agrupamentos de escolas, a Escola Secundária Martins Sarmento, o Tribunal da
+Relação de Guimarães e os bombeiros voluntários — nenhum é do município. No
+sentido inverso, a **Vimágua aparece com quatro grafias diferentes** do mesmo
+nome, todas com o mesmo NIF (`505993082`). Filtrar por nome erraria nos dois
+sentidos ao mesmo tempo.
 
 ## 7. Fontes descartadas nesta fase
 
