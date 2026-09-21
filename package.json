@@ -1,0 +1,23 @@
+{
+  "name": "dashboard-municipio-guimaraes",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Dashboard público sobre a Câmara Municipal de Guimarães",
+  "scripts": {
+    "dados": "node scripts/copiar-dados.mjs",
+    "dev": "npm run dados && vite",
+    "build": "npm run dados && vite build",
+    "preview": "vite preview",
+    "verificar": "node scripts/verificar-ui.mjs"
+  },
+  "devDependencies": {
+    "vite": "^7.1.5",
+    "playwright-core": "^1.56.0"
+  },
+  "dependencies": {
+    "d3-array": "^3.2.4",
+    "d3-scale": "^4.0.2",
+    "d3-shape": "^3.2.0"
+  }
+}

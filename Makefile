@@ -1,4 +1,4 @@
-.PHONY: help setup setup-parse check-acesso fontes fetch etl quem-governa empresas contratos mapa-pessoal populacao estrutura-organica orcamento limpar-venv
+.PHONY: dashboard dashboard-setup dashboard-build dashboard-verificar help setup setup-parse check-acesso fontes fetch etl quem-governa empresas contratos mapa-pessoal populacao estrutura-organica orcamento limpar-venv
 
 # O Python do sistema é gerido externamente (PEP 668) e recusa `pip install`.
 # Todo o pipeline corre no venv local, que é criado por `make setup`.
@@ -72,3 +72,20 @@ etl: fetch fontes quem-governa empresas contratos mapa-pessoal populacao estrutu
 
 limpar-venv:
 	rm -rf $(VENV)
+
+# --- Fase 3: dashboard ----------------------------------------------------
+
+dashboard-setup:
+	npm install
+
+dashboard:
+	npm run dev
+
+dashboard-build:
+	npm run build
+
+# Verifica os requisitos não negociáveis do briefing: sem scroll horizontal em
+# 360/480/768/1280, contraste AA, rótulos dentro do gráfico, alvos de toque e
+# navegação por teclado. Precisa do `vite preview` a correr.
+dashboard-verificar:
+	npm run verificar

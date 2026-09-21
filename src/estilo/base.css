@@ -1,0 +1,169 @@
+/* Sistema de design do dashboard.
+ *
+ * Mobile-first: as regras base são para telemóvel (360–480 px) e os media
+ * queries só acrescentam a partir de 768 e 1280 px, nunca ao contrário.
+ *
+ * Tema: o claro está em `:root` sem condição nenhuma. O escuro é declarado
+ * duas vezes — sob `prefers-color-scheme` (a preferência do sistema) e sob
+ * `[data-theme="dark"]` (o botão) — para o botão ganhar nos dois sentidos.
+ */
+
+:root {
+  color-scheme: light;
+
+  /* Superfícies e tinta */
+  --superficie: #fcfcfb;
+  --superficie-2: #f3f3f1;
+  --superficie-3: #e8e8e4;
+  --borda: #d6d5d0;
+  --tinta: #141413;
+  --tinta-2: #52514e;
+  --tinta-3: #6f6e6a;
+  --destaque: #2a78d6;
+  --destaque-tinta: #1a5fb4;
+
+  /* Paleta categórica, por ordem fixa — nunca ciclada.
+   * Validada para fundo claro; ver docs/dashboard.md. */
+  --serie-1: #2a78d6;
+  --serie-2: #eb6834;
+  --serie-3: #1baf7a;
+  --serie-4: #eda100;
+  --serie-5: #e87ba4;
+  --serie-6: #008300;
+  --serie-7: #4a3aa7;
+  --serie-8: #e34948;
+  --neutro: #8f8e89;
+
+  /* Estado. Reservados: nunca servem de "série 4". */
+  --aviso: #b45309;
+  --falta: #6f6e6a;
+
+  --raio: 10px;
+  --espaco: 1rem;
+  --largura-max: 76rem;
+  --alvo-toque: 44px;
+
+  --tipo-base: 1rem;
+  --fonte: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  --fonte-num: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --superficie: #1a1a19;
+    --superficie-2: #232322;
+    --superficie-3: #2f2f2d;
+    --borda: #3d3d3a;
+    --tinta: #ffffff;
+    --tinta-2: #c3c2b7;
+    --tinta-3: #9e9d95;
+    --destaque: #3987e5;
+    --destaque-tinta: #6aa6ec;
+    --serie-1: #3987e5;
+    --serie-2: #d95926;
+    --serie-3: #199e70;
+    --serie-4: #c98500;
+    --serie-5: #d55181;
+    --serie-6: #008300;
+    --serie-7: #9085e9;
+    --serie-8: #e66767;
+    --neutro: #7a7a74;
+    --aviso: #f59e0b;
+    --falta: #9e9d95;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --superficie: #1a1a19;
+  --superficie-2: #232322;
+  --superficie-3: #2f2f2d;
+  --borda: #3d3d3a;
+  --tinta: #ffffff;
+  --tinta-2: #c3c2b7;
+  --tinta-3: #9e9d95;
+  --destaque: #3987e5;
+  --destaque-tinta: #6aa6ec;
+  --serie-1: #3987e5;
+  --serie-2: #d95926;
+  --serie-3: #199e70;
+  --serie-4: #c98500;
+  --serie-5: #d55181;
+  --serie-6: #008300;
+  --serie-7: #9085e9;
+  --serie-8: #e66767;
+  --neutro: #7a7a74;
+  --aviso: #f59e0b;
+  --falta: #9e9d95;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  /* Sem scroll horizontal, em nenhuma largura (requisito não negociável). */
+  overflow-x: hidden;
+  font-family: var(--fonte);
+  font-size: var(--tipo-base);
+  line-height: 1.55;
+  color: var(--tinta);
+  background: var(--superficie);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* Alvos de toque nunca abaixo de 44×44 px. */
+button,
+a.botao,
+summary {
+  min-height: var(--alvo-toque);
+}
+
+:focus-visible {
+  outline: 3px solid var(--destaque);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Quem navega por teclado precisa de saltar o menu. */
+.salta-para-conteudo {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--superficie);
+  border: 2px solid var(--destaque);
+  border-radius: var(--raio);
+}
+.salta-para-conteudo:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

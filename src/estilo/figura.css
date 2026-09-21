@@ -1,0 +1,206 @@
+/* Figura: gráfico + tabela + CSV + ficha da fonte. */
+
+.figura {
+  margin: 0 0 2rem;
+  padding: 1rem;
+  background: var(--superficie-2);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+}
+
+.figura__titulo {
+  margin: 0 0 0.3rem;
+  font-size: 1.06rem;
+  line-height: 1.3;
+}
+
+.figura__resumo {
+  margin: 0 0 0.9rem;
+  font-size: 0.92rem;
+  color: var(--tinta-2);
+}
+
+.figura__aviso {
+  margin: 0 0 0.75rem;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.84rem;
+  color: var(--tinta-2);
+  background: var(--superficie);
+  border-left: 3px solid var(--aviso);
+  border-radius: 0 6px 6px 0;
+}
+
+.figura__tela {
+  width: 100%;
+  /* O SVG acompanha esta caixa; a página nunca rola na horizontal. */
+  overflow: hidden;
+}
+
+.figura__tela svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* --- Marcas e texto dentro do SVG ---------------------------------------- */
+
+.g-rotulo {
+  font-size: 12px;
+  fill: var(--tinta-2);
+}
+
+.g-valor {
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  fill: var(--tinta);
+}
+
+/* Dentro de uma barra a tinta tem de contrastar com a cor da série, não com
+ * a superfície — daí o branco fixo, e não um token de texto. */
+.g-valor--dentro {
+  fill: #fff;
+}
+
+.g-sem-dado {
+  font-size: 11.5px;
+  font-style: italic;
+  fill: var(--falta);
+}
+
+.g-eixo {
+  font-size: 11px;
+  fill: var(--tinta-3);
+}
+
+.g-grelha {
+  stroke: var(--borda);
+  stroke-width: 1;
+}
+
+/* --- Legenda ------------------------------------------------------------- */
+
+.legenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.85rem;
+  color: var(--tinta-2);
+}
+
+.legenda li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legenda__marca {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex: none;
+}
+
+/* --- Tabela de dados ----------------------------------------------------- */
+
+.figura__tabela {
+  margin-top: 1rem;
+  border-top: 1px solid var(--borda);
+}
+
+.figura__tabela > summary {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 0;
+  font-size: 0.88rem;
+  color: var(--tinta-2);
+  cursor: pointer;
+}
+
+.figura__tabela > summary:hover {
+  color: var(--tinta);
+}
+
+.figura__tabela table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.figura__tabela th,
+.figura__tabela td {
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid var(--borda);
+  white-space: nowrap;
+}
+
+.figura__tabela th {
+  font-weight: 650;
+  color: var(--tinta-2);
+  background: var(--superficie);
+  position: sticky;
+  top: 0;
+}
+
+.figura__tabela td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.figura__tabela td.sem-dado {
+  color: var(--falta);
+  font-style: italic;
+}
+
+/* --- Rodapé da figura ---------------------------------------------------- */
+
+.figura__rodape {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.figura__fonte {
+  margin-top: 0.75rem;
+  padding-top: 0.6rem;
+  font-size: 0.8rem;
+  color: var(--tinta-3);
+  border-top: 1px solid var(--borda);
+}
+
+.figura__fonte-rot {
+  font-weight: 650;
+  color: var(--tinta-2);
+}
+
+.figura__fontes {
+  margin: 0.25rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.figura__fontes li {
+  margin-bottom: 0.2rem;
+}
+
+.figura__fontes a {
+  color: var(--destaque-tinta);
+}
+
+.figura__meta {
+  color: var(--tinta-3);
+}
+
+@media (min-width: 768px) {
+  .figura {
+    padding: 1.25rem 1.4rem;
+  }
+  .figura__titulo {
+    font-size: 1.15rem;
+  }
+}

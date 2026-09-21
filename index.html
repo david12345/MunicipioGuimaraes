@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Câmara Municipal de Guimarães — dashboard do município</title>
+    <meta
+      name="description"
+      content="Orçamento, contratos, pessoal e organização da Câmara Municipal de Guimarães, em dados públicos com fonte identificada."
+    />
+    <meta name="color-scheme" content="light dark" />
+  </head>
+  <body>
+    <a class="salta-para-conteudo" href="#conteudo">Saltar para o conteúdo</a>
+
+    <header class="cabecalho">
+      <div class="cabecalho__interior">
+        <div class="cabecalho__marca">
+          <p class="cabecalho__titulo">Município de Guimarães</p>
+          <p class="cabecalho__sub">
+            O que a Câmara arrecada, gasta e contrata — em dados públicos
+          </p>
+        </div>
+        <button
+          type="button"
+          id="botao-tema"
+          class="botao botao--icone"
+          aria-pressed="false"
+        >
+          <span aria-hidden="true" id="icone-tema">◐</span>
+          <span class="so-leitor" id="texto-tema">Mudar para tema escuro</span>
+        </button>
+      </div>
+      <nav class="navegacao" aria-label="Secções do dashboard">
+        <ul id="menu-seccoes"></ul>
+      </nav>
+    </header>
+
+    <main id="conteudo" tabindex="-1">
+      <div id="seccoes"></div>
+    </main>
+
+    <footer class="rodape">
+      <p>
+        Dashboard independente, construído a partir de documentos públicos.
+        Cada número traz a fonte de onde veio. Não é um site oficial do
+        Município de Guimarães.
+      </p>
+      <p class="rodape__meta" id="rodape-meta"></p>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

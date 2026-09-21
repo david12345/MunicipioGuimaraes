@@ -4,6 +4,8 @@ __pycache__/
 venv/
 node_modules/
 dist/
+# public/dados/ é uma cópia de data/processed/, gerada por scripts/copiar-dados.mjs.
+public/dados/
 .DS_Store
 .env
 
