@@ -71,6 +71,23 @@ def v3_ocupados_lte_previstos(linhas: list[dict]) -> None:
         )
 
 
+def v4_soma_por_adjudicatario(
+    por_adjudicatario: dict[str, float], total_declarado: float
+) -> None:
+    """Somatório por adjudicatário == total do filtro (±0,01 €).
+
+    Apanha a falha mais provável do ETL de contratos: perder linhas ao agrupar,
+    ou contá-las duas vezes quando um contrato tem vários adjudicatários.
+    """
+    soma = sum(por_adjudicatario.values())
+    if abs(soma - total_declarado) > TOLERANCIA_EUR:
+        raise ValidationError(
+            f"V4: soma por adjudicatário {soma:.2f} € != total {total_declarado:.2f} € "
+            f"(dif. {soma - total_declarado:+.2f} €, "
+            f"{len(por_adjudicatario)} adjudicatários)"
+        )
+
+
 def v5_serie_continua(anos: list[int]) -> list[int]:
     """Devolve os anos em falta no meio de uma série (lacuna a explicitar)."""
     if not anos:
