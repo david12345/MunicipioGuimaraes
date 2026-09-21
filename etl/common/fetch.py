@@ -95,6 +95,19 @@ def fetch(url: str, fonte_id: str, *, forcar: bool = False) -> Path:
     meta_path = destino.with_suffix(destino.suffix + ".meta.json")
 
     if destino.exists() and meta_path.exists() and not forcar:
+        # O original já cá está. Mas se a fonte foi renomeada no inventário —
+        # `S10` passou a `S10-2021` ao virar série — o sidecar ficaria a
+        # responder pelo id antigo e a fonte nova apareceria como não
+        # descarregada, apesar de o ficheiro estar em disco.
+        try:
+            meta = json.loads(meta_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            meta = None
+        if meta and meta.get("fonte_id") != fonte_id:
+            meta["fonte_id"] = fonte_id
+            meta_path.write_text(
+                json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8"
+            )
         return destino
 
     # Escreve para um ficheiro temporário e só promove no fim: uma interrupção
