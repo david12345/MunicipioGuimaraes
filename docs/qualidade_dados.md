@@ -65,13 +65,30 @@ Estas persistem mesmo com acesso à rede e condicionam o desenho do dashboard.
 | L11 | Comparação entre municípios (secção 11) | Extrações próprias de PDF de municípios diferentes não são comparáveis | Usar exclusivamente séries já normalizadas da DGAL (S27); não misturar com extrações próprias |
 | L12 | Séries históricas com mudanças de classificação (POCAL → SNC-AP) | Evolução plurianual pode mostrar "saltos" que são artefactos contabilísticos | Marcar a quebra de série no gráfico e explicá-la no glossário |
 | L13 | URL exato dos quadros da DGAL (S27) por localizar | Sem ele não há secção 11 (comparar municípios) | Varrer `portalautarquico.dgal.gov.pt` (sem `www.`) pela secção de finanças locais |
-| L14 | URL da série de população do INE (S32) por localizar | **Bloqueia todas as métricas per capita**, que são transversais ao dashboard | Localizar o quadro de estimativas anuais; até lá, nenhum valor per capita é publicado |
+| L14 | Série de população do INE (S32): **indicador identificado, dados por obter** | **Bloqueia todas as métricas per capita**, que são transversais ao dashboard | Indicador **0012918** — *População residente por Local de residência (NUTS 2024), Sexo e Grupo etário; Anual* — localizado no catálogo do dados.gov (dataset `66a32d75d128db77e18739fe`), com URL de dados e de metadados já em `sources.yaml`. Falta ler: o INE ficou inacessível (ver nota abaixo). Por confirmar que a série desce ao nível de município e que anos cobre |
 | L15 | Edital de Apuramento Geral (S17) devolve **404** | Perde-se a fonte local com valor legal para os resultados de 2025 | O URL publicado pela CMG está morto. Os resultados vieram de S02; pedir o edital por LADA ou localizar o novo URL |
 | L16 | Composição da Assembleia Municipal por força política **não publicada** | O hemiciclo da secção 2 não pode ser desenhado | A CMG publica só a dimensão (111 = 56 eleitos + 55 presidentes de junta por inerência). Obter de S16-DRE (exige OCR, L17) ou da CNE |
 | L17 | Mapa Oficial n.º 2-B/2025 (S16-DRE) é **digitalizado** | 611 páginas sem camada de texto a partir da 3.ª: não é extraível por *parsing* | Confirmado com `pymupdf`: 0 caracteres e 1 imagem por página. Exige OCR (`ocrmypdf`/`tesseract`) e, tratando-se de fonte com valor legal, **revisão humana do que o OCR devolver** |
 | L18 | Ligação ao registo no Portal BASE (`url_base`) **não verificável** | Um *deep link* errado levaria o cidadão ao contrato errado | O padrão `detalhe/?type=contratos&id=<idcontrato>` é o do portal, mas a página é renderizada no cliente: um id inexistente também devolve 200 e HTML idêntico. Fica publicado com o aviso no `_meta` de cada `contratos_<ano>.json`. Confirmar quando houver credencial da API do IMPIC (S24) |
 | L19 | **Preço total efetivo desconhecido na maioria dos contratos** | O dashboard pode mostrar o que foi *contratado*, **não** o que foi de facto *gasto* | O BASE publica `0` neste campo enquanto o contrato não é fechado: em 2023 eram 435 de 519 contratos, todos com preço contratual positivo. Esse `0` é convertido em `null` (nunca publicado como zero euros) e o número de casos consta dos avisos. A execução real só se obtém do Relatório e Contas (S10) |
 | L20 | Entidades participadas **sem NIPC** na fonte (S11) | Não são filtráveis no dataset do BASE: contratos seus ficam de fora | São entidades internacionais (ICLEI, AICE, CIUMED). Nenhuma está no perímetro de consolidação, pelo que não afeta os totais publicados |
+
+### Nota operacional — o INE bloqueia quem insiste
+
+Ao procurar a série de população (L14) encadearam-se pedidos rápidos à API do INE
+(`json_indicador/pindica.jsp`). O primeiro devolveu **429 Too Many Requests** e, a
+partir daí, **todo o host `www.ine.pt` passou a dar `ConnectTimeout`** — incluindo a
+homepage, que minutos antes respondia 200 e chegou a ser descarregada para
+`data/raw/`. Cinco tentativas espaçadas não recuperaram o acesso.
+
+Não se tentou contornar o bloqueio. Para quem retomar isto:
+
+- **Um pedido de cada vez, com pausa entre eles.** A API do INE é generosa no
+  conteúdo mas intolerante à cadência.
+- O **catálogo do dados.gov responde normalmente** e é onde se descobrem os
+  indicadores sem tocar no INE — foi assim que 0012918 foi identificado.
+- O `fetch` é idempotente: quando o acesso voltar, `make fetch` apanha S32 e mais
+  nada. Não é preciso repetir a pesquisa, que está registada em `sources.yaml`.
 
 ## Validações do ETL
 

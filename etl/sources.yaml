@@ -127,16 +127,26 @@ S27:
     usar o host sem www. O URL exato dos quadros ainda nao esta localizado (L13).
 
 S32:
-  nome: INE - população residente (estimativas anuais)
+  nome: >-
+    INE - Populacao residente por Local de residencia (NUTS 2024), Sexo e Grupo
+    etario; Anual (Estimativas anuais da populacao residente, indicador 0012918)
   entidade: INE
-  url: https://www.ine.pt/
-  formato: html
+  url: https://www.ine.pt/ine/json_indicador/pindica.jsp?op=2&varcd=0012918&lang=PT
+  url_metadados: https://www.ine.pt/ine/json_indicador/pindicaMeta.jsp?varcd=0012918&lang=PT
+  formato: json
   periodicidade: anual
   verificacao: URL-S
+  alimenta: [populacao.json]
   limitacoes: >-
-    Denominador de todas as metricas per capita. O URL e a homepage, NAO a serie:
-    o quadro de estimativas ainda nao esta localizado (L14). Nao usar ate estar.
-    Rejeita HEAD; o check-acesso usa GET.
+    Denominador de TODAS as metricas per capita, por isso V7 exige uma unica serie.
+    O URL vem do catalogo do dados.gov (dataset 66a32d75d128db77e18739fe), nao de
+    um motor de busca - mas o conteudo NAO foi lido: o INE ficou inacessivel a meio
+    da sessao (L14). Falta confirmar que a serie desce ao nivel de municipio e que
+    anos cobre. Rejeita HEAD; o check-acesso usa GET.
+    Indicadores alternativos ja identificados, para nao repetir a pesquisa:
+    0012903 (NUTS 2024, Sexo e Idade), 0012905 (idem), 0008273 e 0007307
+    (NUTS 2013), 0003182 (NUTS 2002). Trocar de indicador implica trocar a serie
+    TODA de uma vez - misturar viola a V7.
 
 S02:
   nome: Câmara Municipal (composição e resultados eleitorais)
