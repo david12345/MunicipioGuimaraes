@@ -247,3 +247,83 @@ S38:
     A cadeia correta e S05 (14897/2022) -> S38 (6751/2024) -> S06 (9070/2024).
     Sem S38 falta um departamento inteiro e a numeracao das alineas do artigo 5.o
     nao bate com a do S06 (ver L22).
+
+# --- S08: documentos previsionais (GOP + Orçamento), por ano ---------------
+# Localizados no arquivo "Informação Económico-Financeira e Patrimonial" da CMG,
+# subpasta "Previsionais" de cada ano (resolve a lacuna L3). O arquivo e' uma
+# arvore de pastas com ids opacos e paginacao, pelo que os URL dos PDF ficam
+# fixados aqui, como ja acontece com S05, S10 e S11. O check-acesso deteta se
+# algum morrer - ja aconteceu com o edital de S17.
+S08-2021:
+  nome: Grandes Opções do Plano e Orçamento 2021
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/17277/grandes_opcoes_plano_e_orcamento_2021.pdf
+  formato: pdf
+  ano_referencia: 2021
+  periodicidade: anual
+  verificacao: URL-S
+  alimenta: [orcamento.json, investimentos.json]
+
+S08-2022:
+  nome: Grandes Opções do Plano e Orçamento 2022
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/18683/grandes_opcoes_do_plano_e_orcamento_2022.pdf
+  formato: pdf
+  ano_referencia: 2022
+  periodicidade: anual
+  verificacao: URL-S
+  alimenta: [orcamento.json, investimentos.json]
+
+S08-2023:
+  nome: Grandes Opções do Plano e Orçamento 2023
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/19632/anexo___grandes_opcoes_do_plano_e_orcamento_2023.pdf
+  formato: pdf
+  ano_referencia: 2023
+  periodicidade: anual
+  verificacao: URL-S
+  alimenta: [orcamento.json, investimentos.json]
+
+S08-2024:
+  nome: Grandes Opções do Plano e Orçamento 2024
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/21684/grandes_opcoes_do_plano_e_orcamento___2024.pdf
+  formato: pdf
+  ano_referencia: 2024
+  periodicidade: anual
+  verificacao: URL-S
+  alimenta: [orcamento.json, investimentos.json]
+
+S08-2025:
+  nome: Grandes Opções do Plano e Orçamento 2025
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/22104/grandes_opcoes_do_plano_e_orcamento_2025.pdf
+  formato: pdf
+  ano_referencia: 2025
+  periodicidade: anual
+  verificacao: URL-S
+  alimenta: [orcamento.json, investimentos.json]
+
+S08-2026:
+  nome: Grandes Opções do Plano e Orçamento 2026
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/23626/grandes_opcoes_do_plano_e_orcamento_2026.pdf
+  formato: pdf
+  ano_referencia: 2026
+  periodicidade: anual
+  verificacao: URL-S
+  alimenta: [orcamento.json, investimentos.json]
+
+S39:
+  nome: Informação Económico-Financeira e Patrimonial (arquivo)
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/municipio/camara-municipal/publicacoes/gestao-e-financas/dados-economico-financeiros
+  formato: html
+  periodicidade: continua
+  verificacao: PRIM
+  limitacoes: >-
+    Indice do arquivo financeiro, alcancado a partir do ponto "8.1 Documentos
+    previsionais" do Indice de Transparencia Municipal (S14). Arvore de pastas
+    ano -> tipo (Previsionais / Prestacao de Contas / Impostos Locais) com ids
+    opacos e paginacao, por isso NAO e' varrivel por uma so regra de descoberta.
+    E' daqui que saem S08-2021..S08-2026 e a serie de Relatorios e Contas.

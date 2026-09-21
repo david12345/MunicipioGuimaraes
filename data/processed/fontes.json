@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "gerado_em": "2026-09-21T20:25:38.806792+00:00",
+    "gerado_em": "2026-09-21T20:50:24.961164+00:00",
     "script": "etl/common/fontes.py",
     "versao_modelo": "1.0",
-    "total_fontes": 27,
-    "fontes_descarregadas": 27
+    "total_fontes": 34,
+    "fontes_descarregadas": 34
   },
   "dados": {
     "S01": {
@@ -254,6 +254,128 @@
       "id": "S38",
       "ficheiro_raw": "data/raw/2026-09-21_0021500223.pdf",
       "sha256": "02fe164b211cf06b0a633c979201575119196dca1c9acc9e36bb8c42d1ad2667",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S08-2021": {
+      "nome": "Grandes Opções do Plano e Orçamento 2021",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/17277/grandes_opcoes_plano_e_orcamento_2021.pdf",
+      "formato": "pdf",
+      "ano_referencia": 2021,
+      "periodicidade": "anual",
+      "verificacao": "URL-S",
+      "alimenta": [
+        "orcamento.json",
+        "investimentos.json"
+      ],
+      "id": "S08-2021",
+      "ficheiro_raw": "data/raw/2026-09-21_grandes_opcoes_plano_e_orcamento_2021.pdf",
+      "sha256": "cf90e213609ca923ed387f6a8d6d0ac0e9fe831db070ba040ec7837c4542d658",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S08-2022": {
+      "nome": "Grandes Opções do Plano e Orçamento 2022",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/18683/grandes_opcoes_do_plano_e_orcamento_2022.pdf",
+      "formato": "pdf",
+      "ano_referencia": 2022,
+      "periodicidade": "anual",
+      "verificacao": "URL-S",
+      "alimenta": [
+        "orcamento.json",
+        "investimentos.json"
+      ],
+      "id": "S08-2022",
+      "ficheiro_raw": "data/raw/2026-09-21_grandes_opcoes_do_plano_e_orcamento_2022.pdf",
+      "sha256": "63beb9851bc86f0027f9d987d4632dbda435fcf03bdd0383b9d5d84bdff05a12",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S08-2023": {
+      "nome": "Grandes Opções do Plano e Orçamento 2023",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/19632/anexo___grandes_opcoes_do_plano_e_orcamento_2023.pdf",
+      "formato": "pdf",
+      "ano_referencia": 2023,
+      "periodicidade": "anual",
+      "verificacao": "URL-S",
+      "alimenta": [
+        "orcamento.json",
+        "investimentos.json"
+      ],
+      "id": "S08-2023",
+      "ficheiro_raw": "data/raw/2026-09-21_anexo___grandes_opcoes_do_plano_e_orcamento_2023.pdf",
+      "sha256": "088548f4b6c54e0d8e61ea1caaaf9c8e21da48aec8082c9be063aee7bf81a738",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S08-2024": {
+      "nome": "Grandes Opções do Plano e Orçamento 2024",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/21684/grandes_opcoes_do_plano_e_orcamento___2024.pdf",
+      "formato": "pdf",
+      "ano_referencia": 2024,
+      "periodicidade": "anual",
+      "verificacao": "URL-S",
+      "alimenta": [
+        "orcamento.json",
+        "investimentos.json"
+      ],
+      "id": "S08-2024",
+      "ficheiro_raw": "data/raw/2026-09-21_grandes_opcoes_do_plano_e_orcamento___2024.pdf",
+      "sha256": "b7883d6481868e31276c75ff8995d2ae01a41e1d3594057813f9d836a34a42d2",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S08-2025": {
+      "nome": "Grandes Opções do Plano e Orçamento 2025",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/22104/grandes_opcoes_do_plano_e_orcamento_2025.pdf",
+      "formato": "pdf",
+      "ano_referencia": 2025,
+      "periodicidade": "anual",
+      "verificacao": "URL-S",
+      "alimenta": [
+        "orcamento.json",
+        "investimentos.json"
+      ],
+      "id": "S08-2025",
+      "ficheiro_raw": "data/raw/2026-09-21_grandes_opcoes_do_plano_e_orcamento_2025.pdf",
+      "sha256": "326728703d698a64a2458bd0028e08b88f09acfc3e167f0463e77366e1c39cb2",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S08-2026": {
+      "nome": "Grandes Opções do Plano e Orçamento 2026",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/23626/grandes_opcoes_do_plano_e_orcamento_2026.pdf",
+      "formato": "pdf",
+      "ano_referencia": 2026,
+      "periodicidade": "anual",
+      "verificacao": "URL-S",
+      "alimenta": [
+        "orcamento.json",
+        "investimentos.json"
+      ],
+      "id": "S08-2026",
+      "ficheiro_raw": "data/raw/2026-09-21_grandes_opcoes_do_plano_e_orcamento_2026.pdf",
+      "sha256": "3ffe0bb5488858743ea56e2e8cd6e9c123f45e80803379254135a50f94ef7cdb",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S39": {
+      "nome": "Informação Económico-Financeira e Patrimonial (arquivo)",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/municipio/camara-municipal/publicacoes/gestao-e-financas/dados-economico-financeiros",
+      "formato": "html",
+      "periodicidade": "continua",
+      "verificacao": "PRIM",
+      "limitacoes": "Indice do arquivo financeiro, alcancado a partir do ponto \"8.1 Documentos previsionais\" do Indice de Transparencia Municipal (S14). Arvore de pastas ano -> tipo (Previsionais / Prestacao de Contas / Impostos Locais) com ids opacos e paginacao, por isso NAO e' varrivel por uma so regra de descoberta. E' daqui que saem S08-2021..S08-2026 e a serie de Relatorios e Contas.",
+      "id": "S39",
+      "ficheiro_raw": "data/raw/2026-09-21_dados-economico-financeiros",
+      "sha256": "1e56d35f973c506b4f2742b798a31c20640163df7ecb522ae1b0983339f9db60",
       "data_download": "2026-09-21",
       "descarregado": true
     },

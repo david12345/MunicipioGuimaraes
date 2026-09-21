@@ -23,6 +23,13 @@ data/raw/*contratos[0-9][0-9][0-9][0-9].zip
 data/raw/*_0000200612.pdf
 # Resposta da API do INE: 21 MB de dados nacionais, reproduzíveis por `make fetch`.
 data/raw/*pindica_*.jsp
+# Documentos previsionais (GOP + Orçamento): 83 a 188 MB CADA, 808 MB ao todo,
+# e dois deles passam o limite rígido de 100 MB por ficheiro do GitHub. São
+# municipais, ao contrário dos de cima, mas a regra 3 não sobrevive a isto: o
+# que a torna útil — detetar que a CMG substituiu um PDF mantendo o URL —
+# continua garantido pelo sha256 no .meta.json, que é commitado.
+data/raw/*grandes_opcoes*.pdf
+
 # Downloads interrompidos (ver etl/common/fetch.py).
 data/raw/*.parcial
 # ... mas os sidecars entram sempre.
