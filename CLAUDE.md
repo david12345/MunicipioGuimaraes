@@ -26,14 +26,16 @@ Estas vêm do briefing e **não se negoceiam**. Na dúvida, escolhe sempre não 
 
 ## Estado atual
 
-**Fase 2 em curso. Quatro secções extraídas: 2 (quem governa), 4 (quem lá
-trabalha), 8 (contratos), 9 (participadas).** Não há dashboard — Fase 3 por começar.
+**Fase 2 em curso. Quatro secções extraídas — 2 (quem governa), 4 (quem lá
+trabalha), 8 (contratos), 9 (participadas) — mais `populacao.json`, que desbloqueia
+as métricas per capita.** Não há dashboard — Fase 3 por começar.
 
 `make check-acesso` dá **19/19**. 22 fontes em `data/raw/` com `sha256` verificado.
 Em `data/processed/`: `fontes.json`, `executivo.json`, `orgaos_eleitos.json`,
 `empresas_municipais.json`, `mapa_pessoal.json` (1 830 postos ocupados de 2 047
 previstos, 2026) e `contratos_2019.json`…`contratos_2026.json`
-(4 110 contratos, 441,1 M€ contratados entre 2019 e 2026).
+(4 110 contratos, 441,1 M€ contratados entre 2019 e 2026) e `populacao.json`
+(165 554 habitantes em 2025).
 
 **L1 e L2 estão resolvidas** (ver `docs/qualidade_dados.md`): o bloqueio de rede
 era do ambiente da Fase 1, não das fontes, e a regra 5 está cumprida com leitura
@@ -46,12 +48,14 @@ commita-se o `.meta.json` com URL e `sha256`, que os reproduz com `make fetch` e
 mantém a integridade verificável. **Não usar Git LFS** — os contratos são
 republicados semanalmente e esgotariam a quota.
 
-**Próximo passo:** os parsers que faltam. Os originais já estão em disco, por isso
-a extração não precisa de rede. Estrutura orgânica (S05+S06 — falta o URL de S06)
-e orçamento (S10; falta S08, sem URL, L3).
+**Próximo passo:** a secção 3 (estrutura orgânica). **Todas as fontes já estão em
+disco**: S05 (texto de 2023), S06 (Despacho 9070/2024) e S03-06_24 (organograma com
+camada de texto, para verificação cruzada). O trabalho é aplicar as alterações de
+S06 sobre S05 — não é descarregar nada. Falta depois o orçamento (S10; S08 continua
+sem URL, L3).
 
-**O INE está bloqueado** desde esta sessão (L14) — ver a nota operacional em
-`docs/qualidade_dados.md`. Sem ele não há métricas per capita.
+**Cuidado com o INE:** a API é intolerante à cadência — um 429 bloqueou o host
+inteiro durante horas nesta sessão. Um pedido de cada vez.
 
 **NIF do Município: `505948605`** (resolvido do dataset do IMPIC, único nos 8 anos).
 Os NIF do perímetro saem de `empresas_municipais.json` — é por isso que
@@ -136,9 +140,14 @@ O `fetch` guarda `sha256` de cada original — é assim que se deteta que uma au
   pessoa. Qualquer parser novo de páginas da CMG deve usar `_juntar_parenteses` de
   `etl/quem_governa.py` e cruzar sempre duas fontes quando existam.
 - **Estrutura orgânica:** o documento de 2023 (S05) foi alterado pelo **Despacho
-  9070/2024** (S06), que reorganizou os departamentos de Intervenção Social e de
-  Recursos Humanos. Usar só o de 2023 produz um organograma errado. Preferir sempre o
-  **texto normativo** à imagem do organograma — é mais fiável e é o que tem valor legal.
+  9070/2024** (S06), **já em `data/raw/`**. Altera os artigos 5.º, 30.º e 31.º, adita
+  o 54.º-A (Gabinete de Apoio à Intervenção Social) e revoga o 56.º, a alínea h) do
+  30.º e a c) do 31.º. Usar só o de 2023 produz um organograma errado. Preferir sempre
+  o **texto normativo** à imagem do organograma — o organograma anexo ao despacho é
+  imagem, mas o `organograma_06_24.pdf` da CMG tem camada de texto e serve de conferência.
+- **População:** série única, indicador INE **0012918**, e cobre **só 2021–2025**.
+  Não há per capita para 2019, 2020 nem 2026 (L21). Trocar de indicador implica trocar
+  a série toda — misturar viola a V7.
 - **Nem todas as "empresas municipais" o são.** Vimágua, Vitrus e Casfig são empresas;
   Tempo Livre, A Oficina, Taipas Turitermas e Fraterna são cooperativas; Laboratório da
   Paisagem é associação. Tratá-las como equivalentes é factualmente errado — daí o

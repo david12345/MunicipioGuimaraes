@@ -1,6 +1,6 @@
 # Qualidade dos dados e lacunas conhecidas
 
-Última atualização: 2026-09-21 · Fase 2 em curso (secções 2, 4, 8 e 9 extraídas).
+Última atualização: 2026-09-21 · Fase 2 em curso (secções 2, 4, 8, 9 e população extraídas).
 
 Este ficheiro regista **tudo o que não foi possível obter ou validar**. É um
 entregável tão importante como os dados: o dashboard mostra "Dado não disponível"
@@ -55,8 +55,8 @@ Estas persistem mesmo com acesso à rede e condicionam o desenho do dashboard.
 | ID | Lacuna | Impacto | Mitigação |
 |---|---|---|---|
 | L3 | Secção de documentos previsionais (S08) e Balanço Social (S19) sem URL localizado | Sem Orçamento/GOP/PPI não há secções 1, 5, 6 e 7 do dashboard | Varrimento da secção de gestão financeira do site; em último recurso, pedido de acesso à informação administrativa (LADA) |
-| L4 | Organograma (S03) pode ser imagem | Impede extração automática da estrutura orgânica | Usar o **texto normativo** (S05 + S06) como fonte, não a imagem — é mais fiável e é o que tem valor legal |
-| L5 | Estrutura orgânica de 2023 alterada em 2024 (S06) | Usar só S05 produz um organograma **errado** | Aplicar obrigatoriamente o Despacho 9070/2024 antes de publicar a secção 3 |
+| L4 | ~~Organograma (S03) pode ser imagem~~ · **RESOLVIDA** | — | O `organograma_06_24.pdf` da CMG (`S03-06_24`) **tem camada de texto**, com nomes e siglas das unidades, e já reflete o Despacho 9070/2024. Continua a servir de verificação cruzada, não de fonte: a hierarquia sai do texto normativo (S05+S06), que é o que tem valor legal. O organograma anexo ao próprio despacho **é imagem** |
+| L5 | Estrutura orgânica de 2023 alterada em 2024 (S06) · **fonte obtida** | Usar só S05 produz um organograma **errado** | Despacho n.º 9070/2024 localizado e descarregado (DR 2.ª série n.º 154, 09-08-2024), via a página S04 da CMG. Altera os artigos 5.º, 30.º e 31.º, **adita** o artigo 54.º-A (Gabinete de Apoio à Intervenção Social) e **revoga** o artigo 56.º, a alínea h) do 30.º e a c) do 31.º. Aplicar sobre S05 continua a ser obrigatório antes de publicar a secção 3 |
 | L6 | ~~Mapa de Pessoal possivelmente digitalizado~~ · **RESOLVIDA** | — | O de 2026 tem camada de texto; `pymupdf` chega e o `camelot`/OCR não foi preciso. O risco de colunas trocadas é coberto por validação: as linhas de cada unidade têm de reconstituir o `TOTAL` que o próprio documento imprime, nas 9 colunas — 63 verificações, todas a passar. Um mapa digitalizado de outro ano voltará a exigir OCR |
 | L7 | API do Portal BASE exige autorização do IMPIC (S24) | Sem credencial, não há atualização diária | Usar o dataset semanal do dados.gov (S23), que não exige credencial; assumir desfasamento até 7 dias e mostrá-lo no dashboard |
 | L8 | NIF das empresas municipais desconhecidos | Sem eles não se filtram os contratos das participadas no BASE | Extrair o perímetro de consolidação de S11 e resolver cada NIF antes do ETL de contratos |
@@ -65,13 +65,14 @@ Estas persistem mesmo com acesso à rede e condicionam o desenho do dashboard.
 | L11 | Comparação entre municípios (secção 11) | Extrações próprias de PDF de municípios diferentes não são comparáveis | Usar exclusivamente séries já normalizadas da DGAL (S27); não misturar com extrações próprias |
 | L12 | Séries históricas com mudanças de classificação (POCAL → SNC-AP) | Evolução plurianual pode mostrar "saltos" que são artefactos contabilísticos | Marcar a quebra de série no gráfico e explicá-la no glossário |
 | L13 | URL exato dos quadros da DGAL (S27) por localizar | Sem ele não há secção 11 (comparar municípios) | Varrer `portalautarquico.dgal.gov.pt` (sem `www.`) pela secção de finanças locais |
-| L14 | Série de população do INE (S32): **indicador identificado, dados por obter** | **Bloqueia todas as métricas per capita**, que são transversais ao dashboard | Indicador **0012918** — *População residente por Local de residência (NUTS 2024), Sexo e Grupo etário; Anual* — localizado no catálogo do dados.gov (dataset `66a32d75d128db77e18739fe`), com URL de dados e de metadados já em `sources.yaml`. Falta ler: o INE ficou inacessível (ver nota abaixo). Por confirmar que a série desce ao nível de município e que anos cobre |
+| L14 | ~~Série de população do INE por localizar~~ · **RESOLVIDA** | — | Indicador **0012918** (NUTS 2024), Guimarães = `geocod` 1190308, **2021–2025**. Em `populacao.json`, com V5 e V7 a passar. O INE voltou a responder no fim da sessão e o `fetch` apanhou-o |
 | L15 | Edital de Apuramento Geral (S17) devolve **404** | Perde-se a fonte local com valor legal para os resultados de 2025 | O URL publicado pela CMG está morto. Os resultados vieram de S02; pedir o edital por LADA ou localizar o novo URL |
 | L16 | Composição da Assembleia Municipal por força política **não publicada** | O hemiciclo da secção 2 não pode ser desenhado | A CMG publica só a dimensão (111 = 56 eleitos + 55 presidentes de junta por inerência). Obter de S16-DRE (exige OCR, L17) ou da CNE |
 | L17 | Mapa Oficial n.º 2-B/2025 (S16-DRE) é **digitalizado** | 611 páginas sem camada de texto a partir da 3.ª: não é extraível por *parsing* | Confirmado com `pymupdf`: 0 caracteres e 1 imagem por página. Exige OCR (`ocrmypdf`/`tesseract`) e, tratando-se de fonte com valor legal, **revisão humana do que o OCR devolver** |
 | L18 | Ligação ao registo no Portal BASE (`url_base`) **não verificável** | Um *deep link* errado levaria o cidadão ao contrato errado | O padrão `detalhe/?type=contratos&id=<idcontrato>` é o do portal, mas a página é renderizada no cliente: um id inexistente também devolve 200 e HTML idêntico. Fica publicado com o aviso no `_meta` de cada `contratos_<ano>.json`. Confirmar quando houver credencial da API do IMPIC (S24) |
 | L19 | **Preço total efetivo desconhecido na maioria dos contratos** | O dashboard pode mostrar o que foi *contratado*, **não** o que foi de facto *gasto* | O BASE publica `0` neste campo enquanto o contrato não é fechado: em 2023 eram 435 de 519 contratos, todos com preço contratual positivo. Esse `0` é convertido em `null` (nunca publicado como zero euros) e o número de casos consta dos avisos. A execução real só se obtém do Relatório e Contas (S10) |
 | L20 | Entidades participadas **sem NIPC** na fonte (S11) | Não são filtráveis no dataset do BASE: contratos seus ficam de fora | São entidades internacionais (ICLEI, AICE, CIUMED). Nenhuma está no perímetro de consolidação, pelo que não afeta os totais publicados |
+| L21 | Série de população começa em **2021**; contratos começam em 2019 | **Não há métricas per capita para 2019 e 2020**, nem para 2026 | O indicador 0012918 (NUTS 2024) cobre 2021–2025. O 0008273 (NUTS 2013) cobre 2011–2023 e daria 2019–2020, mas perdia 2024 e 2025 — e **misturar as duas séries viola a V7**. Escolheu-se a recência. Para 2026 não há população: ou se usa 2025 dizendo-o, ou fica `null` |
 
 ### Nota operacional — o INE bloqueia quem insiste
 
@@ -102,6 +103,7 @@ São automáticas e **bloqueantes**: uma extração que falhe não é publicada.
 | 8 · Contratos | `etl/contratos.py` | **V4** nos oito anos (2019–2026), V6, e unicidade do NIF do Município no dataset |
 | 9 · Participadas | `etl/empresas_participadas.py` | V6, e "toda a entidade no perímetro tem NIPC" — é essa que garante que o filtro dos contratos não perde entidades |
 | 4 · Quem lá trabalha | `etl/mapa_pessoal.py` | **V3**, V6, e 63 verificações de total (7 unidades × 9 colunas) contra o `TOTAL` impresso no documento |
+| transversal · População | `etl/populacao.py` | **V5**, **V7**, V6, soma homens+mulheres = total em cada ano, e soma dos grupos etários = total do ano |
 
 V4 estava especificada desde a Fase 1 mas não implementada; foi escrita com o
 parser dos contratos (`v4_soma_por_adjudicatario` em `etl/common/validate.py`).

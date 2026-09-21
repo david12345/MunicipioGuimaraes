@@ -1,6 +1,6 @@
 # Inventário de fontes — Câmara Municipal de Guimarães
 
-**Estado:** Fase 2 em curso (secções 2, 8 e 9 extraídas). Última atualização: 2026-09-21.
+**Estado:** Fase 2 em curso (secções 2, 4, 8, 9 e população). Última atualização: 2026-09-21.
 
 > ### ⚠️ Como ler este inventário
 >
@@ -40,10 +40,10 @@ Entidade responsável: Município de Guimarães. Acesso nesta sessão: **bloquea
 |---|---|---|---|---|---|---|---|---|
 | S01 | Executivo Municipal | `/municipio/camara-municipal/executivo-municipal` | HTML | Mandato corrente | Por mandato | `executivo.json`: nomes, cargos, pelouros, fotos oficiais | Pelouros em prosa, não tabelados → extração frágil, exige parsing manual | `PRIM` |
 | S02 | Câmara Municipal (composição) | `/municipio/camara-municipal` | HTML | Corrente | Por mandato | `orgaos_eleitos.json`: composição do órgão executivo | — | `PRIM` |
-| S03 | Organograma | `/municipio/camara-municipal/organograma` | HTML + provável PDF/imagem | Corrente | Irregular | `estrutura_organica.json` | Se for imagem, **não é extraível por parsing** → transcrição manual a partir do texto em DR (S05) | `URL-S` |
-| S04 | Estrutura e Organização dos Serviços Municipais | `/noticia-6/estrutura-e-organizacao-dos-servicos-municipais` | HTML | 2023– | Irregular | Contexto da estrutura orgânica | Página de notícia; conteúdo normativo está em DR | `URL-S` |
+| S03 | Organograma (índice) | `/municipio/camara-municipal/organograma` | HTML → PDF | Corrente | Irregular | `estrutura_organica.json` (verificação cruzada) | O `organograma_06_24.pdf` (`S03-06_24`) **tem camada de texto**, com nomes e siglas, e já reflete o Despacho 9070/2024. Verificação cruzada, não fonte da hierarquia (L4) | `PRIM` |
+| S04 | Estrutura e Organização dos Serviços Municipais (índice) | `/noticia-6/estrutura-e-organizacao-dos-servicos-municipais` | HTML | 2023– | Irregular | Ponto de entrada para o texto normativo no DR | É daqui que se descobre o Despacho 9070/2024 (S06) | `PRIM` |
 | S05 | Orgânica dos Serviços Municipais 2023 (texto DR) | `/cmguimaraes/uploads/writer_file/document/9902/organica_2023.pdf` | PDF | 2023 | — | `estrutura_organica.json`: departamentos → divisões → unidades, competências | **Fonte preferencial** para a hierarquia: texto normativo, estruturado. Publicado em DR 2.ª série n.º 251, 30-12-2022 | `DESC` |
-| S06 | Alteração à estrutura orgânica (Despacho 9070/2024) | via DRE (ver S30) | PDF/HTML | 2024 | — | Reorganização do Dep. de Intervenção Social e do Dep. de Recursos Humanos | **Obrigatório**: sem isto, S05 está desatualizado | `EXIST-S` |
+| S06 | **Despacho n.º 9070/2024** — alteração à estrutura orgânica | `files.diariodarepublica.pt/2s/2024/08/154000000/0041500418.pdf` | PDF | 2024 | — | Reorganiza os Dep. de Intervenção Social e de Recursos Humanos | DR 2.ª série n.º 154, 09-08-2024. Altera os art. 5.º, 30.º e 31.º, adita o 54.º-A (GAIS) e revoga o 56.º. **Obrigatório**: sem isto, S05 está desatualizado (L5) | `PRIM` |
 | S07 | Mapa de Pessoal (índice) | `/areas-de-intervencao/educacao-e-recursos-humanos/recursos-humanos/mapa-de-pessoal` | HTML → PDF | Série anual | Anual | `mapa_pessoal.json`: postos por carreira, categoria e unidade orgânica; ocupados vs. previstos | Página índice; o PDF do ano é descoberto a partir daqui (`S07-2026`). O de 2026 **tem camada de texto** — não foi preciso OCR | `PRIM` |
 | S08 | Documentos previsionais (Orçamento + GOP + PPI + PAM) | Secção de gestão financeira do site | PDF | Série anual | Anual (aprovação em dezembro) | `orcamento.json` (previsto), `investimentos.json` (PPI/GOP) | **Não localizei o URL exato da secção.** A pesquisa por "documentos previsionais Guimarães" devolveu sobretudo outros municípios | `CONHEC` |
 | S09 | Relatório e Contas 2024 (notícia de aprovação) | `/areas-de-intervencao/noticia/relatorio-e-contas-de-2024-aprovado-por-maioria-em-reuniao-de-camara` | HTML | 2024 | Anual | Ponto de entrada para o R&C 2024 | Notícia, não o documento | `URL-S` |
@@ -89,7 +89,7 @@ Entidade responsável: Município de Guimarães. Acesso nesta sessão: **bloquea
 |---|---|---|---|---|---|---|---|
 | S30 | Diário da República | `https://dre.pt/` | INCM | HTML/PDF | Estrutura orgânica (S05/S06), mapas de pessoal, concursos | Pesquisa por entidade é pouco precisa; **DR 2.ª série** nem sempre indexada com qualidade | `CONHEC` |
 | S31 | Mapa oficial de resultados — CNE / MAI | `https://www.cne.pt/`, `https://autarquicas2025.mai.gov.pt/` | CNE / SGMAI | HTML/PDF | Resultados 2025: Câmara, AM, freguesias; histórico | **Fonte oficial** para `orgaos_eleitos.json`, a par de S16 | `CONHEC` |
-| S32 | INE — População residente, estimativas anuais (**indicador 0012918**, NUTS 2024) | `json_indicador/pindica.jsp?op=2&varcd=0012918` | INE | JSON | **Denominador de todas as métricas per capita**; localizado via catálogo do dados.gov | API intolerante à cadência: um 429 bloqueou o host inteiro. Conteúdo **não lido** (L14); falta confirmar granularidade de município e anos cobertos | `URL-S` |
+| S32 | INE — População residente, estimativas anuais (**indicador 0012918**, NUTS 2024) | `json_indicador/pindica.jsp?op=2&varcd=0012918&Dim1=…` | INE | JSON | **Denominador de todas as métricas per capita**; Guimarães = `geocod` 1190308 | Cobre **2021–2025**. Sem `Dim1` devolve só o último ano. API intolerante à cadência: um 429 bloqueia o host durante horas | `PRIM` |
 | S33 | PORDATA | `https://www.pordata.pt/` | Fund. F. M. dos Santos | XLSX | Indicadores municipais consolidados, comparação | Fonte secundária (agrega INE/DGAL) → citar sempre a fonte original | `CONHEC` |
 | S34 | dados.gov.pt — datasets do município | `https://dados.gov.pt/` | AMA | Vários | Qualquer dataset publicado por/sobre Guimarães | Por inventariar: pode não haver nenhum específico do município | `CONHEC` |
 | S35 | OpenStreetMap / Nominatim | `https://nominatim.openstreetmap.org/` | OSM Foundation | JSON | Geocodificação de `equipamentos.json`; tiles do Leaflet | **Limite de 1 req/s** e *User-Agent* identificável obrigatórios; resultados a cachear em disco e a rever manualmente | `CONHEC` |
