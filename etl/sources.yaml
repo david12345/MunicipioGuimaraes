@@ -131,22 +131,23 @@ S32:
     INE - Populacao residente por Local de residencia (NUTS 2024), Sexo e Grupo
     etario; Anual (Estimativas anuais da populacao residente, indicador 0012918)
   entidade: INE
-  url: https://www.ine.pt/ine/json_indicador/pindica.jsp?op=2&varcd=0012918&lang=PT
+  url: https://www.ine.pt/ine/json_indicador/pindica.jsp?op=2&varcd=0012918&Dim1=S7A2021,S7A2022,S7A2023,S7A2024,S7A2025&lang=PT
   url_metadados: https://www.ine.pt/ine/json_indicador/pindicaMeta.jsp?varcd=0012918&lang=PT
   formato: json
   periodicidade: anual
-  verificacao: URL-S
+  verificacao: PRIM
   alimenta: [populacao.json]
   limitacoes: >-
     Denominador de TODAS as metricas per capita, por isso V7 exige uma unica serie.
-    O URL vem do catalogo do dados.gov (dataset 66a32d75d128db77e18739fe), nao de
-    um motor de busca - mas o conteudo NAO foi lido: o INE ficou inacessivel a meio
-    da sessao (L14). Falta confirmar que a serie desce ao nivel de municipio e que
-    anos cobre. Rejeita HEAD; o check-acesso usa GET.
-    Indicadores alternativos ja identificados, para nao repetir a pesquisa:
-    0012903 (NUTS 2024, Sexo e Idade), 0012905 (idem), 0008273 e 0007307
-    (NUTS 2013), 0003182 (NUTS 2002). Trocar de indicador implica trocar a serie
-    TODA de uma vez - misturar viola a V7.
+    Confirmado: desce ao municipio (Guimaraes = geocod 1190308) e cobre 2021-2025.
+    Sem Dim1 a API devolve so o ultimo ano, dai a lista de periodos no URL.
+    O indicador NUTS 2013 (0008273) cobre 2011-2023 e daria mais historia, mas
+    perdia 2024 e 2025 - para um dashboard ao cidadao a recencia vale mais.
+    MISTURAR AS DUAS SERIES VIOLA A V7: trocar de indicador implica trocar a serie
+    toda. Alternativas: 0012903/0012905 (NUTS 2024, por idade simples),
+    0008273/0007307 (NUTS 2013), 0003182 (NUTS 2002).
+    A API rejeita HEAD (o check-acesso usa GET) e e intolerante a cadencia:
+    um 429 chega para bloquear o host inteiro durante horas.
 
 S02:
   nome: Câmara Municipal (composição e resultados eleitorais)
@@ -187,3 +188,44 @@ S37:
   limitacoes: >-
     Da a dimensao do orgao (111 membros: 56 eleitos diretamente + 55 presidentes
     de junta) mas NAO a distribuicao por forca politica nem os nomes (L16).
+
+S04:
+  nome: Estrutura e Organização dos Serviços Municipais (índice)
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/noticia-6/estrutura-e-organizacao-dos-servicos-municipais
+  formato: html
+  periodicidade: irregular
+  verificacao: PRIM
+  limitacoes: >-
+    Pagina da CMG que remete para o texto normativo no DR. E daqui que se descobre
+    o Despacho 9070/2024 (S06), obrigatorio para nao publicar um organograma errado.
+  descoberta:
+    padrao: 'https://files\.diariodarepublica\.pt/[^"\s]+\.pdf'
+    id: 'S06'
+    nome: Despacho n.º 9070/2024 (DR 2.ª série n.º 154, 09-08-2024)
+    formato: pdf
+    ano_referencia: 2024
+    alimenta: ['estrutura_organica.json']
+    limitacoes: >-
+      Altera os artigos 5.o, 30.o e 31.o da estrutura aprovada pelo Despacho
+      14897/2022 (S05), reorganizando os Departamentos de Intervencao Social e de
+      Recursos Humanos. Tem de ser aplicado SOBRE S05 - usar so S05 da um
+      organograma errado (L5). Texto normativo, preferivel a imagem do organograma.
+
+S03:
+  nome: Organograma (índice)
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/municipio/camara-municipal/organograma
+  formato: html
+  periodicidade: irregular
+  verificacao: PRIM
+  limitacoes: >-
+    Pagina indice. O organograma e imagem/diagrama: serve de verificacao cruzada
+    ao texto normativo (S05+S06), nunca de fonte primaria da hierarquia (L4).
+  descoberta:
+    padrao: '/cmguimaraes/uploads/writer_file/document/\d+/organograma_(?P<ver>[\w]+)\.pdf'
+    id: 'S03-{ver}'
+    nome: 'Organograma {ver}'
+    formato: pdf
+    alimenta: ['estrutura_organica.json']
+    limitacoes: Diagrama. Conferir contra S05+S06, que sao o texto com valor legal.

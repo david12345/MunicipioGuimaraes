@@ -3,8 +3,34 @@
 # É commitado de propósito: o diff mostra quando uma fonte mudou de URL.
 _meta:
   script: etl/common/descoberta.py
-  total: 10
+  total: 12
 fontes:
+  S03-06_24:
+    entidade: Município de Guimarães
+    periodicidade: irregular
+    verificacao: PRIM
+    limitacoes: Diagrama. Conferir contra S05+S06, que sao o texto com valor legal.
+    nome: Organograma 06_24
+    url: https://www.cm-guimaraes.pt/cmguimaraes/uploads/writer_file/document/9901/organograma_06_24.pdf
+    formato: pdf
+    descoberta_via: S03
+    alimenta:
+    - estrutura_organica.json
+  S06:
+    entidade: Município de Guimarães
+    periodicidade: irregular
+    verificacao: PRIM
+    limitacoes: Altera os artigos 5.o, 30.o e 31.o da estrutura aprovada pelo Despacho
+      14897/2022 (S05), reorganizando os Departamentos de Intervencao Social e de
+      Recursos Humanos. Tem de ser aplicado SOBRE S05 - usar so S05 da um organograma
+      errado (L5). Texto normativo, preferivel a imagem do organograma.
+    nome: Despacho n.º 9070/2024 (DR 2.ª série n.º 154, 09-08-2024)
+    url: https://files.diariodarepublica.pt/2s/2024/08/154000000/0041500418.pdf
+    formato: pdf
+    descoberta_via: S04
+    ano_referencia: 2024
+    alimenta:
+    - estrutura_organica.json
   S07-2026:
     entidade: Município de Guimarães
     periodicidade: anual

@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "gerado_em": "2026-09-21T18:53:31.393057+00:00",
+    "gerado_em": "2026-09-21T20:03:27.789569+00:00",
     "script": "etl/common/fontes.py",
     "versao_modelo": "1.0",
-    "total_fontes": 22,
-    "fontes_descarregadas": 22
+    "total_fontes": 26,
+    "fontes_descarregadas": 26
   },
   "dados": {
     "S01": {
@@ -141,16 +141,20 @@
       "descarregado": true
     },
     "S32": {
-      "nome": "INE - população residente (estimativas anuais)",
+      "nome": "INE - Populacao residente por Local de residencia (NUTS 2024), Sexo e Grupo etario; Anual (Estimativas anuais da populacao residente, indicador 0012918)",
       "entidade": "INE",
-      "url": "https://www.ine.pt/",
-      "formato": "html",
+      "url": "https://www.ine.pt/ine/json_indicador/pindica.jsp?op=2&varcd=0012918&lang=PT",
+      "url_metadados": "https://www.ine.pt/ine/json_indicador/pindicaMeta.jsp?varcd=0012918&lang=PT",
+      "formato": "json",
       "periodicidade": "anual",
       "verificacao": "URL-S",
-      "limitacoes": "Denominador de todas as metricas per capita. O URL e a homepage, NAO a serie: o quadro de estimativas ainda nao esta localizado (L14). Nao usar ate estar. Rejeita HEAD; o check-acesso usa GET.",
+      "alimenta": [
+        "populacao.json"
+      ],
+      "limitacoes": "Denominador de TODAS as metricas per capita, por isso V7 exige uma unica serie. O URL vem do catalogo do dados.gov (dataset 66a32d75d128db77e18739fe), nao de um motor de busca - mas o conteudo NAO foi lido: o INE ficou inacessivel a meio da sessao (L14). Falta confirmar que a serie desce ao nivel de municipio e que anos cobre. Rejeita HEAD; o check-acesso usa GET. Indicadores alternativos ja identificados, para nao repetir a pesquisa: 0012903 (NUTS 2024, Sexo e Idade), 0012905 (idem), 0008273 e 0007307 (NUTS 2013), 0003182 (NUTS 2002). Trocar de indicador implica trocar a serie TODA de uma vez - misturar viola a V7.",
       "id": "S32",
-      "ficheiro_raw": "data/raw/2026-09-21_www.ine.pt",
-      "sha256": "ef84bd923b7f9815325c5fc05af6bdcc2caa4bedb2937315876cdf0127904b66",
+      "ficheiro_raw": "data/raw/2026-09-21_pindica.jsp",
+      "sha256": "5b135e282588fc8e6ac6664476c2f211f6c7bedc09e24525bec1c44db42aecbc",
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -202,6 +206,73 @@
       "id": "S37",
       "ficheiro_raw": "data/raw/2026-09-21_assembleia-municipal",
       "sha256": "92bc78718ae853c501d007b5d30f1b5eb10b1bbfbe7d9b7405cb7ca8eeb25078",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S04": {
+      "nome": "Estrutura e Organização dos Serviços Municipais (índice)",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/noticia-6/estrutura-e-organizacao-dos-servicos-municipais",
+      "formato": "html",
+      "periodicidade": "irregular",
+      "verificacao": "PRIM",
+      "limitacoes": "Pagina da CMG que remete para o texto normativo no DR. E daqui que se descobre o Despacho 9070/2024 (S06), obrigatorio para nao publicar um organograma errado.",
+      "id": "S04",
+      "e_indice": true,
+      "ficheiro_raw": "data/raw/2026-09-21_estrutura-e-organizacao-dos-servicos-municipais",
+      "sha256": "4503253e243e853d1d9d37973634514348ede0016423a615f7b409d07e497d19",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S03": {
+      "nome": "Organograma (índice)",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/municipio/camara-municipal/organograma",
+      "formato": "html",
+      "periodicidade": "irregular",
+      "verificacao": "PRIM",
+      "limitacoes": "Pagina indice. O organograma e imagem/diagrama: serve de verificacao cruzada ao texto normativo (S05+S06), nunca de fonte primaria da hierarquia (L4).",
+      "id": "S03",
+      "e_indice": true,
+      "ficheiro_raw": "data/raw/2026-09-21_organograma",
+      "sha256": "2f4702e7213ea0c9d7f9ad70d324c03c026ffdd97f36dfe02cc551eb9a7d7c59",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S03-06_24": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "irregular",
+      "verificacao": "PRIM",
+      "limitacoes": "Diagrama. Conferir contra S05+S06, que sao o texto com valor legal.",
+      "nome": "Organograma 06_24",
+      "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/writer_file/document/9901/organograma_06_24.pdf",
+      "formato": "pdf",
+      "descoberta_via": "S03",
+      "alimenta": [
+        "estrutura_organica.json"
+      ],
+      "id": "S03-06_24",
+      "ficheiro_raw": "data/raw/2026-09-21_organograma_06_24.pdf",
+      "sha256": "0e1244850e0362dc6664810528e2f7d5d5cd4de822b7b1904d45d5dd524a9a5d",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S06": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "irregular",
+      "verificacao": "PRIM",
+      "limitacoes": "Altera os artigos 5.o, 30.o e 31.o da estrutura aprovada pelo Despacho 14897/2022 (S05), reorganizando os Departamentos de Intervencao Social e de Recursos Humanos. Tem de ser aplicado SOBRE S05 - usar so S05 da um organograma errado (L5). Texto normativo, preferivel a imagem do organograma.",
+      "nome": "Despacho n.º 9070/2024 (DR 2.ª série n.º 154, 09-08-2024)",
+      "url": "https://files.diariodarepublica.pt/2s/2024/08/154000000/0041500418.pdf",
+      "formato": "pdf",
+      "descoberta_via": "S04",
+      "ano_referencia": 2024,
+      "alimenta": [
+        "estrutura_organica.json"
+      ],
+      "id": "S06",
+      "ficheiro_raw": "data/raw/2026-09-21_0041500418.pdf",
+      "sha256": "672887ff58a0437cb4063801e2afd4dd84cd597846394b43f2de5c34a0b579d5",
       "data_download": "2026-09-21",
       "descarregado": true
     },

@@ -1,0 +1,10 @@
+{
+  "fonte_id": "S32",
+  "url": "https://www.ine.pt/ine/json_indicador/pindica.jsp?op=2&varcd=0012918&Dim1=S7A2021,S7A2022,S7A2023,S7A2024,S7A2025&lang=PT",
+  "ficheiro": "data/raw/2026-09-21_pindica_f2fd4ebe.jsp",
+  "sha256": "f724eb822f1900f8f9033d4b02d2484276d8ff4ba1481e041cc2ae41bfc73e95",
+  "bytes": 21756543,
+  "content_type": "application/json;charset=UTF-8",
+  "data_download": "2026-09-21",
+  "descarregado_em": "2026-09-21T20:05:42.341545+00:00"
+}
