@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "gerado_em": "2026-09-21T19:14:40.692010+00:00",
+    "gerado_em": "2026-09-21T21:30:40.432738+00:00",
     "script": "etl/contratos.py",
     "versao_modelo": "1.0",
     "fontes": [
@@ -82,7 +82,7 @@
       "adjudicatarios": [
         {
           "nif": "502897970",
-          "nome": "Rei &amp; Rei, Lda."
+          "nome": "Rei & Rei, Lda."
         }
       ],
       "valor": 39950.0,
@@ -352,7 +352,7 @@
       "adjudicatarios": [
         {
           "nif": "514782170",
-          "nome": "Manuel A.N.Miranda &amp; Associados, lda"
+          "nome": "Manuel A.N.Miranda & Associados, lda"
         }
       ],
       "valor": 7118.8,
@@ -568,7 +568,7 @@
       "adjudicatarios": [
         {
           "nif": "502101210",
-          "nome": "CUATRECASAS, GONÇALVES PEREIRA &amp; ASSOCIADOS, SOCIEDADE DE ADVOGADOS, SP, RL"
+          "nome": "CUATRECASAS, GONÇALVES PEREIRA & ASSOCIADOS, SOCIEDADE DE ADVOGADOS, SP, RL"
         }
       ],
       "valor": 7560.0,
@@ -2026,7 +2026,7 @@
       "adjudicatarios": [
         {
           "nif": "503864960",
-          "nome": "TPS - Teixeira Pinto &amp; Soares, SA"
+          "nome": "TPS - Teixeira Pinto & Soares, SA"
         }
       ],
       "valor": 12953516.73,
@@ -2917,7 +2917,7 @@
       "adjudicatarios": [
         {
           "nif": "505083493",
-          "nome": "Carpintaria Machado &amp; Filhos Lda"
+          "nome": "Carpintaria Machado & Filhos Lda"
         }
       ],
       "valor": 14979.97,
@@ -4402,7 +4402,7 @@
       "adjudicatarios": [
         {
           "nif": "509964087",
-          "nome": "Rui Trindade &amp; Associados - Corporate Finance &amp; International Business"
+          "nome": "Rui Trindade & Associados - Corporate Finance & International Business"
         }
       ],
       "valor": 18500.0,
@@ -4699,7 +4699,7 @@
       "adjudicatarios": [
         {
           "nif": "501520791",
-          "nome": "BABCOCK &amp; WILCOX PORTUGAL, SA"
+          "nome": "BABCOCK & WILCOX PORTUGAL, SA"
         }
       ],
       "valor": 32305.75,
@@ -4915,7 +4915,7 @@
       "adjudicatarios": [
         {
           "nif": "514915447",
-          "nome": "Nuno Rocha de Sousa &amp; César Cardoso, Lda."
+          "nome": "Nuno Rocha de Sousa & César Cardoso, Lda."
         }
       ],
       "valor": 9000.0,
@@ -5131,7 +5131,7 @@
       "adjudicatarios": [
         {
           "nif": "502607556",
-          "nome": "Cunha &amp; Gomes - Informática e Contabilidade Lda"
+          "nome": "Cunha & Gomes - Informática e Contabilidade Lda"
         }
       ],
       "valor": 19491.4,
@@ -5536,7 +5536,7 @@
       "adjudicatarios": [
         {
           "nif": "507304721",
-          "nome": "M &amp;amp; M Protek - Equipamento de Protecção Individual, Lda."
+          "nome": "M & M Protek - Equipamento de Protecção Individual, Lda."
         }
       ],
       "valor": 19880.1,
@@ -6076,7 +6076,7 @@
       "adjudicatarios": [
         {
           "nif": "502897970",
-          "nome": "Rei &amp; Rei, Lda."
+          "nome": "Rei & Rei, Lda."
         }
       ],
       "valor": 42860.0,
@@ -7183,7 +7183,7 @@
       "adjudicatarios": [
         {
           "nif": "518310680",
-          "nome": "Guimarães &amp; Couceiro"
+          "nome": "Guimarães & Couceiro"
         },
         {
           "nif": null,
@@ -7268,7 +7268,7 @@
       "adjudicatarios": [
         {
           "nif": "502607556",
-          "nome": "Cunha &amp; Gomes - Informática e Contabilidade Lda"
+          "nome": "Cunha & Gomes - Informática e Contabilidade Lda"
         }
       ],
       "valor": 9766.8,
@@ -7349,7 +7349,7 @@
       "adjudicatarios": [
         {
           "nif": "514782170",
-          "nome": "Manuel A.N.Miranda &amp; Associados, lda"
+          "nome": "Manuel A.N.Miranda & Associados, lda"
         }
       ],
       "valor": 38824.0,
@@ -7673,7 +7673,7 @@
       "adjudicatarios": [
         {
           "nif": "514030321",
-          "nome": "Oásis Plantas - Mendes &amp; Filhos, Lda"
+          "nome": "Oásis Plantas - Mendes & Filhos, Lda"
         }
       ],
       "valor": 37248.35,
@@ -8186,7 +8186,7 @@
       "adjudicatarios": [
         {
           "nif": "501211705",
-          "nome": "ADAO PEDRO VAZ FERNANDES &amp; COMPANHIA,LDA."
+          "nome": "ADAO PEDRO VAZ FERNANDES & COMPANHIA,LDA."
         }
       ],
       "valor": 7152.0,
@@ -8375,7 +8375,7 @@
       "adjudicatarios": [
         {
           "nif": "502607556",
-          "nome": "Cunha &amp; Gomes - Informática e Contabilidade Lda"
+          "nome": "Cunha & Gomes - Informática e Contabilidade Lda"
         }
       ],
       "valor": 14896.0,
@@ -9698,7 +9698,7 @@
       "adjudicatarios": [
         {
           "nif": "502396911",
-          "nome": "Reptractor, Alves Ribeiro &amp; Filhos Lda"
+          "nome": "Reptractor, Alves Ribeiro & Filhos Lda"
         }
       ],
       "valor": 5300.0,
@@ -10211,7 +10211,7 @@
       "adjudicatarios": [
         {
           "nif": "503864960",
-          "nome": "TPS - Teixeira Pinto &amp; Soares, SA"
+          "nome": "TPS - Teixeira Pinto & Soares, SA"
         }
       ],
       "valor": 12789759.97,
@@ -11777,7 +11777,7 @@
       "adjudicatarios": [
         {
           "nif": "513495207",
-          "nome": "Taxis João Luis &amp; Fernandes,Lda"
+          "nome": "Taxis João Luis & Fernandes,Lda"
         }
       ],
       "valor": 19831.28,
@@ -11912,7 +11912,7 @@
       "adjudicatarios": [
         {
           "nif": "513602011",
-          "nome": "Mendes L. IT &amp; Communications Unipessoal Lda"
+          "nome": "Mendes L. IT & Communications Unipessoal Lda"
         }
       ],
       "valor": 17118.0,
@@ -12641,7 +12641,7 @@
       "adjudicatarios": [
         {
           "nif": "500520658",
-          "nome": "Informa D&amp;B  ( Serviços de Gestão de Empresas) - Soc. Unipessoal, Lda"
+          "nome": "Informa D&B  ( Serviços de Gestão de Empresas) - Soc. Unipessoal, Lda"
         }
       ],
       "valor": 11755.0,
@@ -12938,7 +12938,7 @@
       "adjudicatarios": [
         {
           "nif": "501792473",
-          "nome": "CASIMIRA DE LIMA &amp; ARAÚJO, S.A"
+          "nome": "CASIMIRA DE LIMA & ARAÚJO, S.A"
         }
       ],
       "valor": 437391.93,
@@ -13081,7 +13081,7 @@
         },
         {
           "nif": "503472069",
-          "nome": "Higino Pinheiro &amp; Irmão, S.A."
+          "nome": "Higino Pinheiro & Irmão, S.A."
         }
       ],
       "valor": 0.0,
@@ -13108,7 +13108,7 @@
       "adjudicatarios": [
         {
           "nif": "503275000",
-          "nome": "VACHIER &amp; ASSOCIADOS PRODUCAO DE ESPECTACULOS LDA"
+          "nome": "VACHIER & ASSOCIADOS PRODUCAO DE ESPECTACULOS LDA"
         }
       ],
       "valor": 13500.0,
@@ -13810,7 +13810,7 @@
       "adjudicatarios": [
         {
           "nif": "506789136",
-          "nome": "TÁXIS MACEDO &amp; CARVALHO, LDA."
+          "nome": "TÁXIS MACEDO & CARVALHO, LDA."
         }
       ],
       "valor": 3606.72,
@@ -13837,7 +13837,7 @@
       "adjudicatarios": [
         {
           "nif": "517561549",
-          "nome": "Pontos &amp; Botões – Produções Artísticas, Lda."
+          "nome": "Pontos & Botões – Produções Artísticas, Lda."
         }
       ],
       "valor": 15123.58,
@@ -14404,7 +14404,7 @@
       "adjudicatarios": [
         {
           "nif": "500173958",
-          "nome": "M. &amp; Costas, S.A."
+          "nome": "M. & Costas, S.A."
         }
       ],
       "valor": 6612.57,
@@ -14917,7 +14917,7 @@
       "adjudicatarios": [
         {
           "nif": "518385515",
-          "nome": "Trilhos &amp; Pérolas - Sociedade Unipessoal, Lda."
+          "nome": "Trilhos & Pérolas - Sociedade Unipessoal, Lda."
         }
       ],
       "valor": 15000.0,
@@ -17347,7 +17347,7 @@
       "adjudicatarios": [
         {
           "nif": "501493336",
-          "nome": "Narciso de Carvalho &amp; Filhos, Lda"
+          "nome": "Narciso de Carvalho & Filhos, Lda"
         }
       ],
       "valor": 13892.0,
@@ -17428,7 +17428,7 @@
       "adjudicatarios": [
         {
           "nif": "510539084",
-          "nome": "Ferreira Pinto &amp; Associados - Sociedade de Advogados, SP, RL"
+          "nome": "Ferreira Pinto & Associados - Sociedade de Advogados, SP, RL"
         }
       ],
       "valor": 14700.0,
@@ -17455,7 +17455,7 @@
       "adjudicatarios": [
         {
           "nif": "505501570",
-          "nome": "Saldanha &amp; Moura Lda"
+          "nome": "Saldanha & Moura Lda"
         }
       ],
       "valor": 13359.0,
@@ -17779,7 +17779,7 @@
       "adjudicatarios": [
         {
           "nif": "513204571",
-          "nome": "Cálculos &amp; Títulos Construções Unipessoal Lda"
+          "nome": "Cálculos & Títulos Construções Unipessoal Lda"
         }
       ],
       "valor": 966950.75,
@@ -17860,7 +17860,7 @@
       "adjudicatarios": [
         {
           "nif": "501493336",
-          "nome": "Narciso de Carvalho &amp; Filhos, Lda"
+          "nome": "Narciso de Carvalho & Filhos, Lda"
         }
       ],
       "valor": 7590.0,
@@ -18184,7 +18184,7 @@
       "adjudicatarios": [
         {
           "nif": null,
-          "nome": "Bureau Veritas - Cables &amp; Inspections"
+          "nome": "Bureau Veritas - Cables & Inspections"
         }
       ],
       "valor": 7104.0,

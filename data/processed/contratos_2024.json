@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "gerado_em": "2026-09-21T19:14:05.226357+00:00",
+    "gerado_em": "2026-09-21T21:30:15.570547+00:00",
     "script": "etl/contratos.py",
     "versao_modelo": "1.0",
     "fontes": [
@@ -1324,7 +1324,7 @@
       "adjudicatarios": [
         {
           "nif": "502101210",
-          "nome": "CUATRECASAS, GONÇALVES PEREIRA &amp; ASSOCIADOS - SOCIEDADE ADVOGADOS RL"
+          "nome": "CUATRECASAS, GONÇALVES PEREIRA & ASSOCIADOS - SOCIEDADE ADVOGADOS RL"
         }
       ],
       "valor": 12950.0,
@@ -1378,7 +1378,7 @@
       "adjudicatarios": [
         {
           "nif": "506108406",
-          "nome": "Saavedra Arquitectura Engenharia &amp; Imobiliaria Lda"
+          "nome": "Saavedra Arquitectura Engenharia & Imobiliaria Lda"
         }
       ],
       "valor": 22950.0,
@@ -1486,7 +1486,7 @@
       "adjudicatarios": [
         {
           "nif": "506108406",
-          "nome": "Saavedra Arquitectura Engenharia &amp; Imobiliaria Lda"
+          "nome": "Saavedra Arquitectura Engenharia & Imobiliaria Lda"
         }
       ],
       "valor": 31500.0,
@@ -1621,7 +1621,7 @@
       "adjudicatarios": [
         {
           "nif": "514310715",
-          "nome": "SOFIA DIAS &amp; VITOR RORIZ, LDA"
+          "nome": "SOFIA DIAS & VITOR RORIZ, LDA"
         }
       ],
       "valor": 11652.44,
@@ -1891,7 +1891,7 @@
       "adjudicatarios": [
         {
           "nif": "500901694",
-          "nome": "Dias &amp; Vicentes, Lda."
+          "nome": "Dias & Vicentes, Lda."
         }
       ],
       "valor": 32995.03,
@@ -2080,7 +2080,7 @@
       "adjudicatarios": [
         {
           "nif": "507304721",
-          "nome": "M&amp;M Protek - Equipamentos de Proteção Individual, Lda"
+          "nome": "M&M Protek - Equipamentos de Proteção Individual, Lda"
         }
       ],
       "valor": 1225.12,
@@ -2134,7 +2134,7 @@
       "adjudicatarios": [
         {
           "nif": "501211705",
-          "nome": "ADAO PEDRO VAZ FERNANDES &amp; COMPANHIA,LDA."
+          "nome": "ADAO PEDRO VAZ FERNANDES & COMPANHIA,LDA."
         }
       ],
       "valor": 7150.0,
@@ -2998,7 +2998,7 @@
       "adjudicatarios": [
         {
           "nif": "514030321",
-          "nome": "OÁSIS PLANTAS, MENDES &amp; FILHOS, LDA."
+          "nome": "OÁSIS PLANTAS, MENDES & FILHOS, LDA."
         }
       ],
       "valor": 73510.75,
@@ -3241,7 +3241,7 @@
       "adjudicatarios": [
         {
           "nif": "504078500",
-          "nome": "G. CASTRO, R. SILVA, A. DIAS &amp; F. AMORIM SROC, LDA"
+          "nome": "G. CASTRO, R. SILVA, A. DIAS & F. AMORIM SROC, LDA"
         }
       ],
       "valor": 16200.0,
@@ -3268,7 +3268,7 @@
       "adjudicatarios": [
         {
           "nif": "514919558",
-          "nome": "MARTINS &amp; MOLINA, LDA"
+          "nome": "MARTINS & MOLINA, LDA"
         }
       ],
       "valor": 137175.0,
@@ -3592,7 +3592,7 @@
       "adjudicatarios": [
         {
           "nif": "501520791",
-          "nome": "BABCOCK &amp; WILCOX PORTUGAL, SA"
+          "nome": "BABCOCK & WILCOX PORTUGAL, SA"
         }
       ],
       "valor": 16205.1,
@@ -4024,7 +4024,7 @@
       "adjudicatarios": [
         {
           "nif": "507304721",
-          "nome": "M&amp;M Protek - Equipamentos de Proteção Individual, Lda"
+          "nome": "M&M Protek - Equipamentos de Proteção Individual, Lda"
         }
       ],
       "valor": 27080.3,
@@ -5486,7 +5486,7 @@
       "adjudicatarios": [
         {
           "nif": "501493336",
-          "nome": "Narciso de Carvalho &amp; Filhos, Lda"
+          "nome": "Narciso de Carvalho & Filhos, Lda"
         }
       ],
       "valor": 37805.0,
@@ -6431,7 +6431,7 @@
       "adjudicatarios": [
         {
           "nif": "500384436",
-          "nome": "Mendes &amp; Irmãos, S.A"
+          "nome": "Mendes & Irmãos, S.A"
         }
       ],
       "valor": 34038.21,
@@ -6485,7 +6485,7 @@
       "adjudicatarios": [
         {
           "nif": "500384436",
-          "nome": "Mendes &amp; Irmãos, S.A"
+          "nome": "Mendes & Irmãos, S.A"
         }
       ],
       "valor": 6796.98,
@@ -6836,7 +6836,7 @@
       "adjudicatarios": [
         {
           "nif": "506789136",
-          "nome": "Táxis Macedo &amp; Carvalho, Lda"
+          "nome": "Táxis Macedo & Carvalho, Lda"
         }
       ],
       "valor": 16365.64,
@@ -6890,7 +6890,7 @@
       "adjudicatarios": [
         {
           "nif": "500464529",
-          "nome": "João Teixeira Neiva Magalhães &amp; Ca. Lda"
+          "nome": "João Teixeira Neiva Magalhães & Ca. Lda"
         }
       ],
       "valor": 4284.0,
@@ -6917,7 +6917,7 @@
       "adjudicatarios": [
         {
           "nif": "500464529",
-          "nome": "João Teixeira Neiva Magalhães &amp; Ca. Lda"
+          "nome": "João Teixeira Neiva Magalhães & Ca. Lda"
         }
       ],
       "valor": 26956.56,
@@ -7079,7 +7079,7 @@
       "adjudicatarios": [
         {
           "nif": "513495207",
-          "nome": "Taxis João Luis &amp; Fernandes,Lda"
+          "nome": "Taxis João Luis & Fernandes,Lda"
         }
       ],
       "valor": 11921.5,
@@ -7268,7 +7268,7 @@
       "adjudicatarios": [
         {
           "nif": "502101210",
-          "nome": "CUATRECASAS, GONÇALVES PEREIRA &amp; ASSOCIADOS, SOCIEDADE DE ADVOGADOS, SP, RL"
+          "nome": "CUATRECASAS, GONÇALVES PEREIRA & ASSOCIADOS, SOCIEDADE DE ADVOGADOS, SP, RL"
         }
       ],
       "valor": 6925.0,
@@ -7403,7 +7403,7 @@
       "adjudicatarios": [
         {
           "nif": "513349596",
-          "nome": "Ana Salgado &amp; Salgado Lopes"
+          "nome": "Ana Salgado & Salgado Lopes"
         }
       ],
       "valor": 3693.6,
@@ -9841,7 +9841,7 @@
       "adjudicatarios": [
         {
           "nif": null,
-          "nome": "Sasha Waltz &amp; Guests GmbH"
+          "nome": "Sasha Waltz & Guests GmbH"
         }
       ],
       "valor": 22387.46,
@@ -10003,7 +10003,7 @@
       "adjudicatarios": [
         {
           "nif": "507304721",
-          "nome": "M&amp;M Protek - Equipamentos de Proteção Individual, Lda"
+          "nome": "M&M Protek - Equipamentos de Proteção Individual, Lda"
         }
       ],
       "valor": 688.0,
@@ -10111,7 +10111,7 @@
       "adjudicatarios": [
         {
           "nif": "507304721",
-          "nome": "M&amp;M Protek - Equipamentos de Proteção Individual, Lda"
+          "nome": "M&M Protek - Equipamentos de Proteção Individual, Lda"
         }
       ],
       "valor": 3897.0,
@@ -10138,7 +10138,7 @@
       "adjudicatarios": [
         {
           "nif": "507304721",
-          "nome": "M&amp;M Protek - Equipamentos de Proteção Individual, Lda"
+          "nome": "M&M Protek - Equipamentos de Proteção Individual, Lda"
         }
       ],
       "valor": 1194.0,
@@ -10948,7 +10948,7 @@
       "adjudicatarios": [
         {
           "nif": "500384436",
-          "nome": "Mendes &amp; Irmãos, S.A"
+          "nome": "Mendes & Irmãos, S.A"
         }
       ],
       "valor": 22098.22,
@@ -10975,7 +10975,7 @@
       "adjudicatarios": [
         {
           "nif": "500384436",
-          "nome": "Mendes &amp; Irmãos, S.A"
+          "nome": "Mendes & Irmãos, S.A"
         }
       ],
       "valor": 28820.1,
@@ -11569,7 +11569,7 @@
       "adjudicatarios": [
         {
           "nif": "501792473",
-          "nome": "CASIMIRA DE LIMA &amp; ARAUJO SA"
+          "nome": "CASIMIRA DE LIMA & ARAUJO SA"
         }
       ],
       "valor": 146413.89,
@@ -12379,7 +12379,7 @@
       "adjudicatarios": [
         {
           "nif": "518385515",
-          "nome": "Trilhos &amp; Pérolas"
+          "nome": "Trilhos & Pérolas"
         }
       ],
       "valor": 25000.0,
@@ -12541,7 +12541,7 @@
       "adjudicatarios": [
         {
           "nif": "502046376",
-          "nome": "José Moreira Fernandes&amp;Filhos, Lda"
+          "nome": "José Moreira Fernandes&Filhos, Lda"
         }
       ],
       "valor": 30280.0,
@@ -12703,7 +12703,7 @@
       "adjudicatarios": [
         {
           "nif": "501520791",
-          "nome": "BABCOCK &amp; WILCOX PORTUGAL, SA"
+          "nome": "BABCOCK & WILCOX PORTUGAL, SA"
         }
       ],
       "valor": 25222.17,
@@ -13432,7 +13432,7 @@
       "adjudicatarios": [
         {
           "nif": "500520658",
-          "nome": "Informa D &amp; B - Unipessoal, Lda."
+          "nome": "Informa D & B - Unipessoal, Lda."
         }
       ],
       "valor": 14753.8,
@@ -14323,7 +14323,7 @@
       "adjudicatarios": [
         {
           "nif": "500907269",
-          "nome": "Friol - Oliveira &amp; Filho, Lda"
+          "nome": "Friol - Oliveira & Filho, Lda"
         }
       ],
       "valor": 78310.0,
@@ -14620,7 +14620,7 @@
       "adjudicatarios": [
         {
           "nif": "500384436",
-          "nome": "Mendes &amp; Irmãos, S.A"
+          "nome": "Mendes & Irmãos, S.A"
         }
       ],
       "valor": 27374.63,
@@ -15295,7 +15295,7 @@
       "adjudicatarios": [
         {
           "nif": "506789136",
-          "nome": "Táxis Macedo &amp; Carvalho, Unipessoal, Lda"
+          "nome": "Táxis Macedo & Carvalho, Unipessoal, Lda"
         }
       ],
       "valor": 15300.2,
@@ -15322,7 +15322,7 @@
       "adjudicatarios": [
         {
           "nif": "513495207",
-          "nome": "Taxis João Luis &amp; Fernandes,Lda"
+          "nome": "Taxis João Luis & Fernandes,Lda"
         }
       ],
       "valor": 7029.36,
@@ -15457,7 +15457,7 @@
       "adjudicatarios": [
         {
           "nif": "513349596",
-          "nome": "Ana Salgado &amp; Salgado Lopes"
+          "nome": "Ana Salgado & Salgado Lopes"
         }
       ],
       "valor": 17208.05,
@@ -15727,7 +15727,7 @@
       "adjudicatarios": [
         {
           "nif": "503028010",
-          "nome": "ROCHA MOREIRA PINTO &amp; SOARES LDA"
+          "nome": "ROCHA MOREIRA PINTO & SOARES LDA"
         }
       ],
       "valor": 58550.0,
@@ -15808,7 +15808,7 @@
       "adjudicatarios": [
         {
           "nif": "514310715",
-          "nome": "SOFIA DIAS &amp; VITOR RORIZ, LDA"
+          "nome": "SOFIA DIAS & VITOR RORIZ, LDA"
         }
       ],
       "valor": 12195.12,
@@ -16213,7 +16213,7 @@
       "adjudicatarios": [
         {
           "nif": "501275010",
-          "nome": "Rainho &amp; Neves, Lda."
+          "nome": "Rainho & Neves, Lda."
         }
       ],
       "valor": 6640.0,
@@ -16267,7 +16267,7 @@
       "adjudicatarios": [
         {
           "nif": "502607556",
-          "nome": "Cunha &amp; Gomes - Informática e Contabilidade Lda"
+          "nome": "Cunha & Gomes - Informática e Contabilidade Lda"
         }
       ],
       "valor": 10575.0,
@@ -17050,7 +17050,7 @@
       "adjudicatarios": [
         {
           "nif": "514030321",
-          "nome": "OÁSIS PLANTAS, MENDES &amp; FILHOS, LDA."
+          "nome": "OÁSIS PLANTAS, MENDES & FILHOS, LDA."
         }
       ],
       "valor": 10945.0,

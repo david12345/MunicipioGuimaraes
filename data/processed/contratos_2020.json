@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "gerado_em": "2026-09-21T19:12:14.670807+00:00",
+    "gerado_em": "2026-09-21T21:28:59.057872+00:00",
     "script": "etl/contratos.py",
     "versao_modelo": "1.0",
     "fontes": [
@@ -973,7 +973,7 @@
       "adjudicatarios": [
         {
           "nif": "500384436",
-          "nome": "Mendes &amp; Irmãos, SA."
+          "nome": "Mendes & Irmãos, SA."
         }
       ],
       "valor": 29969.79,
@@ -1675,7 +1675,7 @@
       "adjudicatarios": [
         {
           "nif": "510323219",
-          "nome": "BARROS &amp; FORTE - MATERIAIS DE CONSTRUCAO, LDA"
+          "nome": "BARROS & FORTE - MATERIAIS DE CONSTRUCAO, LDA"
         }
       ],
       "valor": 71635.15,
@@ -1810,7 +1810,7 @@
       "adjudicatarios": [
         {
           "nif": "502046376",
-          "nome": "José Moreira Fernandes &amp; Filhos, S.A."
+          "nome": "José Moreira Fernandes & Filhos, S.A."
         }
       ],
       "valor": 22989.0,
@@ -1945,7 +1945,7 @@
       "adjudicatarios": [
         {
           "nif": "506584020",
-          "nome": "JPAB - José Pedro Aguiar-Branco &amp; Associados, Sociedade de Advogados, SPRL"
+          "nome": "JPAB - José Pedro Aguiar-Branco & Associados, Sociedade de Advogados, SPRL"
         }
       ],
       "valor": 15000.0,
@@ -2053,7 +2053,7 @@
       "adjudicatarios": [
         {
           "nif": "502607556",
-          "nome": "Cunha &amp; Gomes - Informática"
+          "nome": "Cunha & Gomes - Informática"
         }
       ],
       "valor": 18095.0,
@@ -2215,7 +2215,7 @@
       "adjudicatarios": [
         {
           "nif": "508468787",
-          "nome": "César &amp; Sérgio - Sociedade de Construção Civil, Lda"
+          "nome": "César & Sérgio - Sociedade de Construção Civil, Lda"
         }
       ],
       "valor": 76600.0,
@@ -2647,7 +2647,7 @@
       "adjudicatarios": [
         {
           "nif": "508468787",
-          "nome": "César &amp; Sérgio - Sociedade de Construção Civil, Lda"
+          "nome": "César & Sérgio - Sociedade de Construção Civil, Lda"
         }
       ],
       "valor": 11650.0,
@@ -2944,7 +2944,7 @@
       "adjudicatarios": [
         {
           "nif": "501520791",
-          "nome": "BABCOCK &amp; WILCOX-PORTUGAL,SA"
+          "nome": "BABCOCK & WILCOX-PORTUGAL,SA"
         }
       ],
       "valor": 28327.16,
@@ -3079,7 +3079,7 @@
       "adjudicatarios": [
         {
           "nif": "505693569",
-          "nome": "Ricardo Teixeira &amp; Vítor Fonseca - Arqueologia Lda"
+          "nome": "Ricardo Teixeira & Vítor Fonseca - Arqueologia Lda"
         }
       ],
       "valor": 23840.0,
@@ -3214,7 +3214,7 @@
       "adjudicatarios": [
         {
           "nif": "508468787",
-          "nome": "César &amp; Sérgio - Sociedade de Construção Civil, Lda"
+          "nome": "César & Sérgio - Sociedade de Construção Civil, Lda"
         }
       ],
       "valor": 109800.0,
@@ -3349,7 +3349,7 @@
       "adjudicatarios": [
         {
           "nif": "507304721",
-          "nome": "M&amp;M Protek - Equipamentos de Proteção Individual, Lda"
+          "nome": "M&M Protek - Equipamentos de Proteção Individual, Lda"
         }
       ],
       "valor": 36310.71,
@@ -3457,7 +3457,7 @@
       "adjudicatarios": [
         {
           "nif": "510747345",
-          "nome": "Cruz, Pereira, Amaral &amp; Associado, SROC, Lda."
+          "nome": "Cruz, Pereira, Amaral & Associado, SROC, Lda."
         }
       ],
       "valor": 4100.0,
@@ -3511,7 +3511,7 @@
       "adjudicatarios": [
         {
           "nif": "514915447",
-          "nome": "Nuno Rocha de Sousa &amp; César Cardoso, Lda."
+          "nome": "Nuno Rocha de Sousa & César Cardoso, Lda."
         }
       ],
       "valor": 44650.0,
@@ -4213,7 +4213,7 @@
       "adjudicatarios": [
         {
           "nif": "503472069",
-          "nome": "Higino Pinheiro &amp; Irmãos, SA"
+          "nome": "Higino Pinheiro & Irmãos, SA"
         }
       ],
       "valor": 347791.54,
@@ -4429,7 +4429,7 @@
       "adjudicatarios": [
         {
           "nif": "501493336",
-          "nome": "Narciso de Carvalho &amp; Filhos, Lda."
+          "nome": "Narciso de Carvalho & Filhos, Lda."
         }
       ],
       "valor": 11656.0,
@@ -4672,7 +4672,7 @@
       "adjudicatarios": [
         {
           "nif": "507789296",
-          "nome": "SERRALHARIA CIVIL-CARLOS ALBERTO &amp; LEITE CORREIA, LDA."
+          "nome": "SERRALHARIA CIVIL-CARLOS ALBERTO & LEITE CORREIA, LDA."
         }
       ],
       "valor": 31000.0,
@@ -5131,7 +5131,7 @@
       "adjudicatarios": [
         {
           "nif": "502607556",
-          "nome": "Cunha &amp; Gomes - Informática e Contabilidade Lda"
+          "nome": "Cunha & Gomes - Informática e Contabilidade Lda"
         }
       ],
       "valor": 8175.8,
@@ -5347,7 +5347,7 @@
       "adjudicatarios": [
         {
           "nif": "500901694",
-          "nome": "DIAS &amp; VICENTES, LDA."
+          "nome": "DIAS & VICENTES, LDA."
         }
       ],
       "valor": 34772.5,
@@ -5968,7 +5968,7 @@
       "adjudicatarios": [
         {
           "nif": "501520791",
-          "nome": "BABCOCK &amp; WILCOX-PORTUGAL,SA"
+          "nome": "BABCOCK & WILCOX-PORTUGAL,SA"
         }
       ],
       "valor": 24025.68,
@@ -6616,7 +6616,7 @@
       "adjudicatarios": [
         {
           "nif": "505704099",
-          "nome": "Cunha &amp; Costa - Construção e Engenharia, Lda"
+          "nome": "Cunha & Costa - Construção e Engenharia, Lda"
         }
       ],
       "valor": 327800.96,
@@ -7561,7 +7561,7 @@
       "adjudicatarios": [
         {
           "nif": "503951064",
-          "nome": "SAMPAIO &amp; FILHO LDA"
+          "nome": "SAMPAIO & FILHO LDA"
         }
       ],
       "valor": 0.0,
@@ -8263,7 +8263,7 @@
       "adjudicatarios": [
         {
           "nif": "514915447",
-          "nome": "Nuno Rocha de Sousa &amp; César Cardoso, Lda."
+          "nome": "Nuno Rocha de Sousa & César Cardoso, Lda."
         }
       ],
       "valor": 15000.0,
@@ -8452,7 +8452,7 @@
       "adjudicatarios": [
         {
           "nif": "514310715",
-          "nome": "SOFIA DIAS &amp; VITOR RORIZ LDA"
+          "nome": "SOFIA DIAS & VITOR RORIZ LDA"
         }
       ],
       "valor": 20985.12,
@@ -9100,7 +9100,7 @@
       "adjudicatarios": [
         {
           "nif": "506442179",
-          "nome": "João Matos &amp; Ribeiro 2 - Obras Públicas e Engenharia Lda"
+          "nome": "João Matos & Ribeiro 2 - Obras Públicas e Engenharia Lda"
         }
       ],
       "valor": 226783.31,
@@ -9262,7 +9262,7 @@
       "adjudicatarios": [
         {
           "nif": "500119317",
-          "nome": "Francisco Coelho &amp; Filhos, Lda"
+          "nome": "Francisco Coelho & Filhos, Lda"
         }
       ],
       "valor": 410886.06,
@@ -9478,7 +9478,7 @@
       "adjudicatarios": [
         {
           "nif": "508468787",
-          "nome": "César &amp; Sérgio - Sociedade de Construção Civil, Lda"
+          "nome": "César & Sérgio - Sociedade de Construção Civil, Lda"
         }
       ],
       "valor": 83790.0,

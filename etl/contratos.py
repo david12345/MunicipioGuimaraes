@@ -19,6 +19,7 @@ Município é resolvido do dataset e validado como único.
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import re
 import sys
@@ -111,6 +112,25 @@ def _preco_efetivo(v) -> float | None:
     return None if preco == 0 else preco
 
 
+def _desescapar(texto: str) -> str:
+    """`Rei &amp; Rei, Lda.` → `Rei & Rei, Lda.`
+
+    O dataset do IMPIC publica os nomes com entidades HTML por escapar. Não é
+    uma alteração ao conteúdo: é o mesmo nome, escrito como a fonte o pretende.
+    Sem isto, o dashboard mostrava "&amp;" ao cidadão.
+
+    Há casos **duplamente** escapados (`&amp;amp;`), por isso repete-se até
+    estabilizar — com limite, para uma cadeia patológica não prender o ETL.
+    """
+    for _ in range(3):
+        if "&" not in texto:
+            break
+        anterior, texto = texto, html.unescape(texto)
+        if texto == anterior:
+            break
+    return texto
+
+
 def _texto(v) -> str | None:
     """Campo de texto do dataset, normalizado para `str` ou `None`.
 
@@ -125,7 +145,7 @@ def _texto(v) -> str | None:
         return v.isoformat(sep=" ")
     if isinstance(v, date):
         return v.isoformat()
-    return str(v)
+    return _desescapar(str(v))
 
 
 def _inteiro(v) -> int | None:
@@ -145,7 +165,7 @@ def _entidades(bruto) -> list[dict]:
         if not parte:
             continue
         if m := RE_ENTIDADE.match(parte):
-            nif, nome = m.group(1), m.group(2)
+            nif, nome = m.group(1), _desescapar(m.group(2))
             out.append(
                 {
                     # Só NIF de pessoa coletiva (regra 7).
@@ -154,9 +174,9 @@ def _entidades(bruto) -> list[dict]:
                 }
             )
         elif m := RE_ENTIDADE_SEM_NIF.match(parte):
-            out.append({"nif": None, "nome": m.group(1)})
+            out.append({"nif": None, "nome": _desescapar(m.group(1))})
         else:
-            out.append({"nif": None, "nome": parte})
+            out.append({"nif": None, "nome": _desescapar(parte)})
     return out
 
 
@@ -232,7 +252,7 @@ def processar_ano(
                 "tipo_contrato": _snake(linha[C_TIPO_CONTRATO]),
                 "tipo_procedimento": _snake(linha[C_TIPO_PROC]),
                 "adjudicante_nif": nif,
-                "adjudicante": nome,
+                "adjudicante": _desescapar(nome),
                 "adjudicante_municipio": e_municipio,
                 "adjudicatarios": adjudicatarios,
                 "valor": _euros(linha[C_PRECO]),

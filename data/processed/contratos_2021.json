@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "gerado_em": "2026-09-21T19:12:40.541583+00:00",
+    "gerado_em": "2026-09-21T21:29:16.920501+00:00",
     "script": "etl/contratos.py",
     "versao_modelo": "1.0",
     "fontes": [
@@ -190,7 +190,7 @@
       "adjudicatarios": [
         {
           "nif": "508468787",
-          "nome": "César &amp; Sérgio - Sociedade de Construção Civil, Lda"
+          "nome": "César & Sérgio - Sociedade de Construção Civil, Lda"
         }
       ],
       "valor": 169500.0,
@@ -514,7 +514,7 @@
       "adjudicatarios": [
         {
           "nif": "502607556",
-          "nome": "Cunha &amp; Gomes - Informática e Contabilidade Lda"
+          "nome": "Cunha & Gomes - Informática e Contabilidade Lda"
         }
       ],
       "valor": 43643.0,
@@ -1648,7 +1648,7 @@
       "adjudicatarios": [
         {
           "nif": "500901694",
-          "nome": "DIAS &amp; VICENTES,LDA"
+          "nome": "DIAS & VICENTES,LDA"
         }
       ],
       "valor": 2920.0,
@@ -1702,7 +1702,7 @@
       "adjudicatarios": [
         {
           "nif": "507304721",
-          "nome": "M &amp; M PROTEK - EQUIPAMENTO DE PROTECÇÃO INDIVIDUAL, LDA."
+          "nome": "M & M PROTEK - EQUIPAMENTO DE PROTECÇÃO INDIVIDUAL, LDA."
         }
       ],
       "valor": 2792.0,
@@ -1837,7 +1837,7 @@
       "adjudicatarios": [
         {
           "nif": "510747345",
-          "nome": "Cruz, Pereira, Amaral &amp; Associado, SROC, Lda."
+          "nome": "Cruz, Pereira, Amaral & Associado, SROC, Lda."
         }
       ],
       "valor": 13800.0,
@@ -2242,7 +2242,7 @@
       "adjudicatarios": [
         {
           "nif": "506442179",
-          "nome": "João Matos &amp; Ribeiro 2 - Obras Públicas e Engenharia, Lda"
+          "nome": "João Matos & Ribeiro 2 - Obras Públicas e Engenharia, Lda"
         }
       ],
       "valor": 22429.69,
@@ -2377,7 +2377,7 @@
       "adjudicatarios": [
         {
           "nif": "513108475",
-          "nome": "BALTAZAR MENDES, DUQUE VIEIRA &amp; ASSOCIADOS, SOCIEDADE DE ADVOGADOS, SP, RL,"
+          "nome": "BALTAZAR MENDES, DUQUE VIEIRA & ASSOCIADOS, SOCIEDADE DE ADVOGADOS, SP, RL,"
         }
       ],
       "valor": 36000.0,
@@ -2593,7 +2593,7 @@
       "adjudicatarios": [
         {
           "nif": "502607556",
-          "nome": "Cunha &amp; Gomes - Informática e Contabilidade Lda"
+          "nome": "Cunha & Gomes - Informática e Contabilidade Lda"
         }
       ],
       "valor": 10031.0,
@@ -3187,7 +3187,7 @@
       "adjudicatarios": [
         {
           "nif": "502607556",
-          "nome": "Cunha &amp; Gomes - Informática e Contabilidade Lda"
+          "nome": "Cunha & Gomes - Informática e Contabilidade Lda"
         }
       ],
       "valor": 8792.0,
@@ -3592,7 +3592,7 @@
       "adjudicatarios": [
         {
           "nif": "509580386",
-          "nome": "SOFIA CASTRO &amp; FILIPE SILVA, ARQUITETOS ASSOCIADOS"
+          "nome": "SOFIA CASTRO & FILIPE SILVA, ARQUITETOS ASSOCIADOS"
         }
       ],
       "valor": 10200.0,
@@ -3808,7 +3808,7 @@
       "adjudicatarios": [
         {
           "nif": "505106906",
-          "nome": "AUTO NUNES &amp; GUIMARAES, LDA."
+          "nome": "AUTO NUNES & GUIMARAES, LDA."
         }
       ],
       "valor": 37230.78,
@@ -3862,7 +3862,7 @@
       "adjudicatarios": [
         {
           "nif": "501520791",
-          "nome": "BABCOCK &amp; WILCOX-PORTUGAL,SA"
+          "nome": "BABCOCK & WILCOX-PORTUGAL,SA"
         }
       ],
       "valor": 25194.45,
@@ -4024,7 +4024,7 @@
       "adjudicatarios": [
         {
           "nif": "514030321",
-          "nome": "Oásis Plantas - Mendes &amp; Filhos, Lda"
+          "nome": "Oásis Plantas - Mendes & Filhos, Lda"
         }
       ],
       "valor": 9710.0,
@@ -4811,7 +4811,7 @@
       "adjudicatarios": [
         {
           "nif": "513108475",
-          "nome": "BALTAZAR MENDES, DUQUE VIEIRA &amp; ASSOCIADOS, SOCIEDADE DE ADVOGADOS, SP, RL,"
+          "nome": "BALTAZAR MENDES, DUQUE VIEIRA & ASSOCIADOS, SOCIEDADE DE ADVOGADOS, SP, RL,"
         }
       ],
       "valor": 19999.0,
@@ -5162,7 +5162,7 @@
       "adjudicatarios": [
         {
           "nif": "504829645",
-          "nome": "BRAS DE FARIA MACEDO &amp; FILHOS, LDA"
+          "nome": "BRAS DE FARIA MACEDO & FILHOS, LDA"
         }
       ],
       "valor": 24492.75,
@@ -6026,7 +6026,7 @@
       "adjudicatarios": [
         {
           "nif": "500589593",
-          "nome": "Augusto de Oliveira Ferreira &amp; Ca., Lda."
+          "nome": "Augusto de Oliveira Ferreira & Ca., Lda."
         }
       ],
       "valor": 38014.99,
@@ -6782,7 +6782,7 @@
       "adjudicatarios": [
         {
           "nif": "503472069",
-          "nome": "HIGINO PINHEIRO &amp; IRMÃO, S.A."
+          "nome": "HIGINO PINHEIRO & IRMÃO, S.A."
         }
       ],
       "valor": 389169.04,
@@ -7484,7 +7484,7 @@
       "adjudicatarios": [
         {
           "nif": "502897970",
-          "nome": "Rei &amp; Rei - Plásticos e Confecções, Ldª"
+          "nome": "Rei & Rei - Plásticos e Confecções, Ldª"
         }
       ],
       "valor": 43500.0,
@@ -7646,7 +7646,7 @@
       "adjudicatarios": [
         {
           "nif": "502046376",
-          "nome": "José Moreira Fernandes &amp; Filhos, S.A."
+          "nome": "José Moreira Fernandes & Filhos, S.A."
         }
       ],
       "valor": 82937.77,
@@ -8132,7 +8132,7 @@
       "adjudicatarios": [
         {
           "nif": "513108475",
-          "nome": "BALTAZAR MENDES, DUQUE VIEIRA &amp; ASSOCIADOS, SOCIEDADE DE ADVOGADOS, SP, RL,"
+          "nome": "BALTAZAR MENDES, DUQUE VIEIRA & ASSOCIADOS, SOCIEDADE DE ADVOGADOS, SP, RL,"
         }
       ],
       "valor": 50000.0,
@@ -8996,7 +8996,7 @@
       "adjudicatarios": [
         {
           "nif": "500907269",
-          "nome": "Friol - Oliveira &amp; Filho, Lda"
+          "nome": "Friol - Oliveira & Filho, Lda"
         }
       ],
       "valor": 4753.8,
@@ -9860,7 +9860,7 @@
       "adjudicatarios": [
         {
           "nif": "514030321",
-          "nome": "Oásis Plantas - Mendes &amp; Filhos, Lda"
+          "nome": "Oásis Plantas - Mendes & Filhos, Lda"
         }
       ],
       "valor": 12690.0,
@@ -10238,7 +10238,7 @@
       "adjudicatarios": [
         {
           "nif": "513796053",
-          "nome": "Carlos Veloso  - Music &amp; Events, Lda."
+          "nome": "Carlos Veloso  - Music & Events, Lda."
         }
       ],
       "valor": 34000.0,
@@ -10292,7 +10292,7 @@
       "adjudicatarios": [
         {
           "nif": "510747345",
-          "nome": "Cruz, Pereira, Amaral &amp; Associado, SROC, Lda."
+          "nome": "Cruz, Pereira, Amaral & Associado, SROC, Lda."
         }
       ],
       "valor": 13800.0,
@@ -10940,7 +10940,7 @@
       "adjudicatarios": [
         {
           "nif": "509580386",
-          "nome": "SOFIA CASTRO &amp; FILIPE SILVA, ARQUITETOS ASSOCIADOS"
+          "nome": "SOFIA CASTRO & FILIPE SILVA, ARQUITETOS ASSOCIADOS"
         }
       ],
       "valor": 6500.0,
@@ -11291,7 +11291,7 @@
       "adjudicatarios": [
         {
           "nif": "500173958",
-          "nome": "M. &amp; Costas, S.A."
+          "nome": "M. & Costas, S.A."
         }
       ],
       "valor": 17645.41,

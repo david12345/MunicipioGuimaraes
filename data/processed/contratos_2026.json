@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "gerado_em": "2026-09-21T19:15:05.589970+00:00",
+    "gerado_em": "2026-09-21T21:30:59.303999+00:00",
     "script": "etl/contratos.py",
     "versao_modelo": "1.0",
     "fontes": [
@@ -406,7 +406,7 @@
       "adjudicatarios": [
         {
           "nif": "504096664",
-          "nome": "SANTOS VAZ, TRIGO DE MORAIS &amp; ASSOCIADOS, SROC, LDª"
+          "nome": "SANTOS VAZ, TRIGO DE MORAIS & ASSOCIADOS, SROC, LDª"
         }
       ],
       "valor": 25920.0,
@@ -1027,7 +1027,7 @@
       "adjudicatarios": [
         {
           "nif": "514030321",
-          "nome": "Oásis Plantas - Mendes &amp; Filhos, Lda"
+          "nome": "Oásis Plantas - Mendes & Filhos, Lda"
         }
       ],
       "valor": 14350.0,
@@ -1405,7 +1405,7 @@
       "adjudicatarios": [
         {
           "nif": "501493336",
-          "nome": "Narciso de Carvalho &amp; Filhos, Lda"
+          "nome": "Narciso de Carvalho & Filhos, Lda"
         }
       ],
       "valor": 36780.0,
@@ -2971,7 +2971,7 @@
       "adjudicatarios": [
         {
           "nif": "504078500",
-          "nome": "G. CASTRO, R. SILVA, A. DIAS &amp; F. AMORIM SROC, LDA"
+          "nome": "G. CASTRO, R. SILVA, A. DIAS & F. AMORIM SROC, LDA"
         }
       ],
       "valor": 13940.0,
@@ -3862,7 +3862,7 @@
       "adjudicatarios": [
         {
           "nif": "500520658",
-          "nome": "Informa D&amp;B  ( Serviços de Gestão de Empresas) - Soc. Unipessoal, Lda"
+          "nome": "Informa D&B  ( Serviços de Gestão de Empresas) - Soc. Unipessoal, Lda"
         }
       ],
       "valor": 18300.0,
@@ -6130,7 +6130,7 @@
       "adjudicatarios": [
         {
           "nif": "509964087",
-          "nome": "Rui Trindade &amp; Associados - Corporate Finance &amp; International Business"
+          "nome": "Rui Trindade & Associados - Corporate Finance & International Business"
         }
       ],
       "valor": 19250.0,
@@ -6940,7 +6940,7 @@
       "adjudicatarios": [
         {
           "nif": "501211705",
-          "nome": "ADAO PEDRO VAZ FERNANDES &amp; COMPANHIA,LDA."
+          "nome": "ADAO PEDRO VAZ FERNANDES & COMPANHIA,LDA."
         }
       ],
       "valor": 7952.0,
@@ -6967,7 +6967,7 @@
       "adjudicatarios": [
         {
           "nif": "500912645",
-          "nome": "Ernst &amp; Young, S.A."
+          "nome": "Ernst & Young, S.A."
         }
       ],
       "valor": 19000.0,
@@ -7102,7 +7102,7 @@
       "adjudicatarios": [
         {
           "nif": "501520791",
-          "nome": "BABCOCK &amp; WILCOX PORTUGAL, SA"
+          "nome": "BABCOCK & WILCOX PORTUGAL, SA"
         }
       ],
       "valor": 41448.42,
@@ -7156,7 +7156,7 @@
       "adjudicatarios": [
         {
           "nif": "510930492",
-          "nome": "AVIA-TE TRAVEL &amp; EVENTS, UNIPESSOAL LDA."
+          "nome": "AVIA-TE TRAVEL & EVENTS, UNIPESSOAL LDA."
         }
       ],
       "valor": 97290.0,
@@ -7831,7 +7831,7 @@
       "adjudicatarios": [
         {
           "nif": "502607556",
-          "nome": "Cunha &amp; Gomes - Informática e Contabilidade Lda"
+          "nome": "Cunha & Gomes - Informática e Contabilidade Lda"
         }
       ],
       "valor": 21822.7,
@@ -9181,7 +9181,7 @@
       "adjudicatarios": [
         {
           "nif": "501493336",
-          "nome": "Narciso de Carvalho &amp; Filhos, Lda"
+          "nome": "Narciso de Carvalho & Filhos, Lda"
         }
       ],
       "valor": 90398.0,
@@ -9289,7 +9289,7 @@
       "adjudicatarios": [
         {
           "nif": "514030321",
-          "nome": "Oásis Plantas - Mendes &amp; Filhos, Lda"
+          "nome": "Oásis Plantas - Mendes & Filhos, Lda"
         }
       ],
       "valor": 45138.6,
@@ -10018,7 +10018,7 @@
       "adjudicatarios": [
         {
           "nif": "510093833",
-          "nome": "Maincapital Infrastructures &amp; Managed Services S.A."
+          "nome": "Maincapital Infrastructures & Managed Services S.A."
         }
       ],
       "valor": 26300.0,
@@ -11314,7 +11314,7 @@
       "adjudicatarios": [
         {
           "nif": "507304721",
-          "nome": "M&amp;M Protek - Equipamentos de Proteção Individual, Lda"
+          "nome": "M&M Protek - Equipamentos de Proteção Individual, Lda"
         }
       ],
       "valor": 24518.92,
@@ -11395,7 +11395,7 @@
       "adjudicatarios": [
         {
           "nif": "510539084",
-          "nome": "Ferreira Pinto &amp; Associados - Sociedade de Advogados, SP, RL"
+          "nome": "Ferreira Pinto & Associados - Sociedade de Advogados, SP, RL"
         }
       ],
       "valor": 180000.0,
@@ -11557,7 +11557,7 @@
       "adjudicatarios": [
         {
           "nif": "502851473",
-          "nome": "BMHAUDIO PORTUGAL HOLDINGS ? UNIPESSOAL, LDA &amp; COMANDITA"
+          "nome": "BMHAUDIO PORTUGAL HOLDINGS ? UNIPESSOAL, LDA & COMANDITA"
         }
       ],
       "valor": 25500.0,
@@ -11908,7 +11908,7 @@
       "adjudicatarios": [
         {
           "nif": "502607556",
-          "nome": "Cunha &amp; Gomes - Informática e Contabilidade Lda"
+          "nome": "Cunha & Gomes - Informática e Contabilidade Lda"
         }
       ],
       "valor": 1641.0,
@@ -12043,7 +12043,7 @@
       "adjudicatarios": [
         {
           "nif": "501493336",
-          "nome": "Narciso de Carvalho &amp; Filhos, Lda"
+          "nome": "Narciso de Carvalho & Filhos, Lda"
         }
       ],
       "valor": 65153.0,
@@ -12178,7 +12178,7 @@
       "adjudicatarios": [
         {
           "nif": "517567385",
-          "nome": "EDUARDO MOTA &amp; GERVÁSIO SILVA"
+          "nome": "EDUARDO MOTA & GERVÁSIO SILVA"
         }
       ],
       "valor": 2599855.59,
@@ -12637,7 +12637,7 @@
       "adjudicatarios": [
         {
           "nif": "502607556",
-          "nome": "Cunha &amp; Gomes - Informática e Contabilidade Lda"
+          "nome": "Cunha & Gomes - Informática e Contabilidade Lda"
         }
       ],
       "valor": 19968.5,
@@ -13204,7 +13204,7 @@
       "adjudicatarios": [
         {
           "nif": "500912645",
-          "nome": "Ernst &amp; Young, S.A."
+          "nome": "Ernst & Young, S.A."
         }
       ],
       "valor": 15000.0,
@@ -14635,7 +14635,7 @@
       "adjudicatarios": [
         {
           "nif": "500384436",
-          "nome": "Mendes &amp; Irmãos, S.A"
+          "nome": "Mendes & Irmãos, S.A"
         }
       ],
       "valor": 80894.1,
@@ -14905,7 +14905,7 @@
       "adjudicatarios": [
         {
           "nif": "500384436",
-          "nome": "Mendes &amp; Irmãos, S.A"
+          "nome": "Mendes & Irmãos, S.A"
         }
       ],
       "valor": 34121.09,
@@ -15850,7 +15850,7 @@
       "adjudicatarios": [
         {
           "nif": "513495207",
-          "nome": "Taxis João Luis &amp; Fernandes,Lda"
+          "nome": "Taxis João Luis & Fernandes,Lda"
         }
       ],
       "valor": 29416.59,
@@ -15904,7 +15904,7 @@
       "adjudicatarios": [
         {
           "nif": "514030321",
-          "nome": "Oásis Plantas - Mendes &amp; Filhos, Lda"
+          "nome": "Oásis Plantas - Mendes & Filhos, Lda"
         }
       ],
       "valor": 12100.55,
@@ -15958,7 +15958,7 @@
       "adjudicatarios": [
         {
           "nif": "500384436",
-          "nome": "Mendes &amp; Irmãos, S.A"
+          "nome": "Mendes & Irmãos, S.A"
         }
       ],
       "valor": 238211.25,
@@ -15985,7 +15985,7 @@
       "adjudicatarios": [
         {
           "nif": "500384436",
-          "nome": "Mendes &amp; Irmãos, S.A"
+          "nome": "Mendes & Irmãos, S.A"
         }
       ],
       "valor": 58796.0,
@@ -16012,7 +16012,7 @@
       "adjudicatarios": [
         {
           "nif": "500384436",
-          "nome": "Mendes &amp; Irmãos, S.A"
+          "nome": "Mendes & Irmãos, S.A"
         }
       ],
       "valor": 39480.24,

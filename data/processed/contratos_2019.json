@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "gerado_em": "2026-09-21T19:11:51.184583+00:00",
+    "gerado_em": "2026-09-21T21:28:43.508335+00:00",
     "script": "etl/contratos.py",
     "versao_modelo": "1.0",
     "fontes": [
@@ -973,7 +973,7 @@
       "adjudicatarios": [
         {
           "nif": "502607556",
-          "nome": "Cunha &amp; Gomes"
+          "nome": "Cunha & Gomes"
         }
       ],
       "valor": 7755.0,
@@ -1027,7 +1027,7 @@
       "adjudicatarios": [
         {
           "nif": "505208288",
-          "nome": "Pedro Oliveira &amp; Paulo Pinheiro, Lda."
+          "nome": "Pedro Oliveira & Paulo Pinheiro, Lda."
         }
       ],
       "valor": 6000.0,
@@ -1459,7 +1459,7 @@
       "adjudicatarios": [
         {
           "nif": "502068213",
-          "nome": "IMOBILIARIA FALANCES &amp; FONTES,LDA"
+          "nome": "IMOBILIARIA FALANCES & FONTES,LDA"
         }
       ],
       "valor": 13811.32,
@@ -1621,7 +1621,7 @@
       "adjudicatarios": [
         {
           "nif": "506584020",
-          "nome": "JPAB - José Pedro Aguiar Branco &amp; Associados, Sociedade de Advogados, SPRL"
+          "nome": "JPAB - José Pedro Aguiar Branco & Associados, Sociedade de Advogados, SPRL"
         }
       ],
       "valor": 19000.0,
@@ -1675,7 +1675,7 @@
       "adjudicatarios": [
         {
           "nif": "514742887",
-          "nome": "GYMNOS - MANUEL PASTOR COSTA &amp; MARTHA, LDA"
+          "nome": "GYMNOS - MANUEL PASTOR COSTA & MARTHA, LDA"
         }
       ],
       "valor": 38797.0,
@@ -1945,7 +1945,7 @@
       "adjudicatarios": [
         {
           "nif": "502907100",
-          "nome": "José Borda &amp; CA, LDA."
+          "nome": "José Borda & CA, LDA."
         }
       ],
       "valor": 34168.8,
@@ -2431,7 +2431,7 @@
       "adjudicatarios": [
         {
           "nif": "502046376",
-          "nome": "JOSÉ MOREIRA FERNANDES &amp; FILHOS, S.A."
+          "nome": "JOSÉ MOREIRA FERNANDES & FILHOS, S.A."
         }
       ],
       "valor": 34022.99,
@@ -3457,7 +3457,7 @@
       "adjudicatarios": [
         {
           "nif": "501211705",
-          "nome": "ADAO PEDRO VAZ FERNANDES &amp; COMPANHIA,LDA."
+          "nome": "ADAO PEDRO VAZ FERNANDES & COMPANHIA,LDA."
         }
       ],
       "valor": 17998.5,
@@ -3700,7 +3700,7 @@
       "adjudicatarios": [
         {
           "nif": "513796053",
-          "nome": "Carlos Veloso  - Music &amp; Events, Lda."
+          "nome": "Carlos Veloso  - Music & Events, Lda."
         }
       ],
       "valor": 34500.0,
@@ -3862,7 +3862,7 @@
       "adjudicatarios": [
         {
           "nif": "513108475",
-          "nome": "BALTAZAR MENDES, DUQUE VIEIRA &amp; ASSOCIADOS - SOCIEDADE DE ADVOGADOS, RL."
+          "nome": "BALTAZAR MENDES, DUQUE VIEIRA & ASSOCIADOS - SOCIEDADE DE ADVOGADOS, RL."
         }
       ],
       "valor": 9999.0,
@@ -3916,7 +3916,7 @@
       "adjudicatarios": [
         {
           "nif": "513108475",
-          "nome": "BALTAZAR MENDES, DUQUE VIEIRA &amp; ASSOCIADOS - SOCIEDADE DE ADVOGADOS, RL."
+          "nome": "BALTAZAR MENDES, DUQUE VIEIRA & ASSOCIADOS - SOCIEDADE DE ADVOGADOS, RL."
         }
       ],
       "valor": 9999.0,
@@ -4240,7 +4240,7 @@
       "adjudicatarios": [
         {
           "nif": "514030321",
-          "nome": "Oásis Plantas - Mendes &amp; Filhos, Lda"
+          "nome": "Oásis Plantas - Mendes & Filhos, Lda"
         }
       ],
       "valor": 56240.0,
@@ -4699,7 +4699,7 @@
       "adjudicatarios": [
         {
           "nif": "501520791",
-          "nome": "BABCOCK &amp; WILCOX-PORTUGAL,SA"
+          "nome": "BABCOCK & WILCOX-PORTUGAL,SA"
         }
       ],
       "valor": 28466.27,
@@ -5374,7 +5374,7 @@
       "adjudicatarios": [
         {
           "nif": "509580386",
-          "nome": "SOFIA CASTRO &amp; FILIPE SILVA, ARQUITETOS ASSOCIADOS"
+          "nome": "SOFIA CASTRO & FILIPE SILVA, ARQUITETOS ASSOCIADOS"
         }
       ],
       "valor": 32000.0,
@@ -6616,7 +6616,7 @@
       "adjudicatarios": [
         {
           "nif": "502607556",
-          "nome": "Cunha &amp; Gomes, Informática &amp; Contabilidade, Lda."
+          "nome": "Cunha & Gomes, Informática & Contabilidade, Lda."
         }
       ],
       "valor": 20724.48,
@@ -6859,7 +6859,7 @@
       "adjudicatarios": [
         {
           "nif": "504829645",
-          "nome": "BRÁS DE FARIA MACEDO &amp; FILHOS, LDA."
+          "nome": "BRÁS DE FARIA MACEDO & FILHOS, LDA."
         }
       ],
       "valor": 120666.0,
@@ -6940,7 +6940,7 @@
       "adjudicatarios": [
         {
           "nif": "502046376",
-          "nome": "José Moreira Fernandes &amp; Filhos, S.A."
+          "nome": "José Moreira Fernandes & Filhos, S.A."
         }
       ],
       "valor": 35294.72,
@@ -7264,7 +7264,7 @@
       "adjudicatarios": [
         {
           "nif": "506442179",
-          "nome": "João Matos &amp; Ribeiro 2 - Obras Públicas e Engenharia Lda"
+          "nome": "João Matos & Ribeiro 2 - Obras Públicas e Engenharia Lda"
         }
       ],
       "valor": 94930.0,
@@ -7669,7 +7669,7 @@
       "adjudicatarios": [
         {
           "nif": "502607556",
-          "nome": "Cunha &amp; Gomes, Informática &amp; Contabilidade, Lda."
+          "nome": "Cunha & Gomes, Informática & Contabilidade, Lda."
         }
       ],
       "valor": 29801.0,
@@ -7858,7 +7858,7 @@
       "adjudicatarios": [
         {
           "nif": "502068213",
-          "nome": "IMOBILIARIA FALANCES &amp; FONTES,LDA"
+          "nome": "IMOBILIARIA FALANCES & FONTES,LDA"
         }
       ],
       "valor": 14433.96,
@@ -7912,7 +7912,7 @@
       "adjudicatarios": [
         {
           "nif": "505653800",
-          "nome": "José Ramiro &amp; Alves, Lda."
+          "nome": "José Ramiro & Alves, Lda."
         }
       ],
       "valor": 10690.9,
@@ -8587,7 +8587,7 @@
       "adjudicatarios": [
         {
           "nif": "503162868",
-          "nome": "Moreira &amp; Augusto, Lda"
+          "nome": "Moreira & Augusto, Lda"
         }
       ],
       "valor": 146352.2,
@@ -8722,7 +8722,7 @@
       "adjudicatarios": [
         {
           "nif": "502046376",
-          "nome": "José Moreira Fernandes &amp; Filhos, S.A."
+          "nome": "José Moreira Fernandes & Filhos, S.A."
         }
       ],
       "valor": 34613.39,
@@ -9424,7 +9424,7 @@
       "adjudicatarios": [
         {
           "nif": "504078500",
-          "nome": "G. Castro, R. Silva, A. Dias &amp; F. Amorim, SROC, Lda."
+          "nome": "G. Castro, R. Silva, A. Dias & F. Amorim, SROC, Lda."
         }
       ],
       "valor": 9900.0,
@@ -9478,7 +9478,7 @@
       "adjudicatarios": [
         {
           "nif": "502046376",
-          "nome": "José Moreira Fernandes &amp; Filhos, S.A."
+          "nome": "José Moreira Fernandes & Filhos, S.A."
         }
       ],
       "valor": 50976.0,
@@ -10180,7 +10180,7 @@
       "adjudicatarios": [
         {
           "nif": "503472069",
-          "nome": "Higino Pinheiro &amp; Irmão S.A."
+          "nome": "Higino Pinheiro & Irmão S.A."
         }
       ],
       "valor": 347891.04,
@@ -10666,7 +10666,7 @@
       "adjudicatarios": [
         {
           "nif": "514807440",
-          "nome": "EACAMPOS - Soluções para Topografia &amp; Vídeo, Lda."
+          "nome": "EACAMPOS - Soluções para Topografia & Vídeo, Lda."
         }
       ],
       "valor": 9000.0,
@@ -11368,7 +11368,7 @@
       "adjudicatarios": [
         {
           "nif": "513796053",
-          "nome": "Carlos Veloso  - Music &amp; Events, Lda."
+          "nome": "Carlos Veloso  - Music & Events, Lda."
         }
       ],
       "valor": 28000.0,
@@ -11530,7 +11530,7 @@
       "adjudicatarios": [
         {
           "nif": "500907269",
-          "nome": "Friol - Oliveira &amp; Filho, Lda"
+          "nome": "Friol - Oliveira & Filho, Lda"
         }
       ],
       "valor": 10150.07,
