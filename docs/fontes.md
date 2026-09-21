@@ -213,6 +213,14 @@ desvio, ao inserir o DITDE em e) e renumerar as seguintes. Nenhuma página da
 CMG liga a S38 — foi localizado por pesquisa e confirmado no Diário da
 República.
 
+### Documentos que NÃO são de Guimarães
+
+Durante esta verificação, motores de busca atribuíram a Guimarães dois atos de
+2026 que são de outros municípios — confirmado nos sumários do DR: o
+**Regulamento n.º 83/2026** é de **Alfândega da Fé** e o **Despacho n.º
+3836/2026** é da **Amadora**. Não entram no inventário. Ver
+`qualidade_dados.md`.
+
 ### Porque é que o organograma não substitui o texto
 
 O organograma é **verificação cruzada**, e boa: foi a ausência do GASI no

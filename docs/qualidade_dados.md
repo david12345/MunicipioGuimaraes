@@ -77,6 +77,35 @@ Estas persistem mesmo com acesso à rede e condicionam o desenho do dashboard.
 | L23 | A CMG **reutiliza siglas** entre unidades diferentes | Uma árvore chaveada pela sigla junta unidades distintas ou perde-as | `DF` é Departamento Financeiro **e** Divisão de Fiscalização; `DE` é Divisão de Empreitadas **e** Divisão de Educação; depois de 2024, `DCT` é Departamento de Cultura e Turismo **e** Divisão de Contabilidade e Tesouraria. O `id` da árvore é qualificado com a unidade-mãe nas colisões; a `sigla` publicada fica num campo à parte |
 | L24 | Divergências entre o texto normativo e o organograma publicado | Pequenas, mas não devem ser corrigidas em silêncio | O DR escreve `(DCG)` para o Gabinete de Contabilidade de Gestão, o organograma escreve `GCG`. O DR **não atribui sigla** à Divisão de Mobilidade, que o organograma trata por `DM` — no JSON a `sigla` fica `null`, não é copiada do organograma. O texto normativo prevalece; as divergências constam dos avisos do ficheiro |
 
+### Verificação — não há reestruturação orgânica de 2026 em Guimarães
+
+Ao procurar o elo em falta da estrutura orgânica (L22), motores de busca
+devolveram dois documentos que pareciam ser uma reestruturação de 2026 do
+Município de Guimarães. **Não são.** Confirmado nos sumários do Diário da
+República, que são fonte primária e listam cada ato com a entidade emissora:
+
+| Documento | DR | Entidade real |
+|---|---|---|
+| Regulamento n.º 83/2026 — *Regulamento Interno dos Serviços Municipais e Estrutura Orgânica para 2026* | 2.ª série n.º 16, 23-01-2026 | **Município de Alfândega da Fé** |
+| Despacho n.º 3836/2026 — equiparação do coordenador municipal de proteção civil e criação de unidades orgânicas | 2.ª série n.º 58, 24-03-2026 | **Município da Amadora** |
+
+É o caso exemplar da regra 1: o resumo do motor de busca juntou atos de três
+municípios diferentes numa narrativa plausível sobre Guimarães. Só a leitura do
+sumário oficial desfez o engano.
+
+Três indícios primários confirmam que a estrutura em vigor é a de 2024:
+
+1. A página do organograma da CMG serve hoje `organica_2023.pdf` e
+   `organograma_06_24.pdf` — não há documento posterior.
+2. A página S04 (setembro de 2024) descreve o Despacho 9070/2024 como a
+   alteração mais recente.
+3. O **Mapa de Pessoal 2026**, publicado pela própria CMG, organiza-se pelas
+   unidades posteriores ao Despacho 6751/2024 (incluindo o Departamento de
+   Cultura e Turismo) e não conhece nenhum departamento novo.
+
+**A confirmar antes da Fase 3**, por não ser possível excluir por estes meios
+uma alteração publicada e ainda não refletida no site.
+
 ### Nota operacional — o INE bloqueia quem insiste
 
 Ao procurar a série de população (L14) encadearam-se pedidos rápidos à API do INE
