@@ -1,0 +1,54 @@
+{
+  "_meta": {
+    "gerado_em": "2026-09-21T18:51:15.373988+00:00",
+    "script": "etl/quem_governa.py",
+    "versao_modelo": "1.0",
+    "fontes": [
+      "S02",
+      "S37"
+    ],
+    "avisos": [
+      "S02 só discrimina as forças com mandato: as percentagens somam 90.89%. Os restantes 9.11% não estão repartidos na fonte, e não são inventados aqui."
+    ]
+  },
+  "camara_municipal": {
+    "total_mandatos": 11,
+    "votos_totais": null,
+    "abstencao": null,
+    "resultados": [
+      {
+        "forca_politica": "PPD/PSD.CDS-PP",
+        "coligacao": "Juntos por Guimarães",
+        "votos": null,
+        "percentagem": 45.33,
+        "mandatos": 6,
+        "fonte_id": "S02"
+      },
+      {
+        "forca_politica": "PS",
+        "coligacao": null,
+        "votos": null,
+        "percentagem": 37.5,
+        "mandatos": 4,
+        "fonte_id": "S02"
+      },
+      {
+        "forca_politica": "CH",
+        "coligacao": null,
+        "votos": null,
+        "percentagem": 8.06,
+        "mandatos": 1,
+        "fonte_id": "S02"
+      }
+    ],
+    "fonte_id": "S02"
+  },
+  "assembleia_municipal": {
+    "total_mandatos": 111,
+    "mandatos_eleitos": 56,
+    "mandatos_inerencia": 55,
+    "resultados": [],
+    "fonte_id": "S37"
+  },
+  "freguesias": []
+}

@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "gerado_em": "2026-09-21T18:21:30.828352+00:00",
+    "gerado_em": "2026-09-21T18:51:15.197596+00:00",
     "script": "etl/common/fontes.py",
     "versao_modelo": "1.0",
-    "total_fontes": 9,
-    "fontes_descarregadas": 0
+    "total_fontes": 22,
+    "fontes_descarregadas": 22
   },
   "dados": {
     "S01": {
@@ -13,15 +13,16 @@
       "url": "https://www.cm-guimaraes.pt/municipio/camara-municipal/executivo-municipal",
       "formato": "html",
       "periodicidade": "por_mandato",
-      "verificacao": "URL-S",
+      "verificacao": "PRIM",
       "alimenta": [
         "executivo.json"
       ],
+      "limitacoes": "Pelouros em prosa, nao tabelados. Nao traz votos nem mandatos.",
       "id": "S01",
-      "ficheiro_raw": null,
-      "sha256": null,
-      "data_download": null,
-      "descarregado": false
+      "ficheiro_raw": "data/raw/2026-09-21_executivo-municipal",
+      "sha256": "537ada2409c2229c2ac8192e7457b7edfbe0b5e0f6aa18e4af3247b61e07cd5a",
+      "data_download": "2026-09-21",
+      "descarregado": true
     },
     "S05": {
       "nome": "Orgânica dos Serviços Municipais 2023 (DR 2.ª série n.º 251, 30-12-2022)",
@@ -30,33 +31,31 @@
       "formato": "pdf",
       "ano_referencia": 2023,
       "periodicidade": "irregular",
-      "verificacao": "URL-S",
+      "verificacao": "DESC",
       "alimenta": [
         "estrutura_organica.json"
       ],
       "limitacoes": "Alterado pelo Despacho 9070/2024 (S06) - aplicar antes de publicar.",
       "id": "S05",
-      "ficheiro_raw": null,
-      "sha256": null,
-      "data_download": null,
-      "descarregado": false
+      "ficheiro_raw": "data/raw/2026-09-21_organica_2023.pdf",
+      "sha256": "2cf1e390ee99f3b166516398f48fcea2b107670d2b362d1181ff6499e8e17e54",
+      "data_download": "2026-09-21",
+      "descarregado": true
     },
     "S07": {
-      "nome": "Mapa de Pessoal",
+      "nome": "Mapa de Pessoal (índice)",
       "entidade": "Município de Guimarães",
       "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/educacao-e-recursos-humanos/recursos-humanos/mapa-de-pessoal",
       "formato": "html",
       "periodicidade": "anual",
-      "verificacao": "URL-S",
-      "alimenta": [
-        "mapa_pessoal.json"
-      ],
-      "limitacoes": "Página índice; os PDF anuais são descobertos a partir daqui.",
+      "verificacao": "PRIM",
+      "limitacoes": "Pagina indice; os PDF anuais sao descobertos a partir daqui.",
       "id": "S07",
-      "ficheiro_raw": null,
-      "sha256": null,
-      "data_download": null,
-      "descarregado": false
+      "e_indice": true,
+      "ficheiro_raw": "data/raw/2026-09-21_mapa-de-pessoal",
+      "sha256": "9b8c59a115edff9d505fd3c5270f9e09cd9d1f3233136c431cbc6ae0b14c77ba",
+      "data_download": "2026-09-21",
+      "descarregado": true
     },
     "S10": {
       "nome": "Relatório e Contas 2021",
@@ -65,15 +64,15 @@
       "formato": "pdf",
       "ano_referencia": 2021,
       "periodicidade": "anual",
-      "verificacao": "URL-S",
+      "verificacao": "DESC",
       "alimenta": [
         "orcamento.json"
       ],
       "id": "S10",
-      "ficheiro_raw": null,
-      "sha256": null,
-      "data_download": null,
-      "descarregado": false
+      "ficheiro_raw": "data/raw/2026-09-21_relatorio_e_contas_2021.pdf",
+      "sha256": "0282e9b20e83a74cd15a72e4c89d81d948545c5a663b344e7245d5ae2322acc7",
+      "data_download": "2026-09-21",
+      "descarregado": true
     },
     "S11": {
       "nome": "Consolidação de Contas 2023",
@@ -82,85 +81,319 @@
       "formato": "pdf",
       "ano_referencia": 2023,
       "periodicidade": "anual",
-      "verificacao": "URL-S",
+      "verificacao": "DESC",
       "alimenta": [
         "empresas_municipais.json"
       ],
-      "limitacoes": "Fonte do perímetro de consolidação; resolve os NIF para o ETL de contratos.",
+      "limitacoes": "Fonte do perimetro de consolidacao; resolve os NIF para o ETL de contratos.",
       "id": "S11",
-      "ficheiro_raw": null,
-      "sha256": null,
-      "data_download": null,
-      "descarregado": false
+      "ficheiro_raw": "data/raw/2026-09-21_consolidacao_de_contas_2023.pdf",
+      "sha256": "3a405d732ae675ccb12c851efff343e6e95540873e8869d3698ae06919e7d505",
+      "data_download": "2026-09-21",
+      "descarregado": true
     },
     "S16": {
-      "nome": "Mapa oficial dos resultados das eleições autárquicas 2025",
-      "entidade": "Município de Guimarães / CNE",
+      "nome": "Mapa oficial dos resultados das eleições autárquicas 2025 (notícia CMG)",
+      "entidade": "Município de Guimarães",
       "url": "https://www.cm-guimaraes.pt/noticias/noticia/mapa-oficial-dos-resultados-das-eleicoes-autarquicas",
       "formato": "html",
       "ano_referencia": 2025,
       "periodicidade": "por_eleicao",
-      "verificacao": "URL-S",
-      "alimenta": [
-        "orgaos_eleitos.json"
-      ],
-      "limitacoes": "Fonte com valor legal para a regra 5. Prioritária sobre imprensa.",
+      "verificacao": "PRIM",
+      "limitacoes": "Noticia, nao o documento. Remete para o Mapa Oficial n.o 2-B/2025, publicado em DR de 17-12-2025 e aprovado pela CNE em 16-12-2025 - esse e que tem valor legal para a regra 5, e e descoberto a partir daqui.",
       "id": "S16",
-      "ficheiro_raw": null,
-      "sha256": null,
-      "data_download": null,
-      "descarregado": false
+      "e_indice": true,
+      "ficheiro_raw": "data/raw/2026-09-21_mapa-oficial-dos-resultados-das-eleicoes-autarquicas",
+      "sha256": "cf941e01326249ca687c25f28cbe9aab4fb19790bf9d2af21f5ffe2b0f2e2028",
+      "data_download": "2026-09-21",
+      "descarregado": true
     },
     "S23": {
-      "nome": "Contratos Públicos - Portal BASE (IMPIC), via dados.gov.pt",
+      "nome": "Contratos Públicos - Portal BASE (IMPIC), via dados.gov.pt (índice)",
       "entidade": "IMPIC / AMA",
-      "url": "https://dados.gov.pt/pt/datasets/contratos-publicos-portal-base-impic-contratos-de-2012-a-2025/",
-      "formato": "xlsx",
+      "url": "https://dados.gov.pt/pt/datasets/contratos-publicos-portal-base-impic-contratos-de-2012-a-2026/",
+      "formato": "html",
       "periodicidade": "semanal",
-      "verificacao": "URL-S",
-      "alimenta": [
-        "contratos_<ano>.json"
-      ],
-      "limitacoes": "Dataset nacional. Filtrar por NIF do adjudicante. Desfasamento ate 7 dias.",
+      "verificacao": "PRIM",
+      "limitacoes": "Pagina do dataset. Os ficheiros sao um XLSX por ano e o URL inclui um carimbo temporal que roda a cada publicacao semanal - por isso sao descobertos, nao fixados.",
       "id": "S23",
-      "ficheiro_raw": null,
-      "sha256": null,
-      "data_download": null,
-      "descarregado": false
+      "e_indice": true,
+      "ficheiro_raw": "data/raw/2026-09-21_contratos-publicos-portal-base-impic-contratos-de-2012-a-2026",
+      "sha256": "4a3484acbdd533a787549e506606179063c62314f712de59d4e7e9dea37841b7",
+      "data_download": "2026-09-21",
+      "descarregado": true
     },
     "S27": {
       "nome": "Portal Autárquico - finanças locais",
       "entidade": "DGAL",
-      "url": "https://www.portalautarquico.dgal.gov.pt/",
+      "url": "https://portalautarquico.dgal.gov.pt/",
       "formato": "xlsx",
       "periodicidade": "trimestral",
-      "verificacao": "CONHEC",
+      "verificacao": "URL-S",
       "alimenta": [
         "comparacao.json"
       ],
-      "limitacoes": "Series ja normalizadas entre municipios - unica base admissivel para comparar.",
+      "limitacoes": "Series ja normalizadas entre municipios - unica base admissivel para comparar. Servem certificado *.dgal.gov.pt, que nao cobre www.portalautarquico.dgal.gov.pt: usar o host sem www. O URL exato dos quadros ainda nao esta localizado (L13).",
       "id": "S27",
-      "ficheiro_raw": null,
-      "sha256": null,
-      "data_download": null,
-      "descarregado": false
+      "ficheiro_raw": "data/raw/2026-09-21_portalautarquico.dgal.gov.pt",
+      "sha256": "adce892ff5fda96d12adb299656292e6b3b923fa8b6c06ae9510e964fdd27923",
+      "data_download": "2026-09-21",
+      "descarregado": true
     },
     "S32": {
       "nome": "INE - população residente (estimativas anuais)",
       "entidade": "INE",
       "url": "https://www.ine.pt/",
-      "formato": "xlsx",
+      "formato": "html",
       "periodicidade": "anual",
-      "verificacao": "CONHEC",
-      "alimenta": [
-        "populacao.json"
-      ],
-      "limitacoes": "Denominador de todas as metricas per capita. Usar uma unica serie.",
+      "verificacao": "URL-S",
+      "limitacoes": "Denominador de todas as metricas per capita. O URL e a homepage, NAO a serie: o quadro de estimativas ainda nao esta localizado (L14). Nao usar ate estar. Rejeita HEAD; o check-acesso usa GET.",
       "id": "S32",
-      "ficheiro_raw": null,
-      "sha256": null,
-      "data_download": null,
-      "descarregado": false
+      "ficheiro_raw": "data/raw/2026-09-21_www.ine.pt",
+      "sha256": "ef84bd923b7f9815325c5fc05af6bdcc2caa4bedb2937315876cdf0127904b66",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S02": {
+      "nome": "Câmara Municipal (composição e resultados eleitorais)",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/municipio/camara-municipal",
+      "formato": "html",
+      "ano_referencia": 2025,
+      "periodicidade": "por_mandato",
+      "verificacao": "PRIM",
+      "alimenta": [
+        "orgaos_eleitos.json",
+        "executivo.json"
+      ],
+      "limitacoes": "Unica fonte obtida com percentagens e mandatos por forca politica. So lista as forcas COM mandato (45,33+37,50+8,06 = 90,89%): os ~9% restantes nao estao discriminados. NAO traz votos absolutos nem abstencao. Lista os 11 vereadores e e a referencia para o cruzamento com S01.",
+      "id": "S02",
+      "ficheiro_raw": "data/raw/2026-09-21_camara-municipal",
+      "sha256": "9e010dda5768096fb330d0785179bc3bc4b022da0b4d3f457592122f2d43d47a",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S17": {
+      "nome": "Resultados finais homologados das eleições autárquicas 2025",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/areas-de-intervencao/noticia/resultados-finais-homologados-das-ultimas-eleicoes-autarquicas",
+      "formato": "html",
+      "ano_referencia": 2025,
+      "periodicidade": "por_eleicao",
+      "verificacao": "PRIM",
+      "limitacoes": "Noticia de 16-10-2025. Aponta para o Edital de Apuramento Geral (homologado a 15-10-2025 pela juiza presidente da Assembleia de Apuramento Geral), que seria a fonte local com valor legal - mas o URL publicado devolve 404 (ver L15).",
+      "id": "S17",
+      "ficheiro_raw": "data/raw/2026-09-21_resultados-finais-homologados-das-ultimas-eleicoes-autarquicas",
+      "sha256": "cb39bfb223a2a9ff473c325b861e6898547623a1b0e3f9de8b3e79cdc6f0b9da",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S37": {
+      "nome": "Assembleia Municipal (composição do órgão)",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/municipio/assembleia-municipal",
+      "formato": "html",
+      "periodicidade": "por_mandato",
+      "verificacao": "PRIM",
+      "alimenta": [
+        "orgaos_eleitos.json"
+      ],
+      "limitacoes": "Da a dimensao do orgao (111 membros: 56 eleitos diretamente + 55 presidentes de junta) mas NAO a distribuicao por forca politica nem os nomes (L16).",
+      "id": "S37",
+      "ficheiro_raw": "data/raw/2026-09-21_assembleia-municipal",
+      "sha256": "92bc78718ae853c501d007b5d30f1b5eb10b1bbfbe7d9b7405cb7ca8eeb25078",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S07-2026": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "anual",
+      "verificacao": "PRIM",
+      "limitacoes": "Tabela larga em PDF; risco de digitalizado (OCR). So agregados (regra 7).",
+      "nome": "Mapa de Pessoal 2026",
+      "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/document/file/25146/mapa_de_pessoal_2026.pdf",
+      "formato": "pdf",
+      "descoberta_via": "S07",
+      "alimenta": [
+        "mapa_pessoal.json"
+      ],
+      "ano_referencia": 2026,
+      "id": "S07-2026",
+      "ficheiro_raw": "data/raw/2026-09-21_mapa_de_pessoal_2026.pdf",
+      "sha256": "59afeaeb60970f37f6d21ab2586a28fca101219db6ea77a6f1af1a38a119a7df",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S16-DRE": {
+      "entidade": "Município de Guimarães",
+      "periodicidade": "por_eleicao",
+      "verificacao": "PRIM",
+      "limitacoes": "Documento nacional (~149 MB). Contem votos, mandatos e eleitos proclamados de todos os municipios; extrair apenas a parte de Guimaraes.",
+      "nome": "Mapa Oficial n.º 2-B/2025 (DR 1.ª série, 17-12-2025)",
+      "url": "https://files.diariodarepublica.pt/1s/2025/12/24201/0000200612.pdf",
+      "formato": "pdf",
+      "descoberta_via": "S16",
+      "ano_referencia": 2025,
+      "alimenta": [
+        "orgaos_eleitos.json"
+      ],
+      "id": "S16-DRE",
+      "ficheiro_raw": "data/raw/2026-09-21_0000200612.pdf",
+      "sha256": "c55b607e4b7e8ef0b6e1a78e9725034fe22bbb40c2f63c77c65021c3f4aedbca",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S23-2019": {
+      "entidade": "IMPIC / AMA",
+      "periodicidade": "semanal",
+      "verificacao": "PRIM",
+      "limitacoes": "Dataset nacional. Filtrar pelos NIF do adjudicante resolvidos a partir do perimetro de consolidacao (S11). Desfasamento ate 7 dias.",
+      "nome": "Contratos públicos BASE/IMPIC - 2019",
+      "url": "https://dados.gov.pt/s/resources/contratos-publicos-portal-base-impic-contratos-de-2012-a-2026/20260920-114053-c1c1d9ea/contratos2019.xlsx",
+      "formato": "xlsx",
+      "descoberta_via": "S23",
+      "alimenta": [
+        "contratos_2019.json"
+      ],
+      "ano_referencia": 2019,
+      "id": "S23-2019",
+      "ficheiro_raw": "data/raw/2026-09-21_contratos2019.xlsx",
+      "sha256": "7fdd3e6b89245b78af7bc3aad46f0fdd354f70b3269fbb11537b6194781cd491",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S23-2020": {
+      "entidade": "IMPIC / AMA",
+      "periodicidade": "semanal",
+      "verificacao": "PRIM",
+      "limitacoes": "Dataset nacional. Filtrar pelos NIF do adjudicante resolvidos a partir do perimetro de consolidacao (S11). Desfasamento ate 7 dias.",
+      "nome": "Contratos públicos BASE/IMPIC - 2020",
+      "url": "https://dados.gov.pt/s/resources/contratos-publicos-portal-base-impic-contratos-de-2012-a-2026/20260920-114059-6bf0e9fa/contratos2020.xlsx",
+      "formato": "xlsx",
+      "descoberta_via": "S23",
+      "alimenta": [
+        "contratos_2020.json"
+      ],
+      "ano_referencia": 2020,
+      "id": "S23-2020",
+      "ficheiro_raw": "data/raw/2026-09-21_contratos2020.xlsx",
+      "sha256": "61c91230938edfd07836bed9ee25fbc87c1e883849854950fc613319bc5148f0",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S23-2021": {
+      "entidade": "IMPIC / AMA",
+      "periodicidade": "semanal",
+      "verificacao": "PRIM",
+      "limitacoes": "Dataset nacional. Filtrar pelos NIF do adjudicante resolvidos a partir do perimetro de consolidacao (S11). Desfasamento ate 7 dias.",
+      "nome": "Contratos públicos BASE/IMPIC - 2021",
+      "url": "https://dados.gov.pt/s/resources/contratos-publicos-portal-base-impic-contratos-de-2012-a-2026/20260920-114107-896e2bb4/contratos2021.xlsx",
+      "formato": "xlsx",
+      "descoberta_via": "S23",
+      "alimenta": [
+        "contratos_2021.json"
+      ],
+      "ano_referencia": 2021,
+      "id": "S23-2021",
+      "ficheiro_raw": "data/raw/2026-09-21_contratos2021.xlsx",
+      "sha256": "039258c8593c566ac285ba5abc15428edade9eb046f6e12bb209f2bc645bd8e6",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S23-2022": {
+      "entidade": "IMPIC / AMA",
+      "periodicidade": "semanal",
+      "verificacao": "PRIM",
+      "limitacoes": "Dataset nacional. Filtrar pelos NIF do adjudicante resolvidos a partir do perimetro de consolidacao (S11). Desfasamento ate 7 dias.",
+      "nome": "Contratos públicos BASE/IMPIC - 2022",
+      "url": "https://dados.gov.pt/s/resources/contratos-publicos-portal-base-impic-contratos-de-2012-a-2026/20260920-114115-5f79c1af/contratos2022.xlsx",
+      "formato": "xlsx",
+      "descoberta_via": "S23",
+      "alimenta": [
+        "contratos_2022.json"
+      ],
+      "ano_referencia": 2022,
+      "id": "S23-2022",
+      "ficheiro_raw": "data/raw/2026-09-21_contratos2022.xlsx",
+      "sha256": "234e7f4933d4a49474652552e7e874558e9d6cdbd85f2699e7d761e95130b0fe",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S23-2023": {
+      "entidade": "IMPIC / AMA",
+      "periodicidade": "semanal",
+      "verificacao": "PRIM",
+      "limitacoes": "Dataset nacional. Filtrar pelos NIF do adjudicante resolvidos a partir do perimetro de consolidacao (S11). Desfasamento ate 7 dias.",
+      "nome": "Contratos públicos BASE/IMPIC - 2023",
+      "url": "https://dados.gov.pt/s/resources/contratos-publicos-portal-base-impic-contratos-de-2012-a-2026/20260920-114123-fd6d838a/contratos2023.xlsx",
+      "formato": "xlsx",
+      "descoberta_via": "S23",
+      "alimenta": [
+        "contratos_2023.json"
+      ],
+      "ano_referencia": 2023,
+      "id": "S23-2023",
+      "ficheiro_raw": "data/raw/2026-09-21_contratos2023.xlsx",
+      "sha256": "360a7ac1ccdc862e2c3d19bb7040edcccec8049508874032457f784f901b645c",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S23-2024": {
+      "entidade": "IMPIC / AMA",
+      "periodicidade": "semanal",
+      "verificacao": "PRIM",
+      "limitacoes": "Dataset nacional. Filtrar pelos NIF do adjudicante resolvidos a partir do perimetro de consolidacao (S11). Desfasamento ate 7 dias.",
+      "nome": "Contratos públicos BASE/IMPIC - 2024",
+      "url": "https://dados.gov.pt/s/resources/contratos-publicos-portal-base-impic-contratos-de-2012-a-2026/20260920-114133-7f97ab85/contratos2024.xlsx",
+      "formato": "xlsx",
+      "descoberta_via": "S23",
+      "alimenta": [
+        "contratos_2024.json"
+      ],
+      "ano_referencia": 2024,
+      "id": "S23-2024",
+      "ficheiro_raw": "data/raw/2026-09-21_contratos2024.xlsx",
+      "sha256": "a231d3306b6c09bb49fd29a20048da61c77bb3da488bc396cadf4861ca8f3bf5",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S23-2025": {
+      "entidade": "IMPIC / AMA",
+      "periodicidade": "semanal",
+      "verificacao": "PRIM",
+      "limitacoes": "Dataset nacional. Filtrar pelos NIF do adjudicante resolvidos a partir do perimetro de consolidacao (S11). Desfasamento ate 7 dias.",
+      "nome": "Contratos públicos BASE/IMPIC - 2025",
+      "url": "https://dados.gov.pt/s/resources/contratos-publicos-portal-base-impic-contratos-de-2012-a-2026/20260920-114148-7f37d5d1/contratos2025.xlsx",
+      "formato": "xlsx",
+      "descoberta_via": "S23",
+      "alimenta": [
+        "contratos_2025.json"
+      ],
+      "ano_referencia": 2025,
+      "id": "S23-2025",
+      "ficheiro_raw": "data/raw/2026-09-21_contratos2025.xlsx",
+      "sha256": "a72b04c54c0ab999a247be41b650b101141b26f51785ce10a094a44605a4e932",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S23-2026": {
+      "entidade": "IMPIC / AMA",
+      "periodicidade": "semanal",
+      "verificacao": "PRIM",
+      "limitacoes": "Dataset nacional. Filtrar pelos NIF do adjudicante resolvidos a partir do perimetro de consolidacao (S11). Desfasamento ate 7 dias.",
+      "nome": "Contratos públicos BASE/IMPIC - 2026",
+      "url": "https://dados.gov.pt/s/resources/contratos-publicos-portal-base-impic-contratos-de-2012-a-2026/20260920-114156-ad9dca16/contratos2026.xlsx",
+      "formato": "xlsx",
+      "descoberta_via": "S23",
+      "alimenta": [
+        "contratos_2026.json"
+      ],
+      "ano_referencia": 2026,
+      "id": "S23-2026",
+      "ficheiro_raw": "data/raw/2026-09-21_contratos2026.xlsx",
+      "sha256": "5c1b57af89cfb458fa5f1b9b2afbf4da2f4b6ee637ac4cf00236e028ecb2d3cf",
+      "data_download": "2026-09-21",
+      "descarregado": true
     }
   }
 }

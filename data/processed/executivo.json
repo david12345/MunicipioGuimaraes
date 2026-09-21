@@ -1,0 +1,195 @@
+{
+  "_meta": {
+    "gerado_em": "2026-09-21T18:51:15.373968+00:00",
+    "script": "etl/quem_governa.py",
+    "versao_modelo": "1.0",
+    "fontes": [
+      "S01",
+      "S02"
+    ],
+    "avisos": [
+      "S02 só discrimina as forças com mandato: as percentagens somam 90.89%. Os restantes 9.11% não estão repartidos na fonte, e não são inventados aqui."
+    ]
+  },
+  "mandato": {
+    "inicio": 2025,
+    "fim": 2029,
+    "data_eleicao": "2025-10-12",
+    "tomada_posse": "2025-10-25",
+    "fonte_id": "S01+S02"
+  },
+  "membros": [
+    {
+      "nome": "Ricardo José Machado Pereira da Silva Araújo",
+      "cargo": "presidente",
+      "partido": "PPD/PSD.CDS-PP",
+      "coligacao": "Juntos por Guimarães",
+      "em_permanencia": true,
+      "pelouros": [
+        "Comunicação e Relações Públicas",
+        "Estudos e Projetos",
+        "Empreitadas",
+        "Ambiente – Capital Verde",
+        "Plano e Orçamento",
+        "Contratação Pública",
+        "Fundos Comunitários",
+        "Desenvolvimento Económico",
+        "Serviços Partilhados – Apoio aos Órgãos Autárquicos",
+        "Auditoria"
+      ],
+      "email": "presidencia@cm-guimaraes.pt",
+      "foto_url": null,
+      "fonte_id": "S01+S02"
+    },
+    {
+      "nome": "Ricardo Jorge Castro Ribeiro da Costa",
+      "cargo": "vereador",
+      "partido": "PS",
+      "coligacao": null,
+      "em_permanencia": false,
+      "pelouros": [],
+      "email": "ricardo.costa@cm-guimaraes.pt",
+      "foto_url": null,
+      "fonte_id": "S01+S02"
+    },
+    {
+      "nome": "Eduardo Manuel da Rocha Fernandes Leite",
+      "cargo": "vice_presidente",
+      "partido": "PPD/PSD.CDS-PP",
+      "coligacao": "Juntos por Guimarães",
+      "em_permanencia": true,
+      "pelouros": [
+        "Ação Social",
+        "Saúde",
+        "Espaço Municipal para a Igualdade"
+      ],
+      "email": "eduardo.leite@cm-guimaraes.pt",
+      "foto_url": null,
+      "fonte_id": "S01+S02"
+    },
+    {
+      "nome": "Sérgio Manuel Antunes Freitas Silva",
+      "cargo": "vereador",
+      "partido": "PS",
+      "coligacao": null,
+      "em_permanencia": false,
+      "pelouros": [],
+      "email": "sergiofreitas.silva@cm-guimaraes.pt",
+      "foto_url": null,
+      "fonte_id": "S01+S02"
+    },
+    {
+      "nome": "Vânia Carvalho Dias da Silva de Antas Barros",
+      "cargo": "vereador",
+      "partido": "PPD/PSD.CDS-PP",
+      "coligacao": "Juntos por Guimarães",
+      "em_permanencia": true,
+      "pelouros": [
+        "Mobilidade e Transportes",
+        "Departamento Jurídico",
+        "Contencioso",
+        "Fiscalização",
+        "Polícia Municipal",
+        "Recursos Humanos",
+        "Proteção Civil",
+        "Justiça"
+      ],
+      "email": "vaniadias.silva@cm-guimaraes.pt",
+      "foto_url": null,
+      "fonte_id": "S01+S02"
+    },
+    {
+      "nome": "Susana Gabriela Meireles Campos Nunes",
+      "cargo": "vereador",
+      "partido": "PS",
+      "coligacao": null,
+      "em_permanencia": false,
+      "pelouros": [],
+      "email": "gabriela.nunes@cm-guimaraes.pt",
+      "foto_url": null,
+      "fonte_id": "S01+S02"
+    },
+    {
+      "nome": "Constantino João Quintas Veiga",
+      "cargo": "vereador",
+      "partido": "PPD/PSD.CDS-PP",
+      "coligacao": "Juntos por Guimarães",
+      "em_permanencia": true,
+      "pelouros": [
+        "Urbanismo (Planeamento e Gestão Urbanística)",
+        "Centro Histórico",
+        "Habitação"
+      ],
+      "email": "constantino.veiga@cm-guimaraes.pt",
+      "foto_url": null,
+      "fonte_id": "S01+S02"
+    },
+    {
+      "nome": "Flávio Romeu de Sousa Freitas",
+      "cargo": "vereador",
+      "partido": "PS",
+      "coligacao": null,
+      "em_permanencia": false,
+      "pelouros": [],
+      "email": "flavio.sousafreitas@cm-guimaraes.pt",
+      "foto_url": null,
+      "fonte_id": "S01+S02"
+    },
+    {
+      "nome": "António Alberto da Costa Martins",
+      "cargo": "vereador",
+      "partido": "PPD/PSD.CDS-PP",
+      "coligacao": "Juntos por Guimarães",
+      "em_permanencia": true,
+      "pelouros": [
+        "Gestão e Conservação",
+        "Eficiência Energética",
+        "Segurança Contra Incêndios em Edifícios",
+        "Ambiente e Sustentabilidade",
+        "Espaço Público",
+        "Estrutura Verde e Biodiversidade",
+        "Desporto",
+        "Património",
+        "Contabilidade e Tesouraria",
+        "Contratação Pública",
+        "Freguesias"
+      ],
+      "email": "alberto.martins@cm-guimaraes.pt",
+      "foto_url": null,
+      "fonte_id": "S01+S02"
+    },
+    {
+      "nome": "Nuno Miguel de Jesus Vaz Monteiro",
+      "cargo": "vereador",
+      "partido": "CH",
+      "coligacao": null,
+      "em_permanencia": false,
+      "pelouros": [],
+      "email": "nuno.vazmonteiro@cm-guimaraes.pt",
+      "foto_url": null,
+      "fonte_id": "S01+S02"
+    },
+    {
+      "nome": "Isabel Maria de Freitas Soares Ferreira",
+      "cargo": "vereador",
+      "partido": "PPD/PSD.CDS-PP",
+      "coligacao": "Juntos por Guimarães",
+      "em_permanencia": true,
+      "pelouros": [
+        "Juventude",
+        "Educação",
+        "Bibliotecas",
+        "Cultura",
+        "Turismo",
+        "Arquivos",
+        "Modernização Administrativa e Qualidade",
+        "Atendimento ao Público",
+        "Inovação",
+        "Sistemas Inteligentes e Sistemas de Informação e Comunicações"
+      ],
+      "email": "isabel.ferreira@cm-guimaraes.pt",
+      "foto_url": null,
+      "fonte_id": "S01+S02"
+    }
+  ]
+}
