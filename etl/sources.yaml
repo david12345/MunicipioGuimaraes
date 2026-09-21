@@ -229,3 +229,21 @@ S03:
     formato: pdf
     alimenta: ['estrutura_organica.json']
     limitacoes: Diagrama. Conferir contra S05+S06, que sao o texto com valor legal.
+
+S38:
+  nome: Despacho n.º 6751/2024 (DR 2.ª série n.º 115, 17-06-2024)
+  entidade: Município de Guimarães / INCM
+  url: https://files.diariodarepublica.pt/2s/2024/06/115000000/0021500223.pdf
+  formato: pdf
+  ano_referencia: 2024
+  periodicidade: irregular
+  verificacao: PRIM
+  alimenta: [estrutura_organica.json]
+  limitacoes: >-
+    ALTERACAO INTERMEDIA, indispensavel e que NAO esta ligada em nenhuma pagina da
+    CMG. Cria o Departamento de Inovacao, Transformacao Digital e Economia (DITDE)
+    e renomeia o Departamento de Cultura, Economia e Inovacao para Departamento de
+    Cultura e Turismo. Altera os artigos 3.o, 4.o, 5.o, 10.o e 62.o.
+    A cadeia correta e S05 (14897/2022) -> S38 (6751/2024) -> S06 (9070/2024).
+    Sem S38 falta um departamento inteiro e a numeracao das alineas do artigo 5.o
+    nao bate com a do S06 (ver L22).

@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "gerado_em": "2026-09-21T20:08:10.174265+00:00",
+    "gerado_em": "2026-09-21T20:25:38.806792+00:00",
     "script": "etl/common/fontes.py",
     "versao_modelo": "1.0",
-    "total_fontes": 26,
-    "fontes_descarregadas": 26
+    "total_fontes": 27,
+    "fontes_descarregadas": 27
   },
   "dados": {
     "S01": {
@@ -236,6 +236,24 @@
       "e_indice": true,
       "ficheiro_raw": "data/raw/2026-09-21_organograma",
       "sha256": "2f4702e7213ea0c9d7f9ad70d324c03c026ffdd97f36dfe02cc551eb9a7d7c59",
+      "data_download": "2026-09-21",
+      "descarregado": true
+    },
+    "S38": {
+      "nome": "Despacho n.º 6751/2024 (DR 2.ª série n.º 115, 17-06-2024)",
+      "entidade": "Município de Guimarães / INCM",
+      "url": "https://files.diariodarepublica.pt/2s/2024/06/115000000/0021500223.pdf",
+      "formato": "pdf",
+      "ano_referencia": 2024,
+      "periodicidade": "irregular",
+      "verificacao": "PRIM",
+      "alimenta": [
+        "estrutura_organica.json"
+      ],
+      "limitacoes": "ALTERACAO INTERMEDIA, indispensavel e que NAO esta ligada em nenhuma pagina da CMG. Cria o Departamento de Inovacao, Transformacao Digital e Economia (DITDE) e renomeia o Departamento de Cultura, Economia e Inovacao para Departamento de Cultura e Turismo. Altera os artigos 3.o, 4.o, 5.o, 10.o e 62.o. A cadeia correta e S05 (14897/2022) -> S38 (6751/2024) -> S06 (9070/2024). Sem S38 falta um departamento inteiro e a numeracao das alineas do artigo 5.o nao bate com a do S06 (ver L22).",
+      "id": "S38",
+      "ficheiro_raw": "data/raw/2026-09-21_0021500223.pdf",
+      "sha256": "02fe164b211cf06b0a633c979201575119196dca1c9acc9e36bb8c42d1ad2667",
       "data_download": "2026-09-21",
       "descarregado": true
     },
