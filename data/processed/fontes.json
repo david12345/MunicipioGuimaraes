@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "gerado_em": "2026-09-21T18:19:20.871184+00:00",
+    "gerado_em": "2026-09-21T18:21:30.828352+00:00",
     "script": "etl/common/fontes.py",
     "versao_modelo": "1.0",
     "total_fontes": 9,

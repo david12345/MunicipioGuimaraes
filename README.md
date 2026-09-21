@@ -70,12 +70,25 @@ com rede aberta e commitar o resultado:
 
 ```bash
 git clone <repo> && cd MunicipioGuimaraes
-make setup && make etl
-git add data/ && git commit -m "dados: extração de <data>"
+git checkout claude/kind-fermi-gs7y9t
+make setup          # só requests + PyYAML; não precisa de ghostscript
+make fetch          # descarrega os originais para data/raw/
+git add data/raw && git commit -m "dados: originais descarregados em <data>"
+git push
 ```
 
-Os *parsers* trabalham sobre ficheiros locais e não precisam de rede — só o passo de
-*download* precisa. Também é viável colocar os PDF/XLSX manualmente em `data/raw/`.
+**O que esperar desta execução:** `make fetch` traz os originais das **9 fontes com
+URL conhecido** em `etl/sources.yaml` — não as 36 do inventário. Fontes como os
+documentos previsionais (S08) e o Balanço Social (S19) ainda não têm URL localizado
+(lacuna L3), e o Mapa de Pessoal (S07) é uma página índice, de onde os PDF anuais
+têm de ser descobertos. Isso resolve-se na Fase 2, com a rede aberta.
+
+Os *parsers* ainda não existem: `make etl` descarrega e gera o `fontes.json`, mas
+não produz `data/processed/`. O passo bloqueante é o *download* — com `data/raw/`
+commitado, a extração deixa de precisar de rede e pode correr em qualquer ambiente.
+
+Se algum download falhar, o comando diz quais e continua — não aborta o resto.
+Também é viável colocar os PDF/XLSX manualmente em `data/raw/`.
 
 ## Princípios não negociáveis
 

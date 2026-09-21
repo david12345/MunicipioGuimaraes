@@ -1,0 +1,9 @@
+# Dependências de extração (Fase 2). Instalar só quando os parsers existirem.
+# Nota: camelot-py exige ghostscript instalado no sistema; se a instalação
+# falhar, `make fetch` continua a funcionar — são independentes.
+-r requirements.txt
+pandas>=2.2
+pdfplumber>=0.11      # tabelas em PDF (texto)
+camelot-py[base]>=0.11 # tabelas em PDF (lattice/stream) — requer ghostscript
+pymupdf>=1.24         # texto e layout
+openpyxl>=3.1         # XLSX (dados.gov / DGAL / INE)
