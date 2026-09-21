@@ -26,16 +26,17 @@ Estas vêm do briefing e **não se negoceiam**. Na dúvida, escolhe sempre não 
 
 ## Estado atual
 
-**Fase 2 em curso. Quatro secções extraídas — 2 (quem governa), 4 (quem lá
-trabalha), 8 (contratos), 9 (participadas) — mais `populacao.json`, que desbloqueia
-as métricas per capita.** Não há dashboard — Fase 3 por começar.
+**Fase 2 quase concluída. Cinco secções extraídas — 2 (quem governa), 3 (como está
+organizada), 4 (quem lá trabalha), 8 (contratos), 9 (participadas) — mais
+`populacao.json`, que desbloqueia as métricas per capita.** Falta só o orçamento.
+Não há dashboard — Fase 3 por começar.
 
 `make check-acesso` dá **19/19**. 22 fontes em `data/raw/` com `sha256` verificado.
 Em `data/processed/`: `fontes.json`, `executivo.json`, `orgaos_eleitos.json`,
 `empresas_municipais.json`, `mapa_pessoal.json` (1 830 postos ocupados de 2 047
 previstos, 2026) e `contratos_2019.json`…`contratos_2026.json`
 (4 110 contratos, 441,1 M€ contratados entre 2019 e 2026) e `populacao.json`
-(165 554 habitantes em 2025).
+(165 554 habitantes em 2025) e `estrutura_organica.json` (48 unidades orgânicas).
 
 **L1 e L2 estão resolvidas** (ver `docs/qualidade_dados.md`): o bloqueio de rede
 era do ambiente da Fase 1, não das fontes, e a regra 5 está cumprida com leitura
@@ -48,11 +49,9 @@ commita-se o `.meta.json` com URL e `sha256`, que os reproduz com `make fetch` e
 mantém a integridade verificável. **Não usar Git LFS** — os contratos são
 republicados semanalmente e esgotariam a quota.
 
-**Próximo passo:** a secção 3 (estrutura orgânica). **Todas as fontes já estão em
-disco**: S05 (texto de 2023), S06 (Despacho 9070/2024) e S03-06_24 (organograma com
-camada de texto, para verificação cruzada). O trabalho é aplicar as alterações de
-S06 sobre S05 — não é descarregar nada. Falta depois o orçamento (S10; S08 continua
-sem URL, L3).
+**Próximo passo: o orçamento**, o único parser que falta. É também o único
+bloqueado por fonte: S10 só cobre 2021 e os documentos previsionais (S08) continuam
+sem URL localizado (L3).
 
 **Cuidado com o INE:** a API é intolerante à cadência — um 429 bloqueou o host
 inteiro durante horas nesta sessão. Um pedido de cada vez.
@@ -139,12 +138,13 @@ O `fetch` guarda `sha256` de cada original — é assim que se deteta que uma au
   linhas ao remover as tags. Isto já atribuiu o e-mail de um vereador a outra
   pessoa. Qualquer parser novo de páginas da CMG deve usar `_juntar_parenteses` de
   `etl/quem_governa.py` e cruzar sempre duas fontes quando existam.
-- **Estrutura orgânica:** o documento de 2023 (S05) foi alterado pelo **Despacho
-  9070/2024** (S06), **já em `data/raw/`**. Altera os artigos 5.º, 30.º e 31.º, adita
-  o 54.º-A (Gabinete de Apoio à Intervenção Social) e revoga o 56.º, a alínea h) do
-  30.º e a c) do 31.º. Usar só o de 2023 produz um organograma errado. Preferir sempre
-  o **texto normativo** à imagem do organograma — o organograma anexo ao despacho é
-  imagem, mas o `organograma_06_24.pdf` da CMG tem camada de texto e serve de conferência.
+- **Estrutura orgânica: são TRÊS documentos, não dois.** `S05` (14897/2022) →
+  **`S38` (6751/2024)** → `S06` (9070/2024). O elo do meio não está ligado em nenhuma
+  página da CMG e cria um departamento inteiro (DITDE) mais o renome de DCEI para
+  Dep. de Cultura e Turismo. Todos já em `data/raw/`; ver `docs/fontes.md` §6-B.
+- **A CMG reutiliza siglas** (`DF`, `DE`, `DC`, `DCT` designam duas unidades cada) e
+  não atribui sigla a todas (a Divisão de Mobilidade não tem). Nunca chavear uma
+  estrutura pela sigla — usar o `id` qualificado de `estrutura_organica.json` (L23).
 - **População:** série única, indicador INE **0012918**, e cobre **só 2021–2025**.
   Não há per capita para 2019, 2020 nem 2026 (L21). Trocar de indicador implica trocar
   a série toda — misturar viola a V7.

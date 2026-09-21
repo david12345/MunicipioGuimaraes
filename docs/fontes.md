@@ -1,6 +1,6 @@
 # Inventário de fontes — Câmara Municipal de Guimarães
 
-**Estado:** Fase 2 em curso (secções 2, 4, 8, 9 e população). Última atualização: 2026-09-21.
+**Estado:** Fase 2 (secções 2, 3, 4, 8, 9 e população). Última atualização: 2026-09-21.
 
 > ### ⚠️ Como ler este inventário
 >
@@ -42,7 +42,7 @@ Entidade responsável: Município de Guimarães. Acesso nesta sessão: **bloquea
 | S02 | Câmara Municipal (composição) | `/municipio/camara-municipal` | HTML | Corrente | Por mandato | `orgaos_eleitos.json`: composição do órgão executivo | — | `PRIM` |
 | S03 | Organograma (índice) | `/municipio/camara-municipal/organograma` | HTML → PDF | Corrente | Irregular | `estrutura_organica.json` (verificação cruzada) | O `organograma_06_24.pdf` (`S03-06_24`) **tem camada de texto**, com nomes e siglas, e já reflete o Despacho 9070/2024. Verificação cruzada, não fonte da hierarquia (L4) | `PRIM` |
 | S04 | Estrutura e Organização dos Serviços Municipais (índice) | `/noticia-6/estrutura-e-organizacao-dos-servicos-municipais` | HTML | 2023– | Irregular | Ponto de entrada para o texto normativo no DR | É daqui que se descobre o Despacho 9070/2024 (S06) | `PRIM` |
-| S05 | Orgânica dos Serviços Municipais 2023 (texto DR) | `/cmguimaraes/uploads/writer_file/document/9902/organica_2023.pdf` | PDF | 2023 | — | `estrutura_organica.json`: departamentos → divisões → unidades, competências | **Fonte preferencial** para a hierarquia: texto normativo, estruturado. Publicado em DR 2.ª série n.º 251, 30-12-2022 | `DESC` |
+| S05 | Orgânica dos Serviços Municipais 2023 — Despacho n.º 14897/2022 | `/cmguimaraes/uploads/writer_file/document/9902/organica_2023.pdf` | PDF | 2023 | — | `estrutura_organica.json`: base da hierarquia | **Fonte preferencial** para a hierarquia: texto normativo. **Não basta sozinho** — ver S38 e S06 | `PRIM` |
 | S06 | **Despacho n.º 9070/2024** — alteração à estrutura orgânica | `files.diariodarepublica.pt/2s/2024/08/154000000/0041500418.pdf` | PDF | 2024 | — | Reorganiza os Dep. de Intervenção Social e de Recursos Humanos | DR 2.ª série n.º 154, 09-08-2024. Altera os art. 5.º, 30.º e 31.º, adita o 54.º-A (GAIS) e revoga o 56.º. **Obrigatório**: sem isto, S05 está desatualizado (L5) | `PRIM` |
 | S07 | Mapa de Pessoal (índice) | `/areas-de-intervencao/educacao-e-recursos-humanos/recursos-humanos/mapa-de-pessoal` | HTML → PDF | Série anual | Anual | `mapa_pessoal.json`: postos por carreira, categoria e unidade orgânica; ocupados vs. previstos | Página índice; o PDF do ano é descoberto a partir daqui (`S07-2026`). O de 2026 **tem camada de texto** — não foi preciso OCR | `PRIM` |
 | S08 | Documentos previsionais (Orçamento + GOP + PPI + PAM) | Secção de gestão financeira do site | PDF | Série anual | Anual (aprovação em dezembro) | `orcamento.json` (previsto), `investimentos.json` (PPI/GOP) | **Não localizei o URL exato da secção.** A pesquisa por "documentos previsionais Guimarães" devolveu sobretudo outros municípios | `CONHEC` |
@@ -61,6 +61,7 @@ Entidade responsável: Município de Guimarães. Acesso nesta sessão: **bloquea
 | S21 | Obras / empreitadas / projetos cofinanciados | Secções de obras e de fundos comunitários | HTML/PDF | Corrente | Contínua | `investimentos.json`: estado das obras, PRR / Portugal 2030 / Norte 2030 | Frequentemente só em notícias → estado das obras pouco estruturado | `CONHEC` |
 | S22 | Vitrus Ambiente, EM SA (ficha) | `/areas-de-intervencao/ambiente/servicos-urbanos/gestao-de-residuos/gestao-dos-residuos-urbanos/poi/vitrus-ambiente-em-sa-92` | HTML | Corrente | — | `empresas_municipais.json` | Ficha operacional, não financeira | `URL-S` |
 | S37 | Assembleia Municipal (composição do órgão) | `/municipio/assembleia-municipal` | HTML | Corrente | Por mandato | `orgaos_eleitos.json`: dimensão do órgão deliberativo | Dá 111 membros (56 eleitos + 55 presidentes de junta por inerência) mas **não** a distribuição por força política nem os nomes (L16) | `PRIM` |
+| S38 | **Despacho n.º 6751/2024** — elo em falta da estrutura orgânica | `files.diariodarepublica.pt/2s/2024/06/115000000/0021500223.pdf` | PDF | 2024 | — | Cria o Dep. de Inovação, Transformação Digital e Economia; Dep. de Cultura, Economia e Inovação passa a Dep. de Cultura e Turismo | **Não está ligado em nenhuma página da CMG.** Sem ele falta um departamento inteiro e três divisões (L22) | `PRIM` |
 
 ## 2. Contratação pública
 
@@ -192,6 +193,34 @@ Relação de Guimarães e os bombeiros voluntários — nenhum é do município.
 sentido inverso, a **Vimágua aparece com quatro grafias diferentes** do mesmo
 nome, todas com o mesmo NIF (`505993082`). Filtrar por nome erraria nos dois
 sentidos ao mesmo tempo.
+
+## 6-B. A cadeia normativa da estrutura orgânica
+
+A estrutura orgânica **não se lê num documento só**. A cadeia verificada é:
+
+| Documento | Publicação | O que faz |
+|---|---|---|
+| **S05** — Despacho n.º 14897/2022 | DR 2.ª série n.º 251, 30-12-2022 | Estrutura base, em vigor desde 01-01-2023 |
+| **S38** — Despacho n.º 6751/2024 | DR 2.ª série n.º 115, 17-06-2024 | Cria o DITDE; DCEI passa a Dep. de Cultura e Turismo; revoga DSI, DDSI e DDE |
+| **S06** — Despacho n.º 9070/2024 | DR 2.ª série n.º 154, 09-08-2024 | Reorganiza Intervenção Social e Recursos Humanos; adita o GAIS; extingue o GASI |
+
+O inventário da Fase 1 supunha `S05 + S06`. **Faltava S38**, e sem ele o
+organograma publicado teria menos um departamento e três divisões.
+
+O que denunciou a falta foi a **numeração das alíneas**: em S05 o Departamento
+de Intervenção Social é a alínea h) do artigo 5.º; em S06 é a i). S38 explica o
+desvio, ao inserir o DITDE em e) e renumerar as seguintes. Nenhuma página da
+CMG liga a S38 — foi localizado por pesquisa e confirmado no Diário da
+República.
+
+### Porque é que o organograma não substitui o texto
+
+O organograma é **verificação cruzada**, e boa: foi a ausência do GASI no
+diagrama que revelou que o Despacho 9070/2024 o extingue (dá nova redação à
+alínea sem a cláusula que o criava), e foi a presença de `DM` no diagrama que
+revelou que a Divisão de Mobilidade tinha desaparecido da extração por o DR
+não lhe atribuir sigla. Mas quem tem valor legal é o texto — e onde divergem,
+é o texto que prevalece (L24).
 
 ## 7. Fontes descartadas nesta fase
 

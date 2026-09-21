@@ -1,6 +1,6 @@
 # Qualidade dos dados e lacunas conhecidas
 
-Última atualização: 2026-09-21 · Fase 2 em curso (secções 2, 4, 8, 9 e população extraídas).
+Última atualização: 2026-09-21 · Fase 2 (secções 2, 3, 4, 8, 9 e população extraídas).
 
 Este ficheiro regista **tudo o que não foi possível obter ou validar**. É um
 entregável tão importante como os dados: o dashboard mostra "Dado não disponível"
@@ -56,7 +56,7 @@ Estas persistem mesmo com acesso à rede e condicionam o desenho do dashboard.
 |---|---|---|---|
 | L3 | Secção de documentos previsionais (S08) e Balanço Social (S19) sem URL localizado | Sem Orçamento/GOP/PPI não há secções 1, 5, 6 e 7 do dashboard | Varrimento da secção de gestão financeira do site; em último recurso, pedido de acesso à informação administrativa (LADA) |
 | L4 | ~~Organograma (S03) pode ser imagem~~ · **RESOLVIDA** | — | O `organograma_06_24.pdf` da CMG (`S03-06_24`) **tem camada de texto**, com nomes e siglas das unidades, e já reflete o Despacho 9070/2024. Continua a servir de verificação cruzada, não de fonte: a hierarquia sai do texto normativo (S05+S06), que é o que tem valor legal. O organograma anexo ao próprio despacho **é imagem** |
-| L5 | Estrutura orgânica de 2023 alterada em 2024 (S06) · **fonte obtida** | Usar só S05 produz um organograma **errado** | Despacho n.º 9070/2024 localizado e descarregado (DR 2.ª série n.º 154, 09-08-2024), via a página S04 da CMG. Altera os artigos 5.º, 30.º e 31.º, **adita** o artigo 54.º-A (Gabinete de Apoio à Intervenção Social) e **revoga** o artigo 56.º, a alínea h) do 30.º e a c) do 31.º. Aplicar sobre S05 continua a ser obrigatório antes de publicar a secção 3 |
+| L5 | ~~Estrutura orgânica de 2023 alterada em 2024~~ · **RESOLVIDA** | Usar só S05 produz um organograma **errado** | Despacho n.º 9070/2024 localizado e descarregado (DR 2.ª série n.º 154, 09-08-2024), via a página S04 da CMG. Altera os artigos 5.º, 30.º e 31.º, **adita** o artigo 54.º-A (Gabinete de Apoio à Intervenção Social) e **revoga** o artigo 56.º, a alínea h) do 30.º e a c) do 31.º. Aplicar sobre S05 continua a ser obrigatório antes de publicar a secção 3 |
 | L6 | ~~Mapa de Pessoal possivelmente digitalizado~~ · **RESOLVIDA** | — | O de 2026 tem camada de texto; `pymupdf` chega e o `camelot`/OCR não foi preciso. O risco de colunas trocadas é coberto por validação: as linhas de cada unidade têm de reconstituir o `TOTAL` que o próprio documento imprime, nas 9 colunas — 63 verificações, todas a passar. Um mapa digitalizado de outro ano voltará a exigir OCR |
 | L7 | API do Portal BASE exige autorização do IMPIC (S24) | Sem credencial, não há atualização diária | Usar o dataset semanal do dados.gov (S23), que não exige credencial; assumir desfasamento até 7 dias e mostrá-lo no dashboard |
 | L8 | NIF das empresas municipais desconhecidos | Sem eles não se filtram os contratos das participadas no BASE | Extrair o perímetro de consolidação de S11 e resolver cada NIF antes do ETL de contratos |
@@ -73,6 +73,9 @@ Estas persistem mesmo com acesso à rede e condicionam o desenho do dashboard.
 | L19 | **Preço total efetivo desconhecido na maioria dos contratos** | O dashboard pode mostrar o que foi *contratado*, **não** o que foi de facto *gasto* | O BASE publica `0` neste campo enquanto o contrato não é fechado: em 2023 eram 435 de 519 contratos, todos com preço contratual positivo. Esse `0` é convertido em `null` (nunca publicado como zero euros) e o número de casos consta dos avisos. A execução real só se obtém do Relatório e Contas (S10) |
 | L20 | Entidades participadas **sem NIPC** na fonte (S11) | Não são filtráveis no dataset do BASE: contratos seus ficam de fora | São entidades internacionais (ICLEI, AICE, CIUMED). Nenhuma está no perímetro de consolidação, pelo que não afeta os totais publicados |
 | L21 | Série de população começa em **2021**; contratos começam em 2019 | **Não há métricas per capita para 2019 e 2020**, nem para 2026 | O indicador 0012918 (NUTS 2024) cobre 2021–2025. O 0008273 (NUTS 2013) cobre 2011–2023 e daria 2019–2020, mas perdia 2024 e 2025 — e **misturar as duas séries viola a V7**. Escolheu-se a recência. Para 2026 não há população: ou se usa 2025 dizendo-o, ou fica `null` |
+| L22 | A cadeia normativa da estrutura orgânica tinha **um elo em falta** | Sem ele, o organograma perderia um departamento inteiro e três divisões | O inventário supunha `S05 + S06`. Falta o **Despacho n.º 6751/2024** (`S38`, DR 17-06-2024), que cria o Dep. de Inovação, Transformação Digital e Economia e renomeia o Dep. de Cultura, Economia e Inovação para Dep. de Cultura e Turismo. **Não está ligado em nenhuma página da CMG** — foi encontrado por pesquisa e confirmado no DR. Pista que o denunciou: em S05 o Dep. de Intervenção Social é a alínea h) do art. 5.º, em S06 é a i) |
+| L23 | A CMG **reutiliza siglas** entre unidades diferentes | Uma árvore chaveada pela sigla junta unidades distintas ou perde-as | `DF` é Departamento Financeiro **e** Divisão de Fiscalização; `DE` é Divisão de Empreitadas **e** Divisão de Educação; depois de 2024, `DCT` é Departamento de Cultura e Turismo **e** Divisão de Contabilidade e Tesouraria. O `id` da árvore é qualificado com a unidade-mãe nas colisões; a `sigla` publicada fica num campo à parte |
+| L24 | Divergências entre o texto normativo e o organograma publicado | Pequenas, mas não devem ser corrigidas em silêncio | O DR escreve `(DCG)` para o Gabinete de Contabilidade de Gestão, o organograma escreve `GCG`. O DR **não atribui sigla** à Divisão de Mobilidade, que o organograma trata por `DM` — no JSON a `sigla` fica `null`, não é copiada do organograma. O texto normativo prevalece; as divergências constam dos avisos do ficheiro |
 
 ### Nota operacional — o INE bloqueia quem insiste
 
@@ -103,6 +106,7 @@ São automáticas e **bloqueantes**: uma extração que falhe não é publicada.
 | 8 · Contratos | `etl/contratos.py` | **V4** nos oito anos (2019–2026), V6, e unicidade do NIF do Município no dataset |
 | 9 · Participadas | `etl/empresas_participadas.py` | V6, e "toda a entidade no perímetro tem NIPC" — é essa que garante que o filtro dos contratos não perde entidades |
 | 4 · Quem lá trabalha | `etl/mapa_pessoal.py` | **V3**, V6, e 63 verificações de total (7 unidades × 9 colunas) contra o `TOTAL` impresso no documento |
+| 3 · Como está organizada | `etl/estrutura_organica.py` | V6, unicidade dos `id`, existência do alvo de cada alteração normativa, e **verificação cruzada nos dois sentidos** contra o organograma publicado |
 | transversal · População | `etl/populacao.py` | **V5**, **V7**, V6, soma homens+mulheres = total em cada ano, e soma dos grupos etários = total do ano |
 
 V4 estava especificada desde a Fase 1 mas não implementada; foi escrita com o
