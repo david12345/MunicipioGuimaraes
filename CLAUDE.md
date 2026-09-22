@@ -26,22 +26,28 @@ Estas vêm do briefing e **não se negoceiam**. Na dúvida, escolhe sempre não 
 
 ## Estado atual
 
-**Fase 3 em curso: o dashboard existe, com nove secções e mapa. Lighthouse 100 nas quatro categorias.**
-Ver `docs/dashboard.md`. **Fase 2 concluída no essencial. Seis secções extraídas — 2 (quem governa), 3 (como
-está organizada), 4 (quem lá trabalha), 5 (de onde vem o dinheiro), 8 (contratos),
-9 (participadas) — mais `populacao.json`.** Não há dashboard — Fase 3 por começar.
+**Fase 2 concluída. Fase 3 (dashboard) construída e publicada.**
 
-`make check-acesso` dá **19/19**. 22 fontes em `data/raw/` com `sha256` verificado.
-Em `data/processed/`: `fontes.json`, `executivo.json`, `orgaos_eleitos.json`,
-`empresas_municipais.json`, `mapa_pessoal.json` (1 830 postos ocupados de 2 047
-previstos, 2026) e `contratos_2019.json`…`contratos_2026.json`
-(4 110 contratos, 441,1 M€ contratados entre 2019 e 2026) e `populacao.json`
-(165 554 habitantes em 2025) `estrutura_organica.json` (48 unidades orgânicas) e `orcamento.json`
-(220,3 M€ previstos para 2026, série 2022–2026, mais a execução de 2021–2025).
+Nove das doze secções têm dados. As outras três — obras, investimentos e
+comparação com outros municípios — existem, dizem "Dado não disponível" e
+explicam porquê. Ver `docs/dashboard.md`.
 
-**L1 e L2 estão resolvidas** (ver `docs/qualidade_dados.md`): o bloqueio de rede
-era do ambiente da Fase 1, não das fontes, e a regra 5 está cumprida com leitura
-da fonte primária. Restam L13–L17, nenhuma bloqueante para o ETL.
+`make check-acesso`: 26 fontes, todas alcançáveis quando o INE responde.
+Em `data/processed/`:
+
+| Ficheiro | Conteúdo |
+|---|---|
+| `executivo.json`, `orgaos_eleitos.json` | 11 vereadores; 45,33% / 6 mandatos à coligação |
+| `estrutura_organica.json` | 48 unidades orgânicas |
+| `mapa_pessoal.json` | 1 830 postos ocupados de 2 047 previstos (2026) |
+| `orcamento.json` | 220,3 M€ previstos para 2026; execução 79–84% (2021–2025) |
+| `contratos_2019…2026.json` | 4 110 contratos, 441,1 M€ |
+| `empresas_municipais.json` | 42 entidades, 11 no perímetro; grupo com 647,3 M€ de ativo |
+| `equipamentos.json` | 22 equipamentos, 19 com coordenadas |
+| `populacao.json` | 165 554 habitantes (2025) |
+
+**L1 e L2 resolvidas.** Das 32 lacunas registadas, 10 estão fechadas; as
+restantes são limitações das fontes, não do código.
 
 **`data/raw/` no git:** commitam-se os originais municipais **até ~15 MB**. Ficam
 de fora, no `.gitignore`, os datasets nacionais (~515 MB: contratos do BASE, Mapa
@@ -52,32 +58,18 @@ De todos se commita o `.meta.json` com URL e `sha256`: reproduzem-se com
 à regra 3. **Não usar Git LFS** — os contratos são republicados semanalmente e
 esgotariam a quota.
 
-**Próximo passo:** o PPI (bloqueado — mapas digitalizados, L26) e a série de
-consolidação de contas 2021–2025, que dá o financeiro das participadas, hoje
-vazio. Restam três secções sem dados: obras, investimentos e comparação.
+**Publicação:** `.github/workflows/publicar.yml` constrói e publica em GitHub
+Pages a cada envio. A verificação corre **antes** e bloqueia: um dashboard que
+desça de 90 no Lighthouse, que ganhe scroll horizontal ou que perca contraste
+não vai para o ar.
 
-**Equipamentos: as coordenadas vêm na origem** (`data-lat`/`data-long` em cada
-ficha da CMG). Nunca geocodificar a partir da morada — não é preciso e seria
-pior. As instalações desportivas não estão no sítio do município: são da Tempo
-Livre (L29).
+**Próximo passo:** não há testes — nem do ETL nem do dashboard. Duas quebras em
+tempo de execução escaparam a toda a verificação automática e só apareceram ao
+olhar para a página. Um teste de contrato entre os JSON e o que cada secção
+espera apanharia essa classe de erro.
 
-**Antes de commitar mexidas no dashboard, correr `make dashboard-verificar`.**
-Falha se o Lighthouse descer de 90, se o LCP passar dos 3 s, ou se aparecer
-scroll horizontal em qualquer das quatro larguras.
-
-**A Câmara executa 79–84% da despesa orçamentada.** É dos números mais úteis ao
-cidadão e está em `orcamento.json`. Mas o **total gasto** não é publicado com
-rótulo (L27): o que há é o grau de execução e os agregados correntes.
-
-**O arquivo financeiro (S39) não está no menu do site** — chega-se lá pelo ponto 8.1
-do Índice de Transparência Municipal. É uma árvore ano → tipo com ids opacos.
-
-**Cuidado com o INE:** a API é intolerante à cadência — um 429 bloqueou o host
-inteiro durante horas nesta sessão. Um pedido de cada vez.
-
-**NIF do Município: `505948605`** (resolvido do dataset do IMPIC, único nos 8 anos).
-Os NIF do perímetro saem de `empresas_municipais.json` — é por isso que
-`make contratos` depende de `make empresas`.
+Depois disso: o PPI (bloqueado — mapas digitalizados, L26) e os quadros da DGAL
+(L13), ambos dependentes de fontes que ainda não estão resolvidas.
 
 ## Comandos
 
@@ -86,10 +78,16 @@ make setup        # cria .venv e instala requests + PyYAML
 make check-acesso # diz que fontes estão alcançáveis daqui; sai com 1 se alguma falhar
 make fetch        # descarrega originais para data/raw/, com descoberta de 2.º nível
 make fontes       # gera data/processed/fontes.json
-make quem-governa # extrai a secção 2
-make etl          # fetch + fontes + parsers existentes
-make setup-parse  # dependências de extração (Fase 2; camelot exige ghostscript)
+make etl          # fetch + fontes + todos os parsers
+make setup-parse  # dependências de extração (pymupdf, openpyxl)
+
+make dashboard-setup      # npm install
+make dashboard            # servidor de desenvolvimento
+make dashboard-build      # gera dist/
+make dashboard-verificar  # requisitos não negociáveis + Lighthouse
 ```
+
+`make help` lista os alvos por secção (`make contratos`, `make orcamento`, …).
 
 Correr `make check-acesso` primeiro em qualquer ambiente novo. O Python do sistema
 é gerido externamente (PEP 668): **tudo corre no `.venv`**, que o `make setup` cria.
@@ -100,23 +98,27 @@ Correr `make check-acesso` primeiro em qualquer ambiente novo. O Python do siste
 data/raw/        originais + sidecar .meta.json (url, sha256, data_download)
 data/processed/  JSON normalizado, um ficheiro por secção do dashboard
 etl/
-  sources.yaml   registo das fontes (12 com URL; o inventário tem 37)
+  sources.yaml   registo das fontes escritas à mão (o inventário tem 39)
   descobertas.yaml  GERADO: fontes derivadas das páginas-índice; commitado de
                  propósito, porque é no diff que se vê um URL a mudar
   run.py         orquestrador: --fase fetch|fontes, --check-acesso
-  quem_governa.py   parser da secção 2
+  <seccao>.py    um parser por secção (quem_governa, contratos, orcamento, …)
   common/        fetch.py (idempotente), descoberta.py, fontes.py, validate.py, paths.py
-docs/            fontes.md, modelo_dados.md, qualidade_dados.md
-src/             dashboard estático — Fase 3, por construir
+docs/            fontes.md, modelo_dados.md, qualidade_dados.md, dashboard.md
+src/             dashboard: nucleo/ (figura, gráficos, formato, glossário),
+                 seccoes/ (um módulo por secção, carregado a pedido), estilo/
+scripts/         copiar-dados.mjs, verificar-ui.mjs
+.github/workflows/publicar.yml
 ```
 
 ## Documentos a ler antes de mexer
 
 | Ficheiro | Porquê |
 |---|---|
-| `docs/fontes.md` | As 36 fontes e, para cada uma, **o que foi mesmo verificado** (coluna *Verificação*: `PRIM` = confirmado na fonte primária; nenhuma linha está em `PRIM`) |
+| `docs/fontes.md` | As fontes e, para cada uma, **o que foi mesmo verificado** (coluna *Verificação*; §6-B tem a cadeia normativa da estrutura orgânica, §6-C o arquivo financeiro) |
 | `docs/modelo_dados.md` | Esquemas JSON, convenções e **4 questões em aberto por decidir** |
-| `docs/qualidade_dados.md` | Bloqueios (L1, L2), 12 lacunas estruturais, 8 validações do ETL |
+| `docs/qualidade_dados.md` | 32 lacunas (10 resolvidas) e as validações que cada parser corre |
+| `docs/dashboard.md` | Decisões de visualização, medições e o que as sustenta |
 
 ## Convenções
 
@@ -138,8 +140,14 @@ discrepância em `docs/qualidade_dados.md` e o indicador fica `null`.
 
 V1 soma == total declarado (±0,01 €) · V2 receita == despesa (o orçamento é
 equilibrado por lei) · V3 ocupados ≤ previstos · V4 soma por adjudicatário == total ·
-V5 série sem anos em falta · V6 `fonte_id` resolve · V7 população de uma única série ·
-V8 % de geocodificação (< 80% exige revisão).
+V5 série sem anos em falta · V6 `fonte_id` resolve · V7 população de uma única série.
+
+**V8 caiu**: pressupunha geocodificação, e as coordenadas dos equipamentos vêm
+na origem. Em vez dela, valida-se que a coordenada é plausível.
+
+Cada parser acrescenta as suas: a identidade do balanço nas participadas, os
+totais por unidade no mapa de pessoal, o equilíbrio do artigo 40.º do RFALEI na
+execução orçamental.
 
 O `fetch` guarda `sha256` de cada original — é assim que se deteta que uma autarquia
 **substituiu um PDF em silêncio mantendo o URL**, prática comum nos sites autárquicos.
@@ -186,28 +194,23 @@ O `fetch` guarda `sha256` de cada original — é assim que se deteta que uma au
 - **Quebra de série POCAL → SNC-AP:** pode aparecer como "salto" num gráfico
   plurianual. Marcar no gráfico e explicar no glossário.
 
-## Fases seguintes
+## Requisitos do briefing que continuam a valer
 
-**Fase 2 — ETL.** Um parser por fonte em `etl/`, com as validações ligadas.
-`pdfplumber`/`camelot` para tabelas em PDF, `ocrmypdf`/`tesseract` se houver
-digitalizados, `pandas` para limpeza. Normalizar para `data/processed/` segundo
-`docs/modelo_dados.md`, dividido por secção para o telemóvel só descarregar o que abre.
+Estes são critérios de aceitação, não história: aplicam-se a tudo o que se
+acrescentar. `make dashboard-verificar` verifica-os por código e **falha** se
+algum regredir.
 
-**Fase 3 — Dashboard.** Vite + D3 + Leaflet/OpenStreetMap, estático, deployável em
-GitHub Pages. **Mobile-first desde o início**, não adaptado no fim. 12 secções (ver
-briefing). Acessível (contraste AA, teclado, tabela de dados por detrás de cada
-gráfico), modo claro/escuro, CSV descarregável por gráfico.
+Breakpoints 360–480 / 768 / 1280 px; **sem scroll horizontal** em nenhuma
+largura; D3 com `viewBox` + `ResizeObserver`; **alternativa móvel para
+visualizações complexas** — o organograma é uma árvore desdobrável e não um
+diagrama de caixas, precisamente por isto; tooltips por toque; alvos ≥ 44×44 px
+(as ligações dentro de texto corrido estão isentas, WCAG 2.5.8); lazy loading
+por secção; primeira vista útil < 3 s em 4G; Lighthouse ≥ 90 em Performance e
+Acessibilidade no perfil móvel.
 
-Requisitos não negociáveis do responsivo: breakpoints 360–480 / 768 / 1280 px; sem
-scroll horizontal na página; D3 com `viewBox` + `ResizeObserver`; **alternativa móvel
-para visualizações complexas** (Sankey, sunburst, organograma, hemiciclo) — barras
-horizontais, acordeão ou drill-down com os mesmos dados; tooltips por toque; alvos
-≥ 44×44 px; lazy loading por secção; primeira vista útil < 3 s em 4G; Lighthouse ≥ 90
-em Performance e Acessibilidade no perfil móvel.
-
-**UX:** começar sempre pelo resumo em linguagem simples ("Em 2026, a Câmara prevê
-gastar X €, o equivalente a Y € por habitante") e só depois o detalhe. Glossário para
-termos técnicos (despesa corrente, GOP, PPI, cabimento, mapa de pessoal).
+**UX:** começar sempre pelo resumo em linguagem simples ("Em 2026, a Câmara
+prevê gastar X €, o equivalente a Y € por habitante") e só depois o detalhe.
+Termos técnicos marcados no texto abrem o glossário (`src/nucleo/glossario.js`).
 
 ## Forma de trabalhar
 

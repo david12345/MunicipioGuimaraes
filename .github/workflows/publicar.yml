@@ -1,0 +1,98 @@
+# Publica o dashboard em GitHub Pages.
+#
+# O site é estático e os dados estão commitados em `data/processed/`, por isso
+# a publicação não precisa de rede para nada além do npm: não descarrega
+# fontes, não corre o ETL. Reproduzir os dados é `make fetch` numa máquina com
+# rede aberta, e é um passo deliberadamente separado deste.
+#
+# A verificação corre ANTES de publicar e **bloqueia**: um dashboard que
+# regride abaixo de 90 no Lighthouse, que ganha scroll horizontal ou que perde
+# contraste não vai para o ar.
+
+name: Publicar dashboard
+
+on:
+  push:
+    branches: [claude/kind-fermi-gs7y9t, main]
+    # Só quando muda algo que afeta o site publicado.
+    paths:
+      - "src/**"
+      - "index.html"
+      - "public/**"
+      - "data/processed/**"
+      - "scripts/**"
+      - "package.json"
+      - "package-lock.json"
+      - "vite.config.js"
+      - ".github/workflows/publicar.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Uma publicação de cada vez; não cancela a que está a correr, para não
+# deixar o site a meio.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  verificar:
+    name: Verificar requisitos
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Instalar o Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Construir
+        run: npm run build
+
+      - name: Servir e verificar
+        run: |
+          npx vite preview --port 4173 --strictPort &
+          # Espera pelo servidor sem acrescentar uma dependência só para isso.
+          for i in $(seq 1 60); do
+            curl -sf http://localhost:4173/MunicipioGuimaraes/ >/dev/null && break
+            sleep 1
+          done
+          URL=http://localhost:4173/MunicipioGuimaraes/ npm run verificar
+
+  publicar:
+    name: Publicar
+    needs: verificar
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.publicacao.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Construir
+        run: npm run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - id: publicacao
+        uses: actions/deploy-pages@v4
