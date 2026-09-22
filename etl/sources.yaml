@@ -473,3 +473,17 @@ S20-espacos-juventude:
   periodicidade: continua
   verificacao: PRIM
   descoberta: *descoberta_poi
+
+S40:
+  nome: Brasão de armas do Município de Guimarães
+  entidade: Município de Guimarães
+  url: https://www.cm-guimaraes.pt/thumbs/cmguimaraes/uploads/writer_file/image/328/20131213150334265168_1_1000_1000.jpg
+  formato: jpeg
+  periodicidade: irregular
+  verificacao: PRIM
+  limitacoes: >-
+    Armas municipais aprovadas pela Portaria 131/85, de 9 de marco, publicada
+    em Diario da Republica. E o simbolo heraldico do CONCELHO, distinto da
+    imagem institucional da Camara (de 2014, com manual de normas proprio),
+    que NAO e usada aqui: este nao e um sitio oficial e nao deve parecer um.
+  alimenta: [cabecalho do dashboard]

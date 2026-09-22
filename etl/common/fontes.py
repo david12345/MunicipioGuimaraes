@@ -68,6 +68,9 @@ def escrever_fontes_json() -> Path:
         # Relativo à raiz do repositório: este ficheiro é commitado.
         registo["ficheiro_raw"] = meta.get("ficheiro") if meta else None
         registo["sha256"] = meta.get("sha256") if meta else None
+        # O tamanho serve para avisar antes do clique: um dos ficheiros de
+        # contratos tem 33 MB, e ninguém quer descobrir isso em dados móveis.
+        registo["bytes"] = meta.get("bytes") if meta else None
         registo["data_download"] = meta.get("data_download") if meta else None
         registo["descarregado"] = meta is not None
         saida[fid] = registo

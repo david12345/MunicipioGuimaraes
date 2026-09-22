@@ -5,7 +5,7 @@
  */
 
 import { carregar } from "../nucleo/dados.js";
-import { el } from "../nucleo/figura.js";
+import { el, ligacaoExterna } from "../nucleo/figura.js";
 import { numero, data as formatarData, NAO_DISPONIVEL } from "../nucleo/formato.js";
 import { TERMOS } from "../nucleo/glossario.js";
 
@@ -73,9 +73,7 @@ export async function render(raiz) {
 
     const tdNome = el("td");
     if (f.url) {
-      tdNome.append(
-        el("a", { href: f.url, rel: "noopener", target: "_blank", texto: f.nome }),
-      );
+      tdNome.append(ligacaoExterna(f.url, f.nome, f.bytes));
     } else {
       tdNome.textContent = f.nome;
     }

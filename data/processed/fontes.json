@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "gerado_em": "2026-09-21T22:41:20.135340+00:00",
+    "gerado_em": "2026-09-22T19:27:45.839198+00:00",
     "script": "etl/common/fontes.py",
     "versao_modelo": "1.0",
-    "total_fontes": 68,
-    "fontes_descarregadas": 68
+    "total_fontes": 69,
+    "fontes_descarregadas": 69
   },
   "dados": {
     "S01": {
@@ -21,6 +21,7 @@
       "id": "S01",
       "ficheiro_raw": "data/raw/2026-09-21_executivo-municipal",
       "sha256": "537ada2409c2229c2ac8192e7457b7edfbe0b5e0f6aa18e4af3247b61e07cd5a",
+      "bytes": 86386,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -39,6 +40,7 @@
       "id": "S05",
       "ficheiro_raw": "data/raw/2026-09-21_organica_2023.pdf",
       "sha256": "2cf1e390ee99f3b166516398f48fcea2b107670d2b362d1181ff6499e8e17e54",
+      "bytes": 3925521,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -52,9 +54,10 @@
       "limitacoes": "Pagina indice; os PDF anuais sao descobertos a partir daqui.",
       "id": "S07",
       "e_indice": true,
-      "ficheiro_raw": "data/raw/2026-09-21_mapa-de-pessoal",
-      "sha256": "9b8c59a115edff9d505fd3c5270f9e09cd9d1f3233136c431cbc6ae0b14c77ba",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_mapa-de-pessoal",
+      "sha256": "a70195522ba5630d632927aaa44d93dc5e4549ea7823cf3f94f4d9ca75777e06",
+      "bytes": 117749,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S10-2021": {
@@ -71,6 +74,7 @@
       "id": "S10-2021",
       "ficheiro_raw": "data/raw/2026-09-21_relatorio_e_contas_2021.pdf",
       "sha256": "0282e9b20e83a74cd15a72e4c89d81d948545c5a663b344e7245d5ae2322acc7",
+      "bytes": 14287631,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -88,6 +92,7 @@
       "id": "S10-2022",
       "ficheiro_raw": "data/raw/2026-09-21_relatorio_e_contas_2022.pdf",
       "sha256": "9fd6b30c355a61f784988dc0538b17e6d7412476df806047b99caa3a8cf7ccbf",
+      "bytes": 21772587,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -105,6 +110,7 @@
       "id": "S10-2023",
       "ficheiro_raw": "data/raw/2026-09-21_relatorio_e_contas_2023.pdf",
       "sha256": "136be5fa0b0c70c0943d385371bef0fc7a36e1b32d33c12320d83daef055659c",
+      "bytes": 13866938,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -122,6 +128,7 @@
       "id": "S10-2024",
       "ficheiro_raw": "data/raw/2026-09-21_relatorio_e_contas_2024.pdf",
       "sha256": "d27055d1e22b6b29105310570ca748ecd879749beb3f169457958e06192c531f",
+      "bytes": 14141961,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -139,6 +146,7 @@
       "id": "S10-2025",
       "ficheiro_raw": "data/raw/2026-09-21_relatorio_de_gestao_2025.pdf",
       "sha256": "478e1f1920feb81d52dee6af654e67312367e6f0380e68209cdb184c4e0e139c",
+      "bytes": 20223905,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -156,6 +164,7 @@
       "id": "S11-2021",
       "ficheiro_raw": "data/raw/2026-09-21_consolidacao_de_contas_2021.pdf",
       "sha256": "599cf549f145907db864161193f13a5a2a329ff9824f1d0ffe84001635013118",
+      "bytes": 1982996,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -173,6 +182,7 @@
       "id": "S11-2022",
       "ficheiro_raw": "data/raw/2026-09-21_anexo___consolidacao_de_contas_2022_ra_hr_ac_sf_ps_ap_po_mn_db.pdf",
       "sha256": "2405f5a4190a308ab409d3865929d9e72de0d63a17ee1e82a56fba337e25e43a",
+      "bytes": 2275535,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -190,6 +200,7 @@
       "id": "S11-2023",
       "ficheiro_raw": "data/raw/2026-09-21_consolidacao_de_contas_2023.pdf",
       "sha256": "3a405d732ae675ccb12c851efff343e6e95540873e8869d3698ae06919e7d505",
+      "bytes": 1805132,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -207,6 +218,7 @@
       "id": "S11-2024",
       "ficheiro_raw": "data/raw/2026-09-21_consolidacao_de_contas_2024.pdf",
       "sha256": "35af8cc86e5db2fbc94479d6031eccae75c4a298452f9dc137f82d2bfad03214",
+      "bytes": 1904887,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -224,6 +236,7 @@
       "id": "S11-2025",
       "ficheiro_raw": "data/raw/2026-09-21_consolidacao_de_contas_2025.pdf",
       "sha256": "4db318a11e0afafe7d124436666ab7a0901d0a69fca96c82faf954d9c40bbbec",
+      "bytes": 8430717,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -240,6 +253,7 @@
       "e_indice": true,
       "ficheiro_raw": "data/raw/2026-09-21_mapa-oficial-dos-resultados-das-eleicoes-autarquicas",
       "sha256": "cf941e01326249ca687c25f28cbe9aab4fb19790bf9d2af21f5ffe2b0f2e2028",
+      "bytes": 59636,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -253,9 +267,10 @@
       "limitacoes": "Pagina do dataset. Os ficheiros sao um XLSX por ano e o URL inclui um carimbo temporal que roda a cada publicacao semanal - por isso sao descobertos, nao fixados.",
       "id": "S23",
       "e_indice": true,
-      "ficheiro_raw": "data/raw/2026-09-21_contratos-publicos-portal-base-impic-contratos-de-2012-a-2026",
-      "sha256": "4a3484acbdd533a787549e506606179063c62314f712de59d4e7e9dea37841b7",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_contratos-publicos-portal-base-impic-contratos-de-2012-a-2026",
+      "sha256": "9f05312e71760885ddaf9ad5d4975546ed0ab9db8b6b946977af19bd1e2c75a4",
+      "bytes": 224183,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S27": {
@@ -272,6 +287,7 @@
       "id": "S27",
       "ficheiro_raw": "data/raw/2026-09-21_portalautarquico.dgal.gov.pt",
       "sha256": "adce892ff5fda96d12adb299656292e6b3b923fa8b6c06ae9510e964fdd27923",
+      "bytes": 63214,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -288,9 +304,10 @@
       ],
       "limitacoes": "Denominador de TODAS as metricas per capita, por isso V7 exige uma unica serie. Confirmado: desce ao municipio (Guimaraes = geocod 1190308) e cobre 2021-2025. Sem Dim1 a API devolve so o ultimo ano, dai a lista de periodos no URL. O indicador NUTS 2013 (0008273) cobre 2011-2023 e daria mais historia, mas perdia 2024 e 2025 - para um dashboard ao cidadao a recencia vale mais. MISTURAR AS DUAS SERIES VIOLA A V7: trocar de indicador implica trocar a serie toda. Alternativas: 0012903/0012905 (NUTS 2024, por idade simples), 0008273/0007307 (NUTS 2013), 0003182 (NUTS 2002). A API rejeita HEAD (o check-acesso usa GET) e e intolerante a cadencia: um 429 chega para bloquear o host inteiro durante horas.",
       "id": "S32",
-      "ficheiro_raw": "data/raw/2026-09-21_pindica_f2fd4ebe.jsp",
-      "sha256": "f724eb822f1900f8f9033d4b02d2484276d8ff4ba1481e041cc2ae41bfc73e95",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_pindica_f2fd4ebe.jsp",
+      "sha256": "684b4481707c2907af057cd84b2b94261ec77f9a29b2c13af39f8a6f38906d20",
+      "bytes": 21756543,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S02": {
@@ -309,6 +326,7 @@
       "id": "S02",
       "ficheiro_raw": "data/raw/2026-09-21_camara-municipal",
       "sha256": "9e010dda5768096fb330d0785179bc3bc4b022da0b4d3f457592122f2d43d47a",
+      "bytes": 72070,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -322,9 +340,10 @@
       "verificacao": "PRIM",
       "limitacoes": "Noticia de 16-10-2025. Aponta para o Edital de Apuramento Geral (homologado a 15-10-2025 pela juiza presidente da Assembleia de Apuramento Geral), que seria a fonte local com valor legal - mas o URL publicado devolve 404 (ver L15).",
       "id": "S17",
-      "ficheiro_raw": "data/raw/2026-09-21_resultados-finais-homologados-das-ultimas-eleicoes-autarquicas",
-      "sha256": "cb39bfb223a2a9ff473c325b861e6898547623a1b0e3f9de8b3e79cdc6f0b9da",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_resultados-finais-homologados-das-ultimas-eleicoes-autarquicas",
+      "sha256": "4df632753f4d83b27b6679fb5beeb94a006c3ed5ea9f097001ce31975ecde2a0",
+      "bytes": 118142,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S37": {
@@ -341,6 +360,7 @@
       "id": "S37",
       "ficheiro_raw": "data/raw/2026-09-21_assembleia-municipal",
       "sha256": "92bc78718ae853c501d007b5d30f1b5eb10b1bbfbe7d9b7405cb7ca8eeb25078",
+      "bytes": 69181,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -356,6 +376,7 @@
       "e_indice": true,
       "ficheiro_raw": "data/raw/2026-09-21_estrutura-e-organizacao-dos-servicos-municipais",
       "sha256": "4503253e243e853d1d9d37973634514348ede0016423a615f7b409d07e497d19",
+      "bytes": 48725,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -369,9 +390,10 @@
       "limitacoes": "Pagina indice. O organograma e imagem/diagrama: serve de verificacao cruzada ao texto normativo (S05+S06), nunca de fonte primaria da hierarquia (L4).",
       "id": "S03",
       "e_indice": true,
-      "ficheiro_raw": "data/raw/2026-09-21_organograma",
-      "sha256": "2f4702e7213ea0c9d7f9ad70d324c03c026ffdd97f36dfe02cc551eb9a7d7c59",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_organograma",
+      "sha256": "e9e2e4ac42407d9f9e2a46311b430cc6880fb75630e1a8048d1314134a051e17",
+      "bytes": 89783,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S38": {
@@ -389,6 +411,7 @@
       "id": "S38",
       "ficheiro_raw": "data/raw/2026-09-21_0021500223.pdf",
       "sha256": "02fe164b211cf06b0a633c979201575119196dca1c9acc9e36bb8c42d1ad2667",
+      "bytes": 202899,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -407,6 +430,7 @@
       "id": "S08-2021",
       "ficheiro_raw": "data/raw/2026-09-21_grandes_opcoes_plano_e_orcamento_2021.pdf",
       "sha256": "cf90e213609ca923ed387f6a8d6d0ac0e9fe831db070ba040ec7837c4542d658",
+      "bytes": 86375840,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -425,6 +449,7 @@
       "id": "S08-2022",
       "ficheiro_raw": "data/raw/2026-09-21_grandes_opcoes_do_plano_e_orcamento_2022.pdf",
       "sha256": "63beb9851bc86f0027f9d987d4632dbda435fcf03bdd0383b9d5d84bdff05a12",
+      "bytes": 118913076,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -443,6 +468,7 @@
       "id": "S08-2023",
       "ficheiro_raw": "data/raw/2026-09-21_anexo___grandes_opcoes_do_plano_e_orcamento_2023.pdf",
       "sha256": "088548f4b6c54e0d8e61ea1caaaf9c8e21da48aec8082c9be063aee7bf81a738",
+      "bytes": 144200156,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -461,6 +487,7 @@
       "id": "S08-2024",
       "ficheiro_raw": "data/raw/2026-09-21_grandes_opcoes_do_plano_e_orcamento___2024.pdf",
       "sha256": "b7883d6481868e31276c75ff8995d2ae01a41e1d3594057813f9d836a34a42d2",
+      "bytes": 110762087,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -479,6 +506,7 @@
       "id": "S08-2025",
       "ficheiro_raw": "data/raw/2026-09-21_grandes_opcoes_do_plano_e_orcamento_2025.pdf",
       "sha256": "326728703d698a64a2458bd0028e08b88f09acfc3e167f0463e77366e1c39cb2",
+      "bytes": 197055447,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -497,6 +525,7 @@
       "id": "S08-2026",
       "ficheiro_raw": "data/raw/2026-09-21_grandes_opcoes_do_plano_e_orcamento_2026.pdf",
       "sha256": "3ffe0bb5488858743ea56e2e8cd6e9c123f45e80803379254135a50f94ef7cdb",
+      "bytes": 189818473,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -509,9 +538,10 @@
       "verificacao": "PRIM",
       "limitacoes": "Indice do arquivo financeiro, alcancado a partir do ponto \"8.1 Documentos previsionais\" do Indice de Transparencia Municipal (S14). Arvore de pastas ano -> tipo (Previsionais / Prestacao de Contas / Impostos Locais) com ids opacos e paginacao, por isso NAO e' varrivel por uma so regra de descoberta. E' daqui que saem S08-2021..S08-2026 e a serie de Relatorios e Contas.",
       "id": "S39",
-      "ficheiro_raw": "data/raw/2026-09-21_dados-economico-financeiros",
-      "sha256": "1e56d35f973c506b4f2742b798a31c20640163df7ecb522ae1b0983339f9db60",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_dados-economico-financeiros",
+      "sha256": "4143dc625bd9660f7e5db37967b026851aa9484903f11cb5800ee81f6477679a",
+      "bytes": 73032,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S20-cultura-municipais": {
@@ -526,6 +556,7 @@
       "e_indice": true,
       "ficheiro_raw": "data/raw/2026-09-21_equipamentos-culturais-municipais",
       "sha256": "115a99fdd57fa0560fd34ae69318ccd319aafd0630de00bbdf014f62bc6fd4bc",
+      "bytes": 124285,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -540,6 +571,7 @@
       "e_indice": true,
       "ficheiro_raw": "data/raw/2026-09-21_equipamentos-culturais-municipais_271c1375",
       "sha256": "fc18d54b82b8885d09c743e3d9bb03734ce5466234b4408649163cb6f2ddfcd0",
+      "bytes": 120864,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -555,6 +587,7 @@
       "e_indice": true,
       "ficheiro_raw": "data/raw/2026-09-21_equipamentos-culturais-nao-municipais",
       "sha256": "7d3c9a25866fff44eb4b89644efeba42a2da29cc9e6455ca2c50b4010366408f",
+      "bytes": 122325,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -567,9 +600,28 @@
       "verificacao": "PRIM",
       "id": "S20-espacos-juventude",
       "e_indice": true,
-      "ficheiro_raw": "data/raw/2026-09-21_espacos-de-juventude",
-      "sha256": "6420cd44997de3f7db2ad7ac51e174bd99b3c900d014737b77b2f6cfd76be76f",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_espacos-de-juventude",
+      "sha256": "0c5b649fe42aecef62f7c73aabcfbc95887a448d80161576d883763ebba657d3",
+      "bytes": 122962,
+      "data_download": "2026-09-22",
+      "descarregado": true
+    },
+    "S40": {
+      "nome": "Brasão de armas do Município de Guimarães",
+      "entidade": "Município de Guimarães",
+      "url": "https://www.cm-guimaraes.pt/thumbs/cmguimaraes/uploads/writer_file/image/328/20131213150334265168_1_1000_1000.jpg",
+      "formato": "jpeg",
+      "periodicidade": "irregular",
+      "verificacao": "PRIM",
+      "limitacoes": "Armas municipais aprovadas pela Portaria 131/85, de 9 de marco, publicada em Diario da Republica. E o simbolo heraldico do CONCELHO, distinto da imagem institucional da Camara (de 2014, com manual de normas proprio), que NAO e usada aqui: este nao e um sitio oficial e nao deve parecer um.",
+      "alimenta": [
+        "cabecalho do dashboard"
+      ],
+      "id": "S40",
+      "ficheiro_raw": "data/raw/2026-09-22_20131213150334265168_1_1000_1000.jpg",
+      "sha256": "980541537a05d1e2eb7cd0b21b0cbc5ba63ad6a8a87c8b70bde57738af2a8117",
+      "bytes": 13806,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S03-06_24": {
@@ -587,6 +639,7 @@
       "id": "S03-06_24",
       "ficheiro_raw": "data/raw/2026-09-21_organograma_06_24.pdf",
       "sha256": "0e1244850e0362dc6664810528e2f7d5d5cd4de822b7b1904d45d5dd524a9a5d",
+      "bytes": 410446,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -606,6 +659,7 @@
       "id": "S06",
       "ficheiro_raw": "data/raw/2026-09-21_0041500418.pdf",
       "sha256": "672887ff58a0437cb4063801e2afd4dd84cd597846394b43f2de5c34a0b579d5",
+      "bytes": 820136,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -625,6 +679,7 @@
       "id": "S07-2026",
       "ficheiro_raw": "data/raw/2026-09-21_mapa_de_pessoal_2026.pdf",
       "sha256": "59afeaeb60970f37f6d21ab2586a28fca101219db6ea77a6f1af1a38a119a7df",
+      "bytes": 1124103,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -644,6 +699,7 @@
       "id": "S16-DRE",
       "ficheiro_raw": "data/raw/2026-09-21_0000200612.pdf",
       "sha256": "c55b607e4b7e8ef0b6e1a78e9725034fe22bbb40c2f63c77c65021c3f4aedbca",
+      "bytes": 149193569,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -662,6 +718,7 @@
       "id": "S20-poi-arquivo-municipal-alfredo-pimenta",
       "ficheiro_raw": "data/raw/2026-09-21_arquivo-municipal-alfredo-pimenta",
       "sha256": "565e615301b01868b35fce7bb0cd8d2ade421ea0acb2d0e6074f6686bdc8e83b",
+      "bytes": 118139,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -678,9 +735,10 @@
         "equipamentos.json"
       ],
       "id": "S20-poi-asmav-associacao-de-socorros-mutuos-artistica-vimaranense",
-      "ficheiro_raw": "data/raw/2026-09-21_asmav-associacao-de-socorros-mutuos-artistica-vimaranense",
-      "sha256": "c4b80f4a545b43b7b5d69750cbe9cfa002dd507a59da12431c9e426080357202",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_asmav-associacao-de-socorros-mutuos-artistica-vimaranense",
+      "sha256": "ef57824f2a70c5d01ba7cd58498a1e2556e75802bfe4a30897d13143c13dd801",
+      "bytes": 117761,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S20-poi-associacao-cultural-recreativa-convivio": {
@@ -698,6 +756,7 @@
       "id": "S20-poi-associacao-cultural-recreativa-convivio",
       "ficheiro_raw": "data/raw/2026-09-21_associacao-cultural-recreativa-convivio",
       "sha256": "46ca484c3261ee826d1c1845b2ec59fcc08520282e7169b889d375749b061820",
+      "bytes": 117864,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -714,9 +773,10 @@
         "equipamentos.json"
       ],
       "id": "S20-poi-auditorio-da-universidade-do-minho-polo-de-guimaraes",
-      "ficheiro_raw": "data/raw/2026-09-21_auditorio-da-universidade-do-minho-polo-de-guimaraes",
-      "sha256": "6ad6bc497676212abf382adbfb0484318a5a9245d5b4ba89bf255ab31c228148",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_auditorio-da-universidade-do-minho-polo-de-guimaraes",
+      "sha256": "19107a7546b49f3848b543c3755abdcef80006ed28c0311056bb720d869a5e71",
+      "bytes": 117902,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S20-poi-auditorio-multifuncional-couros": {
@@ -732,9 +792,10 @@
         "equipamentos.json"
       ],
       "id": "S20-poi-auditorio-multifuncional-couros",
-      "ficheiro_raw": "data/raw/2026-09-21_auditorio-multifuncional-couros",
-      "sha256": "e1c5bedc7688cccb8befc2c43c021ea5de75f3878e77590509ac8b1405d4e6cd",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_auditorio-multifuncional-couros",
+      "sha256": "47f62b7806697dc0ee5265ca13573b051007f431083104f4ea3c258034e71405",
+      "bytes": 119053,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S20-poi-biblioteca-municipal-raul-brandao-3": {
@@ -750,9 +811,10 @@
         "equipamentos.json"
       ],
       "id": "S20-poi-biblioteca-municipal-raul-brandao-3",
-      "ficheiro_raw": "data/raw/2026-09-21_biblioteca-municipal-raul-brandao-3",
-      "sha256": "7fecb7e38d5a9b0d10368da113f5e316d5986f497ec04eff99c5ab8cbc7b10b8",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_biblioteca-municipal-raul-brandao-3",
+      "sha256": "0bbdb6ab1db8deb50580cadda22c2a0be66389ea465dbddd00b643a7c33dd6d1",
+      "bytes": 118384,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S20-poi-caaa-centro-para-os-assuntos-da-arte-e-da-criatividade-rua-padre-augusto-borges-de-sa": {
@@ -770,6 +832,7 @@
       "id": "S20-poi-caaa-centro-para-os-assuntos-da-arte-e-da-criatividade-rua-padre-augusto-borges-de-sa",
       "ficheiro_raw": "data/raw/2026-09-21_caaa-centro-para-os-assuntos-da-arte-e-da-criatividade-rua-padre-augusto-borges-de-sa",
       "sha256": "7e36a83deaf62bec971f649839ab28fc7ae52963f84a964b1ac02ab99aa132b6",
+      "bytes": 118242,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -786,9 +849,10 @@
         "equipamentos.json"
       ],
       "id": "S20-poi-car-circulo-de-arte-e-recreio",
-      "ficheiro_raw": "data/raw/2026-09-21_car-circulo-de-arte-e-recreio",
-      "sha256": "fb1429abf045d2b9787d0f7be1629c8a416990cb462259adabf98ef8601ca8fa",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_car-circulo-de-arte-e-recreio",
+      "sha256": "658ce6a8f83907b860a1dbb597a339e14bbb64143ea2d1f1a577d83385699ad6",
+      "bytes": 117720,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S20-poi-casa-da-juventude-de-guimaraes": {
@@ -804,9 +868,10 @@
       ],
       "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
       "id": "S20-poi-casa-da-juventude-de-guimaraes",
-      "ficheiro_raw": "data/raw/2026-09-21_casa-da-juventude-de-guimaraes",
-      "sha256": "6c2ad67291bd2ba42a3442ac7228597d00161f7c4ff8561cab75480a6d8099c1",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_casa-da-juventude-de-guimaraes",
+      "sha256": "f64fbb5513fee462ecfb6b1e90ef3ac78ae76e49dcfa427aeed18bf58d4d0ce8",
+      "bytes": 118095,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S20-poi-casa-da-memoria": {
@@ -822,9 +887,10 @@
         "equipamentos.json"
       ],
       "id": "S20-poi-casa-da-memoria",
-      "ficheiro_raw": "data/raw/2026-09-21_casa-da-memoria",
-      "sha256": "c63030bfe4a088cba6a481031c18fdb3128863fdf0afef79fd5697e72e0abcbf",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_casa-da-memoria",
+      "sha256": "ef5269db964afd6328d0d65fee33d1eb1c735e125e8853896872be970db04f05",
+      "bytes": 118234,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S20-poi-ccvf": {
@@ -842,6 +908,7 @@
       "id": "S20-poi-ccvf",
       "ficheiro_raw": "data/raw/2026-09-21_ccvf",
       "sha256": "12f96dd402ccd1cef90fad5aa4d6cfcf925540f6721566c001f8cf360434ef3e",
+      "bytes": 129398,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -858,9 +925,10 @@
         "equipamentos.json"
       ],
       "id": "S20-poi-centro-de-criacao-de-candoso",
-      "ficheiro_raw": "data/raw/2026-09-21_centro-de-criacao-de-candoso",
-      "sha256": "8f43167ef51df1f7a53da4869676a400a127c3b4e6bb9360ce8d3bd1b2d528f5",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_centro-de-criacao-de-candoso",
+      "sha256": "11de56c0c9b6bbe1008a922257ab70a7f603998ec3cc3b2e06866b3accf67490",
+      "bytes": 117448,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S20-poi-centro-internacional-das-artes-jose-de-guimaraes": {
@@ -878,6 +946,7 @@
       "id": "S20-poi-centro-internacional-das-artes-jose-de-guimaraes",
       "ficheiro_raw": "data/raw/2026-09-21_centro-internacional-das-artes-jose-de-guimaraes",
       "sha256": "692419fcc9976b1f608dfe4f4557266d97b1bfc009cbfc414c5bb457b38529f4",
+      "bytes": 125902,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -894,9 +963,10 @@
         "equipamentos.json"
       ],
       "id": "S20-poi-cine-clube-de-guimaraes",
-      "ficheiro_raw": "data/raw/2026-09-21_cine-clube-de-guimaraes",
-      "sha256": "6265f5066be0e94eb64813f04fee692a8db19462fc3b53da2642ee8471f25404",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_cine-clube-de-guimaraes",
+      "sha256": "02a2f898e559ed5e3bea91c5025b0a9ee79089146b181462cde78d74ee04bd2e",
+      "bytes": 117530,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S20-poi-gabinete-municipal-da-juventude": {
@@ -912,9 +982,10 @@
       ],
       "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
       "id": "S20-poi-gabinete-municipal-da-juventude",
-      "ficheiro_raw": "data/raw/2026-09-21_gabinete-municipal-da-juventude",
-      "sha256": "83d396484e1f250d80d50a4568834a1ff1db5f1eda0dd9f6efea324415d691ba",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_gabinete-municipal-da-juventude",
+      "sha256": "42e981706c20d5297a663b6aafe2af56729b01afea263146c16d527925c1e73d",
+      "bytes": 117946,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S20-poi-ipdj-braga": {
@@ -930,9 +1001,10 @@
       ],
       "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
       "id": "S20-poi-ipdj-braga",
-      "ficheiro_raw": "data/raw/2026-09-21_ipdj-braga",
-      "sha256": "636f2868f6880a14849ba8dc7a328fa49531fe35ac6d35affec6560c5000f025",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_ipdj-braga",
+      "sha256": "7d43b0f1b0395c2f3bd96dd730b8c7a0e92934cb4142bca44bac4577578849e5",
+      "bytes": 117566,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S20-poi-loja-oficina": {
@@ -948,9 +1020,10 @@
       ],
       "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
       "id": "S20-poi-loja-oficina",
-      "ficheiro_raw": "data/raw/2026-09-21_loja-oficina",
-      "sha256": "cbb1df558824cf6a7019d42962b1da35e7dd21fcc49cf56bc2ffa316c1b9e3ce",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_loja-oficina",
+      "sha256": "f6aaac83cd813372e45f0c91814ea183cc90376abcc0cad8bd3a50f7236a920d",
+      "bytes": 117440,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S20-poi-multiusos-de-guimaraes": {
@@ -966,9 +1039,10 @@
       ],
       "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
       "id": "S20-poi-multiusos-de-guimaraes",
-      "ficheiro_raw": "data/raw/2026-09-21_multiusos-de-guimaraes",
-      "sha256": "187bb44abf3f16b532ab4cba816594f26a30e1d704a9e9e2a0ee3769be3f3343",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_multiusos-de-guimaraes",
+      "sha256": "104c8c3347925b1eaea9eb600ece14eaa3eb9f2c88084ae0a52714b83733ad21",
+      "bytes": 126604,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S20-poi-oficina-centro-de-artes-e-mesteres-tradicionais-guimaraes": {
@@ -984,9 +1058,10 @@
       ],
       "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
       "id": "S20-poi-oficina-centro-de-artes-e-mesteres-tradicionais-guimaraes",
-      "ficheiro_raw": "data/raw/2026-09-21_oficina-centro-de-artes-e-mesteres-tradicionais-guimaraes",
-      "sha256": "20227ef4fdc3f3fe89d76de3ef05d6daa44f8c10f72241c7c3f31dc81b8cacda",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_oficina-centro-de-artes-e-mesteres-tradicionais-guimaraes",
+      "sha256": "0666b175c59f0897df5a133ccd581267104d663042b171544cfc71e061d22ab3",
+      "bytes": 118033,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S20-poi-pousada-da-juventude-de-guimaraes": {
@@ -1002,9 +1077,10 @@
       ],
       "limitacoes": "Coordenadas publicadas na origem (data-lat/data-long).",
       "id": "S20-poi-pousada-da-juventude-de-guimaraes",
-      "ficheiro_raw": "data/raw/2026-09-21_pousada-da-juventude-de-guimaraes",
-      "sha256": "e13cdd2055ed2699215150d1b4d5b5882b25c7e01890408dbb4fc3e05fe04582",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_pousada-da-juventude-de-guimaraes",
+      "sha256": "2d372438bd0d84ae1ece3dec88cdd1c78ef056e5f5d28304c3b881e365bfa1b8",
+      "bytes": 118126,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S20-poi-sao-mamede-centro-de-artes-e-espetaculos-de-guimaraes": {
@@ -1020,9 +1096,10 @@
         "equipamentos.json"
       ],
       "id": "S20-poi-sao-mamede-centro-de-artes-e-espetaculos-de-guimaraes",
-      "ficheiro_raw": "data/raw/2026-09-21_sao-mamede-centro-de-artes-e-espetaculos-de-guimaraes",
-      "sha256": "bda1507eafbd802eac09353dcfb6947d67a352ac155492e897ee52882f84dd24",
-      "data_download": "2026-09-21",
+      "ficheiro_raw": "data/raw/2026-09-22_sao-mamede-centro-de-artes-e-espetaculos-de-guimaraes",
+      "sha256": "f5ed2098e9dcb4b9aa811b8c2ba81c9be1b4a6ac668c785cec072864ad09fb84",
+      "bytes": 117808,
+      "data_download": "2026-09-22",
       "descarregado": true
     },
     "S20-poi-teatro-jordao": {
@@ -1040,6 +1117,7 @@
       "id": "S20-poi-teatro-jordao",
       "ficheiro_raw": "data/raw/2026-09-21_teatro-jordao",
       "sha256": "5ceebce4111799db7b029749aad42d679dbb44fb131b833ed7f5b2a487521d44",
+      "bytes": 117194,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -1059,6 +1137,7 @@
       "id": "S23-2019",
       "ficheiro_raw": "data/raw/2026-09-21_contratos2019.xlsx",
       "sha256": "7fdd3e6b89245b78af7bc3aad46f0fdd354f70b3269fbb11537b6194781cd491",
+      "bytes": 35124690,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -1078,6 +1157,7 @@
       "id": "S23-2020",
       "ficheiro_raw": "data/raw/2026-09-21_contratos2020.xlsx",
       "sha256": "61c91230938edfd07836bed9ee25fbc87c1e883849854950fc613319bc5148f0",
+      "bytes": 41539429,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -1097,6 +1177,7 @@
       "id": "S23-2021",
       "ficheiro_raw": "data/raw/2026-09-21_contratos2021.xlsx",
       "sha256": "039258c8593c566ac285ba5abc15428edade9eb046f6e12bb209f2bc645bd8e6",
+      "bytes": 46108758,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -1116,6 +1197,7 @@
       "id": "S23-2022",
       "ficheiro_raw": "data/raw/2026-09-21_contratos2022.xlsx",
       "sha256": "234e7f4933d4a49474652552e7e874558e9d6cdbd85f2699e7d761e95130b0fe",
+      "bytes": 44122868,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -1135,6 +1217,7 @@
       "id": "S23-2023",
       "ficheiro_raw": "data/raw/2026-09-21_contratos2023.xlsx",
       "sha256": "360a7ac1ccdc862e2c3d19bb7040edcccec8049508874032457f784f901b645c",
+      "bytes": 49403800,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -1154,6 +1237,7 @@
       "id": "S23-2024",
       "ficheiro_raw": "data/raw/2026-09-21_contratos2024.xlsx",
       "sha256": "a231d3306b6c09bb49fd29a20048da61c77bb3da488bc396cadf4861ca8f3bf5",
+      "bytes": 57674054,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -1173,6 +1257,7 @@
       "id": "S23-2025",
       "ficheiro_raw": "data/raw/2026-09-21_contratos2025.xlsx",
       "sha256": "a72b04c54c0ab999a247be41b650b101141b26f51785ce10a094a44605a4e932",
+      "bytes": 66970049,
       "data_download": "2026-09-21",
       "descarregado": true
     },
@@ -1192,6 +1277,7 @@
       "id": "S23-2026",
       "ficheiro_raw": "data/raw/2026-09-21_contratos2026.xlsx",
       "sha256": "5c1b57af89cfb458fa5f1b9b2afbf4da2f4b6ee637ac4cf00236e028ecb2d3cf",
+      "bytes": 48153589,
       "data_download": "2026-09-21",
       "descarregado": true
     }

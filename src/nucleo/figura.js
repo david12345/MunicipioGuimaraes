@@ -18,6 +18,52 @@ import { data as formatarData, NAO_DISPONIVEL } from "./formato.js";
 
 let contador = 0;
 
+// Formatos que o navegador não sabe mostrar: clicar descarrega-os.
+const DESCARREGAVEIS = /\.(xlsx|xls|csv|zip|ods|docx|pdf)$/i;
+
+/** `35124690` → `33,5 MB`. */
+function tamanho(bytes) {
+  if (!bytes) return null;
+  const mb = bytes / 1048576;
+  if (mb >= 1) return `${mb.toFixed(1).replace(".", ",")} MB`;
+  return `${Math.max(1, Math.round(bytes / 1024))} kB`;
+}
+
+/**
+ * Ligação para um documento de origem.
+ *
+ * **Não é possível forçar "só descarregar" a partir daqui.** Isso depende de o
+ * servidor enviar `Content-Disposition: attachment`, e o do dados.gov não
+ * envia sequer `Content-Type`; descarregar por código também está fora, porque
+ * não há `Access-Control-Allow-Origin`. O que a página controla é não perder o
+ * dashboard — daí o `target="_blank"` — e avisar do que o clique faz.
+ *
+ * Por isso um ficheiro leva o formato e o tamanho ao lado: um dos ficheiros de
+ * contratos tem 33 MB, e ninguém quer descobrir isso em dados móveis.
+ */
+export function ligacaoExterna(url, texto, bytes = null) {
+  const m = url.split("?")[0].match(DESCARREGAVEIS);
+  const a = el("a", {
+    href: url,
+    rel: "noopener noreferrer",
+    target: "_blank",
+    texto,
+  });
+  if (!m) return a;
+
+  const partes = [m[1].toUpperCase(), tamanho(bytes)].filter(Boolean);
+  const marca = el("span", {
+    class: "ficheiro",
+    texto: ` ${partes.join(" · ")}`,
+  });
+  marca.append(
+    el("span", { class: "so-leitor", texto: " — descarrega um ficheiro" }),
+  );
+  const envolucro = el("span", { class: "ligacao-ficheiro" });
+  envolucro.append(a, marca);
+  return envolucro;
+}
+
 function el(tag, props = {}, filhos = []) {
   const n = document.createElement(tag);
   for (const [k, v] of Object.entries(props)) {
@@ -69,7 +115,7 @@ async function fichaDaFonte(ids) {
     }
     const item = el("li");
     const nome = f.url
-      ? el("a", { href: f.url, rel: "noopener", target: "_blank", texto: f.nome })
+      ? ligacaoExterna(f.url, f.nome, f.bytes)
       : el("span", { texto: f.nome });
     item.append(nome);
     const detalhe = [];

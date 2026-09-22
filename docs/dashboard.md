@@ -42,6 +42,40 @@ transbordar o gráfico, controlos com 44 px, e o atalho de teclado a funcionar.
 
 Tudo isto corre em `make dashboard-verificar` e **falha a build** se regredir.
 
+## O brasão, e porque não é o logótipo
+
+O cabeçalho usa o **brasão de armas do concelho**, aprovado pela Portaria
+131/85 e publicado em Diário da República. É o símbolo heráldico do
+território.
+
+**Não** usa a imagem institucional da Câmara — a marca de 2014, que tem manual
+de normas próprio. Essa é a identidade da instituição, e um sítio que não é
+oficial não a deve vestir.
+
+A advertência "projeto independente · não é um sítio oficial" está **ao lado
+do brasão**, no cabeçalho, e não só no rodapé. Quem chega vê as duas coisas ao
+mesmo tempo.
+
+A imagem é servida daqui, não do sítio da Câmara: usar a largura de banda
+alheia para carregar um logótipo é má prática, e um URL que muda partia a
+página. Está registada como fonte (`S40`), com `sha256`, como tudo o resto.
+
+## Ligações para ficheiros
+
+Uma ligação para um XLSX abria um segundo separador que ficava aberto enquanto
+o download corria.
+
+**Não é possível forçar "só descarregar" a partir da página.** Isso depende de
+o servidor enviar `Content-Disposition: attachment`, e o do dados.gov não envia
+sequer `Content-Type`; descarregar por código também está fora, porque não há
+`Access-Control-Allow-Origin`. Tentar tirar o `target="_blank"` piorou: a
+página navegava para o ficheiro e perdia-se o dashboard.
+
+O que a página controla é o resto: o separador novo mantém-se (para o
+dashboard não se perder) e cada ligação para ficheiro passa a mostrar
+**formato e tamanho** — um dos ficheiros de contratos tem 33,5 MB, e ninguém
+quer descobrir isso em dados móveis.
+
 ## Uma secção de cada vez
 
 O menu **não** são atalhos para posições numa página longa: cada secção é a

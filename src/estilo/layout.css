@@ -34,6 +34,32 @@
   padding: 0.6rem 1rem;
 }
 
+.cabecalho__marca {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+}
+
+/* Altura fixa e proporção declarada no HTML: o brasão não pode fazer saltar
+ * o cabeçalho enquanto carrega. */
+.cabecalho__brasao {
+  width: auto;
+  height: 42px;
+  flex: none;
+}
+
+.cabecalho__aviso {
+  margin: 0.15rem 0 0;
+  font-size: 0.72rem;
+  color: var(--tinta-3);
+}
+
+.cabecalho__aviso strong {
+  color: var(--tinta-2);
+  font-weight: 650;
+}
+
 .cabecalho__titulo {
   margin: 0;
   font-size: 1.05rem;
@@ -334,7 +360,33 @@ main:focus {
   .cabecalho__interior {
     padding-block: 0.8rem;
   }
-  .cabecalho__titulo {
+  .cabecalho__marca {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+}
+
+/* Altura fixa e proporção declarada no HTML: o brasão não pode fazer saltar
+ * o cabeçalho enquanto carrega. */
+.cabecalho__brasao {
+  width: auto;
+  height: 42px;
+  flex: none;
+}
+
+.cabecalho__aviso {
+  margin: 0.15rem 0 0;
+  font-size: 0.72rem;
+  color: var(--tinta-3);
+}
+
+.cabecalho__aviso strong {
+  color: var(--tinta-2);
+  font-weight: 650;
+}
+
+.cabecalho__titulo {
     font-size: 1.2rem;
   }
   .seccao {
@@ -822,4 +874,21 @@ main:focus {
  * 44 px não se aplica a ligações dentro de uma frase (WCAG 2.5.8). */
 .leaflet-control-attribution {
   font-size: 0.72rem;
+}
+
+/* Marca de ficheiro ao lado de uma ligação: formato e tamanho, para o clique
+ * ser previsível. Um dos ficheiros de contratos tem 33 MB. */
+.ligacao-ficheiro {
+  display: inline;
+}
+
+.ficheiro {
+  display: inline-block;
+  margin-left: 0.3rem;
+  padding: 0.05rem 0.35rem;
+  font-size: 0.72rem;
+  white-space: nowrap;
+  color: var(--tinta-2);
+  background: var(--superficie-3);
+  border-radius: 4px;
 }
