@@ -892,3 +892,39 @@ main:focus {
   background: var(--superficie-3);
   border-radius: 4px;
 }
+
+/* --- Caminho de navegação do gráfico (drill-down) ------------------------ */
+
+.trilho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.15rem 0.3rem;
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+}
+
+.trilho__passo {
+  min-height: var(--alvo-toque);
+  padding: 0.35rem 0.5rem;
+  font: inherit;
+  color: var(--destaque-tinta);
+  background: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.trilho__passo:hover {
+  background: var(--superficie-3);
+}
+
+.trilho__seta {
+  color: var(--tinta-3);
+}
+
+.trilho__atual {
+  padding: 0.35rem 0.5rem;
+  font-weight: 650;
+  color: var(--tinta);
+}

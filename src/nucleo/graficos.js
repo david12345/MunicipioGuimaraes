@@ -96,6 +96,10 @@ export function barrasHorizontais(svg, largura, altura, o) {
     // Percentagens têm de ir até 100: com escala [0, máximo], 79% e 84%
     // aparecem ambos quase a toda a largura e a diferença desaparece.
     maximo = null,
+    // Se existir, cada barra torna-se acionável (descer um nível).
+    aoEscolher = null,
+    // `(d) => boolean`: quais das barras é que têm nível abaixo.
+    temDetalhe = () => true,
   } = o;
   if (!dados.length) return;
 
@@ -127,21 +131,56 @@ export function barrasHorizontais(svg, largura, altura, o) {
     const yy = centrar(y(d.rotulo));
     const alt = espessura;
     const comp = Math.max(0, x(d.valor ?? 0));
+    const acionavel = Boolean(aoEscolher) && temDetalhe(d) && d.valor !== null;
+
+    // A barra vive dentro de um grupo. Quando é acionável, é o grupo que
+    // recebe o clique, o foco e o nome acessível — e a área sensível é a
+    // faixa inteira, não a barra: a barra tem 34 px de altura e o mínimo
+    // para um alvo de toque são 44.
+    const grupo = no("g", acionavel
+      ? {
+          role: "button",
+          tabindex: "0",
+          class: "barra-acionavel",
+          "aria-label": `${d.rotulo}: ${formatar(d.valor)}. Ver o detalhe.`,
+        }
+      : {});
+    g.append(grupo);
+
+    if (acionavel) {
+      const faixa = no("rect", {
+        x: 0,
+        y: y(d.rotulo),
+        width: largura,
+        height: Math.max(44, y.bandwidth()),
+        fill: "transparent",
+        class: "barra-faixa",
+      });
+      grupo.append(faixa);
+      const escolher = () => aoEscolher(d);
+      grupo.addEventListener("click", escolher);
+      grupo.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          escolher();
+        }
+      });
+    }
 
     const rot = no("text", {
       x: margem.esq - 8,
       y: yy + alt / 2,
       "text-anchor": "end",
       "dominant-baseline": "central",
-      class: "g-rotulo",
+      class: acionavel ? "g-rotulo g-rotulo--acionavel" : "g-rotulo",
     });
-    g.append(rot);
+    grupo.append(rot);
     // Só depois de estar no DOM é que o texto se pode medir.
     ajustarRotulo(rot, d.rotulo, margem.esq - 12);
     rot.append(no("title", {}, d.rotulo));
 
     if (d.valor === null || d.valor === undefined) {
-      g.append(no("text", {
+      grupo.append(no("text", {
         x: margem.esq + 4,
         y: yy + alt / 2,
         "dominant-baseline": "central",
@@ -158,14 +197,14 @@ export function barrasHorizontais(svg, largura, altura, o) {
       rx: 4,
       fill: d.cor ?? corUnica,
     });
-    ligarDica(barra, `${d.rotulo}: ${formatar(d.valor)}`);
-    g.append(barra);
+    if (!acionavel) ligarDica(barra, `${d.rotulo}: ${formatar(d.valor)}`);
+    grupo.append(barra);
 
     // Rótulo directo: dentro da barra se couber, fora se não. É a compensação
     // exigida pelos tons de baixo contraste no tema claro.
     const texto = formatar(d.valor);
     const cabeDentro = comp > texto.length * 7.2 + 14;
-    g.append(no("text", {
+    grupo.append(no("text", {
       x: cabeDentro ? margem.esq + comp - 8 : margem.esq + comp + 6,
       y: yy + alt / 2,
       "text-anchor": cabeDentro ? "end" : "start",
