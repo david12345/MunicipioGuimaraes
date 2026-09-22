@@ -88,7 +88,12 @@ jobs:
       - name: Construir
         run: npm run build
 
+      # `enablement: true` activa o GitHub Pages na primeira publicação, com
+      # origem nas Actions. Sem isto a ação falha com "Not Found" enquanto
+      # alguém não for às definições do repositório activá-lo à mão.
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
