@@ -74,6 +74,7 @@ const LARGURAS = [
 
 const falhas = [];
 const avisos = [];
+const excecoes = new Set();
 
 function verificar(condicao, mensagem) {
   if (condicao) return true;
@@ -164,10 +165,16 @@ for (const [rotulo, largura] of LARGURAS) {
 
       pequenos.push(...(await pagina.evaluate(() => {
         const out = [];
-        for (const n of document.querySelectorAll("button, a, summary")) {
+        // `[role="button"]` apanha as barras acionáveis do drill-down, que
+        // são <g> em SVG e não <button>.
+        for (const n of document.querySelectorAll('button, a, summary, [role="button"]')) {
           const r = n.getBoundingClientRect();
           if (r.width === 0 && r.height === 0) continue;
           if (n.closest("p, li, td, .figura__fonte, .cadeia, .leaflet-control-attribution")) continue;
+          if (n.classList.contains("leaflet-marker-icon")) {
+            out.push("__marcador__");
+            continue;
+          }
           if (r.height < 44 - 0.5) {
             out.push(`${n.tagName}: ${Math.round(r.height)}px — ${n.textContent.trim().slice(0, 40)}`);
           }
@@ -192,11 +199,24 @@ for (const [rotulo, largura] of LARGURAS) {
     // A regra aplica-se a controlos autónomos: botões, itens de menu,
     // desdobráveis. NÃO se aplica a ligações dentro de uma frase — a WCAG
     // 2.5.8 isenta-as, e esticar um link a 44 px de altura no meio de um
-    // parágrafo partiria o texto. A verificação distingue os dois casos.
+    // parágrafo partiria o texto.
+    //
+    // **Os marcadores do mapa são uma exceção assumida**, não um descuido.
+    // Têm 24×32 px. Ao zoom inicial, os dois equipamentos mais próximos ficam
+    // a ~26 px um do outro: alvos de 44 px sobrepunham-se e tornavam a
+    // seleção MENOS fiável, não mais. A lista abaixo do mapa tem a mesma
+    // informação, com alvos de tamanho próprio, e não é uma alternativa de
+    // recurso — é mostrada ao mesmo nível. A exceção é contada e impressa em
+    // cada execução, para não desaparecer de vista.
+    const marcadores = pequenos.filter((x) => x === "__marcador__").length;
+    const outros = pequenos.filter((x) => x !== "__marcador__");
     verificar(
-      pequenos.length === 0,
-      `${ctx2}: ${pequenos.length} controlo(s) abaixo de 44px — ex.: ${pequenos[0] ?? ""}`,
+      outros.length === 0,
+      `${ctx2}: ${outros.length} controlo(s) abaixo de 44px — ex.: ${outros[0] ?? ""}`,
     );
+    if (marcadores) {
+      excecoes.add(`${marcadores} marcadores do mapa a 24×32 px (exceção assumida)`);
+    }
 
     // 4. Contraste do texto corrente contra a superfície.
     const cores = await pagina.evaluate(() => {
@@ -283,6 +303,7 @@ await navegador.close();
 servidor?.kill();
 
 console.log("");
+for (const e of excecoes) console.log(`exceção assumida: ${e}`);
 for (const a of avisos) console.log(`aviso: ${a}`);
 if (falhas.length) {
   console.log(`\n${falhas.length} verificação(ões) falhada(s):`);
