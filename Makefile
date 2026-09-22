@@ -88,7 +88,10 @@ dashboard-build:
 	npm run build
 
 # Verifica os requisitos não negociáveis do briefing: sem scroll horizontal em
-# 360/480/768/1280, contraste AA, rótulos dentro do gráfico, alvos de toque e
-# navegação por teclado. Precisa do `vite preview` a correr.
-dashboard-verificar:
+# 360/480/768/1280, contraste AA, rótulos dentro do gráfico, alvos de toque,
+# navegação por teclado e Lighthouse. Constrói e serve sozinho.
+#
+#   make dashboard-verificar                      # o que está nesta máquina
+#   URL=https://... make dashboard-verificar      # um site já publicado
+dashboard-verificar: dashboard-build
 	npm run verificar

@@ -3,11 +3,21 @@
 Site estático em Vite + D3, sem backend, publicável em GitHub Pages.
 
 ```bash
-make dashboard-setup      # npm install
-make dashboard            # servidor de desenvolvimento
-make dashboard-build      # gera dist/
-make dashboard-verificar  # requisitos não negociáveis + Lighthouse
+make dashboard-setup                        # npm install (uma vez)
+npx playwright install chromium             # só para verificar (uma vez)
+
+make dashboard                              # servidor de desenvolvimento
+make dashboard-verificar                    # constrói, serve e verifica
+URL=https://... make dashboard-verificar    # verifica um site já publicado
 ```
+
+`make dashboard-verificar` arranca o servidor e encontra o Chromium sozinho.
+Uma verificação que exige três passos preparatórios é uma verificação que
+ninguém corre.
+
+**No ar:** <https://david12345.github.io/MunicipioGuimaraes/>, publicado por
+`.github/workflows/publicar.yml` a cada envio, com a verificação a correr antes
+e a bloquear.
 
 `scripts/copiar-dados.mjs` copia `data/processed/` para `public/dados/` antes de
 cada arranque e de cada build; `public/dados/` é gerado e não é commitado.

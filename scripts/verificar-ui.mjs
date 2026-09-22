@@ -4,14 +4,67 @@
  * nenhuma largura, alvos de toque de 44 px, rótulos que não transbordam e
  * contraste suficiente. Tudo isso se mede.
  *
- *   npm run build && npx vite preview --port 4173 &
- *   node scripts/verificar-ui.mjs
+ *   make dashboard-verificar             # constrói, serve e verifica
+ *   URL=https://… make dashboard-verificar   # verifica um site já publicado
+ *
+ * Arranca o servidor sozinho e encontra o Chromium sozinho: uma verificação
+ * que exige três passos preparatórios é uma verificação que ninguém corre.
  */
+
+import { spawn } from "node:child_process";
+import { existsSync, readdirSync } from "node:fs";
+import { homedir } from "node:os";
+import { join } from "node:path";
 
 import lighthouse from "lighthouse";
 import { chromium } from "playwright-core";
 
-const URL_BASE = process.env.URL ?? "http://localhost:4173/";
+const PORTA = 4173;
+const URL_LOCAL = `http://localhost:${PORTA}/MunicipioGuimaraes/`;
+const URL_BASE = process.env.URL ?? URL_LOCAL;
+const LOCAL = URL_BASE === URL_LOCAL;
+
+/** Procura o Chromium que o Playwright instalou, sem obrigar a variável. */
+function encontrarChromium() {
+  if (process.env.CHROME) return process.env.CHROME;
+  const base = join(homedir(), ".cache", "ms-playwright");
+  if (!existsSync(base)) return undefined;
+  for (const dir of readdirSync(base).filter((d) => d.startsWith("chromium"))) {
+    for (const sub of ["chrome-linux64/chrome", "chrome-linux/chrome", "chrome-linux/headless_shell"]) {
+      const c = join(base, dir, sub);
+      if (existsSync(c)) return c;
+    }
+  }
+  return undefined;
+}
+
+async function esperarPor(url, segundos = 60) {
+  for (let i = 0; i < segundos; i += 1) {
+    try {
+      if ((await fetch(url)).ok) return true;
+    } catch {
+      /* ainda não está de pé */
+    }
+    await new Promise((r) => setTimeout(r, 1000));
+  }
+  return false;
+}
+
+let servidor = null;
+if (LOCAL && !(await esperarPor(URL_BASE, 1))) {
+  console.log("A arrancar o servidor local…");
+  servidor = spawn("npx", ["vite", "preview", "--port", String(PORTA), "--strictPort"], {
+    stdio: "ignore",
+    detached: false,
+  });
+  if (!(await esperarPor(URL_BASE))) {
+    console.error(
+      `O servidor não respondeu em ${URL_BASE}. Corre \`npm run build\` primeiro.`,
+    );
+    servidor.kill();
+    process.exit(1);
+  }
+}
 const LARGURAS = [
   ["360 px (telemóvel pequeno)", 360],
   ["480 px (telemóvel)", 480],
@@ -45,8 +98,17 @@ function contraste(a, b) {
 const rgb = (s) => (s.match(/\d+/g) ?? []).slice(0, 3).map(Number);
 
 const PORTA_DEPURACAO = 9222;
+const executavel = encontrarChromium();
+if (!executavel) {
+  console.error(
+    "Chromium não encontrado. Instala-o com:\n" +
+      "  npx playwright install chromium",
+  );
+  servidor?.kill();
+  process.exit(1);
+}
 const navegador = await chromium.launch({
-  executablePath: process.env.CHROME,
+  executablePath: executavel,
   args: ["--no-sandbox", `--remote-debugging-port=${PORTA_DEPURACAO}`],
 });
 
@@ -201,6 +263,7 @@ for (const [rotulo, largura] of LARGURAS) {
 }
 
 await navegador.close();
+servidor?.kill();
 
 console.log("");
 for (const a of avisos) console.log(`aviso: ${a}`);
@@ -209,4 +272,4 @@ if (falhas.length) {
   for (const f of falhas) console.log(`  ${f}`);
   process.exit(1);
 }
-console.log("Todos os requisitos não negociáveis verificados.");
+console.log(`Todos os requisitos não negociáveis verificados em ${URL_BASE}`);
