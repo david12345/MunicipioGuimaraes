@@ -1,4 +1,15 @@
-/* Arranque do dashboard.
+/* Arranque e navegação do dashboard.
+ *
+ * **Uma secção de cada vez, cada uma com o seu endereço.** Doze secções numa
+ * página só obrigavam a rolar muito para encontrar o que se procura, e o menu
+ * era um conjunto de atalhos para posições, não uma navegação: depois de
+ * saltar, continuava tudo colado e perdia-se a noção de onde se estava.
+ *
+ * O endereço usa `#` (`…/#contratos`) porque o GitHub Pages serve ficheiros
+ * estáticos e não sabe reescrever `/contratos` para o `index.html`. A
+ * diferença para o utilizador é nenhuma: o endereço é partilhável, o botão
+ * "voltar" funciona, e os atalhos que já existiam continuam a abrir a secção
+ * certa.
  *
  * As secções são módulos carregados a pedido (`import()` dinâmico). O Vite
  * transforma cada um num chunk, por isso abrir "Quem governa" não descarrega
@@ -45,11 +56,19 @@ function criarSeccao(def) {
   h2.className = "seccao__titulo";
   h2.id = `${def.id}-titulo`;
   h2.textContent = def.titulo;
+  // `tabindex="-1"`: focável por código, mas fora da ordem de tabulação. É
+  // assim que o foco vai parar ao início do conteúdo ao mudar de secção.
+  h2.tabIndex = -1;
   sec.append(h2);
 
   const corpo = document.createElement("div");
   corpo.className = "seccao__corpo";
   sec.append(corpo);
+
+  const paginacao = document.createElement("nav");
+  paginacao.className = "seccao__paginacao";
+  paginacao.setAttribute("aria-label", "Secção anterior e seguinte");
+  sec.append(paginacao);
 
   if (!def.modulo) {
     corpo.innerHTML = `
@@ -69,50 +88,89 @@ function criarSeccao(def) {
   return sec;
 }
 
-/** Só carrega o módulo quando a secção se aproxima do ecrã. */
-function observarSeccoes(defs, jaCarregadas = new Set()) {
-  const carregadas = new Set(jaCarregadas);
+const carregadas = new Set();
 
-  const carregarSeccao = async (def, sec) => {
-    if (carregadas.has(def.id)) return;
-    carregadas.add(def.id);
-    const corpo = sec.querySelector(".seccao__corpo");
-    try {
-      const mod = await def.modulo();
-      corpo.replaceChildren();
-      await mod.render(corpo);
-      // Os termos técnicos só existem depois de a secção escrever o texto.
-      marcarTermos(corpo);
-    } catch (erro) {
-      console.error(`Secção ${def.id}:`, erro);
-      corpo.replaceChildren();
-      const p = document.createElement("p");
-      p.className = "erro";
-      p.textContent =
-        "Não foi possível carregar esta secção. Os dados podem não ter sido " +
-        "publicados — ver a secção Fontes e metodologia.";
-      corpo.append(p);
-    }
-  };
+/** Carrega o módulo de uma secção, uma só vez. */
+async function carregarSeccao(def) {
+  if (!def.modulo || carregadas.has(def.id)) return;
+  carregadas.add(def.id);
+  const corpo = document.querySelector(`#${def.id} .seccao__corpo`);
+  if (!corpo) return;
+  try {
+    const mod = await def.modulo();
+    corpo.replaceChildren();
+    await mod.render(corpo);
+    // Os termos técnicos só existem depois de a secção escrever o texto.
+    marcarTermos(corpo);
+  } catch (erro) {
+    console.error(`Secção ${def.id}:`, erro);
+    corpo.replaceChildren();
+    const p = document.createElement("p");
+    p.className = "erro";
+    p.textContent =
+      "Não foi possível carregar esta secção. Os dados podem não ter sido " +
+      "publicados — ver a secção Fontes e metodologia.";
+    corpo.append(p);
+  }
+}
 
-  const observador = new IntersectionObserver(
-    (entradas) => {
-      for (const e of entradas) {
-        if (!e.isIntersecting) continue;
-        const def = defs.find((d) => d.id === e.target.id);
-        if (def?.modulo) carregarSeccao(def, e.target);
-        observador.unobserve(e.target);
-      }
-    },
-    // Margem generosa: a secção tem de estar desenhada ANTES de entrar no
-    // ecrã. Com 300px chegava tarde, inflava à vista e empurrava o conteúdo
-    // — o que deu um CLS de 1,16 na medição do Lighthouse.
-    { rootMargin: "1500px 0px" },
-  );
+/** A secção pedida pelo endereço, ou a primeira. */
+function seccaoDoEndereco(defs) {
+  const id = decodeURIComponent(location.hash.replace(/^#\/?/, ""));
+  return defs.find((d) => d.id === id) ?? defs[0];
+}
 
-  for (const def of defs) {
-    const sec = document.getElementById(def.id);
-    if (sec && def.modulo) observador.observe(sec);
+function marcarMenu(id) {
+  for (const a of document.querySelectorAll("#menu-seccoes a")) {
+    const ativo = a.dataset.seccao === id;
+    a.classList.toggle("navegacao__ativo", ativo);
+    // `aria-current` é o que um leitor de ecrã anuncia como "página atual".
+    if (ativo) a.setAttribute("aria-current", "page");
+    else a.removeAttribute("aria-current");
+  }
+}
+
+/** Mostra uma secção e esconde as outras. */
+async function mostrar(defs, def, { focar = true } = {}) {
+  for (const outra of defs) {
+    const sec = document.getElementById(outra.id);
+    if (sec) sec.hidden = outra.id !== def.id;
+  }
+  marcarMenu(def.id);
+  document.title = `${def.titulo} — Município de Guimarães`;
+
+  await carregarSeccao(def);
+  construirPaginacao(defs, def);
+
+  if (!focar) return;
+  // Mudar de secção é mudar de página: quem navega por teclado ou leitor de
+  // ecrã tem de ir parar ao início do conteúdo novo, não continuar no menu.
+  const titulo = document.getElementById(`${def.id}-titulo`);
+  titulo?.focus();
+  window.scrollTo({ top: 0, behavior: "instant" });
+}
+
+/** Anterior e seguinte, para quem quer ler tudo por ordem. */
+function construirPaginacao(defs, atual) {
+  const anterior = defs[defs.indexOf(atual) - 1];
+  const seguinte = defs[defs.indexOf(atual) + 1];
+  const alvo = document.querySelector(`#${atual.id} .seccao__paginacao`);
+  if (!alvo) return;
+  alvo.replaceChildren();
+
+  for (const [def, rotulo, classe] of [
+    [anterior, "Anterior", "paginacao__anterior"],
+    [seguinte, "Seguinte", "paginacao__seguinte"],
+  ]) {
+    if (!def) continue;
+    const a = document.createElement("a");
+    a.href = `#${def.id}`;
+    a.className = `botao ${classe}`;
+    a.innerHTML =
+      `<span class="paginacao__rotulo">${rotulo}</span>` +
+      `<span class="paginacao__titulo"></span>`;
+    a.querySelector(".paginacao__titulo").textContent = def.titulo;
+    alvo.append(a);
   }
 }
 
@@ -122,6 +180,7 @@ function construirMenu(defs) {
     const li = document.createElement("li");
     const a = document.createElement("a");
     a.href = `#${def.id}`;
+    a.dataset.seccao = def.id;
     a.textContent = def.curto;
     if (!def.modulo) a.classList.add("navegacao__sem-dados");
     li.append(a);
@@ -142,34 +201,13 @@ async function marcarGeracao() {
   }
 }
 
-/** Uma ligação directa a uma secção (`#contratos`) tem de funcionar.
+/* Arranque.
  *
- * As secções só existem no DOM depois do arranque, e nessa altura o
- * navegador já tentou resolver a âncora e desistiu. É preciso repetir o
- * salto à mão — e esperar que a secção carregue, senão salta para um
- * contentor vazio que depois cresce debaixo dos pés.
- */
-async function irParaAncora() {
-  const id = decodeURIComponent(location.hash.slice(1));
-  if (!id) return;
-  const alvo = document.getElementById(id);
-  if (!alvo) return;
-  alvo.scrollIntoView();
-  // Dá tempo ao observador de carregar a secção e volta a ajustar, já com a
-  // altura real.
-  for (let i = 0; i < 40; i += 1) {
-    if (!alvo.querySelector(".a-carregar")) break;
-    await new Promise((r) => setTimeout(r, 100));
-  }
-  alvo.scrollIntoView();
-}
-
-/** Rende a 1.ª secção ANTES de a página a mostrar.
- *
- * Se o contentor for pintado vazio e só depois preenchido, tudo o que está
- * por baixo salta — foi assim que o Lighthouse mediu um CLS de 1,67. O
- * cabeçalho já está no HTML e pinta de imediato, por isso esperar pelos
- * poucos kB da visão geral não atrasa a primeira pintura de forma sensível.
+ * A secção pedida é renderizada ANTES de o contentor entrar no DOM. Se ele
+ * for pintado vazio e só depois preenchido, tudo o que está por baixo salta —
+ * foi assim que o Lighthouse mediu um CLS de 1,67. O cabeçalho já está no
+ * HTML e pinta de imediato, por isso esperar pelos poucos kB da secção não
+ * atrasa a primeira pintura de forma sensível.
  */
 async function arrancar() {
   iniciarTema();
@@ -177,27 +215,41 @@ async function arrancar() {
 
   const contentor = document.getElementById("seccoes");
   const fragmento = document.createDocumentFragment();
-  const seccoes = SECCOES.map((def) => [def, criarSeccao(def)]);
+  const inicial = seccaoDoEndereco(SECCOES);
 
-  const [primeiraDef, primeiraSec] = seccoes[0];
-  if (primeiraDef.modulo) {
-    const corpo = primeiraSec.querySelector(".seccao__corpo");
+  for (const def of SECCOES) {
+    const sec = criarSeccao(def);
+    // Só a secção pedida fica visível; as outras existem mas escondidas, o
+    // que mantém os endereços a funcionar sem as desenhar todas.
+    sec.hidden = def.id !== inicial.id;
+    fragmento.append(sec);
+  }
+
+  // Renderiza antes de inserir: evita o salto de layout.
+  const corpo = fragmento.querySelector(`#${inicial.id} .seccao__corpo`);
+  if (inicial.modulo && corpo) {
+    carregadas.add(inicial.id);
     try {
-      const mod = await primeiraDef.modulo();
+      const mod = await inicial.modulo();
       corpo.replaceChildren();
       await mod.render(corpo);
       marcarTermos(corpo);
     } catch (erro) {
-      console.error(`Secção ${primeiraDef.id}:`, erro);
+      console.error(`Secção ${inicial.id}:`, erro);
+      carregadas.delete(inicial.id);
     }
   }
 
-  for (const [, sec] of seccoes) fragmento.append(sec);
   contentor.append(fragmento);
-
-  observarSeccoes(SECCOES, new Set([primeiraDef.id]));
+  marcarMenu(inicial.id);
+  document.title = `${inicial.titulo} — Município de Guimarães`;
+  construirPaginacao(SECCOES, inicial);
   marcarGeracao();
-  await irParaAncora();
+
+  // O "voltar" do navegador e os cliques no menu passam os dois por aqui.
+  window.addEventListener("hashchange", () => {
+    mostrar(SECCOES, seccaoDoEndereco(SECCOES));
+  });
 }
 
 arrancar();

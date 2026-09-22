@@ -42,6 +42,29 @@ transbordar o gráfico, controlos com 44 px, e o atalho de teclado a funcionar.
 
 Tudo isto corre em `make dashboard-verificar` e **falha a build** se regredir.
 
+## Uma secção de cada vez
+
+O menu **não** são atalhos para posições numa página longa: cada secção é a
+sua própria página, com endereço próprio (`…/#contratos`), título de janela
+próprio e entrada no histórico. Doze secções numa rolagem contínua obrigavam
+a percorrer muito para chegar ao que se procura, e depois de saltar perdia-se
+a noção de onde se estava.
+
+O endereço usa `#` porque o GitHub Pages serve ficheiros estáticos e não sabe
+reescrever `/contratos` para o `index.html`. Para quem usa não muda nada: o
+endereço é partilhável, o botão "voltar" funciona, e os atalhos antigos
+continuam a abrir a secção certa.
+
+Ao mudar de secção o foco vai para o título e a página volta ao topo — mudar
+de secção é mudar de página, e quem navega por teclado ou leitor de ecrã tem
+de ir parar ao início do conteúdo novo. No fim de cada secção há **anterior e
+seguinte**, para quem quiser ler tudo por ordem.
+
+**A verificação teve de mudar com isto.** Antes percorria a página a rolar;
+com uma secção visível de cada vez, isso passou a cobrir só a primeira e a
+dizer que estava tudo bem. Agora **visita as doze**, em cada uma das quatro
+larguras e nos dois temas — 96 combinações, cerca de três minutos.
+
 ## Decisões que valem mais do que o código
 
 ### A primeira secção renderiza antes de ser inserida

@@ -126,31 +126,62 @@ for (const [rotulo, largura] of LARGURAS) {
     });
 
     await pagina.goto(URL_BASE, { waitUntil: "networkidle" });
-    await pagina.evaluate(async () => {
-      for (let y = 0; y < document.body.scrollHeight; y += 500) {
-        window.scrollTo(0, y);
-        await new Promise((r) => setTimeout(r, 70));
+    await pagina.waitForTimeout(2000);
+
+    // Desde que cada secção é uma página, não basta rolar: é preciso
+    // **visitar cada uma**. Sem isto a verificação cobria só a primeira e
+    // dizia que estava tudo bem.
+    const seccoes = await pagina.$$eval("#menu-seccoes a", (ns) =>
+      ns.map((n) => n.dataset.seccao),
+    );
+    verificar(seccoes.length >= 10, `${rotulo}: só ${seccoes.length} secções no menu`);
+
+    let excesso = 0;
+    const fugas = [];
+    const pequenos = [];
+
+    for (const id of seccoes) {
+      await pagina.goto(`${URL_BASE}#${id}`, { waitUntil: "load" });
+      // O mapa e os contratos demoram mais do que os restantes.
+      await pagina.waitForTimeout(id === "equipamentos" || id === "contratos" ? 3500 : 1200);
+
+      excesso = Math.max(
+        excesso,
+        await pagina.evaluate(
+          () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+        ),
+      );
+
+      for (const t of await pagina.evaluate(() => {
+        const out = [];
+        for (const t of document.querySelectorAll("svg text.g-rotulo")) {
+          if (t.getBBox().x < -0.5) out.push(t.textContent);
+        }
+        return out;
+      })) {
+        fugas.push(`${id}: ${t}`);
       }
-      window.scrollTo(0, 0);
-    });
-    await pagina.waitForTimeout(2500);
+
+      pequenos.push(...(await pagina.evaluate(() => {
+        const out = [];
+        for (const n of document.querySelectorAll("button, a, summary")) {
+          const r = n.getBoundingClientRect();
+          if (r.width === 0 && r.height === 0) continue;
+          if (n.closest("p, li, td, .figura__fonte, .cadeia, .leaflet-control-attribution")) continue;
+          if (r.height < 44 - 0.5) {
+            out.push(`${n.tagName}: ${Math.round(r.height)}px — ${n.textContent.trim().slice(0, 40)}`);
+          }
+        }
+        return out;
+      })));
+    }
 
     const ctx2 = `${rotulo} / ${tema}`;
 
-    // 1. Scroll horizontal: zero, sempre.
-    const excesso = await pagina.evaluate(
-      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
-    );
+    // 1. Scroll horizontal: zero, em qualquer secção.
     verificar(excesso <= 0, `${ctx2}: scroll horizontal de ${excesso}px`);
 
     // 2. Rótulos dos gráficos dentro do SVG.
-    const fugas = await pagina.evaluate(() => {
-      const out = [];
-      for (const t of document.querySelectorAll("svg text.g-rotulo")) {
-        if (t.getBBox().x < -0.5) out.push(t.textContent);
-      }
-      return out;
-    });
     verificar(
       fugas.length === 0,
       `${ctx2}: ${fugas.length} rótulo(s) a transbordar — ex.: ${fugas[0] ?? ""}`,
@@ -162,21 +193,6 @@ for (const [rotulo, largura] of LARGURAS) {
     // desdobráveis. NÃO se aplica a ligações dentro de uma frase — a WCAG
     // 2.5.8 isenta-as, e esticar um link a 44 px de altura no meio de um
     // parágrafo partiria o texto. A verificação distingue os dois casos.
-    const pequenos = await pagina.evaluate(() => {
-      const out = [];
-      for (const n of document.querySelectorAll("button, a, summary")) {
-        const r = n.getBoundingClientRect();
-        if (r.width === 0 && r.height === 0) continue; // escondido
-        const emLinha = n.closest(
-          "p, li, td, .figura__fonte, .cadeia, .leaflet-control-attribution",
-        );
-        if (emLinha) continue;
-        if (r.height < 44 - 0.5) {
-          out.push(`${n.tagName}: ${Math.round(r.height)}px — ${n.textContent.trim().slice(0, 40)}`);
-        }
-      }
-      return out;
-    });
     verificar(
       pequenos.length === 0,
       `${ctx2}: ${pequenos.length} controlo(s) abaixo de 44px — ex.: ${pequenos[0] ?? ""}`,
@@ -204,8 +220,9 @@ for (const [rotulo, largura] of LARGURAS) {
     verificar(errosConsola.length === 0, `${ctx2}: ${errosConsola[0] ?? ""}`);
 
     console.log(
-      `${ctx2.padEnd(34)} overflow ${excesso}px · contraste ${cPrincipal.toFixed(1)}:1 / ` +
-        `${cSecundaria.toFixed(1)}:1 · rótulos fora ${fugas.length}`,
+      `${ctx2.padEnd(34)} ${seccoes.length} secções · overflow ${excesso}px · ` +
+        `contraste ${cPrincipal.toFixed(1)}:1 / ${cSecundaria.toFixed(1)}:1 · ` +
+        `rótulos fora ${fugas.length}`,
     );
     await ctx.close();
   }

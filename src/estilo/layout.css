@@ -78,6 +78,14 @@
 .navegacao a:hover,
 .navegacao a:focus-visible {
   color: var(--tinta);
+  border-bottom-color: var(--borda);
+}
+
+/* A secção aberta. O sublinhado e o peso acompanham a cor: quem não
+ * distingue azul continua a ver qual é. */
+.navegacao a.navegacao__ativo {
+  color: var(--tinta);
+  font-weight: 650;
   border-bottom-color: var(--destaque);
 }
 
@@ -137,15 +145,55 @@ main:focus {
   outline: none;
 }
 
+/* Uma secção de cada vez: já não há separadores entre elas nem rolagem
+ * contínua, por isso não levam borda em baixo. */
 .seccao {
-  padding-block: 2.25rem;
-  border-bottom: 1px solid var(--borda);
-  scroll-margin-top: 7.5rem;
+  padding-block: 2rem calc(1rem + env(safe-area-inset-bottom, 0px));
 }
 
-.seccao:last-child {
-  border-bottom: none;
-  padding-bottom: calc(3rem + env(safe-area-inset-bottom, 0px));
+.seccao__titulo:focus {
+  outline: none;
+}
+
+/* --- Anterior / seguinte -------------------------------------------------- */
+
+.seccao__paginacao {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--borda);
+}
+
+.seccao__paginacao a {
+  flex: 1 1 14rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
+  padding: 0.7rem 0.9rem;
+  text-decoration: none;
+  text-align: left;
+}
+
+/* Em telemóvel os dois ficam empilhados e alinhados à esquerda, que é como
+ * se lê. Só quando há largura para ficarem lado a lado é que o "Seguinte"
+ * vai para a direita, a apontar para onde leva. */
+@media (min-width: 768px) {
+  .seccao__paginacao a.paginacao__seguinte {
+    align-items: flex-end;
+    text-align: right;
+  }
+}
+
+.paginacao__rotulo {
+  font-size: 0.75rem;
+  color: var(--tinta-3);
+}
+
+.paginacao__titulo {
+  font-weight: 650;
+  color: var(--tinta);
 }
 
 .seccao__titulo {
