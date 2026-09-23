@@ -41,12 +41,13 @@ Em `data/processed/`:
 | `estrutura_organica.json` | 48 unidades orgânicas |
 | `mapa_pessoal.json` | 1 830 postos ocupados de 2 047 previstos (2026) |
 | `orcamento.json` | 220,3 M€ previstos para 2026; execução 79–84% (2021–2025) |
+| `orcamento_organico.json` | despesa por unidade orgânica, 2022–2026; a DMITAAC leva 63,7% do orçamento de 2026 |
 | `contratos_2019…2026.json` | 4 110 contratos, 441,1 M€ |
 | `empresas_municipais.json` | 42 entidades, 11 no perímetro; grupo com 647,3 M€ de ativo |
 | `equipamentos.json` | 22 equipamentos, 19 com coordenadas |
 | `populacao.json` | 165 554 habitantes (2025) |
 
-**L1 e L2 resolvidas.** Das 32 lacunas registadas, 10 estão fechadas; as
+**L1 e L2 resolvidas.** Das 36 lacunas registadas, 10 estão fechadas; as
 restantes são limitações das fontes, não do código.
 
 **`data/raw/` no git:** commitam-se os originais municipais **até ~15 MB**. Ficam
@@ -189,6 +190,24 @@ O `fetch` guarda `sha256` de cada original — é assim que se deteta que uma au
   a execução real só vem do Relatório e Contas.
 - **API do BASE exige credencial** do IMPIC. Usar o dataset semanal do dados.gov
   (S23), que é aberto — custa até 7 dias de desfasamento, a mostrar no dashboard.
+- **Classificação orgânica e económica têm códigos do mesmo formato.** No mapa
+  da despesa do documento previsional, `01`, `0103` e `010101` tanto podem ser
+  orgânicos como económicos: **só a coluna os distingue**, e a coluna muda de ano
+  para ano (x≈48,4 em 2022–2025, x≈50,6 em 2026). `etl/orcamento_organico.py`
+  calibra as colunas em cada documento; fixá-las lia o mapa errado sem dar sinal.
+  A prova de que leu a coluna certa é a soma bater com o `despesa_total` que
+  `etl/orcamento.py` extraiu de outro mapa.
+- **Ler os mapas por bloco de texto, não por altura.** A CMG usou dois desenhos:
+  em 2023 a designação de duas linhas fica **centrada** sobre o código (primeira
+  linha acima dele), em 2026 fica alinhada ao topo e a continuação está mais
+  perto da linha seguinte do que da sua. Agrupar por `y` erra nos dois.
+- **A reorganização de 2023 reaproveitou os códigos orgânicos** (L36): `03` é o
+  Departamento de Obras Municipais em 2022 e a DMITAAC a partir de 2023. Nenhuma
+  série por código pode atravessar 2022→2023.
+- **O documento previsional rotula mal algumas linhas** (L34): uma vez por ano a
+  unidade `01` sai com o nome da DMITAAC, e há rubricas económicas com nome de
+  unidade orgânica. Os rótulos publicam-se **por maioria do próprio documento**,
+  contada sobre o mapa inteiro — dentro de uma unidade só não há maioria.
 - **Comparação entre municípios:** usar só séries já normalizadas da DGAL (S27).
   Extrações próprias de PDF de municípios diferentes não são comparáveis.
 - **Quebra de série POCAL → SNC-AP:** pode aparecer como "salto" num gráfico

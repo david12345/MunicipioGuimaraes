@@ -131,6 +131,33 @@ com a mesma informação, navegável por teclado e que abre um nível de cada ve
 O hemiciclo exigiria a composição da Assembleia Municipal por força política,
 que **não é publicada** (L16). Um hemiciclo inventado seria pior do que nenhum.
 
+### Descer um nível em vez de desenhar a hierarquia toda
+
+Dois gráficos têm hierarquia a sério: o mapa de pessoal (unidade → carreira →
+categoria) e a despesa por unidade orgânica (unidade → subunidade → natureza).
+Nenhum deles cabe num diagrama a 360 px, e um *treemap* ou um *sunburst*
+resolvem-no gritando: as áreas pequenas tornam-se inclicáveis e os rótulos
+desaparecem.
+
+A solução é a mesma barra horizontal, **um nível de cada vez**. Tocar numa barra
+desce; o caminho no topo sobe. A tabela e o CSV acompanham o nível em que se
+está — quem descarrega enquanto olha para uma direção leva essa direção, não o
+orçamento inteiro.
+
+O que a torna acessível, e não só tocável:
+
+- a barra acionável é `role="button"` com `tabindex`, e responde a Enter e
+  Espaço como um botão responde;
+- o `aria-label` diz o valor **e** que há mais por baixo — "Departamento de
+  Intervenção Social: 40,2 M€. Ver o detalhe.";
+- o rótulo leva sublinhado a pontilhado, para que a diferença não dependa de
+  distinguir cores;
+- a área sensível é a faixa inteira, com `max(44, bandwidth)` de altura. A barra
+  desenhada tem 34 px e o mínimo para um alvo de toque são 44.
+
+O caminho de volta são botões, não migalhas decorativas: cada passo é focável e
+leva mesmo a esse nível.
+
 ### Paleta validada por script
 
 Oito tons categóricos, ordem fixa, nunca ciclada — a partir da nona série é

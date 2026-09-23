@@ -80,6 +80,7 @@ prática comum nos sites autárquicos, onde um PDF é corrigido mantendo o URL.
 | `estrutura_organica.json` | 3 · Como está organizada | — | < 50 kB |
 | `mapa_pessoal.json` | 4 · Quem lá trabalha | por ano | < 100 kB/ano |
 | `orcamento.json` | 5 · De onde vem o dinheiro | por ano | < 150 kB/ano |
+| `orcamento_organico.json` | 5 · De onde vem o dinheiro | — | ~80 kB (5 anos) |
 | `investimentos.json` | 7 · Obras e investimentos | — | < 200 kB |
 | `contratos_<ano>.json` | 8 · Contratos públicos | **por ano** | ~0,5–2 MB/ano |
 | `empresas_municipais.json` | 9 · Empresas participadas | — | < 50 kB |
@@ -156,6 +157,46 @@ qualquer eixo em D3 sem reprocessar:
 
 `totais_declarados` é o que permite a V1/V2: comparamos a **nossa** soma com o que o
 documento **diz**. Divergência → entrada em `qualidade_dados.md` e o indicador não sai.
+
+### `orcamento_organico.json`
+A despesa arrumada por **quem a gasta**, e não por natureza do gasto. Vem do mapa
+"Orçamento e plano orçamental plurianual — da despesa" do documento previsional,
+onde a classificação orgânica aparece embutida e não resumida.
+
+```jsonc
+{
+  "primeiro_ano": 2022, "ultimo_ano": 2026,
+  "exercicios": [{
+    "ano_referencia": 2026,
+    "tipo": "previsto",                  // nunca "executado": não há execução por unidade (L37)
+    "despesa_total": 220345685.00,       // vem de orcamento.json, e é contra ele que se valida
+    "unidades": [{
+      "codigo": "0103",                  // código orgânico, e é ele a identidade (nunca o nome)
+      "nome": "ORGÃOS DA AUTARQUIA",     // como a fonte o escreve; a maiúscula cai na apresentação
+      "nivel": 2,
+      "codigo_pai": "01",                // null no 1.º nível
+      "total": 6660741.00,
+      "unidade_estrutura": {             // ligação a estrutura_organica.json, ou null (L35)
+        "id": "GCRP", "sigla": "GCRP", "nome": "Gabinete de Comunicação e Relações Públicas"
+      },
+      "por_natureza": [                  // classificação económica, capítulo (2 dígitos)
+        { "codigo": "01", "nome": "DESPESAS COM O PESSOAL", "valor": 1440630.00 }
+      ],
+      "rotulos_divergentes": [           // só quando a fonte se contradiz (L34)
+        { "nome": "…", "ocorrencias": 1, "primeira_pagina": 102 }
+      ]
+    }],
+    "fonte_id": "S08-2026"
+  }]
+}
+```
+
+**`codigo` é a chave, nunca o `nome`.** A CMG reaproveita códigos entre
+reorganizações (L36) e escreve o mesmo nome de maneiras diferentes (L34, L35);
+o código é o que a soma das subunidades confirma.
+
+`unidade_estrutura` a `null` quer dizer "o organograma não tem unidade com este
+nome", não "não existe" — e é renderizado como tal.
 
 ### `mapa_pessoal.json` (só agregados)
 ```jsonc
