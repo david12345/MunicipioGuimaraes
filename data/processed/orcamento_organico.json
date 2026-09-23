@@ -1,0 +1,2761 @@
+{
+  "_meta": {
+    "gerado_em": "2026-09-23T17:51:19.864047+00:00",
+    "script": "etl/orcamento_organico.py",
+    "versao_modelo": "1.0",
+    "validacoes": [
+      "organica-fecha-2022",
+      "organica-fecha-2023",
+      "organica-fecha-2024",
+      "organica-fecha-2025",
+      "organica-fecha-2026"
+    ],
+    "avisos": [
+      "2022: sem correspondência no organograma para 02 «DEPARTAMENTO DE ADMINISTRAÇÃO GERAL», 03 «DEPARTAMENTO DE OBRAS MUNICIPAIS», 05 «DEPARTAMENTO DE SERVIÇOS URBANOS E AMBIENTE», 06 «DEPARTAMENTO DE POLÍCIA MUNICIPAL», 07 «DEPARTAMENTO DE INTERVENÇÃO SOCIAL E EDUCAÇÃO», 11 «DEPARTAMENTO FINANCEIRO E DE DESENV. ECONÓMICO», 12 «DEPARTAMENTO DE RECURSOS HUMANOS». O orçamento e o despacho da estrutura orgânica nomeiam a mesma unidade de maneiras diferentes; a ligação fica a `null` em vez de ser adivinhada.",
+      "2023: sem correspondência no organograma para 09 «DEPARTAMENTO CULTURA, ECONOMIA E INOVAÇÃO». O orçamento e o despacho da estrutura orgânica nomeiam a mesma unidade de maneiras diferentes; a ligação fica a `null` em vez de ser adivinhada.",
+      "2024: a unidade 0103 aparece 1x com o rótulo «DIREÇÃO MUNICIPAL DE INTERVENÇÃO NO TERRITÓRIO, AMBIENTE E AÇÃO CLIMÁTICA» e 18x com «ORGÃOS DA AUTARQUIA» (p. 100). O código e a soma dos filhos confirmam «ORGÃOS DA AUTARQUIA».",
+      "2024: sem correspondência no organograma para 09 «DEPARTAMENTO CULTURA, ECONOMIA E INOVAÇÃO». O orçamento e o despacho da estrutura orgânica nomeiam a mesma unidade de maneiras diferentes; a ligação fica a `null` em vez de ser adivinhada.",
+      "2024: 2 rubrica(s) económica(s) vêm no documento rotuladas «DIREÇÃO MUNICIPAL DE INTERVENÇÃO NO TERRITÓRIO, AMBIENTE E AÇÃO CLIMÁTICA», que é nome de unidade orgânica e não de rubrica. Os valores fecham; o rótulo publicado é o maioritário do próprio documento.",
+      "2025: a unidade 01 aparece 1x com o rótulo «DIREÇÃO MUNICIPAL DE INTERVENÇÃO NO TERRITÓRIO, AMBIENTE E AÇÃO CLIMÁTICA» e 21x com «ADMINISTRAÇÃO MUNICIPAL» (p. 118). O código e a soma dos filhos confirmam «ADMINISTRAÇÃO MUNICIPAL».",
+      "2025: sem correspondência no organograma para 09 «DEPARTAMENTO CULTURA, ECONOMIA E INOVAÇÃO». O orçamento e o despacho da estrutura orgânica nomeiam a mesma unidade de maneiras diferentes; a ligação fica a `null` em vez de ser adivinhada.",
+      "2025: 3 rubrica(s) económica(s) vêm no documento rotuladas «DIREÇÃO MUNICIPAL DE INTERVENÇÃO NO TERRITÓRIO, AMBIENTE E AÇÃO CLIMÁTICA», que é nome de unidade orgânica e não de rubrica. Os valores fecham; o rótulo publicado é o maioritário do próprio documento.",
+      "2026: a unidade 01 aparece 1x com o rótulo «DIREÇÃO MUNICIPAL DE INTERVENÇÃO NO TERRITÓRIO, AMBIENTE E AÇÃO CLIMÁTICA» e 21x com «ADMINISTRAÇÃO MUNICIPAL» (p. 102). O código e a soma dos filhos confirmam «ADMINISTRAÇÃO MUNICIPAL».",
+      "2026: sem correspondência no organograma para 09 «DEPARTAMENTO CULTURA, ECONOMIA E INOVAÇÃO». O orçamento e o despacho da estrutura orgânica nomeiam a mesma unidade de maneiras diferentes; a ligação fica a `null` em vez de ser adivinhada.",
+      "2026: 3 rubrica(s) económica(s) vêm no documento rotuladas «DIREÇÃO MUNICIPAL DE INTERVENÇÃO NO TERRITÓRIO, AMBIENTE E AÇÃO CLIMÁTICA», que é nome de unidade orgânica e não de rubrica. Os valores fecham; o rótulo publicado é o maioritário do próprio documento.",
+      "Sem mapa legível por unidade orgânica em 2021: nesses anos o mapa da despesa é imagem digitalizada (L25)."
+    ]
+  },
+  "primeiro_ano": 2022,
+  "ultimo_ano": 2026,
+  "exercicios": [
+    {
+      "ano_referencia": 2022,
+      "tipo": "previsto",
+      "despesa_total": 107204160.0,
+      "unidades": [
+        {
+          "codigo": "01",
+          "nome": "ADMINISTRAÇÃO MUNICIPAL",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": null,
+          "total": 8944064.0,
+          "por_natureza": [
+            {
+              "codigo": "10",
+              "nome": "PASSIVOS FINANCEIROS",
+              "valor": 4640000.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 1364505.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 882183.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 649993.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 444016.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 414900.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 270003.0
+            },
+            {
+              "codigo": "03",
+              "nome": "JUROS E OUTROS ENCARGOS",
+              "valor": 160254.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 117206.0
+            },
+            {
+              "codigo": "11",
+              "nome": "OUTRAS DESPESAS DE CAPITAL",
+              "valor": 1001.0
+            },
+            {
+              "codigo": "09",
+              "nome": "ACTIVOS FINANCEIROS",
+              "valor": 3.0
+            }
+          ]
+        },
+        {
+          "codigo": "0101",
+          "nome": "OPERAÇÕES FINANCEIRAS",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": null,
+          "total": 4835153.0,
+          "por_natureza": [
+            {
+              "codigo": "10",
+              "nome": "PASSIVOS FINANCEIROS",
+              "valor": 4640000.0
+            },
+            {
+              "codigo": "03",
+              "nome": "JUROS E OUTROS ENCARGOS",
+              "valor": 160150.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 35000.0
+            },
+            {
+              "codigo": "09",
+              "nome": "ACTIVOS FINANCEIROS",
+              "valor": 3.0
+            }
+          ]
+        },
+        {
+          "codigo": "0102",
+          "nome": "CLASSES INACTIVAS",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": null,
+          "total": 29000.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 29000.0
+            }
+          ]
+        },
+        {
+          "codigo": "0103",
+          "nome": "ORGÃOS DA AUTARQUIA",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": null,
+          "total": 4021605.0,
+          "por_natureza": [
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 1364505.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 802178.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 642792.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 444016.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 414900.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 270003.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 82106.0
+            },
+            {
+              "codigo": "11",
+              "nome": "OUTRAS DESPESAS DE CAPITAL",
+              "valor": 1001.0
+            },
+            {
+              "codigo": "03",
+              "nome": "JUROS E OUTROS ENCARGOS",
+              "valor": 104.0
+            }
+          ]
+        },
+        {
+          "codigo": "0106",
+          "nome": "ASSEMBLEIA MUNICIPAL",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": null,
+          "total": 58306.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 51005.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 7201.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 100.0
+            }
+          ]
+        },
+        {
+          "codigo": "02",
+          "nome": "DEPARTAMENTO DE ADMINISTRAÇÃO GERAL",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": null,
+          "total": 3940292.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 1689038.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 1665201.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 370150.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 150501.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 65402.0
+            }
+          ]
+        },
+        {
+          "codigo": "03",
+          "nome": "DEPARTAMENTO DE OBRAS MUNICIPAIS",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": null,
+          "total": 35741908.0,
+          "por_natureza": [
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 27515286.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 3972882.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 2388737.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 1100001.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 705002.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 60000.0
+            }
+          ]
+        },
+        {
+          "codigo": "04",
+          "nome": "DEPARTAMENTO DE DESENVOLVIMENTO DO TERRITÓRIO",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "DDT",
+            "sigla": "DDT",
+            "nome": "Departamento de Desenvolvimento do Território"
+          },
+          "total": 1945179.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 1583602.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 262400.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 96174.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 3000.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 2.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 1.0
+            }
+          ]
+        },
+        {
+          "codigo": "05",
+          "nome": "DEPARTAMENTO DE SERVIÇOS URBANOS E AMBIENTE",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": null,
+          "total": 15796048.0,
+          "por_natureza": [
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 7181765.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 4883375.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 1155002.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 938000.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 911405.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 656500.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 70001.0
+            }
+          ]
+        },
+        {
+          "codigo": "06",
+          "nome": "DEPARTAMENTO DE POLÍCIA MUNICIPAL",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": null,
+          "total": 1493761.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 1377871.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 97388.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 10000.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 8500.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 2.0
+            }
+          ]
+        },
+        {
+          "codigo": "07",
+          "nome": "DEPARTAMENTO DE INTERVENÇÃO SOCIAL E EDUCAÇÃO",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": null,
+          "total": 25283080.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 10030130.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 8469972.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 2597820.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 2047404.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 1779002.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 301000.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 57752.0
+            }
+          ]
+        },
+        {
+          "codigo": "09",
+          "nome": "DEPARTAMENTO DE CULTURA E TURISMO",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "CMG/DCT",
+            "sigla": "DCT",
+            "nome": "Departamento de Cultura e Turismo"
+          },
+          "total": 7210948.0,
+          "por_natureza": [
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 3919151.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 1842680.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 910363.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 372702.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 81100.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 50002.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 34950.0
+            }
+          ]
+        },
+        {
+          "codigo": "11",
+          "nome": "DEPARTAMENTO FINANCEIRO E DE DESENV. ECONÓMICO",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": null,
+          "total": 3797781.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 1923354.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 1170175.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 600000.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 77202.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 20000.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 7050.0
+            }
+          ]
+        },
+        {
+          "codigo": "12",
+          "nome": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": null,
+          "total": 1430024.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 1250045.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 179976.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 2.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 1.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 0.0
+            }
+          ]
+        },
+        {
+          "codigo": "16",
+          "nome": "SERVIÇO MUNICIPAL DE PROTEÇÃO CIVIL",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "SMPC",
+            "sigla": "SMPC",
+            "nome": "Serviço Municipal de Proteção Civil"
+          },
+          "total": 1621075.0,
+          "por_natureza": [
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 605504.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 476532.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 200002.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 179000.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 148985.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 11052.0
+            }
+          ]
+        }
+      ],
+      "fonte_id": "S08-2022"
+    },
+    {
+      "ano_referencia": 2023,
+      "tipo": "previsto",
+      "despesa_total": 145781728.0,
+      "unidades": [
+        {
+          "codigo": "01",
+          "nome": "ADMINISTRAÇÃO MUNICIPAL",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": null,
+          "total": 9420476.0,
+          "por_natureza": [
+            {
+              "codigo": "10",
+              "nome": "PASSIVOS FINANCEIROS",
+              "valor": 4540000.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 2150951.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 1066985.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 542413.0
+            },
+            {
+              "codigo": "03",
+              "nome": "JUROS E OUTROS ENCARGOS",
+              "valor": 475104.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 365909.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 169500.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 108607.0
+            },
+            {
+              "codigo": "11",
+              "nome": "OUTRAS DESPESAS DE CAPITAL",
+              "valor": 1000.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 4.0
+            },
+            {
+              "codigo": "09",
+              "nome": "ACTIVOS FINANCEIROS",
+              "valor": 3.0
+            }
+          ]
+        },
+        {
+          "codigo": "0101",
+          "nome": "OPERAÇÕES FINANCEIRAS",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": null,
+          "total": 5055003.0,
+          "por_natureza": [
+            {
+              "codigo": "10",
+              "nome": "PASSIVOS FINANCEIROS",
+              "valor": 4540000.0
+            },
+            {
+              "codigo": "03",
+              "nome": "JUROS E OUTROS ENCARGOS",
+              "valor": 475000.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 40000.0
+            },
+            {
+              "codigo": "09",
+              "nome": "ACTIVOS FINANCEIROS",
+              "valor": 3.0
+            }
+          ]
+        },
+        {
+          "codigo": "0102",
+          "nome": "CLASSES INACTIVAS",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": null,
+          "total": 34800.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 34800.0
+            }
+          ]
+        },
+        {
+          "codigo": "0103",
+          "nome": "ORGÃOS DA AUTARQUIA",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": null,
+          "total": 4109685.0,
+          "por_natureza": [
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 2150951.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 895021.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 542411.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 289189.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 169500.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 61505.0
+            },
+            {
+              "codigo": "11",
+              "nome": "OUTRAS DESPESAS DE CAPITAL",
+              "valor": 1000.0
+            },
+            {
+              "codigo": "03",
+              "nome": "JUROS E OUTROS ENCARGOS",
+              "valor": 104.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 4.0
+            }
+          ]
+        },
+        {
+          "codigo": "0104",
+          "nome": "GABINETE DE COMUNICAÇÃO E RELAÇÕES PÚBLICAS",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": {
+            "id": "GCRP",
+            "sigla": "GCRP",
+            "nome": "Gabinete de Comunicação e Relações Públicas"
+          },
+          "total": 154181.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 74159.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 73018.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 7002.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 2.0
+            }
+          ]
+        },
+        {
+          "codigo": "0106",
+          "nome": "ASSEMBLEIA MUNICIPAL",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": null,
+          "total": 66807.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 63005.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 3702.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 100.0
+            }
+          ]
+        },
+        {
+          "codigo": "02",
+          "nome": "DIREÇÃO MUNICIPAL DE SERVIÇOS PARTILHADOS",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "DMSP",
+            "sigla": "DMSP",
+            "nome": "Direção Municipal de Serviços Partilhados"
+          },
+          "total": 11722445.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 5978388.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 2743188.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 2647200.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 322603.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 31063.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 2.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 1.0
+            }
+          ]
+        },
+        {
+          "codigo": "03",
+          "nome": "DIREÇÃO MUNICIPAL DE INTERVENÇÃO NO TERRITÓRIO, AMBIENTE E AÇÃO CLIMÁTICA",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "DMITAAC",
+            "sigla": "DMITAAC",
+            "nome": "Direção Municipal de Intervenção no Território, Ambiente e Ação Climática"
+          },
+          "total": 76994713.0,
+          "por_natureza": [
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 44400686.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 20612232.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 7934255.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 1180005.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 1140002.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 980001.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 747532.0
+            }
+          ]
+        },
+        {
+          "codigo": "04",
+          "nome": "DEPARTAMENTO DE DESENVOLVIMENTO DO TERRITÓRIO",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "DDT",
+            "sigla": "DDT",
+            "nome": "Departamento de Desenvolvimento do Território"
+          },
+          "total": 2311420.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 1585407.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 456015.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 266995.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 3000.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 2.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 1.0
+            }
+          ]
+        },
+        {
+          "codigo": "07",
+          "nome": "DEPARTAMENTO INTERVENÇÃO SOCIAL",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "DIS",
+            "sigla": "DIS",
+            "nome": "Departamento de Intervenção Social"
+          },
+          "total": 35707054.0,
+          "por_natureza": [
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 14389266.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 12071451.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 4294315.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 2938515.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 1741005.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 166800.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 105702.0
+            }
+          ]
+        },
+        {
+          "codigo": "09",
+          "nome": "DEPARTAMENTO CULTURA, ECONOMIA E INOVAÇÃO",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": null,
+          "total": 7970515.0,
+          "por_natureza": [
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 4721502.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 1633072.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 1029577.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 444711.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 101751.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 28900.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 11002.0
+            }
+          ]
+        },
+        {
+          "codigo": "16",
+          "nome": "SERVIÇO MUNICIPAL DE PROTEÇÃO CIVIL",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "SMPC",
+            "sigla": "SMPC",
+            "nome": "Serviço Municipal de Proteção Civil"
+          },
+          "total": 1655105.0,
+          "por_natureza": [
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 885504.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 460532.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 150002.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 123914.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 22650.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 12503.0
+            }
+          ]
+        }
+      ],
+      "fonte_id": "S08-2023"
+    },
+    {
+      "ano_referencia": 2024,
+      "tipo": "previsto",
+      "despesa_total": 175342296.0,
+      "unidades": [
+        {
+          "codigo": "01",
+          "nome": "ADMINISTRAÇÃO MUNICIPAL",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": null,
+          "total": 12889798.0,
+          "por_natureza": [
+            {
+              "codigo": "09",
+              "nome": "ACTIVOS FINANCEIROS",
+              "valor": 7066493.0
+            },
+            {
+              "codigo": "10",
+              "nome": "PASSIVOS FINANCEIROS",
+              "valor": 3151500.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 1294638.0
+            },
+            {
+              "codigo": "03",
+              "nome": "JUROS E OUTROS ENCARGOS",
+              "valor": 569630.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 319400.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 190503.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 175018.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 64106.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 58006.0
+            },
+            {
+              "codigo": "11",
+              "nome": "OUTRAS DESPESAS DE CAPITAL",
+              "valor": 500.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 4.0
+            }
+          ]
+        },
+        {
+          "codigo": "0101",
+          "nome": "OPERAÇÕES FINANCEIRAS",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": null,
+          "total": 10827119.0,
+          "por_natureza": [
+            {
+              "codigo": "09",
+              "nome": "ACTIVOS FINANCEIROS",
+              "valor": 7066493.0
+            },
+            {
+              "codigo": "10",
+              "nome": "PASSIVOS FINANCEIROS",
+              "valor": 3151500.0
+            },
+            {
+              "codigo": "03",
+              "nome": "JUROS E OUTROS ENCARGOS",
+              "valor": 569126.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 40000.0
+            }
+          ]
+        },
+        {
+          "codigo": "0102",
+          "nome": "CLASSES INACTIVAS",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": null,
+          "total": 34800.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 34800.0
+            }
+          ]
+        },
+        {
+          "codigo": "0103",
+          "nome": "ORGÃOS DA AUTARQUIA",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": null,
+          "total": 1673130.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 1079002.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 319400.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 175016.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 58006.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 21006.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 19692.0
+            },
+            {
+              "codigo": "03",
+              "nome": "JUROS E OUTROS ENCARGOS",
+              "valor": 504.0
+            },
+            {
+              "codigo": "11",
+              "nome": "OUTRAS DESPESAS DE CAPITAL",
+              "valor": 500.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 4.0
+            }
+          ],
+          "rotulos_divergentes": [
+            {
+              "nome": "DIREÇÃO MUNICIPAL DE INTERVENÇÃO NO TERRITÓRIO, AMBIENTE E AÇÃO CLIMÁTICA",
+              "ocorrencias": 1,
+              "primeira_pagina": 100
+            }
+          ]
+        },
+        {
+          "codigo": "0104",
+          "nome": "GABINETE DE COMUNICAÇÃO E RELAÇÕES PÚBLICAS",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": {
+            "id": "GCRP",
+            "sigla": "GCRP",
+            "nome": "Gabinete de Comunicação e Relações Públicas"
+          },
+          "total": 277741.0,
+          "por_natureza": [
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 167010.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 107729.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 3000.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 2.0
+            }
+          ]
+        },
+        {
+          "codigo": "0106",
+          "nome": "ASSEMBLEIA MUNICIPAL",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": null,
+          "total": 77008.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 73107.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 3801.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 100.0
+            }
+          ]
+        },
+        {
+          "codigo": "02",
+          "nome": "DIREÇÃO MUNICIPAL DE SERVIÇOS PARTILHADOS",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "DMSP",
+            "sigla": "DMSP",
+            "nome": "Direção Municipal de Serviços Partilhados"
+          },
+          "total": 14792464.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 5977949.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 3964700.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 3825258.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 967391.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 52163.0
+            },
+            {
+              "codigo": "03",
+              "nome": "JUROS E OUTROS ENCARGOS",
+              "valor": 5000.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 2.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 1.0
+            }
+          ]
+        },
+        {
+          "codigo": "03",
+          "nome": "DIREÇÃO MUNICIPAL DE INTERVENÇÃO NO TERRITORIO, AMBIENTE E AÇÃO CLIMATICA",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "DMITAAC",
+            "sigla": "DMITAAC",
+            "nome": "Direção Municipal de Intervenção no Território, Ambiente e Ação Climática"
+          },
+          "total": 94904331.0,
+          "por_natureza": [
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 55710968.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 23643624.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 7285453.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 3244001.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 2114972.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 1701163.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 1203650.0
+            },
+            {
+              "codigo": "03",
+              "nome": "JUROS E OUTROS ENCARGOS",
+              "valor": 500.0
+            }
+          ]
+        },
+        {
+          "codigo": "04",
+          "nome": "DEPARTAMENTO DE DESENVOLVIMENTO DO TERRITÓRIO",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "DDT",
+            "sigla": "DDT",
+            "nome": "Departamento de Desenvolvimento do Território"
+          },
+          "total": 2615618.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 1659755.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 550730.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 403628.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 1501.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 3.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 1.0
+            }
+          ]
+        },
+        {
+          "codigo": "07",
+          "nome": "DEPARTAMENTO INTERVENÇÃO SOCIAL",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "DIS",
+            "sigla": "DIS",
+            "nome": "Departamento de Intervenção Social"
+          },
+          "total": 38697647.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 15979864.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 13355501.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 4751689.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 2890340.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 1284302.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 310000.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 125951.0
+            }
+          ]
+        },
+        {
+          "codigo": "09",
+          "nome": "DEPARTAMENTO CULTURA, ECONOMIA E INOVAÇÃO",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": null,
+          "total": 9622259.0,
+          "por_natureza": [
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 4809440.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 1758638.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 1495522.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 1046409.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 300500.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 161750.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 50000.0
+            }
+          ]
+        },
+        {
+          "codigo": "16",
+          "nome": "SERVIÇO MUNICIPAL DE PROTEÇÃO CIVIL",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "SMPC",
+            "sigla": "SMPC",
+            "nome": "Serviço Municipal de Proteção Civil"
+          },
+          "total": 1820179.0,
+          "por_natureza": [
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 883102.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 518213.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 206098.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 101665.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 75001.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 36100.0
+            }
+          ]
+        }
+      ],
+      "fonte_id": "S08-2024"
+    },
+    {
+      "ano_referencia": 2025,
+      "tipo": "previsto",
+      "despesa_total": 220355255.0,
+      "unidades": [
+        {
+          "codigo": "01",
+          "nome": "ADMINISTRAÇÃO MUNICIPAL",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": null,
+          "total": 10370214.0,
+          "por_natureza": [
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 3715006.0
+            },
+            {
+              "codigo": "10",
+              "nome": "PASSIVOS FINANCEIROS",
+              "valor": 2762874.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 1161360.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 1050000.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 687048.0
+            },
+            {
+              "codigo": "03",
+              "nome": "JUROS E OUTROS ENCARGOS",
+              "valor": 649894.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 215911.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 97610.0
+            },
+            {
+              "codigo": "09",
+              "nome": "ACTIVOS FINANCEIROS",
+              "valor": 30006.0
+            },
+            {
+              "codigo": "11",
+              "nome": "OUTRAS DESPESAS DE CAPITAL",
+              "valor": 500.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 5.0
+            }
+          ],
+          "rotulos_divergentes": [
+            {
+              "nome": "DIREÇÃO MUNICIPAL DE INTERVENÇÃO NO TERRITÓRIO, AMBIENTE E AÇÃO CLIMÁTICA",
+              "ocorrencias": 1,
+              "primeira_pagina": 118
+            }
+          ]
+        },
+        {
+          "codigo": "0101",
+          "nome": "OPERAÇÕES FINANCEIRAS",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": null,
+          "total": 3442718.0,
+          "por_natureza": [
+            {
+              "codigo": "10",
+              "nome": "PASSIVOS FINANCEIROS",
+              "valor": 2762874.0
+            },
+            {
+              "codigo": "03",
+              "nome": "JUROS E OUTROS ENCARGOS",
+              "valor": 649839.0
+            },
+            {
+              "codigo": "09",
+              "nome": "ACTIVOS FINANCEIROS",
+              "valor": 30004.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 1.0
+            }
+          ]
+        },
+        {
+          "codigo": "0102",
+          "nome": "CLASSES INACTIVAS",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": null,
+          "total": 32000.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 32000.0
+            }
+          ]
+        },
+        {
+          "codigo": "0103",
+          "nome": "ORGÃOS DA AUTARQUIA",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": null,
+          "total": 6471244.0,
+          "por_natureza": [
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 3715006.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 1050000.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 895128.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 687044.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 91009.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 32495.0
+            },
+            {
+              "codigo": "11",
+              "nome": "OUTRAS DESPESAS DE CAPITAL",
+              "valor": 500.0
+            },
+            {
+              "codigo": "03",
+              "nome": "JUROS E OUTROS ENCARGOS",
+              "valor": 55.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 5.0
+            },
+            {
+              "codigo": "09",
+              "nome": "ACTIVOS FINANCEIROS",
+              "valor": 2.0
+            }
+          ]
+        },
+        {
+          "codigo": "0104",
+          "nome": "GABINETE DE COMUNICAÇÃO E RELAÇÕES PÚBLICAS",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": {
+            "id": "GCRP",
+            "sigla": "GCRP",
+            "nome": "Gabinete de Comunicação e Relações Públicas"
+          },
+          "total": 293739.0,
+          "por_natureza": [
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 169910.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 122227.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 1600.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 2.0
+            }
+          ]
+        },
+        {
+          "codigo": "0106",
+          "nome": "ASSEMBLEIA MUNICIPAL",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": null,
+          "total": 130513.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 112005.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 13506.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 5000.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 2.0
+            }
+          ]
+        },
+        {
+          "codigo": "02",
+          "nome": "DIREÇÃO MUNICIPAL DE SERVIÇOS PARTILHADOS",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "DMSP",
+            "sigla": "DMSP",
+            "nome": "Direção Municipal de Serviços Partilhados"
+          },
+          "total": 17687907.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 6390320.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 4920075.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 4178250.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 1201089.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 798999.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 192671.0
+            },
+            {
+              "codigo": "09",
+              "nome": "ACTIVOS FINANCEIROS",
+              "valor": 5001.0
+            },
+            {
+              "codigo": "03",
+              "nome": "JUROS E OUTROS ENCARGOS",
+              "valor": 1000.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 502.0
+            }
+          ]
+        },
+        {
+          "codigo": "03",
+          "nome": "DIREÇÃO MUNICIPAL DE INTERVENÇÃO NO TERRITORIO, AMBIENTE E AÇÃO CLIMATICA",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "DMITAAC",
+            "sigla": "DMITAAC",
+            "nome": "Direção Municipal de Intervenção no Território, Ambiente e Ação Climática"
+          },
+          "total": 138669888.0,
+          "por_natureza": [
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 96729332.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 26252639.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 9130198.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 3023000.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 1278300.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 1274865.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 980004.0
+            },
+            {
+              "codigo": "03",
+              "nome": "JUROS E OUTROS ENCARGOS",
+              "valor": 1550.0
+            }
+          ]
+        },
+        {
+          "codigo": "04",
+          "nome": "DEPARTAMENTO DE DESENVOLVIMENTO DO TERRITÓRIO",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "DDT",
+            "sigla": "DDT",
+            "nome": "Departamento de Desenvolvimento do Território"
+          },
+          "total": 2810476.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 1773660.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 569840.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 462972.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 3001.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 1002.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 1.0
+            }
+          ]
+        },
+        {
+          "codigo": "07",
+          "nome": "DEPARTAMENTO INTERVENÇÃO SOCIAL",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "DIS",
+            "sigla": "DIS",
+            "nome": "Departamento de Intervenção Social"
+          },
+          "total": 39800416.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 17577635.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 12739677.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 3611743.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 3433617.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 1381001.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 1012892.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 43851.0
+            }
+          ]
+        },
+        {
+          "codigo": "09",
+          "nome": "DEPARTAMENTO CULTURA, ECONOMIA E INOVAÇÃO",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": null,
+          "total": 9295685.0,
+          "por_natureza": [
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 5142636.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 1550173.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 1311967.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 1007254.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 224500.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 36153.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 23002.0
+            }
+          ]
+        },
+        {
+          "codigo": "16",
+          "nome": "SERVIÇO MUNICIPAL DE PROTEÇÃO CIVIL",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "SMPC",
+            "sigla": "SMPC",
+            "nome": "Serviço Municipal de Proteção Civil"
+          },
+          "total": 1720669.0,
+          "por_natureza": [
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 804101.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 463310.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 245848.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 201809.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 4600.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 1001.0
+            }
+          ]
+        }
+      ],
+      "fonte_id": "S08-2025"
+    },
+    {
+      "ano_referencia": 2026,
+      "tipo": "previsto",
+      "despesa_total": 220345685.0,
+      "unidades": [
+        {
+          "codigo": "01",
+          "nome": "ADMINISTRAÇÃO MUNICIPAL",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": null,
+          "total": 10333407.0,
+          "por_natureza": [
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 4940006.0
+            },
+            {
+              "codigo": "10",
+              "nome": "PASSIVOS FINANCEIROS",
+              "valor": 2470000.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 1440630.0
+            },
+            {
+              "codigo": "03",
+              "nome": "JUROS E OUTROS ENCARGOS",
+              "valor": 571835.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 427046.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 290261.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 143001.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 50114.0
+            },
+            {
+              "codigo": "11",
+              "nome": "OUTRAS DESPESAS DE CAPITAL",
+              "valor": 500.0
+            },
+            {
+              "codigo": "09",
+              "nome": "ACTIVOS FINANCEIROS",
+              "valor": 9.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 5.0
+            }
+          ],
+          "rotulos_divergentes": [
+            {
+              "nome": "DIREÇÃO MUNICIPAL DE INTERVENÇÃO NO TERRITÓRIO, AMBIENTE E AÇÃO CLIMÁTICA",
+              "ocorrencias": 1,
+              "primeira_pagina": 102
+            }
+          ]
+        },
+        {
+          "codigo": "0101",
+          "nome": "OPERAÇÕES FINANCEIRAS",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": null,
+          "total": 3041838.0,
+          "por_natureza": [
+            {
+              "codigo": "10",
+              "nome": "PASSIVOS FINANCEIROS",
+              "valor": 2470000.0
+            },
+            {
+              "codigo": "03",
+              "nome": "JUROS E OUTROS ENCARGOS",
+              "valor": 571830.0
+            },
+            {
+              "codigo": "09",
+              "nome": "ACTIVOS FINANCEIROS",
+              "valor": 7.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 1.0
+            }
+          ]
+        },
+        {
+          "codigo": "0102",
+          "nome": "CLASSES INACTIVAS",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": null,
+          "total": 37001.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 37001.0
+            }
+          ]
+        },
+        {
+          "codigo": "0103",
+          "nome": "ORGÃOS DA AUTARQUIA",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": null,
+          "total": 6660741.0,
+          "por_natureza": [
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 4940006.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 1083124.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 427044.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 143001.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 45509.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 21545.0
+            },
+            {
+              "codigo": "11",
+              "nome": "OUTRAS DESPESAS DE CAPITAL",
+              "valor": 500.0
+            },
+            {
+              "codigo": "03",
+              "nome": "JUROS E OUTROS ENCARGOS",
+              "valor": 5.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 5.0
+            },
+            {
+              "codigo": "09",
+              "nome": "ACTIVOS FINANCEIROS",
+              "valor": 2.0
+            }
+          ]
+        },
+        {
+          "codigo": "0104",
+          "nome": "GABINETE DE COMUNICAÇÃO E RELAÇÕES PÚBLICAS",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": {
+            "id": "GCRP",
+            "sigla": "GCRP",
+            "nome": "Gabinete de Comunicação e Relações Públicas"
+          },
+          "total": 454117.0,
+          "por_natureza": [
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 254709.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 195303.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 4103.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 2.0
+            }
+          ]
+        },
+        {
+          "codigo": "0106",
+          "nome": "ASSEMBLEIA MUNICIPAL",
+          "nivel": 2,
+          "codigo_pai": "01",
+          "unidade_estrutura": null,
+          "total": 139710.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 125202.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 14007.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 501.0
+            }
+          ]
+        },
+        {
+          "codigo": "02",
+          "nome": "DIREÇÃO MUNICIPAL DE SERVIÇOS PARTILHADOS",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "DMSP",
+            "sigla": "DMSP",
+            "nome": "Direção Municipal de Serviços Partilhados"
+          },
+          "total": 17072361.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 7390033.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 4285669.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 3797004.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 901250.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 562901.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 134502.0
+            },
+            {
+              "codigo": "03",
+              "nome": "JUROS E OUTROS ENCARGOS",
+              "valor": 1000.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 1.0
+            },
+            {
+              "codigo": "09",
+              "nome": "ACTIVOS FINANCEIROS",
+              "valor": 1.0
+            }
+          ]
+        },
+        {
+          "codigo": "03",
+          "nome": "DIREÇÃO MUNICIPAL DE INTERVENÇÃO NO TERRITORIO, AMBIENTE E AÇÃO CLIMATICA",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "DMITAAC",
+            "sigla": "DMITAAC",
+            "nome": "Direção Municipal de Intervenção no Território, Ambiente e Ação Climática"
+          },
+          "total": 140259785.0,
+          "por_natureza": [
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 99427121.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 25175415.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 8998481.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 3358403.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 1443658.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 980002.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 876404.0
+            },
+            {
+              "codigo": "03",
+              "nome": "JUROS E OUTROS ENCARGOS",
+              "valor": 301.0
+            }
+          ]
+        },
+        {
+          "codigo": "04",
+          "nome": "DEPARTAMENTO DE DESENVOLVIMENTO DO TERRITÓRIO",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "DDT",
+            "sigla": "DDT",
+            "nome": "Departamento de Desenvolvimento do Território"
+          },
+          "total": 2437651.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 1826535.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 454100.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 155012.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 1002.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 1002.0
+            }
+          ]
+        },
+        {
+          "codigo": "07",
+          "nome": "DEPARTAMENTO INTERVENÇÃO SOCIAL",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "DIS",
+            "sigla": "DIS",
+            "nome": "Departamento de Intervenção Social"
+          },
+          "total": 40208170.0,
+          "por_natureza": [
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 18515293.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 12617660.0
+            },
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 4051287.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 3584411.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 1036004.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 352212.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 51303.0
+            }
+          ]
+        },
+        {
+          "codigo": "09",
+          "nome": "DEPARTAMENTO CULTURA, ECONOMIA E INOVAÇÃO",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": null,
+          "total": 7840749.0,
+          "por_natureza": [
+            {
+              "codigo": "05",
+              "nome": "SUBSÍDIOS",
+              "valor": 4865701.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 1458912.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 1078626.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 309255.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 100000.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 23253.0
+            },
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 5002.0
+            }
+          ]
+        },
+        {
+          "codigo": "16",
+          "nome": "SERVIÇO MUNICIPAL DE PROTEÇÃO CIVIL",
+          "nivel": 1,
+          "codigo_pai": null,
+          "unidade_estrutura": {
+            "id": "SMPC",
+            "sigla": "SMPC",
+            "nome": "Serviço Municipal de Proteção Civil"
+          },
+          "total": 2193562.0,
+          "por_natureza": [
+            {
+              "codigo": "08",
+              "nome": "TRANSFERÊNCIAS DE CAPITAL",
+              "valor": 716001.0
+            },
+            {
+              "codigo": "04",
+              "nome": "TRANSFERÊNCIAS CORRENTES",
+              "valor": 615004.0
+            },
+            {
+              "codigo": "02",
+              "nome": "AQUISIÇÃO DE BENS E SERVIÇOS",
+              "valor": 534772.0
+            },
+            {
+              "codigo": "01",
+              "nome": "DESPESAS COM O PESSOAL",
+              "valor": 226522.0
+            },
+            {
+              "codigo": "07",
+              "nome": "AQUISIÇÃO DE BENS DE CAPITAL",
+              "valor": 101010.0
+            },
+            {
+              "codigo": "06",
+              "nome": "OUTRAS DESPESAS CORRENTES",
+              "valor": 253.0
+            }
+          ]
+        }
+      ],
+      "fonte_id": "S08-2026"
+    }
+  ]
+}

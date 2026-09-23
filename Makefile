@@ -1,4 +1,4 @@
-.PHONY: dashboard dashboard-setup dashboard-build dashboard-verificar help setup setup-parse check-acesso fontes fetch etl quem-governa empresas contratos mapa-pessoal populacao estrutura-organica orcamento equipamentos limpar-venv
+.PHONY: dashboard dashboard-setup dashboard-build dashboard-verificar help setup setup-parse check-acesso fontes fetch etl quem-governa empresas contratos mapa-pessoal populacao estrutura-organica orcamento orcamento-organico equipamentos limpar-venv
 
 # O Python do sistema é gerido externamente (PEP 668) e recusa `pip install`.
 # Todo o pipeline corre no venv local, que é criado por `make setup`.
@@ -19,6 +19,7 @@ help:
 	@echo "make populacao    - extrai populacao.json (denominador das métricas per capita)"
 	@echo "make estrutura-organica - extrai a secção 3: estrutura_organica.json"
 	@echo "make orcamento    - extrai a secção 5: orcamento.json (previsto e executado)"
+	@echo "make orcamento-organico - despesa por unidade orgânica, 2022-2026"
 	@echo "make equipamentos - extrai a secção 10: equipamentos.json (com coordenadas)"
 	@echo "make etl          - fetch + fontes + parsers existentes"
 
@@ -65,10 +66,16 @@ estrutura-organica: $(PY)
 orcamento: populacao
 	$(PY) -m etl.orcamento
 
+# Depende de orcamento: confronta a soma por unidade orgânica com a despesa
+# total que aquele parser extraiu de outro mapa. É essa a validação que prova
+# que a coluna lida é mesmo a orgânica.
+orcamento-organico: orcamento
+	$(PY) -m etl.orcamento_organico
+
 equipamentos: $(PY)
 	$(PY) -m etl.equipamentos
 
-etl: fetch fontes quem-governa empresas contratos mapa-pessoal populacao estrutura-organica orcamento equipamentos
+etl: fetch fontes quem-governa empresas contratos mapa-pessoal populacao estrutura-organica orcamento orcamento-organico equipamentos
 	@echo ""
 	@echo "Originais em data/raw/, normalizados em data/processed/."
 	@echo "Por extrair: investimentos (PPI) e consolidação de contas 2021-2025."
