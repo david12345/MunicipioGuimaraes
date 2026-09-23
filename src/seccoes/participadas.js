@@ -88,7 +88,7 @@ export async function render(raiz) {
       resumo:
         "Percentagem de participação do município nas entidades que entram " +
         "no perímetro de consolidação.",
-      altura: () => alturaBarras(comPct.length),
+      altura: (l) => alturaBarras(comPct.length, l),
       desenhar: (svg, w, h) =>
         barrasHorizontais(svg, w, h, {
           dados: comPct.map((e) => ({
@@ -180,7 +180,7 @@ export async function render(raiz) {
         resumo:
           "O que sobrou depois de todos os gastos. Um resultado positivo não " +
           "é lucro a distribuir: fica no património do grupo.",
-        altura: () => alturaBarras(resultados.length),
+        altura: (l) => alturaBarras(resultados.length, l),
         desenhar: (svg, w, h) =>
           barrasHorizontais(svg, w, h, {
             dados: resultados,

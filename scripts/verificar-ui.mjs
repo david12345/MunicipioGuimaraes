@@ -155,8 +155,21 @@ for (const [rotulo, largura] of LARGURAS) {
 
       for (const t of await pagina.evaluate(() => {
         const out = [];
+        // Mede os DOIS lados. Quando o rótulo ficava sempre à esquerda da
+        // barra bastava olhar para a margem esquerda; agora, em ecrã estreito,
+        // ele sobe para cima da barra alinhado à esquerda e o transbordo
+        // possível é à direita.
+        //
+        // A folga de 1,5 px é a saliência lateral do glifo: um "J" começa
+        // cerca de 1 px à esquerda da sua origem, e isso não é transbordo —
+        // o texto vê-se todo.
+        const FOLGA = 1.5;
         for (const t of document.querySelectorAll("svg text.g-rotulo")) {
-          if (t.getBBox().x < -0.5) out.push(t.textContent);
+          const caixa = t.getBBox();
+          const largura = t.ownerSVGElement.viewBox.baseVal.width;
+          if (caixa.x < -FOLGA || caixa.x + caixa.width > largura + FOLGA) {
+            out.push(t.firstChild?.textContent ?? t.textContent);
+          }
         }
         return out;
       })) {

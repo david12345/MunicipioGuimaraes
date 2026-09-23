@@ -77,8 +77,14 @@ function ligarDica(alvo, texto) {
 }
 
 /** Altura que um gráfico de barras precisa para N categorias. */
-export function alturaBarras(n, { espessura = 34, folga = 14, extra = 8 } = {}) {
-  return n * (espessura + folga) + extra;
+/* Em ecrã estreito o rótulo passa a ficar por cima da barra: precisa de uma
+ * linha só para ele. Ver `barrasHorizontais`. */
+export const ALTURA_ROTULO = 17;
+export const ESTREITO = 480;
+
+export function alturaBarras(n, largura = Infinity, { espessura = 34, folga = 14, extra = 8 } = {}) {
+  const linhaRotulo = largura < ESTREITO ? ALTURA_ROTULO : 0;
+  return n * (espessura + folga + linhaRotulo) + extra;
 }
 
 /**
@@ -103,10 +109,13 @@ export function barrasHorizontais(svg, largura, altura, o) {
   } = o;
   if (!dados.length) return;
 
-  const estreito = largura < 480;
-  const larguraRotulo = estreito
-    ? Math.min(140, largura * 0.42)
-    : Math.min(260, largura * 0.34);
+  // Em ecrã largo o rótulo fica à esquerda da barra, numa goteira. Em ecrã
+  // estreito não cabe: "Direção Municipal de Serviços Partilhados" e "Direção
+  // Municipal de Intervenção no Território" ficavam ambos truncados em
+  // "Direção Municipal …" e o leitor não distinguia as duas barras. Aí o
+  // rótulo sobe para cima da barra, onde tem a largura toda.
+  const estreito = largura < ESTREITO;
+  const larguraRotulo = estreito ? 0 : Math.min(260, largura * 0.34);
   const margem = { topo: 4, dir: estreito ? 8 : 12, fundo: 4, esq: larguraRotulo };
   const larguraUtil = Math.max(40, largura - margem.esq - margem.dir);
 
@@ -118,8 +127,12 @@ export function barrasHorizontais(svg, largura, altura, o) {
   // Marcas finas: com poucas categorias, a banda disponível daria barras de
   // 90 px de altura, que gritam sem informar mais.
   const ESPESSURA_MAX = 34;
-  const espessura = Math.max(6, Math.min(ESPESSURA_MAX, y.bandwidth()));
-  const centrar = (yy) => yy + (y.bandwidth() - espessura) / 2;
+  const linhaRotulo = estreito ? ALTURA_ROTULO : 0;
+  const espessura = Math.max(6, Math.min(ESPESSURA_MAX, y.bandwidth() - linhaRotulo));
+  const centrar = (yy) =>
+    estreito
+      ? yy + linhaRotulo
+      : yy + (y.bandwidth() - espessura) / 2;
 
   const maxValor = maximo ?? max(dados, (d) => d.valor) ?? 0;
   const x = scaleLinear().domain([0, maxValor || 1]).range([0, larguraUtil]);
@@ -167,16 +180,23 @@ export function barrasHorizontais(svg, largura, altura, o) {
       });
     }
 
-    const rot = no("text", {
-      x: margem.esq - 8,
-      y: yy + alt / 2,
-      "text-anchor": "end",
-      "dominant-baseline": "central",
-      class: acionavel ? "g-rotulo g-rotulo--acionavel" : "g-rotulo",
-    });
+    const rot = no("text", estreito
+      ? {
+          x: 0,
+          y: y(d.rotulo) + linhaRotulo - 5,
+          "text-anchor": "start",
+          class: acionavel ? "g-rotulo g-rotulo--acionavel" : "g-rotulo",
+        }
+      : {
+          x: margem.esq - 8,
+          y: yy + alt / 2,
+          "text-anchor": "end",
+          "dominant-baseline": "central",
+          class: acionavel ? "g-rotulo g-rotulo--acionavel" : "g-rotulo",
+        });
     grupo.append(rot);
     // Só depois de estar no DOM é que o texto se pode medir.
-    ajustarRotulo(rot, d.rotulo, margem.esq - 12);
+    ajustarRotulo(rot, d.rotulo, estreito ? largura - margem.dir : margem.esq - 12);
     rot.append(no("title", {}, d.rotulo));
 
     if (d.valor === null || d.valor === undefined) {

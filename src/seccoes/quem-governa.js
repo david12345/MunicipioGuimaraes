@@ -90,7 +90,7 @@ export async function render(raiz) {
         resumo:
           "A coligação mais votada tem maioria absoluta: seis dos onze " +
           "lugares. As percentagens ao lado são a votação de cada força.",
-        altura: () => alturaBarras(dados.length),
+        altura: (l) => alturaBarras(dados.length, l),
         desenhar: (svg, w, h) =>
           barrasHorizontais(svg, w, h, {
             dados,

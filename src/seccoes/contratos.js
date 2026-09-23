@@ -60,7 +60,7 @@ async function desenharAno(alvo, ano) {
       resumo:
         "Soma dos contratos por entidade adjudicatária. Quando um contrato " +
         "tem vários adjudicatários, conta para o primeiro.",
-      altura: () => alturaBarras(adjudicatarios.length),
+      altura: (l) => alturaBarras(adjudicatarios.length, l),
       desenhar: (svg, w, h) =>
         barrasHorizontais(svg, w, h, {
           dados: adjudicatarios.map((a) => ({ rotulo: a.nome, valor: a.total })),
@@ -86,7 +86,7 @@ async function desenharAno(alvo, ano) {
         "O ajuste direto é o procedimento mais simples e não obriga a " +
         "concurso. O concurso público é o mais aberto. A proporção entre os " +
         "dois diz muito sobre como o município contrata.",
-      altura: () => alturaBarras(procedimentos.length),
+      altura: (l) => alturaBarras(procedimentos.length, l),
       desenhar: (svg, w, h) =>
         barrasHorizontais(svg, w, h, {
           dados: procedimentos.map((p) => ({ rotulo: p.nome, valor: p.total })),

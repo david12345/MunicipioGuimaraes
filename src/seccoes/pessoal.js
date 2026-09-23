@@ -18,7 +18,12 @@
 import { carregar } from "../nucleo/dados.js";
 import { figura, el } from "../nucleo/figura.js";
 import { barrasHorizontais, alturaBarras } from "../nucleo/graficos.js";
-import { numero, pontosPercentuais, NAO_DISPONIVEL } from "../nucleo/formato.js";
+import {
+  numero,
+  pontosPercentuais,
+  nomeUnidade,
+  NAO_DISPONIVEL,
+} from "../nucleo/formato.js";
 
 /* Os três níveis, por ordem. Cada um diz por que campo agrupa, como se chama
  * na interface, e o que fazer quando já não há nível abaixo. */
@@ -28,18 +33,23 @@ const NIVEIS = [
     singular: "unidade orgânica",
     plural: "Unidades orgânicas",
     cor: "var(--serie-1)",
+    // O mapa de pessoal escreve as unidades em maiúsculas, menos uma. A
+    // apresentação uniformiza; os dados ficam como a fonte os traz.
+    rotular: nomeUnidade,
   },
   {
     campo: "carreira",
     singular: "carreira",
     plural: "Carreiras",
     cor: "var(--serie-3)",
+    rotular: (n) => n,
   },
   {
     campo: "categoria",
     singular: "categoria",
     plural: "Categorias",
     cor: "var(--serie-7)",
+    rotular: (n) => n,
   },
 ];
 
@@ -109,7 +119,7 @@ export async function render(raiz) {
     const titulo =
       caminho.length === 0
         ? `${nivel.plural} — ${numero(ocupados)} postos ocupados`
-        : `${caminho.at(-1)} — ${nivel.plural.toLowerCase()}`;
+        : `${NIVEIS[caminho.length - 1].rotular(caminho.at(-1))} — ${nivel.plural.toLowerCase()}`;
 
     const fig = figura({
       titulo,
@@ -120,20 +130,24 @@ export async function render(raiz) {
             "das escolas."
           : `${numero(ocupados)} postos ocupados em ${numero(grupos.length)} ` +
             `${grupos.length === 1 ? nivel.singular : nivel.plural.toLowerCase()}.`,
-      altura: () => alturaBarras(grupos.length),
+      altura: (l) => alturaBarras(grupos.length, l),
       desenhar: (svg, w, h) =>
         barrasHorizontais(svg, w, h, {
-          dados: grupos.map((g) => ({ rotulo: g.nome, valor: g.ocupados })),
+          dados: grupos.map((g) => ({ rotulo: nivel.rotular(g.nome), valor: g.ocupados })),
           formatar: numero,
           corUnica: nivel.cor,
-          temDetalhe: (barra) => podeDescer(grupos.find((g) => g.nome === barra.rotulo)),
+          // A barra traz o rótulo já formatado; o caminho guarda o valor que
+          // está nos dados, senão o filtro do nível seguinte não encontra nada.
+          temDetalhe: (barra) =>
+            podeDescer(grupos.find((g) => nivel.rotular(g.nome) === barra.rotulo)),
           aoEscolher: (barra) => {
-            caminho = [...caminho, barra.rotulo];
+            const g = grupos.find((x) => nivel.rotular(x.nome) === barra.rotulo);
+            caminho = [...caminho, g.nome];
             desenhar();
           },
         }),
       colunas: [
-        { titulo: nivel.plural.replace(/s$/, ""), valor: (l) => l.nome },
+        { titulo: nivel.plural.replace(/s$/, ""), valor: (l) => nivel.rotular(l.nome) },
         { titulo: "Ocupados", valor: (l) => l.ocupados, numerica: true },
         { titulo: "Previstos", valor: (l) => l.previstos, numerica: true },
         {
@@ -160,7 +174,7 @@ export async function render(raiz) {
       "aria-label": "Onde está no mapa de pessoal",
     });
     const passos = [{ rotulo: "Todas as unidades", ate: 0 }].concat(
-      caminho.map((v, i) => ({ rotulo: v, ate: i + 1 })),
+      caminho.map((v, i) => ({ rotulo: NIVEIS[i].rotular(v), ate: i + 1 })),
     );
     passos.forEach((passo, i) => {
       const ultimo = i === passos.length - 1;
