@@ -37,6 +37,21 @@ export const TERMOS = {
       "Entradas pontuais e ligadas a investimento: venda de património, " +
       "fundos europeus para obras, empréstimos de médio e longo prazo.",
   },
+  "classificação orgânica": {
+    titulo: "Classificação orgânica",
+    texto:
+      "A arrumação da despesa por quem a gasta: que direção, departamento ou " +
+      "serviço fica responsável por cada verba. Responde a «quem gasta». " +
+      "A classificação económica, ao lado, responde a «em quê».",
+  },
+  "classificação económica": {
+    titulo: "Classificação económica",
+    texto:
+      "A arrumação da despesa pela natureza do gasto: pessoal, aquisição de " +
+      "bens e serviços, juros, transferências, investimento. É um código " +
+      "igual em todos os municípios do país, o que torna as contas " +
+      "comparáveis entre autarquias.",
+  },
   "grau de execução": {
     titulo: "Grau de execução orçamental",
     texto:

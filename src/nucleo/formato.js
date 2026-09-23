@@ -73,6 +73,46 @@ export function data(iso) {
   return new Intl.DateTimeFormat("pt-PT", { dateStyle: "long" }).format(d);
 }
 
+/* Palavras que ficam em minúscula no meio de um nome próprio português. */
+const LIGACOES = new Set(["de", "da", "do", "das", "dos", "e", "em", "no", "na"]);
+
+/**
+ * `DEPARTAMENTO DE INTERVENÇÃO SOCIAL` → `Departamento de Intervenção Social`.
+ *
+ * Os documentos orçamentais escrevem os nomes das unidades em maiúsculas.
+ * Mostrá-los assim no ecrã é gritar com quem lê, e as maiúsculas seguidas são
+ * mais lentas de ler — o olho perde a silhueta das palavras. A conversão é só
+ * de apresentação: nos dados o nome fica como a fonte o escreveu.
+ *
+ * As siglas ficam intactas: uma palavra sem vogais, ou com dois caracteres ou
+ * menos que não seja ligação, não é nome próprio.
+ */
+export function nomeUnidade(texto) {
+  if (!eDisponivel(texto)) return NAO_DISPONIVEL;
+  const palavras = String(texto).trim().toLowerCase().split(/\s+/);
+  return palavras
+    .map((p, i) => {
+      const nu = p.replace(/[^a-zà-ÿ]/gi, "");
+      if (i > 0 && LIGACOES.has(nu)) return p;
+      if (nu && !/[aeiouà-ÿ]/i.test(nu)) return p.toUpperCase();
+      return p.charAt(0).toUpperCase() + p.slice(1);
+    })
+    .join(" ");
+}
+
+/**
+ * `AQUISIÇÃO DE BENS E SERVIÇOS` → `Aquisição de bens e serviços`.
+ *
+ * As rubricas da classificação económica são nomes comuns, não próprios: vão
+ * em maiúscula só na primeira letra. `nomeUnidade` trata do outro caso, o das
+ * unidades orgânicas, que são nomes próprios.
+ */
+export function rotuloRubrica(texto) {
+  if (!eDisponivel(texto)) return NAO_DISPONIVEL;
+  const t = String(texto).trim().toLowerCase();
+  return t.charAt(0).toUpperCase() + t.slice(1);
+}
+
 /** `ajuste_direto_regime_geral` → `Ajuste direto regime geral`. */
 export function rotulo(chave) {
   if (!eDisponivel(chave)) return NAO_DISPONIVEL;
